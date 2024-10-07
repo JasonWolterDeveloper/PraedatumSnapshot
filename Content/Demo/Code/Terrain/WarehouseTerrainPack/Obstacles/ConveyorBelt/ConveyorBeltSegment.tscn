@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://s5oad2leu7my"]
+
+[ext_resource type="PackedScene" uid="uid://cnprf47tti0j7" path="res://Content/Demo/Assets/Terrain/Obstacles/ConveyorBelt/ConveyorBeltSegment.glb" id="1_wptra"]
+
+[node name="ConveyorBeltSegment" type="Node3D"]
+
+[node name="ConveyorBeltSegment" parent="." instance=ExtResource("1_wptra")]

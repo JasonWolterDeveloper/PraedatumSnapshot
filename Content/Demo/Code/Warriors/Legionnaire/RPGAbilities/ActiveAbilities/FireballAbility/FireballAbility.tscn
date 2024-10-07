@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://03k7jcd174px"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/RPGAbilities/ActiveAbilities/AreaOfEffectAbility.gd" id="1_cuy83"]
+[ext_resource type="PackedScene" uid="uid://bkkiyheasuukq" path="res://Content/Default/Code/RPGMechanics/AreaOfEffect/DamageAreaOfEffect.tscn" id="2_e5lsh"]
+[ext_resource type="PackedScene" uid="uid://bg4rfqw1w5yx" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/ShockwaveAbility/ShockwaveAoEIndicator.tscn" id="3_b5vsa"]
+
+[node name="FireballAbility" type="Node"]
+script = ExtResource("1_cuy83")
+area_of_effect_scene = ExtResource("2_e5lsh")
+spawn_at_aimpoint = true
+area_of_effect_indicator_scene = ExtResource("3_b5vsa")
+is_active = true
+mana_cost = 25.0
+ability_id = "fireball"
+display_name = "Fireball Ability"

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://by6841py8kp2r"]
+
+[ext_resource type="Texture2D" uid="uid://p8i2y8qhtsy2" path="res://UIObjects/Assets/HUD/VectorGraphics/HealthUI/HealthPipEmpty.png" id="1_cdu0n"]
+[ext_resource type="Texture2D" uid="uid://bi6qg8kiipxf2" path="res://UIObjects/Assets/HUD/VectorGraphics/HealthUI/HealthPipFull.png" id="2_7wel3"]
+[ext_resource type="Script" path="res://UIObjects/PlayerHUD/Healthbars/HealthSegmentUI.gd" id="3_anthe"]
+
+[node name="HealthSegmentUI" type="TextureProgressBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_under = ExtResource("1_cdu0n")
+texture_progress = ExtResource("2_7wel3")
+script = ExtResource("3_anthe")

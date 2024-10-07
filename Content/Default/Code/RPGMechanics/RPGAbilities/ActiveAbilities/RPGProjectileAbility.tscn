@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bge8b0v4fpx24"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/RPGAbilities/ActiveAbilities/RPGProjectileAbility.gd" id="1_2y30t"]
+
+[node name="RPGProjectileAbility" type="Node"]
+script = ExtResource("1_2y30t")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d26n88tqnd15h"]
+
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/InventoryUIMaster.gd" id="1_7k06x"]
+
+[node name="InventoryUIMaster" type="Node"]
+script = ExtResource("1_7k06x")

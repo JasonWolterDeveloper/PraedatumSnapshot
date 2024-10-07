@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkhagmsliovx1"]
+
+[ext_resource type="PackedScene" uid="uid://7pvswhu15xc7" path="res://BaseGameObjects/Terrain/Rooms/RoomConnector.tscn" id="1_fqkdg"]
+[ext_resource type="PackedScene" uid="uid://cfl4v3aexofgf" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/NLIDoor.tscn" id="2_ah107"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="3_dqgol"]
+
+[node name="NLIBasicRoomConnector" instance=ExtResource("1_fqkdg")]
+door_scene_override = ExtResource("2_ah107")
+wall_scene_override = ExtResource("3_dqgol")
+connector_length = 4

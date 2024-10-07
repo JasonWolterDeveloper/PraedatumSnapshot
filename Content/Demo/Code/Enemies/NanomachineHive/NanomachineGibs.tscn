@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://lhgmj1owl0s4"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Enemies/EnemyGibs/EnemyGibs.gd" id="1_m1dt7"]
+[ext_resource type="PackedScene" uid="uid://coeean42e5elt" path="res://BaseGameObjects/Aesthetics/ExplosionVFX/ExplosionVFX.tscn" id="2_pm5uk"]
+[ext_resource type="PackedScene" uid="uid://drjbujd61qyt7" path="res://BaseGameObjects/Combat/Enemies/EnemyGibs/EnemyGiblet.tscn" id="3_pqga8"]
+[ext_resource type="PackedScene" uid="uid://02bbph6j3rif" path="res://Content/Demo/Assets/Characters/Enemies/NanomachineHive/NanomachineHive.glb" id="4_xtm43"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_23kml"]
+radius = 0.4
+
+[node name="NanomachineGibs" type="Node3D"]
+script = ExtResource("1_m1dt7")
+physics_force_random_high_value = 2.0
+
+[node name="ExplosionVFX" parent="." instance=ExtResource("2_pm5uk")]
+explosion_length_scale = 0.5
+
+[node name="HeadGiblet" parent="." instance=ExtResource("3_pqga8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35476, 0.0553131)
+collision_layer = 0
+mass = 0.9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeadGiblet"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_23kml")
+
+[node name="NanomachineHive" parent="HeadGiblet" instance=ExtResource("4_xtm43")]
+transform = Transform3D(5.3662e-09, 0, -0.45, 0, 0.45, 0, 0.45, 0, 5.3662e-09, 0, 0, 0)
+
+[node name="DisappearTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]

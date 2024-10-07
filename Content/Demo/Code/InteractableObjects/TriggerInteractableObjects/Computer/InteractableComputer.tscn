@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://df7ktsbtxjy8b"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/InteractableObjects/TriggerInteractableObjects/Computer/InteractableComputer.gd" id="1_c6ch5"]
+[ext_resource type="Script" path="res://BaseGameObjects/TriggerSystem/ConditionEvaluator.gd" id="2_eq00x"]
+[ext_resource type="PackedScene" uid="uid://b5ny6grjeidov" path="res://UIObjects/InteractionUI/InteractionIcon.tscn" id="2_wodak"]
+[ext_resource type="PackedScene" uid="uid://s0o2i4a83q45" path="res://Content/Demo/Assets/Interactables/PraedatumComputer/InteractableComputerOn.glb" id="3_t0usa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cfswp"]
+size = Vector3(0.482422, 4.39871, 0.397129)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_82x4m"]
+albedo_color = Color(0.589038, 0, 0.00931821, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1uno"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="InteractableComputer" type="StaticBody3D"]
+script = ExtResource("1_c6ch5")
+activation_conditions = Array[ExtResource("2_eq00x")]([null])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractionIcon" parent="CanvasLayer" instance=ExtResource("2_wodak")]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0979006, -0.0390809, 0.00567055)
+shape = SubResource("BoxShape3D_cfswp")
+
+[node name="InteractableComputerOn" parent="." instance=ExtResource("3_t0usa")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="InteractableComputerOn"]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, 0.0496312, 0.665781, -0.0793724)
+light_color = Color(0.216646, 0.77418, 1.54018e-06, 1)
+light_energy = 0.6
+omni_range = 1.0
+
+[node name="InteractableComputerLocked" parent="." instance=ExtResource("3_t0usa")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+visible = false
+
+[node name="Computer" parent="InteractableComputerLocked" index="0"]
+surface_material_override/4 = SubResource("StandardMaterial3D_82x4m")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="InteractableComputerLocked"]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, 0.0496312, 0.665781, -0.0793724)
+light_color = Color(0.79609, 0, 0.0830999, 1)
+light_energy = 0.6
+omni_range = 1.0
+
+[node name="InteractableComputerOff" parent="." instance=ExtResource("3_t0usa")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+visible = false
+
+[node name="Computer" parent="InteractableComputerOff" index="0"]
+surface_material_override/4 = SubResource("StandardMaterial3D_s1uno")
+
+[editable path="InteractableComputerLocked"]
+[editable path="InteractableComputerOff"]

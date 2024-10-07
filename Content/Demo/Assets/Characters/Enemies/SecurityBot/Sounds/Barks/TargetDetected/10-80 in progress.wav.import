@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cj7sm2ndhdtxd"
+path="res://.godot/imported/10-80 in progress.wav-9ca7d1e0d1a988ccb0007b0684dfaae4.sample"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/Sounds/Barks/TargetDetected/10-80 in progress.wav"
+dest_files=["res://.godot/imported/10-80 in progress.wav-9ca7d1e0d1a988ccb0007b0684dfaae4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcpfqbtqk4r4i"
+path="res://.godot/imported/Help Me.wav-21e5d319ac0f28e05fc2e9e06a879894.sample"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Characters/Enemies/WageCage/Sounds/PlayerDetectedBark/Help Me.wav"
+dest_files=["res://.godot/imported/Help Me.wav-21e5d319ac0f28e05fc2e9e06a879894.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

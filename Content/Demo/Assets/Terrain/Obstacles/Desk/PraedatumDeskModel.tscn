@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4u405vgx45km"]
+
+[ext_resource type="PackedScene" uid="uid://du8joj2gmmjmv" path="res://Content/Demo/Assets/Terrain/Obstacles/Desk/PraedatumDesk.glb" id="1_8dt75"]
+[ext_resource type="Shader" uid="uid://d4m3uhyggb2dk" path="res://ScratchPad/DeskScreenMaterial.tres" id="2_x2n5r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s16an"]
+render_priority = 0
+shader = ExtResource("2_x2n5r")
+
+[node name="PraedatumDesk" instance=ExtResource("1_8dt75")]
+
+[node name="Desk" parent="." index="0"]
+surface_material_override/3 = SubResource("ShaderMaterial_s16an")

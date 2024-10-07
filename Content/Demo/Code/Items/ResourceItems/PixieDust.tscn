@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://qveld3mp6tu1"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_y5u3c"]
+[ext_resource type="Texture2D" uid="uid://clo4j72v3thqv" path="res://Content/Demo/Assets/Items/ResourceItems/PixieDust/PixieDustInventoryImage.png" id="2_caw1p"]
+[ext_resource type="PackedScene" uid="uid://diqj36ck5xd2" path="res://Content/Demo/Assets/Items/ResourceItems/PixieDust/PixieDustGroundModel.tscn" id="3_gc5f6"]
+
+[node name="PixieDust" type="Node3D"]
+script = ExtResource("1_y5u3c")
+inventory_image = ExtResource("2_caw1p")
+ground_3d_model_scene = ExtResource("3_gc5f6")
+display_name = "Pixie Dust"
+item_id = "pixie_dust"
+show_quantity_in_ui = true
+default_price = 4
+max_quantity = 10
+grid_square_width = 1
+grid_square_height = 1

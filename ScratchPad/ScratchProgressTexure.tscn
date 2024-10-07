@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwlgm2yft8phi"]
+
+[ext_resource type="Texture2D" uid="uid://d2pc1v6soyksv" path="res://ScratchPad/SemiCircleEmpty.png" id="1_ojhxx"]
+[ext_resource type="Texture2D" uid="uid://mtpkk875g5sh" path="res://ScratchPad/SemiCircleFilled.png" id="2_j7ysf"]
+
+[node name="ScratchProgressTexure" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = -0.785398
+value = 100.0
+fill_mode = 4
+texture_over = ExtResource("1_ojhxx")
+texture_progress = ExtResource("2_j7ysf")
+radial_fill_degrees = 90.0
+radial_center_offset = Vector2(-256, 256)

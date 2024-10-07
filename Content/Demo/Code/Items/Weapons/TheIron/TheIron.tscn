@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://kf6rlqiemqur"]
+
+[ext_resource type="PackedScene" uid="uid://cxhh7ufhs48b3" path="res://BaseGameObjects/Inventory/CombatItems/Guns/GunInternalMagazine.tscn" id="1_fmv24"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Weapons/TheIron/TheIron.gd" id="2_68sqx"]
+
+[node name="TheIron" instance=ExtResource("1_fmv24")]
+script = ExtResource("2_68sqx")
+internal_magazine_capacity = 6
+compatible_ammo_types = Array[String](["fortyfive"])
+grid_square_width = 3
+grid_square_height = 2

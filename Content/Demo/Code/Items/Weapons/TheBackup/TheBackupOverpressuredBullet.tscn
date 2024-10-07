@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cho8yvrmlcqmo"]
+
+[ext_resource type="PackedScene" uid="uid://bm1782qnuiwwn" path="res://BaseGameObjects/Bullet.tscn" id="1_03x8b"]
+
+[node name="BurstPistolOverpressuredBullet" instance=ExtResource("1_03x8b")]
+damage = 6

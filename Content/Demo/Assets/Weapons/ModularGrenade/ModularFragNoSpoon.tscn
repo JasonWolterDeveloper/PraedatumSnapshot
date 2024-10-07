@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd2e7uh7ysisc"]
+
+[ext_resource type="PackedScene" uid="uid://c8jm51t65yc2k" path="res://Content/Demo/Assets/Weapons/ModularGrenade/ModularFrag.glb" id="1_mnf7t"]
+
+[node name="ModularFragNoSpoon" instance=ExtResource("1_mnf7t")]
+
+[node name="GrenadeSpoon" parent="." index="0"]
+visible = false

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://mkjv14cyauf8"]
+
+[ext_resource type="PackedScene" uid="uid://b5ny6grjeidov" path="res://UIObjects/InteractionUI/InteractionIcon.tscn" id="2_33ech"]
+[ext_resource type="Script" path="res://BaseGameObjects/InteractableObjects/Doors/LevelTransitionDoor.gd" id="2_ptrka"]
+
+[node name="LevelTransitionDoor" type="StaticBody3D"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("2_ptrka")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="InteractionIcon" parent="CanvasLayer" instance=ExtResource("2_33ech")]
+visible = false

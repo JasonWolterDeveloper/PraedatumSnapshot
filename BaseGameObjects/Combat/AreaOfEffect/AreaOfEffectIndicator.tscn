@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://yuwtjq07gndg"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/AreaOfEffect/AreaOfEffectIndicator.gd" id="1_x4y84"]
+[ext_resource type="Material" uid="uid://ccj835httd86v" path="res://BaseGameObjects/Combat/AreaOfEffect/AreaOfEffectMaterial.tres" id="2_e0toe"]
+
+[node name="AreaOfEffectIndicator" type="MeshInstance3D"]
+script = ExtResource("1_x4y84")
+custom_material = ExtResource("2_e0toe")
+collide_mask = 1

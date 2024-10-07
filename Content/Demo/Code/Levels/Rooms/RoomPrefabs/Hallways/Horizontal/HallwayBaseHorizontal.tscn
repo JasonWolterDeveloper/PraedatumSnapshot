@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://cfm22w4ppbop6"]
+
+[ext_resource type="PackedScene" uid="uid://bnb7cbsaksj6d" path="res://BaseGameObjects/Terrain/Rooms/Room.tscn" id="1_defrc"]
+[ext_resource type="PackedScene" uid="uid://cfl4v3aexofgf" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/NLIDoor.tscn" id="2_fpjcx"]
+[ext_resource type="Material" uid="uid://c73ohs5pjl3fh" path="res://Content/Demo/Code/Levels/Rooms/FloorMaterial/OfficeFloorMaterial.tres" id="4_s087v"]
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="5_bw4mq"]
+[ext_resource type="PackedScene" uid="uid://bugt1fidg0v81" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Hallways/NLIHallwayEnemySpawnPoint.tscn" id="6_2x5gr"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="6_a1r5g"]
+[ext_resource type="PackedScene" uid="uid://bkhagmsliovx1" path="res://Content/Demo/Code/Levels/Rooms/RoomConnectors/NLIBasicRoomConnector.tscn" id="7_um27q"]
+[ext_resource type="PackedScene" uid="uid://bk8wso3tg1vs4" path="res://BaseGameObjects/Behaviour/Patrol/Patrol.tscn" id="8_vt30w"]
+[ext_resource type="Script" path="res://BaseGameObjects/Behaviour/Patrol/PatrolWaypoint.gd" id="9_nbi0f"]
+[ext_resource type="PackedScene" uid="uid://11ria537kkqk" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Hallways/HallwayEnemySpawnTable.tscn" id="10_mbsd7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8k41v"]
+size = Vector3(20, 0, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_frgqj"]
+size = Vector3(20, 0, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qoahf"]
+size = Vector3(20, 10, 6)
+
+[node name="HallwayBaseHorizontal" node_paths=PackedStringArray("enemy_spawn_table") instance=ExtResource("1_defrc")]
+display_name = "Hallway"
+door_scene = ExtResource("2_fpjcx")
+difficulty_level = 0
+increase_difficulty_level = false
+enemy_spawn_table = NodePath("HallwayEnemySpawnTable")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor" index="0"]
+mesh = SubResource("BoxMesh_8k41v")
+surface_material_override/0 = ExtResource("4_s087v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Floor" index="1"]
+shape = SubResource("BoxShape3D_frgqj")
+
+[node name="Endcaps" type="Node3D" parent="Terrain" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -3)
+
+[node name="OfficeWallEndcap" parent="Terrain/Endcaps" index="0" instance=ExtResource("5_bw4mq")]
+
+[node name="OfficeWallEndcap2" parent="Terrain/Endcaps" index="1" instance=ExtResource("5_bw4mq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 6)
+
+[node name="OfficeWallEndcap3" parent="Terrain/Endcaps" index="2" instance=ExtResource("5_bw4mq")]
+transform = Transform3D(-1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 20, 0, 6)
+
+[node name="OfficeWallEndcap4" parent="Terrain/Endcaps" index="3" instance=ExtResource("5_bw4mq")]
+transform = Transform3D(1.39091e-08, 0, -1, 0, 1, 0, 1, 0, 1.39091e-08, 20, 0, 0)
+
+[node name="Walls" type="Node3D" parent="Terrain" index="2"]
+
+[node name="OfficeWall" parent="Terrain/Walls" index="0" instance=ExtResource("6_a1r5g")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 3)
+
+[node name="OfficeWall6" parent="Terrain/Walls" index="1" instance=ExtResource("6_a1r5g")]
+transform = Transform3D(-7, 0, -8.74228e-08, 0, 1, 0, 6.11959e-07, 0, -1, -5.5, 0, -3)
+
+[node name="OfficeWall7" parent="Terrain/Walls" index="2" instance=ExtResource("6_a1r5g")]
+transform = Transform3D(-7, 0, -8.74228e-08, 0, 1, 0, 6.11959e-07, 0, -1, 5.5, 0, -3)
+
+[node name="OfficeWall5" parent="Terrain/Walls" index="3" instance=ExtResource("6_a1r5g")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 3)
+
+[node name="Obstacles" type="Node3D" parent="Terrain" index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area" index="0"]
+shape = SubResource("BoxShape3D_qoahf")
+
+[node name="NLIEnemySpawnPoint" parent="EnemySpawners" index="0" node_paths=PackedStringArray("patrol") instance=ExtResource("6_2x5gr")]
+patrol = NodePath("../../Patrol")
+
+[node name="NLIBasicRoomConnector" parent="RoomConnectors" index="0" instance=ExtResource("7_um27q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="NLIBasicRoomConnector2" parent="RoomConnectors" index="1" instance=ExtResource("7_um27q")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -3)
+
+[node name="NLIBasicRoomConnector3" parent="RoomConnectors" index="2" instance=ExtResource("7_um27q")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 10, 0, 0)
+
+[node name="NLIBasicRoomConnector4" parent="RoomConnectors" index="3" instance=ExtResource("7_um27q")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -10, 0, 0)
+
+[node name="Patrol" parent="." index="5" instance=ExtResource("8_vt30w")]
+
+[node name="HallwayPatrolPoint1" type="Marker3D" parent="Patrol" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 0)
+script = ExtResource("9_nbi0f")
+
+[node name="HallwayPatrolPoint2" type="Marker3D" parent="Patrol" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 0)
+script = ExtResource("9_nbi0f")
+
+[node name="HallwayEnemySpawnTable" parent="." index="6" instance=ExtResource("10_mbsd7")]

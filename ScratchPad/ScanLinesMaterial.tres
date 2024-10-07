@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dcllqf315siqh"]
+
+[ext_resource type="Shader" path="res://ScratchPad/scan_lines.gdshader" id="1_xiep4"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_usud8"]
+frequency = 0.7789
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nk6cs"]
+noise = SubResource("FastNoiseLite_usud8")
+
+[resource]
+shader = ExtResource("1_xiep4")
+shader_parameter/curvature = 1.0
+shader_parameter/skip = 0.0
+shader_parameter/image_flicker = 0.0
+shader_parameter/vignette_flicker_speed = 0.41
+shader_parameter/vignette_strength = 0.2
+shader_parameter/small_scanlines_speed = 1.0
+shader_parameter/small_scanlines_proximity = 0.75
+shader_parameter/small_scanlines_opacity = 1.0
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_speed = 1.0
+shader_parameter/scanline_thickness = 0.6
+shader_parameter/scanlines_spacing = 1.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_nk6cs")

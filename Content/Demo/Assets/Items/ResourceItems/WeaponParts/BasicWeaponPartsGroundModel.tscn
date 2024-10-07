@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1heihbipst5h"]
+
+[ext_resource type="PackedScene" uid="uid://bei21m7fvukbd" path="res://Content/Demo/Assets/Items/ResourceItems/WeaponParts/BasicGunPartsModel.glb" id="1_udswr"]
+
+[node name="BasicWeaponPartsGroundModel" type="Node3D"]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+
+[node name="BasicGunPartsModel" parent="." instance=ExtResource("1_udswr")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

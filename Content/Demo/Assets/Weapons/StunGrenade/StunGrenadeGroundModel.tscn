@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dak65lse3lsvx"]
+
+[ext_resource type="PackedScene" uid="uid://83wo40k2p6jp" path="res://Content/Demo/Assets/Weapons/StunGrenade/PraedatumFlashBangGameWorld.glb" id="1_n2gaf"]
+
+[node name="StunGrenadeGroundModel" type="Node3D"]
+
+[node name="PraedatumFlashBangGameWorld" parent="." instance=ExtResource("1_n2gaf")]
+transform = Transform3D(-5.46392e-09, -0.125, 0, 0.125, -5.46392e-09, 0, 0, 0, 0.125, 0, 0, 0)

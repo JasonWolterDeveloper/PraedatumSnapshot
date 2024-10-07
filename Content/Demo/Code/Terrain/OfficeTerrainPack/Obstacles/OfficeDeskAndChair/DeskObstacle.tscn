@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcuts0et3frht"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_a377c"]
+[ext_resource type="PackedScene" uid="uid://bocs2xaao2kp6" path="res://Content/Demo/Assets/Terrain/Obstacles/Desk/PraedatumDesk.glb" id="2_0iudl"]
+[ext_resource type="PackedScene" uid="uid://b1b4g5vow47fw" path="res://Content/Demo/Assets/Terrain/Obstacles/Desk/PraedatumKeyboard.glb" id="2_mj64g"]
+[ext_resource type="PackedScene" uid="uid://b4u405vgx45km" path="res://Content/Demo/Assets/Terrain/Obstacles/Desk/PraedatumDeskModel.tscn" id="3_fmtih"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_054c3"]
+size = Vector3(1, 1.2, 2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d2mp2"]
+size = Vector3(1, 1.2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ssi6g"]
+size = Vector3(1.74579, 0.179642, 3.18911)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4o5bc"]
+size = Vector3(1.23453, 0.187164, 1.12782)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mvueo"]
+size = Vector3(0.34375, 0.104645, 1.6235)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y4e3i"]
+height = 0.152586
+radius = 0.508685
+
+[node name="DeskObstacle" type="StaticBody3D"]
+script = ExtResource("1_a377c")
+
+[node name="PraedatumKeyboard" parent="." instance=ExtResource("2_mj64g")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0.261075, 1.22436, 0)
+
+[node name="PraedatumDesk" parent="." instance=ExtResource("2_0iudl")]
+transform = Transform3D(1.6, 0, 0, 0, 1.2, 0, 0, 0, 1.6, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.615676, 0)
+visible = false
+mesh = SubResource("BoxMesh_054c3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.565018, 0.616, 1.6304)
+visible = false
+mesh = SubResource("BoxMesh_d2mp2")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.565, 0.616, -1.61167)
+visible = false
+mesh = SubResource("BoxMesh_d2mp2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0721436, 1.13757, 0.0270615)
+shape = SubResource("BoxShape3D_ssi6g")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.927086, 0, 0.374849, 0, 1, 0, -0.374849, 0, 0.927086, 0.0578729, 1.13757, 1.07664)
+shape = SubResource("BoxShape3D_4o5bc")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.927184, 0, -0.374607, 0, 1, 0, 0.374607, 0, 0.927184, 0.051053, 1.13757, -1.08383)
+shape = SubResource("BoxShape3D_4o5bc")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55957, 1.18143, 0.00639105)
+shape = SubResource("BoxShape3D_mvueo")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.161567, 1.13098, 1.37287)
+shape = SubResource("CylinderShape3D_y4e3i")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.161567, 1.13098, -1.37992)
+shape = SubResource("CylinderShape3D_y4e3i")
+
+[node name="PraedatumDesk2" parent="." instance=ExtResource("3_fmtih")]
+transform = Transform3D(1.6, 0, 0, 0, 1.3, 0, 0, 0, 1.6, 0, 0, 0)
+visible = false

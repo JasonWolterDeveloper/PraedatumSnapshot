@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://56n3nnlph1w0"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Projectiles/ProjectileTrajectoryPredictor.gd" id="1_ce5uq"]
+
+[node name="ProjectileTrajectoryPredictor" type="Node3D"]
+top_level = true
+script = ExtResource("1_ce5uq")
+
+[node name="PathPieces" type="Node3D" parent="."]
+top_level = true

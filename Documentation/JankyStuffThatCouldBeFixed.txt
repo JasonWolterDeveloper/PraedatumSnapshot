@@ -1,0 +1,6 @@
+RPGMechanics
+	Perk System
+		When loading perks and level information from a file, if the save game is corrupted, it completely destroyed the perk tree, because the individual elements of the perk tree like slots and perks are completely deleted and rebuild from zero. Since the amount of slots and amount of perks and the particular slots and perks for a save tree should remain constant, this system would be better if the loading system simply grabbed data for each of the perks and slots from the save file and inserted it into the pre existing Slot and Perk objects intead of deleting them and remaking them, which is needlessly complicated and dangerous
+make the inventory system UI refresh every time you take an action
+    selectively hide item domino when you start to drag it, and when you let go of the drag, rebuild the whole UI after action is taken in real inv
+fix doors having holes you can look through out the sides

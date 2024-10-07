@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpvykp7o5h1g"]
+
+[ext_resource type="PackedScene" uid="uid://bufpahsb7jek6" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallSegment.tscn" id="1_bxrk4"]
+[ext_resource type="PackedScene" uid="uid://d20g8emqbllwu" path="res://Content/Default/Code/Levels/Void.tscn" id="1_xyy3t"]
+[ext_resource type="PackedScene" uid="uid://5nmwy0m4aw57" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Hallways/BuildingBlocks/OfficeHall.tscn" id="2_ukajv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iq1f2"]
+size = Vector3(7, 10, 7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5jrw"]
+render_priority = -100
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.784314)
+metallic_specular = 0.0
+
+[node name="ShowHideRoomTest" type="Node3D"]
+
+[node name="OfficeWallSegment" parent="." instance=ExtResource("1_bxrk4")]
+transform = Transform3D(-4.37114e-06, 0, -1, 0, 1, 0, 100, 0, -4.37114e-08, 0, 2, -9)
+
+[node name="Void" parent="." instance=ExtResource("1_xyy3t")]
+
+[node name="OfficeHall" parent="." instance=ExtResource("2_ukajv")]
+
+[node name="OfficeHall2" parent="." instance=ExtResource("2_ukajv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.177399, 0)
+mesh = SubResource("BoxMesh_iq1f2")
+surface_material_override/0 = SubResource("StandardMaterial3D_t5jrw")

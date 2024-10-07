@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1q0nq3vnquq"]
+
+[ext_resource type="PackedScene" uid="uid://l7bkvvaqgwt7" path="res://Content/Demo/Assets/Terrain/Obstacles/DestroyedVendingMachine/DestroyedVendingMachine.glb" id="1_6lsih"]
+
+[node name="DestroyedShopModel" type="Node3D"]
+
+[node name="DestroyedVendingMachine" parent="." instance=ExtResource("1_6lsih")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)

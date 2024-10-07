@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm1782qnuiwwn"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Bullet.gd" id="1_v7mcm"]
+[ext_resource type="PackedScene" uid="uid://bwd8lrbqmfc1w" path="res://BaseGameObjects/Aesthetics/Impacts/ImpactParticleEffect.tscn" id="2_407ky"]
+[ext_resource type="PackedScene" uid="uid://dw135fuwk44td" path="res://BaseGameObjects/Aesthetics/Impacts/ImpactParticleUnsuccessfulEffect.tscn" id="3_61ogx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jhc75"]
+size = Vector3(0.05, 0.05, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_taoou"]
+albedo_color = Color(0.807843, 0.654902, 0, 1)
+metallic_specular = 1.0
+roughness = 0.61
+emission_enabled = true
+emission = Color(0.807843, 0.654902, 0, 1)
+emission_energy_multiplier = 5.0
+
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_v7mcm")
+speed = 70
+successful_impact_particle_scene = ExtResource("2_407ky")
+unsuccessful_impact_particle_scene = ExtResource("3_61ogx")
+
+[node name="InitialShotRaycast" type="RayCast3D" parent="."]
+collision_mask = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_jhc75")
+surface_material_override/0 = SubResource("StandardMaterial3D_taoou")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+light_color = Color(0.807843, 0.654902, 0, 1)

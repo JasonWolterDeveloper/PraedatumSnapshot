@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://bubkkhpqsl8s5"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/InteractableObjects/LootObject.gd" id="1_2xcxa"]
+[ext_resource type="PackedScene" uid="uid://dbfmhk82onk05" path="res://Content/Demo/Assets/Interactables/LootInteractables/MiniLootCrate/MiniCrate.glb" id="2_gxipt"]
+[ext_resource type="PackedScene" uid="uid://cdm2ss6tggpah" path="res://Content/Demo/Code/Levels/Level1/LootTables/Level1BasicCrateLootTable.tscn" id="2_yd2lf"]
+[ext_resource type="PackedScene" uid="uid://bpryq34tbjf37" path="res://BaseGameObjects/Inventory/Storage.tscn" id="3_enesg"]
+[ext_resource type="PackedScene" uid="uid://b15jkh5ahlo8q" path="res://Content/Demo/Code/RPGMechanics/SpawnTables/LootTables/Floor1HighRollerTable.tscn" id="3_jrtjy"]
+[ext_resource type="PackedScene" uid="uid://b5ny6grjeidov" path="res://UIObjects/InteractionUI/InteractionIcon.tscn" id="4_tbnub"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_74ivm"]
+albedo_color = Color(0.109341, 0.109341, 0.109341, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dubdf"]
+size = Vector3(0.87793, 6.15463, 0.840088)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yp6ad"]
+size = Vector3(0.517578, 0.501953, 0.521484)
+
+[node name="MiniLootCrate" type="StaticBody3D" node_paths=PackedStringArray("storage", "empty_aesthetics", "not_empty_aesthetics")]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("1_2xcxa")
+storage = NodePath("Storage")
+empty_aesthetics = NodePath("MiniCrateEmpty")
+not_empty_aesthetics = NodePath("MiniCrate")
+allow_if_activated = true
+interaction_prompt_text = "Loot"
+
+[node name="MiniCrate" parent="." instance=ExtResource("2_gxipt")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 0, 0, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="MiniCrate"]
+transform = Transform3D(-0.666654, 0.00408405, -1.00664e-07, 0.00408405, 0.666654, 0, 1.00662e-07, -6.16674e-10, -0.666667, -0.00295456, 0.128329, 0.227917)
+light_color = Color(0.177443, 0.771359, 0.216068, 1)
+light_energy = 0.5
+omni_range = 1.0
+
+[node name="MiniCrateEmpty" parent="." instance=ExtResource("2_gxipt")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 0, 0, 0)
+
+[node name="MiniCrate" parent="MiniCrateEmpty" index="0"]
+surface_material_override/3 = SubResource("StandardMaterial3D_74ivm")
+
+[node name="ActivationArea#CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0184937, 2.57732, 0)
+shape = SubResource("BoxShape3D_dubdf")
+
+[node name="Storage" parent="." instance=ExtResource("3_enesg")]
+grid_square_width = 2
+grid_square_height = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractionIcon" parent="CanvasLayer" instance=ExtResource("4_tbnub")]
+visible = false
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24862, 0)
+shape = SubResource("BoxShape3D_yp6ad")
+
+[node name="Level1BasicCrateLootTable" parent="." instance=ExtResource("2_yd2lf")]
+number_of_rolls = 3
+
+[node name="Floor1HighRollerTable" parent="." instance=ExtResource("3_jrtjy")]
+
+[editable path="MiniCrateEmpty"]

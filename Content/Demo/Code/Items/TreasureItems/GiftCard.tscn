@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2kyc8kmyeblf"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/TreasureItem.gd" id="1_70wb2"]
+[ext_resource type="Texture2D" uid="uid://rqtj1rri8yyo" path="res://Content/Demo/Assets/Items/TreasureItems/GiftCard/GiftCardInventoryImage.png" id="2_cmunc"]
+[ext_resource type="PackedScene" uid="uid://htfiqu8t00ov" path="res://Content/Demo/Assets/Items/TreasureItems/GiftCard/GiftCardGroundModel.tscn" id="3_3vyk5"]
+
+[node name="GiftCard" type="Node3D"]
+script = ExtResource("1_70wb2")
+inventory_image = ExtResource("2_cmunc")
+ground_3d_model_scene = ExtResource("3_3vyk5")
+display_name = "Gift Card"
+item_id = "gift_card"
+description = "An NLI Gift Card. This one is from before NLI introduced its ridiculous gift card expiry dates, so use it when you please.
+
+Can be sold for Scrip"
+default_price = 250
+grid_square_width = 1
+grid_square_height = 1

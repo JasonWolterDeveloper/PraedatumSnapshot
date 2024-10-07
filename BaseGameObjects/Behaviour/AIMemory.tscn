@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmi0g7wqmeswm"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Behaviour/AIMemory.gd" id="1_27caw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l8nc"]
+albedo_color = Color(0, 0.111273, 0.999999, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_np1vh"]
+material = SubResource("StandardMaterial3D_4l8nc")
+radius = 0.25
+height = 0.5
+
+[node name="AIMemory" type="Node"]
+script = ExtResource("1_27caw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+top_level = true
+visible = false
+mesh = SubResource("SphereMesh_np1vh")

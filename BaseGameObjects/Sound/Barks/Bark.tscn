@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjdk8rkgd5vas"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Sound/Barks/Bark.gd" id="1_0c2wi"]
+
+[node name="Bark" type="Node"]
+script = ExtResource("1_0c2wi")

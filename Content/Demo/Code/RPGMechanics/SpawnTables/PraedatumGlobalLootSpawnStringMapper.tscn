@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://l4cvipwtkif7"]
+
+[ext_resource type="PackedScene" uid="uid://b3qppxr048ofv" path="res://Content/Demo/Code/RPGMechanics/SpawnTables/PraedatumLootSpawnStringMapper.tscn" id="1_twci7"]
+
+[node name="PraedatumGlobalLootSpawnStringMapper" instance=ExtResource("1_twci7")]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://echjtqjtbn0l"]
+
+[ext_resource type="PackedScene" uid="uid://cyd470th2d8op" path="res://Content/Demo/Assets/Weapons/OlReliable/OlReliable.glb" id="2_tgy3a"]
+
+[node name="OlReliableGroundModel" type="Node3D"]
+
+[node name="OlReliable" parent="." instance=ExtResource("2_tgy3a")]
+transform = Transform3D(7.2606e-16, -1.66103e-08, 0.38, -0.38, -1.66103e-08, 0, 1.66103e-08, -0.38, -1.66103e-08, 0, 0, 0)

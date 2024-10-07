@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmgl2x2hix1pj"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/UtilityItems/GrenadeItem.gd" id="1_fco8t"]
+
+[node name="GrenadeItem" type="Node3D"]
+script = ExtResource("1_fco8t")
+item_type = 3

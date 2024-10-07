@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds4vdec1i42tc"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/ConversationChoice.gd" id="1_4fpn4"]
+
+[node name="ConversationChoice" type="Node"]
+script = ExtResource("1_4fpn4")

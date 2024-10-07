@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://n7ea6pc1sys1"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/Equipment/Backpack.gd" id="1_0nb65"]
+
+[node name="Backpack" type="Node3D"]
+script = ExtResource("1_0nb65")

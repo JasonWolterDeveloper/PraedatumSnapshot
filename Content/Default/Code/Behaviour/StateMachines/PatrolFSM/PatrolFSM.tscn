@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://b153i424xgox6"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/Behaviour/StateMachines/PatrolFSM/PatrolFSM.gd" id="1_yvcda"]
+[ext_resource type="PackedScene" uid="uid://birl0lyo8obkq" path="res://Content/Default/Code/Behaviour/StateMachines/PatrolFSM/PatrolMoveState.tscn" id="2_dfnwj"]
+[ext_resource type="PackedScene" uid="uid://btqtjo4pxdrn" path="res://Content/Default/Code/Behaviour/StateMachines/PatrolFSM/PatrolWaitState.tscn" id="2_t1tkl"]
+[ext_resource type="PackedScene" uid="uid://bb5uym7ms6op7" path="res://Content/Default/Code/Behaviour/Links/TimeoutLink.tscn" id="3_xstlf"]
+[ext_resource type="PackedScene" uid="uid://tc8rrwm2hu6w" path="res://BaseGameObjects/Behaviour/Patrol/PatrolPauseWaypointLink.tscn" id="5_nkxv6"]
+
+[node name="PatrolFSM" type="Node3D"]
+script = ExtResource("1_yvcda")
+
+[node name="PatrolMoveState" parent="." instance=ExtResource("2_dfnwj")]
+
+[node name="PatrolWaitState" parent="." instance=ExtResource("2_t1tkl")]
+
+[node name="TimeoutLink" parent="." instance=ExtResource("3_xstlf")]
+
+[node name="PatrolPauseWaypointLink" parent="." instance=ExtResource("5_nkxv6")]

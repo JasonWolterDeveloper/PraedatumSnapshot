@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmou2fqae72w"]
+
+[ext_resource type="PackedScene" uid="uid://c14yeba554ow1" path="res://BaseGameObjects/Terrain/Walls/Wall.tscn" id="1_ibiom"]
+[ext_resource type="Material" uid="uid://fp3hdtajq0n6" path="res://Content/Default/Code/Levels/VoidTexture.tres" id="2_ibb7q"]
+[ext_resource type="PackedScene" uid="uid://b5wpkwly53u6t" path="res://Content/Demo/Assets/Terrain/Greebles/Gubbins/Warehouse/SeparatorPipe.glb" id="3_j5ud4"]
+[ext_resource type="PackedScene" uid="uid://bnqd5jqte23mp" path="res://Content/Demo/Assets/Terrain/IndustrialTerrainPack/Gubbins/SciFiWallSeparator.glb" id="4_mjqvu"]
+[ext_resource type="PackedScene" uid="uid://c6j02ixbsmab" path="res://Content/Demo/Assets/Terrain/Greebles/SciFi/WallGreeble/WallGreebleFireExtinguisher.blend" id="5_3j5gh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cimuk"]
+albedo_color = Color(0.180005, 0.180005, 0.180005, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dunrh"]
+material = SubResource("StandardMaterial3D_cimuk")
+size = Vector3(1, 4, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y8bhu"]
+material = ExtResource("2_ibb7q")
+size = Vector3(1.05, 4.05, 0.2)
+
+[node name="IndustrialWallPrefabExtinguisher" type="Node3D"]
+
+[node name="Wall" parent="." instance=ExtResource("1_ibiom")]
+transform = Transform3D(5, 0, -1.06581e-14, 0, 1, 0, 5.68434e-14, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_dunrh")
+
+[node name="VoidPart" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_y8bhu")
+
+[node name="SeparatorPipe8" parent="." instance=ExtResource("3_j5ud4")]
+transform = Transform3D(1.09278e-07, -1.25, 7.94665e-08, -2.5, -5.46392e-08, -3.27835e-07, 3.27835e-07, -3.97332e-08, -2.5, 2.50354, 0.386544, -0.383742)
+
+[node name="SeparatorPipe9" parent="." instance=ExtResource("3_j5ud4")]
+transform = Transform3D(1.09278e-07, -1.25, 7.94665e-08, -2.5, -5.46392e-08, -3.27835e-07, 3.27835e-07, -3.97332e-08, -2.5, 2.50354, 0.730936, -0.383742)
+
+[node name="SciFiWallSeparator2" parent="." instance=ExtResource("4_mjqvu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5, 0.03, -1.09278e-07)
+
+[node name="SciFiWallSeparator3" parent="." instance=ExtResource("4_mjqvu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.5, 0.03, 1.09278e-07)
+
+[node name="WallGreebleFireExtinguisher2" parent="." instance=ExtResource("5_3j5gh")]
+transform = Transform3D(-1.75, 0, 2.64243e-07, 0, 1.65, 0, -2.64243e-07, 0, -1.75, 0, 0.9, -0.404)

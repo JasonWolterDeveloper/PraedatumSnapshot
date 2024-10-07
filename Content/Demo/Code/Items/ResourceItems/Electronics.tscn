@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://h640qe37xgs8"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_fqblw"]
+[ext_resource type="Texture2D" uid="uid://onc3ywk3ho1g" path="res://Content/Demo/Assets/Items/ResourceItems/Electronics/ElectronicsInventoryImage.png" id="2_3quqb"]
+[ext_resource type="PackedScene" uid="uid://djggf34k3jc00" path="res://Content/Demo/Assets/Items/ResourceItems/Electronics/ElectronicsGroundModel.tscn" id="3_tlvqv"]
+
+[node name="Electronics" type="Node3D"]
+script = ExtResource("1_fqblw")
+inventory_image = ExtResource("2_3quqb")
+ground_3d_model_scene = ExtResource("3_tlvqv")
+display_name = "Electronics"
+item_id = "electronics"
+description = "A pile of random pieces of electrical components. I used to know a Scot who could probably make a rocket engine out of this and some propane.
+
+Can be used for crafting, or sold."
+show_quantity_in_ui = true
+default_price = 20
+max_quantity = 20
+grid_square_width = 1
+grid_square_height = 1

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://deec4hbccfuna"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingRecipe.gd" id="1_k8xh7"]
+[ext_resource type="PackedScene" uid="uid://1hpaxthojfob" path="res://Content/Demo/Code/Items/ResourceItems/IngredientsItem.tscn" id="2_hi3og"]
+[ext_resource type="PackedScene" uid="uid://cbo7uwe7bx5lm" path="res://Content/Demo/Code/Items/Aid/Morale/CupOfJoe/CupOfJoe.tscn" id="3_hbpdc"]
+[ext_resource type="PackedScene" uid="uid://e31edncml26a" path="res://Content/Demo/Code/Items/Aid/Morale/CupOfJoe/FancyCoffee.tscn" id="4_8kowd"]
+
+[node name="FancyCoffeeRecipe" type="Node"]
+script = ExtResource("1_k8xh7")
+item_cost_dictionary = {
+NodePath("IngredientsItem"): 4,
+NodePath("CupOfJoe"): 1
+}
+crafted_item_dictionary = {
+NodePath("FancyCoffee"): 1
+}
+base_facility_level_required = 2
+
+[node name="IngredientsItem" parent="." instance=ExtResource("2_hi3og")]
+
+[node name="CupOfJoe" parent="." instance=ExtResource("3_hbpdc")]
+
+[node name="FancyCoffee" parent="." instance=ExtResource("4_8kowd")]

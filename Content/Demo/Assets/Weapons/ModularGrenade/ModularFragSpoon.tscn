@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4vnn82ns3g6"]
+
+[ext_resource type="PackedScene" uid="uid://c8jm51t65yc2k" path="res://Content/Demo/Assets/Weapons/ModularGrenade/ModularFrag.glb" id="1_p2wj0"]
+
+[node name="ModularFragSpoon" instance=ExtResource("1_p2wj0")]

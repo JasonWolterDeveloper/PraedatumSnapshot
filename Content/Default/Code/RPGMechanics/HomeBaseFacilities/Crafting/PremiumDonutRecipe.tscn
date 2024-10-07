@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7owxaamktwsi"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingRecipe.gd" id="1_lgmoo"]
+[ext_resource type="PackedScene" uid="uid://bs040psypjfup" path="res://Content/Demo/Code/Items/Aid/Morale/Donuts/MoraleDonut.tscn" id="2_iumgr"]
+[ext_resource type="PackedScene" uid="uid://b77bxtfmg87tc" path="res://Content/Demo/Code/Items/ResourceItems/ScrapMetal.tscn" id="3_tv5ll"]
+[ext_resource type="PackedScene" uid="uid://rij04buhtkop" path="res://Content/Demo/Code/Items/Aid/Morale/Donuts/MoralePremiumDonut.tscn" id="4_uhfql"]
+
+[node name="CraftingRecipe" type="Node"]
+script = ExtResource("1_lgmoo")
+item_cost_dictionary = {
+NodePath("MoraleDonut"): 1,
+NodePath("ScrapMetal"): 2
+}
+crafted_item_dictionary = {
+NodePath("MoralePremiumDonut"): 1
+}
+base_facility_level_required = 1
+
+[node name="MoraleDonut" parent="." instance=ExtResource("2_iumgr")]
+
+[node name="ScrapMetal" parent="." instance=ExtResource("3_tv5ll")]
+
+[node name="MoralePremiumDonut" parent="." instance=ExtResource("4_uhfql")]

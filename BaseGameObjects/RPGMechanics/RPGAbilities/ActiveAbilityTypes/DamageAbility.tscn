@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbj8pd0c2kkvm"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGAbilities/ActiveAbilityTypes/DamageAbility.gd" id="1_hen7f"]
+
+[node name="DamageAbility" type="Node"]
+script = ExtResource("1_hen7f")

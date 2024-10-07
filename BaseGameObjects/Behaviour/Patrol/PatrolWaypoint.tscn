@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://by0du1leu31pl"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Behaviour/Patrol/PatrolWaypoint.gd" id="1_7dfqs"]
+
+[node name="PatrolWaypoint" type="Marker3D"]
+gizmo_extents = 0.5
+script = ExtResource("1_7dfqs")

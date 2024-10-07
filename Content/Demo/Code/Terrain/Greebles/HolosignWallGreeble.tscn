@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://po6lvcfyga46"]
+
+[ext_resource type="PackedScene" uid="uid://bcpi1f3npswm8" path="res://Content/Demo/Assets/Terrain/Greebles/SciFi/WallGreeble/HolosignWallGreeble.glb" id="1_jgvqh"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Terrain/Greebles/HolosignWallGreeble.gd" id="1_p2j4l"]
+[ext_resource type="FontFile" uid="uid://cos8mriiu7hwd" path="res://UIObjects/Assets/Fonts/unispace.ttf" id="2_vsuwi"]
+[ext_resource type="Shader" path="res://Content/Demo/Code/Terrain/Greebles/HolosignWallGreeble.gdshader" id="3_2tfo5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plljj"]
+albedo_color = Color(9.62615e-07, 0.802769, 0.813983, 1)
+emission = Color(0, 0.890196, 0.901961, 1)
+emission_energy_multiplier = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3bd2d"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_2tfo5")
+shader_parameter/shine_color = Color(7.70092e-07, 0.732587, 0.830645, 1)
+shader_parameter/cycle_interval = 1.0
+shader_parameter/shine_speed = 4.0
+shader_parameter/shine_width = 15.0
+shader_parameter/invert_direction = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tu3ot"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_3bd2d")
+transparency = 1
+albedo_color = Color(0.145, 1, 1, 0.123)
+emission_enabled = true
+emission = Color(0, 0.521569, 0.521569, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="TextMesh" id="TextMesh_1tv2a"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_tu3ot")
+text = "EMPLOYEES -->"
+font = ExtResource("2_vsuwi")
+font_size = 24
+
+[node name="HolosignWallGreeble" type="Node3D"]
+script = ExtResource("1_p2j4l")
+
+[node name="HolosignWallGreeble" parent="." instance=ExtResource("1_jgvqh")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="Cube_080" parent="HolosignWallGreeble" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0252808, 0.47446, -0.0289356)
+surface_material_override/3 = SubResource("StandardMaterial3D_plljj")
+
+[node name="TextMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0209047, 0.301067, 0.501473)
+mesh = SubResource("TextMesh_1tv2a")
+
+[editable path="HolosignWallGreeble"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0y5ntsomm8r7"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Aid/Health/HoldUse/Bandage/Bandage.gd" id="1_uhk3j"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="2_ct6fl"]
+[ext_resource type="Texture2D" uid="uid://cjkcdbftcglo7" path="res://Content/Demo/Assets/Items/Consumables/Bandage/SterilizedBandageInventoryImage.png" id="3_lqr0o"]
+[ext_resource type="PackedScene" uid="uid://dumhh77op4wob" path="res://Content/Demo/Assets/Items/Consumables/Bandage/SterilizedBandageGroundModel.tscn" id="4_ifem4"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="5_m0trl"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="6_gjbot"]
+
+[sub_resource type="Resource" id="Resource_5y3af"]
+script = ExtResource("2_ct6fl")
+stat_id = "movement_speed"
+value = -0.5
+is_multiplicative = true
+is_number_of_segments = false
+is_value_per_segment = false
+
+[sub_resource type="Resource" id="Resource_e8onb"]
+script = ExtResource("6_gjbot")
+stat_title = "HP Restored"
+stat_value = "50.0"
+stat_value_colour = Color(0.639216, 0.0509804, 0, 1)
+
+[sub_resource type="Resource" id="Resource_8qkqd"]
+script = ExtResource("6_gjbot")
+stat_title = "Use Time"
+stat_value = "2.0 s"
+stat_value_colour = Color(0.342207, 0.342207, 0.342207, 1)
+
+[sub_resource type="Resource" id="Resource_bsh52"]
+script = ExtResource("6_gjbot")
+stat_title = "Move Spd."
+stat_value = "-50%"
+stat_value_colour = Color(0.724651, 0, 0.147926, 1)
+
+[sub_resource type="Resource" id="Resource_gsf8s"]
+script = ExtResource("5_m0trl")
+stat_entry_array = Array[ExtResource("6_gjbot")]([SubResource("Resource_e8onb"), SubResource("Resource_8qkqd"), SubResource("Resource_bsh52")])
+
+[node name="SterilizedBandage" type="Node3D"]
+script = ExtResource("1_uhk3j")
+heal_amount = 50.0
+time_to_use = 2.0
+holding_use_message = "Bandaging..."
+hold_use_stat_modifiers = Array[ExtResource("2_ct6fl")]([SubResource("Resource_5y3af")])
+utility_item_use_message = "Used Bandage"
+inventory_image = ExtResource("3_lqr0o")
+ground_3d_model_scene = ExtResource("4_ifem4")
+display_name = "Sterilized Bandage"
+item_id = "sterilized_bandage"
+description = "A simple bandage used to staunch wounds. Restores health points, but takes time to use.
+
+This bandage has been sterilized to improve its healing capabilities"
+show_quantity_in_ui = true
+default_price = 60
+item_stat_entry_collection = SubResource("Resource_gsf8s")
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

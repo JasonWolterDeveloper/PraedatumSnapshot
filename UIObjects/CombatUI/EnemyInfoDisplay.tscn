@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://yhpbb7jbww4d"]
+
+[ext_resource type="Script" path="res://UIObjects/CombatUI/EnemyInfoDisplay.gd" id="1_qvenc"]
+[ext_resource type="Theme" uid="uid://q8fchd6stpns" path="res://UIObjects/Themes/CyberTheme.tres" id="2_u5yxo"]
+[ext_resource type="PackedScene" uid="uid://bg365ya67tc63" path="res://UIObjects/CombatUI/Healthbar/HealthBar.tscn" id="3_k4107"]
+[ext_resource type="Theme" uid="uid://kgmq3lugnl84" path="res://UIObjects/CombatUI/Healthbar/ArmourBarTheme.tres" id="4_ignv6"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jv4fy"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_si4er"]
+bg_color = Color(0.067, 0.067, 0.067, 0.822)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 1
+
+[node name="Enemy3DInfoElement" type="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.670633, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 2
+texture = SubResource("ViewportTexture_jv4fy")
+script = ExtResource("1_qvenc")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+snap_2d_transforms_to_pixel = true
+size = Vector2i(150, 65)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_u5yxo")
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewport/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_si4er")
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 2
+
+[node name="NameLabel" type="Label" parent="SubViewport/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 18
+text = "Enemy Name"
+
+[node name="ArmourBar" parent="SubViewport/VBoxContainer" instance=ExtResource("3_k4107")]
+visible = false
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+theme = ExtResource("4_ignv6")
+
+[node name="TopHealthBar" parent="SubViewport/VBoxContainer/ArmourBar/BarContainer/MarginContainer" index="1"]
+theme = ExtResource("4_ignv6")
+
+[node name="HealthBar" parent="SubViewport/VBoxContainer" instance=ExtResource("3_k4107")]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+
+[editable path="SubViewport/VBoxContainer/ArmourBar"]

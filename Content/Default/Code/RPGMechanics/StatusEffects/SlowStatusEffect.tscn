@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://1glgcwi0vwqm"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/StatusEffects/SlowStatusEffect.gd" id="1_7wwlb"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="2_qhdl2"]
+
+[sub_resource type="Resource" id="Resource_pa3pv"]
+script = ExtResource("2_qhdl2")
+stat_id = "movement_speed"
+value = 0.5
+is_multiplicative = true
+is_number_of_segments = false
+is_value_per_segment = false
+
+[node name="SlowStatusEffect" type="Node3D"]
+script = ExtResource("1_7wwlb")
+duration = 4.0
+rpg_stat_modifiers = Array[ExtResource("2_qhdl2")]([SubResource("Resource_pa3pv")])
+id = "slow_status_effect"
+added_text = "[color=f2da5e]Slowed!"
+show_added_text_for_refresh = true

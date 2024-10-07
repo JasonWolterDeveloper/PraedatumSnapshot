@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvuhfvnhiafbt"]
+
+[ext_resource type="PackedScene" uid="uid://cmnifqh7qae71" path="res://Content/Demo/Code/Items/QuestItems/DataPad/DataPadModel.glb" id="1_jpt1e"]
+
+[node name="DataPadGroundModel" type="Node3D"]
+
+[node name="DataPadModel" parent="." instance=ExtResource("1_jpt1e")]
+transform = Transform3D(-4.80825e-08, -1.1, -4.80825e-08, 0, -4.80825e-08, 1.1, -1.1, 4.80825e-08, 2.10175e-15, 0, 0.050249, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="DataPadModel"]
+transform = Transform3D(0.714286, 0, 0, 0, -3.12224e-08, -0.714286, 0, 0.714286, -3.12224e-08, -0.179748, -1.22586e-09, 0.0280444)
+light_color = Color(0.135241, 0.422178, 0.659609, 1)
+light_energy = 0.2
+omni_range = 1.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="DataPadModel"]
+transform = Transform3D(0.714286, 0, 0, 0, -3.12224e-08, -0.714286, 0, 0.714286, -3.12224e-08, 0.168412, -1.22586e-09, 0.0280444)
+light_color = Color(0.135241, 0.422178, 0.659609, 1)
+light_energy = 0.2
+omni_range = 1.0

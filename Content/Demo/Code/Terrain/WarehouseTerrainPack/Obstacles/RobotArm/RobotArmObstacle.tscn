@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca4m4ter54205"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_6the3"]
+[ext_resource type="PackedScene" uid="uid://bya47mfrurwvr" path="res://Content/Demo/Assets/Terrain/Obstacles/RobotArm/RobotArm.glb" id="2_hbf4g"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h68gc"]
+height = 0.568874
+radius = 0.76852
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ayf2x"]
+size = Vector3(0.459717, 0.591736, 0.561768)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ica7q"]
+size = Vector3(0.10553, 0.850891, 0.142334)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e6c4k"]
+size = Vector3(0.0900574, 1.39844, 0.208984)
+
+[node name="RobotArmObstacle" type="StaticBody3D"]
+script = ExtResource("1_6the3")
+
+[node name="RobotArm" parent="." instance=ExtResource("2_hbf4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06987, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.290761, 0)
+shape = SubResource("CylinderShape3D_h68gc")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0106354, 2.06407, 1.02933)
+shape = SubResource("BoxShape3D_ayf2x")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.509342, -0.860564, 0, 0.860564, 0.509342, 0.00975037, 2.03715, 0.532244)
+shape = SubResource("BoxShape3D_ica7q")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.949568, -0.313562, 0, 0.313562, 0.949568, -0.000106812, 1.31032, 0.057727)
+shape = SubResource("BoxShape3D_e6c4k")

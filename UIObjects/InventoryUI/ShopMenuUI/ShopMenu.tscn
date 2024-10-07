@@ -1,0 +1,213 @@
+[gd_scene load_steps=13 format=3 uid="uid://cfcg4n5b4ptpt"]
+
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ShopMenuUI/ShopMenu.gd" id="1_6wg17"]
+[ext_resource type="PackedScene" uid="uid://3qiobxm5gx6k" path="res://UIObjects/InventoryUI/ShopMenuUI/BuyMenuUI.tscn" id="1_w43pc"]
+[ext_resource type="PackedScene" uid="uid://c8mho4n2nyho0" path="res://UIObjects/InventoryUI/ShopMenuUI/PlayerShopInventoryUI.tscn" id="2_aowtd"]
+[ext_resource type="PackedScene" uid="uid://bun0dluw6vfvl" path="res://UIObjects/InventoryUI/ShopMenuUI/ShopInventoryUI.tscn" id="2_vaxs0"]
+[ext_resource type="PackedScene" uid="uid://c1rpamlvr7ceb" path="res://UIObjects/InventoryUI/ShopMenuUI/SellMenuUI.tscn" id="3_vdnno"]
+[ext_resource type="FontFile" uid="uid://jjpdtk4jb6ea" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="5_at77j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_no2ba"]
+bg_color = Color(0.0352941, 0.0352941, 0.0352941, 0.662745)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_up3ob"]
+bg_color = Color(0.0768361, 0.0768358, 0.0768356, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmj8j"]
+bg_color = Color(0.0768361, 0.0768358, 0.0768356, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbh7l"]
+bg_color = Color(0.489623, 0.489622, 0.489621, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uksr"]
+bg_color = Color(0.847475, 0.847474, 0.847474, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oelfq"]
+bg_color = Color(0.0768361, 0.0768358, 0.0768356, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[node name="ShopMenu" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6wg17")
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.5
+anchor_right = 0.95
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_no2ba")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 140
+
+[node name="SellMenuUI" parent="PanelContainer2/MarginContainer/MarginContainer" instance=ExtResource("3_vdnno")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="BuyMenuUI" parent="PanelContainer2/MarginContainer/MarginContainer" instance=ExtResource("1_w43pc")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_up3ob")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_at77j")
+theme_override_font_sizes/font_size = 32
+text = "Inventory"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer2/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(620, 600)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="PlayerShopInventoryUI" parent="PanelContainer2/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" instance=ExtResource("2_aowtd")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+border_size = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_xmj8j")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2/MarginContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/MarginContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ShopLabel" type="Label" parent="PanelContainer2/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_at77j")
+theme_override_font_sizes/font_size = 32
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="ShopInventoryUI" parent="PanelContainer2/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer" instance=ExtResource("2_vaxs0")]
+custom_minimum_size = Vector2(620, 600)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 50
+
+[node name="CloseShopButton" type="Button" parent="PanelContainer2/MarginContainer3"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("5_at77j")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_sbh7l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2uksr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oelfq")
+text = "Close Shop"
+
+[connection signal="successful_sale" from="PanelContainer2/MarginContainer/MarginContainer/SellMenuUI" to="." method="_on_sell_menu_ui_successful_sale"]
+[connection signal="he_bought" from="PanelContainer2/MarginContainer/MarginContainer/BuyMenuUI" to="." method="_on_buy_menu_ui_he_bought"]
+[connection signal="new_item_entry_selected" from="PanelContainer2/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer/ShopInventoryUI" to="." method="_on_shop_inventory_ui_new_item_entry_selected"]
+[connection signal="pressed" from="PanelContainer2/MarginContainer3/CloseShopButton" to="." method="on_quit_button_clicked"]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqyssc1ohumkm"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Debugging/DebugMaster.gd" id="1_4l22t"]
+[ext_resource type="PackedScene" uid="uid://c0kocrpqd5x8l" path="res://BaseGameObjects/Debugging/MessageBox/MessageBox.tscn" id="2_ylam8"]
+
+[node name="DebugMaster" type="Node"]
+script = ExtResource("1_4l22t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 31
+
+[node name="MessageBox" parent="CanvasLayer" instance=ExtResource("2_ylam8")]

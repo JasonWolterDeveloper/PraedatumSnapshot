@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b7r13se5x6sxu"
+path="res://.godot/imported/Karl Casey - Technoir - 07 Cursed.ogg-0de3b1743437a5bed2d1dbf09d63d3df.oggvorbisstr"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Music/Ambient/Karl Casey - Technoir - 07 Cursed.ogg"
+dest_files=["res://.godot/imported/Karl Casey - Technoir - 07 Cursed.ogg-0de3b1743437a5bed2d1dbf09d63d3df.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

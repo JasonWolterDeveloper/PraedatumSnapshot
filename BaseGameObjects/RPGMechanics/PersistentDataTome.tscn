@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://db2iv7g2ut714"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/PersistentDataTome.gd" id="1_nsyih"]
+
+[node name="PersistentDataTome" type="Node"]
+script = ExtResource("1_nsyih")

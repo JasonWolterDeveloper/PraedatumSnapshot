@@ -1,0 +1,234 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckiaaj8fysaxo"]
+
+[ext_resource type="Script" path="res://UIObjects/AvalonMenu/StashMenu/StashMenu.gd" id="1_p0s0d"]
+[ext_resource type="PackedScene" uid="uid://ef8m0dhykqcp" path="res://UIObjects/InventoryUI/ItemHolderUI/StorageUI.tscn" id="2_1yjjr"]
+[ext_resource type="PackedScene" uid="uid://do6624cqw3t3q" path="res://UIObjects/InventoryUI/ItemDescription/ItemPopupLabel.tscn" id="2_4wc8m"]
+[ext_resource type="FontFile" uid="uid://jjpdtk4jb6ea" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_xdq4q"]
+[ext_resource type="PackedScene" uid="uid://df722gkjs4pf8" path="res://UIObjects/InventoryUI/ItemHolderUI/LoadoutSlotUI.tscn" id="3_mt71v"]
+[ext_resource type="PackedScene" uid="uid://bsn2qp52mn3pq" path="res://UIObjects/PlayerHUD/Hotbar/Hotbar.tscn" id="5_s4n0u"]
+[ext_resource type="PackedScene" uid="uid://bdg76kaxfhkh8" path="res://UIObjects/InventoryUI/ItemDescription/ItemDetailMenuControl.tscn" id="6_jv8xn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xctq"]
+bg_color = Color(0, 0, 0, 0.694118)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="StashMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p0s0d")
+
+[node name="ItemPopupLabel" parent="." instance=ExtResource("2_4wc8m")]
+visible = false
+layout_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.5
+offset_top = -495.0
+offset_right = 493.5
+offset_bottom = 495.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
+
+[node name="InventoryPanel" type="Panel" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xctq")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_xdq4q")
+theme_override_font_sizes/font_size = 24
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerMainStorageUI" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer" instance=ExtResource("2_1yjjr")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ArmourSlotPanel" type="Panel" parent="HBoxContainer/MarginContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(350, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xctq")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer3/VBoxContainer/ArmourSlotPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer3/VBoxContainer/ArmourSlotPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer3/VBoxContainer/ArmourSlotPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_xdq4q")
+theme_override_font_sizes/font_size = 24
+text = "Armour Slot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerArmourSlotUI" parent="HBoxContainer/MarginContainer3/VBoxContainer/ArmourSlotPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_mt71v")]
+layout_mode = 2
+grid_square_width = 3
+grid_square_height = 3
+
+[node name="BackSlotPanel" type="Panel" parent="HBoxContainer/MarginContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(350, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xctq")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer3/VBoxContainer/BackSlotPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer3/VBoxContainer/BackSlotPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer3/VBoxContainer/BackSlotPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_xdq4q")
+theme_override_font_sizes/font_size = 24
+text = "Backpack Slot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerBackpackSlotControl" parent="HBoxContainer/MarginContainer3/VBoxContainer/BackSlotPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_mt71v")]
+layout_mode = 2
+grid_square_width = 3
+grid_square_height = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
+
+[node name="StashPanel" type="Panel" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xctq")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_xdq4q")
+theme_override_font_sizes/font_size = 24
+text = "Stash"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 700)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="StashStorageUI" parent="HBoxContainer/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer" instance=ExtResource("2_1yjjr")]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 45
+
+[node name="Hotbar" parent="MarginContainer" instance=ExtResource("5_s4n0u")]
+custom_minimum_size = Vector2(1920, 80)
+layout_mode = 2
+
+[node name="ItemDetailMenuControl" parent="." instance=ExtResource("6_jv8xn")]
+visible = false
+layout_mode = 1

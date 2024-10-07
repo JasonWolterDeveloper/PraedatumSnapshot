@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh02p23xeoj75"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_avxpe"]
+[ext_resource type="PackedScene" uid="uid://dwhqtiwvdck7y" path="res://Content/Demo/Assets/Terrain/Greebles/CardboardBoxes/SmallBox/SmallCardboardBoxAjar.glb" id="2_yckt7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y78h1"]
+size = Vector3(1.11777, 0.132227, 0.682959)
+
+[node name="CardboardBoxSmallAjarGreeble" type="Node3D"]
+
+[node name="Obstacle" type="StaticBody3D" parent="."]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_avxpe")
+
+[node name="SmallCardboardBoxAjar" parent="Obstacle" instance=ExtResource("2_yckt7")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -0.18976, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0616638, 0.0653864, 0.0907105)
+shape = SubResource("BoxShape3D_y78h1")

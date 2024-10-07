@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://o2b1t8rvxope"]
+
+[ext_resource type="PackedScene" uid="uid://dfpgui17nup0r" path="res://BaseGameObjects/InteractableObjects/InteractableObject.tscn" id="1_ni7ly"]
+[ext_resource type="Script" path="res://BaseGameObjects/InteractableObjects/Doors/Door.gd" id="2_sx7p3"]
+
+[node name="Door" instance=ExtResource("1_ni7ly")]
+script = ExtResource("2_sx7p3")
+destroyable = true
+explosion_resistance = 1
+close_time = 1.0
+open_time = 1.0
+locked = false
+key_codes = Array[String]([])
+lock_level = 0
+unlock_prompt_text = "Unlock Door"
+allow_if_activated = true
+interaction_prompt_text = "Open Door"
+
+[node name="RightOpenPosition" type="Marker3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="LeftOpenPosition" type="Marker3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="RightClosePosition" type="Marker3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+
+[node name="LeftClosePosition" type="Marker3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="RightDoor" type="StaticBody3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+
+[node name="LeftDoor" type="StaticBody3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="InnerBombPosition" type="Marker3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+
+[node name="OuterBombPosition" type="Marker3D" parent="." index="9"]
+
+[node name="Bomb" type="Node3D" parent="." index="10"]
+visible = false

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bmns83ixnseqd"
+path="res://.godot/imported/Karl Casey - Technoir - 04 Covenant.ogg-81b714f6bdbdafa7357ac05bc6e87f43.oggvorbisstr"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Music/Ambient/Karl Casey - Technoir - 04 Covenant.ogg"
+dest_files=["res://.godot/imported/Karl Casey - Technoir - 04 Covenant.ogg-81b714f6bdbdafa7357ac05bc6e87f43.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

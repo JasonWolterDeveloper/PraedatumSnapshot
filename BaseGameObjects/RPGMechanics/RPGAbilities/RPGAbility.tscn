@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8nlxgxejug7b"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGAbilities/RPGAbility.gd" id="1_ignfs"]
+
+[node name="RPGAbility" type="Node"]
+script = ExtResource("1_ignfs")

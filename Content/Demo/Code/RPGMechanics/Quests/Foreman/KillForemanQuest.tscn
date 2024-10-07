@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://ta1j0rdg10do"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Quests/Quest.gd" id="1_a2wcu"]
+[ext_resource type="Script" path="res://BaseGameObjects/TriggerSystem/ConditionEvaluator.gd" id="2_5tr4r"]
+[ext_resource type="PackedScene" uid="uid://b1yl8ra0b0yva" path="res://BaseGameObjects/RPGMechanics/Quests/QuestStep.tscn" id="2_vxfq3"]
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/ConditionEvaluators/QuestStatusConditionEvaluator.gd" id="3_ej5df"]
+[ext_resource type="PackedScene" uid="uid://bbywr7sy1uqut" path="res://Content/Demo/Code/Items/Aid/Experience/TomeOfExperience.tscn" id="3_ilv0v"]
+[ext_resource type="PackedScene" uid="uid://f6hgb2xt586e" path="res://Content/Default/Code/Items/Scrip.tscn" id="4_0p1hc"]
+[ext_resource type="PackedScene" uid="uid://bu787mbegg5wp" path="res://Content/Demo/Code/Items/Weapons/Barracuda/Barracuda.tscn" id="5_4n85i"]
+
+[sub_resource type="Resource" id="Resource_svmdc"]
+script = ExtResource("3_ej5df")
+quest_id = "foreman_part_2"
+quest_step_id = ""
+is_started = false
+is_completed = true
+inverted = false
+
+[node name="KillForemanQuest" type="Node"]
+script = ExtResource("1_a2wcu")
+can_complete_if_all_steps_complete = true
+availability_conditions = Array[ExtResource("2_5tr4r")]([SubResource("Resource_svmdc")])
+display_name = "Retire The Foreman"
+quest_id = "kill_foreman"
+quest_description = "It is time. Go to the Foreman's Office and retire him."
+should_award_experience = false
+
+[node name="ActivateForemanStep" parent="." instance=ExtResource("2_vxfq3")]
+quest_step_id = "activate_foreman"
+display_name = "Activate the Foreman"
+quest_waypoint_id = "activate_foreman_waypoint"
+
+[node name="KillForeman" parent="." instance=ExtResource("2_vxfq3")]
+quest_step_id = "retire_foreman"
+display_name = "Retire the Foreman"
+quest_waypoint_id = "kill_foreman_waypoint"
+
+[node name="QuestReward" type="Node3D" parent="."]
+
+[node name="TomeOfExperience" parent="QuestReward" instance=ExtResource("3_ilv0v")]
+
+[node name="TomeOfExperience2" parent="QuestReward" instance=ExtResource("3_ilv0v")]
+
+[node name="Scrip" parent="QuestReward" instance=ExtResource("4_0p1hc")]
+current_quantity = 2000
+
+[node name="Barracuda" parent="QuestReward" instance=ExtResource("5_4n85i")]

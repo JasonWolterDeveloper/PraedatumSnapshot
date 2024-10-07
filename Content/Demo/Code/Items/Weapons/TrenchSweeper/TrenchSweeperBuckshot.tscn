@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbi2twlj3jw2n"]
+
+[ext_resource type="PackedScene" uid="uid://bvrw0a7odqoc6" path="res://BaseGameObjects/Combat/Bullets/Buckshot.tscn" id="1_qfo0r"]
+[ext_resource type="PackedScene" uid="uid://iqqamvrlbr4r" path="res://Content/Demo/Code/Items/Weapons/TrenchSweeper/TrenchSweeperPellet.tscn" id="2_88w8o"]
+
+[node name="Buckshot" instance=ExtResource("1_qfo0r")]
+pellet_scene = ExtResource("2_88w8o")
+number_of_pellets = 6
+spread = 0.05
+damage = 0
+speed = 0

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpx60ptdlvsa1"]
+
+[ext_resource type="PackedScene" uid="uid://df86l585lhioq" path="res://Content/Demo/Assets/Items/ResourceItems/Special/Food/Microwave/Microwave.glb" id="1_7o2gp"]
+
+[node name="MicrowaveGroundModel" type="Node3D"]
+
+[node name="Microwave2" parent="." instance=ExtResource("1_7o2gp")]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 0, 0, -0.20363)

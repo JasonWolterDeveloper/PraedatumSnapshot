@@ -1,0 +1,192 @@
+[gd_scene load_steps=18 format=3 uid="uid://b58jmry2qtrlm"]
+
+[ext_resource type="Script" path="res://UIObjects/MessageUI/HintControl/HintControl.gd" id="1_1l5xx"]
+[ext_resource type="Theme" uid="uid://q8fchd6stpns" path="res://UIObjects/Themes/CyberTheme.tres" id="1_3xk0l"]
+[ext_resource type="Texture2D" uid="uid://cup0hq0cff7xs" path="res://UIObjects/Assets/ConversationUI/DefaultPortrait.png" id="2_lleo3"]
+[ext_resource type="Shader" path="res://ScratchPad/static.gdshader" id="3_8h5ed"]
+[ext_resource type="Shader" path="res://ScratchPad/scan_lines.gdshader" id="4_honhg"]
+
+[sub_resource type="Gradient" id="Gradient_jjdfy"]
+offsets = PackedFloat32Array(0.315, 0.855, 1)
+colors = PackedColorArray(0, 0, 0, 0.619608, 0, 0, 0, 0.47451, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u0plb"]
+gradient = SubResource("Gradient_jjdfy")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1yi7p"]
+texture = SubResource("GradientTexture2D_u0plb")
+
+[sub_resource type="Theme" id="Theme_qwyt6"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_1yi7p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mihpp"]
+shader = ExtResource("3_8h5ed")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rajho"]
+frequency = 0.6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nk6cs"]
+noise = SubResource("FastNoiseLite_rajho")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_afnb2"]
+shader = ExtResource("4_honhg")
+shader_parameter/curvature = 0.0
+shader_parameter/skip = 0.0
+shader_parameter/image_flicker = 0.0
+shader_parameter/vignette_flicker_speed = 0.3
+shader_parameter/vignette_strength = 0.8
+shader_parameter/small_scanlines_speed = 1.0
+shader_parameter/small_scanlines_proximity = 1.0
+shader_parameter/small_scanlines_opacity = 1.0
+shader_parameter/scanlines_opacity = 1.0
+shader_parameter/scanlines_speed = 0.5
+shader_parameter/scanline_thickness = 0.57
+shader_parameter/scanlines_spacing = 0.8
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_nk6cs")
+
+[sub_resource type="Animation" id="Animation_aro8w"]
+resource_name = "FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ucbgl"]
+resource_name = "FadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4d535"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bo8vo"]
+_data = {
+"FadeIn": SubResource("Animation_aro8w"),
+"FadeOut": SubResource("Animation_ucbgl"),
+"RESET": SubResource("Animation_4d535")
+}
+
+[node name="HintControl" type="Control"]
+custom_minimum_size = Vector2(800, 200)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("1_1l5xx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_qwyt6")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_3xk0l")
+theme_override_constants/separation = 15
+
+[node name="NameLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme = ExtResource("1_3xk0l")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+bbcode_enabled = true
+text = "[color=green]Legionnaire"
+
+[node name="HintLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "You may throw a grenade by equipping it and then pressing [img width=\"40\" height=\"40\"]res://UIObjects/Assets/InputIcons/Mouse_Left_Key_Dark.png[/img]"
+scroll_active = false
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_3xk0l")
+
+[node name="Portrait" type="TextureRect" parent="PanelContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+texture = ExtResource("2_lleo3")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/Portrait"]
+material = SubResource("ShaderMaterial_mihpp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="PanelContainer/Portrait"]
+material = SubResource("ShaderMaterial_afnb2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bo8vo")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

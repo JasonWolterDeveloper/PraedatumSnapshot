@@ -1,0 +1,322 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnu3ewcd7p0ai"]
+
+[ext_resource type="PackedScene" uid="uid://bqygu4gs6nvck" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/NormalRooms/Warehouse/WarehouseBaseRoom.tscn" id="1_5irby"]
+[ext_resource type="PackedScene" uid="uid://bgafkpklsn1f" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/ConveyorBelt/ConveyorBelt.tscn" id="2_2ctvu"]
+[ext_resource type="PackedScene" uid="uid://dkfd8n7t7nis1" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/Crate/DoubleCrateObstacle.tscn" id="5_opbfs"]
+[ext_resource type="PackedScene" uid="uid://c0y5xg7rr5udg" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/Crate/CrateObstacle.tscn" id="6_duqjf"]
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/Spawners/EnemySpawnPoint.gd" id="7_5uq6n"]
+[ext_resource type="Script" path="res://BaseGameObjects/Behaviour/Patrol/Patrol.gd" id="7_hut4x"]
+[ext_resource type="Script" path="res://BaseGameObjects/Behaviour/Patrol/PatrolWaypoint.gd" id="8_c1fwe"]
+
+[node name="WarehouseBaseRoom" instance=ExtResource("1_5irby")]
+
+[node name="ConveyorBelts" type="Node3D" parent="Terrain/Obstacles" index="1"]
+
+[node name="LeftConveyorBelts" type="Node3D" parent="Terrain/Obstacles/ConveyorBelts" index="0"]
+
+[node name="ConveyorBeltMk2" parent="Terrain/Obstacles/ConveyorBelts/LeftConveyorBelts" index="0" instance=ExtResource("2_2ctvu")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -10.0371, 0, 6)
+
+[node name="ConveyorBeltMk3" parent="Terrain/Obstacles/ConveyorBelts/LeftConveyorBelts" index="1" instance=ExtResource("2_2ctvu")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -10.0371, 0, -6)
+
+[node name="RightConveyorBelts" type="Node3D" parent="Terrain/Obstacles/ConveyorBelts" index="1"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="ConveyorBeltMk4" parent="Terrain/Obstacles/ConveyorBelts/RightConveyorBelts" index="0" instance=ExtResource("2_2ctvu")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.96288, 0, -6)
+
+[node name="ConveyorBeltMk5" parent="Terrain/Obstacles/ConveyorBelts/RightConveyorBelts" index="1" instance=ExtResource("2_2ctvu")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.96288, 0, 6)
+
+[node name="Crates" type="Node3D" parent="Terrain/Obstacles" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="DoubleCrateObstacle" parent="Terrain/Obstacles/Crates" index="0" instance=ExtResource("5_opbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 19)
+
+[node name="DoubleCrateObstacle2" parent="Terrain/Obstacles/Crates" index="1" instance=ExtResource("5_opbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 20.3616)
+
+[node name="DoubleCrateObstacle3" parent="Terrain/Obstacles/Crates" index="2" instance=ExtResource("5_opbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1.35764, 20.3616)
+
+[node name="CrateObstacle2" parent="Terrain/Obstacles/Crates" index="3" instance=ExtResource("6_duqjf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08304, 1.36264, 19)
+
+[node name="Crates5" type="Node3D" parent="Terrain/Obstacles" index="3"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -10.5, 0, -19)
+
+[node name="CrateObstacle2" parent="Terrain/Obstacles/Crates5" index="0" instance=ExtResource("6_duqjf")]
+transform = Transform3D(0.848879, 0, 0.528586, 0, 1, 0, -0.528586, 0, 0.848879, -5.08304, 1.36264, 19.1596)
+
+[node name="CrateObstacle3" parent="Terrain/Obstacles/Crates5" index="1" instance=ExtResource("6_duqjf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.083, 0, 20.5)
+
+[node name="CrateObstacle4" parent="Terrain/Obstacles/Crates5" index="2" instance=ExtResource("6_duqjf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.083, 0, 19)
+
+[node name="CrateObstacle5" parent="Terrain/Obstacles/Crates5" index="3" instance=ExtResource("6_duqjf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.583, 0, 19)
+
+[node name="Crates3" type="Node3D" parent="Terrain/Obstacles" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36.5)
+
+[node name="DoubleCrateObstacle" parent="Terrain/Obstacles/Crates3" index="0" instance=ExtResource("5_opbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 19)
+
+[node name="DoubleCrateObstacle2" parent="Terrain/Obstacles/Crates3" index="1" instance=ExtResource("5_opbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 20.3616)
+
+[node name="DoubleCrateObstacle3" parent="Terrain/Obstacles/Crates3" index="2" instance=ExtResource("5_opbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1.35764, 20.3616)
+
+[node name="DoubleCrateObstacle4" parent="Terrain/Obstacles/Crates3" index="3" instance=ExtResource("5_opbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1.35764, 18.9989)
+
+[node name="Crates4" type="Node3D" parent="Terrain/Obstacles" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -36.5)
+
+[node name="DoubleCrateObstacle" parent="Terrain/Obstacles/Crates4" index="0" instance=ExtResource("5_opbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 19)
+
+[node name="DoubleCrateObstacle2" parent="Terrain/Obstacles/Crates4" index="1" instance=ExtResource("5_opbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 20.3616)
+
+[node name="Crates2" type="Node3D" parent="Terrain/Obstacles" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, -1)
+
+[node name="DoubleCrateObstacle" parent="Terrain/Obstacles/Crates2" index="0" instance=ExtResource("5_opbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 19)
+
+[node name="DoubleCrateObstacle2" parent="Terrain/Obstacles/Crates2" index="1" instance=ExtResource("5_opbfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 20.3616)
+
+[node name="CrateObstacle2" parent="Terrain/Obstacles/Crates2" index="2" instance=ExtResource("6_duqjf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08304, 1.36264, 20.3615)
+
+[node name="EnemySpawnPoint" type="Node3D" parent="EnemySpawners" index="0" node_paths=PackedStringArray("patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 6)
+script = ExtResource("7_5uq6n")
+patrol = NodePath("../../Patrol")
+spawn_black_list = Array[String](["turret"])
+
+[node name="EnemySpawnPoint2" type="Node3D" parent="EnemySpawners" index="1" node_paths=PackedStringArray("patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
+script = ExtResource("7_5uq6n")
+patrol = NodePath("../../Patrol2")
+spawn_black_list = Array[String](["turret"])
+
+[node name="EnemySpawnPoint3" type="Node3D" parent="EnemySpawners" index="2" node_paths=PackedStringArray("patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -6)
+script = ExtResource("7_5uq6n")
+patrol = NodePath("../../Patrol3")
+spawn_black_list = Array[String](["turret"])
+
+[node name="EnemySpawnPoint4" type="Node3D" parent="EnemySpawners" index="3" node_paths=PackedStringArray("patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+script = ExtResource("7_5uq6n")
+patrol = NodePath("../../Patrol4")
+spawn_black_list = Array[String](["turret"])
+
+[node name="EnemySpawnPoint5" type="Node3D" parent="EnemySpawners" index="4" node_paths=PackedStringArray("patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 18.5)
+script = ExtResource("7_5uq6n")
+patrol = NodePath("../../Patrol5")
+spawn_black_list = Array[String](["turret"])
+
+[node name="EnemySpawnPoint6" type="Node3D" parent="EnemySpawners" index="5" node_paths=PackedStringArray("patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 18.5)
+script = ExtResource("7_5uq6n")
+patrol = NodePath("../../Patrol6")
+spawn_black_list = Array[String](["turret"])
+
+[node name="EnemySpawnPoint7" type="Node3D" parent="EnemySpawners" index="6" node_paths=PackedStringArray("patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -16)
+script = ExtResource("7_5uq6n")
+patrol = NodePath("../../Patrol7")
+spawn_black_list = Array[String](["turret"])
+
+[node name="EnemySpawnPoint8" type="Node3D" parent="EnemySpawners" index="7" node_paths=PackedStringArray("patrol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -16)
+script = ExtResource("7_5uq6n")
+patrol = NodePath("../../Patrol8")
+spawn_black_list = Array[String](["turret"])
+
+[node name="TurretSpawn1" type="Node3D" parent="EnemySpawners" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+script = ExtResource("7_5uq6n")
+spawn_white_list = Array[String](["turret"])
+
+[node name="TurretSpawn2" type="Node3D" parent="EnemySpawners" index="9"]
+script = ExtResource("7_5uq6n")
+spawn_white_list = Array[String](["turret"])
+
+[node name="TurretSpawn3" type="Node3D" parent="EnemySpawners" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+script = ExtResource("7_5uq6n")
+spawn_white_list = Array[String](["turret"])
+
+[node name="Patrol" type="Node3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 6)
+script = ExtResource("7_hut4x")
+patrol_type = 1
+
+[node name="PatrolWaypoint" type="Marker3D" parent="Patrol" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 2)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint2" type="Marker3D" parent="Patrol" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint3" type="Marker3D" parent="Patrol" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint4" type="Marker3D" parent="Patrol" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -2)
+script = ExtResource("8_c1fwe")
+
+[node name="Patrol5" type="Node3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 18.5)
+script = ExtResource("7_hut4x")
+
+[node name="PatrolWaypoint" type="Marker3D" parent="Patrol5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3.5)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint2" type="Marker3D" parent="Patrol5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3.5)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint3" type="Marker3D" parent="Patrol5" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2.5)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint4" type="Marker3D" parent="Patrol5" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2.5)
+script = ExtResource("8_c1fwe")
+
+[node name="Patrol6" type="Node3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 18.5)
+script = ExtResource("7_hut4x")
+
+[node name="PatrolWaypoint" type="Marker3D" parent="Patrol6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3.5)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint2" type="Marker3D" parent="Patrol6" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3.5)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint3" type="Marker3D" parent="Patrol6" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2.5)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint4" type="Marker3D" parent="Patrol6" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2.5)
+script = ExtResource("8_c1fwe")
+
+[node name="Patrol7" type="Node3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -17.5)
+script = ExtResource("7_hut4x")
+
+[node name="PatrolWaypoint" type="Marker3D" parent="Patrol7" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3.5)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint2" type="Marker3D" parent="Patrol7" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3.5)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint3" type="Marker3D" parent="Patrol7" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2.5)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint4" type="Marker3D" parent="Patrol7" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2.5)
+script = ExtResource("8_c1fwe")
+
+[node name="Patrol8" type="Node3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -17.5)
+script = ExtResource("7_hut4x")
+
+[node name="PatrolWaypoint" type="Marker3D" parent="Patrol8" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3.5)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint2" type="Marker3D" parent="Patrol8" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3.5)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint3" type="Marker3D" parent="Patrol8" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2.5)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint4" type="Marker3D" parent="Patrol8" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2.5)
+script = ExtResource("8_c1fwe")
+
+[node name="Patrol2" type="Node3D" parent="." index="11"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, 6)
+script = ExtResource("7_hut4x")
+patrol_type = 1
+
+[node name="PatrolWaypoint" type="Marker3D" parent="Patrol2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 2)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint2" type="Marker3D" parent="Patrol2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint3" type="Marker3D" parent="Patrol2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint4" type="Marker3D" parent="Patrol2" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -2)
+script = ExtResource("8_c1fwe")
+
+[node name="Patrol3" type="Node3D" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -6)
+script = ExtResource("7_hut4x")
+patrol_type = 1
+
+[node name="PatrolWaypoint" type="Marker3D" parent="Patrol3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 2)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint2" type="Marker3D" parent="Patrol3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint3" type="Marker3D" parent="Patrol3" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint4" type="Marker3D" parent="Patrol3" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -2)
+script = ExtResource("8_c1fwe")
+
+[node name="Patrol4" type="Node3D" parent="." index="13"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, -6)
+script = ExtResource("7_hut4x")
+patrol_type = 1
+
+[node name="PatrolWaypoint" type="Marker3D" parent="Patrol4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 2)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint2" type="Marker3D" parent="Patrol4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint3" type="Marker3D" parent="Patrol4" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+script = ExtResource("8_c1fwe")
+
+[node name="PatrolWaypoint4" type="Marker3D" parent="Patrol4" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -2)
+script = ExtResource("8_c1fwe")

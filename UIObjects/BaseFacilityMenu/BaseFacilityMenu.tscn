@@ -1,0 +1,154 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1jqo2c8ws4ek"]
+
+[ext_resource type="Script" path="res://UIObjects/BaseFacilityMenu/BaseFacilityMenu.gd" id="1_ptjcw"]
+[ext_resource type="FontFile" uid="uid://c65lbbnt3io18" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_dyob0"]
+[ext_resource type="PackedScene" uid="uid://2pshw5b85lpp" path="res://UIObjects/BaseFacilityMenu/Crafting/UIElements/CraftingRecipeUIElement.tscn" id="2_txyl6"]
+[ext_resource type="PackedScene" uid="uid://daaquri1r4oqu" path="res://UIObjects/BaseFacilityMenu/Components/BaseFacilityLevelUI/BaseFacililtyLevelUIElement.tscn" id="3_vhq8n"]
+[ext_resource type="PackedScene" uid="uid://bk11m1hcmfxm0" path="res://UIObjects/BaseFacilityMenu/Crafting/UpgradeRecipeUI.tscn" id="5_w81hv"]
+[ext_resource type="PackedScene" uid="uid://c6tncfnj1wubq" path="res://UIObjects/BaseFacilityMenu/Crafting/UIElements/CraftingCategoryControl/CraftingCategoryControl.tscn" id="6_q8mcq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfjfj"]
+bg_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_014xk"]
+
+[node name="BaseFacilityMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ptjcw")
+recipe_ui_scene = ExtResource("2_txyl6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tfjfj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="FacilityName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dyob0")
+theme_override_font_sizes/font_size = 40
+text = "Title"
+horizontal_alignment = 1
+
+[node name="BaseFacililtyLevelUIElement" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_vhq8n")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_dyob0")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Example"
+fit_content = true
+
+[node name="UpgradeContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer"]
+layout_mode = 2
+
+[node name="UpgradeLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dyob0")
+theme_override_font_sizes/font_size = 28
+text = "Upgrade"
+horizontal_alignment = 1
+
+[node name="Separator" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_014xk")
+
+[node name="UpgradeRecipeUI" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer/VBoxContainer" instance=ExtResource("5_w81hv")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CraftingContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/CraftingContainer"]
+layout_mode = 2
+
+[node name="Crafting" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/CraftingContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dyob0")
+theme_override_font_sizes/font_size = 28
+text = "Crafting
+"
+horizontal_alignment = 1
+
+[node name="Separator" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/CraftingContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_014xk")
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/CraftingContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="CraftingCategoryControl" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/CraftingContainer/VBoxContainer/ScrollContainer2" instance=ExtResource("6_q8mcq")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+recipe_ui_scene = ExtResource("2_txyl6")
+
+[node name="UseButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Use"
+
+[node name="BackButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ExitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/UseButton" to="." method="_on_use_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer2/ExitButton" to="." method="_on_exit_button_pressed"]

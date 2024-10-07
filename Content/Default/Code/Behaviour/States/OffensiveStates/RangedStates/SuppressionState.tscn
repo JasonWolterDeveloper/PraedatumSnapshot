@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://unh1e80vji04"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/RangedStates/SuppressionState.gd" id="1_clkd7"]
+
+[node name="SuppressionState" type="Node3D"]
+script = ExtResource("1_clkd7")
+attack_delay = 0.0
+maximum_attack_range = 3.0
+desired_attack_range = 2.0

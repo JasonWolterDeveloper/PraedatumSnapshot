@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://sj1wco8dt531"]
+
+[ext_resource type="PackedScene" uid="uid://5cvaaawyo63h" path="res://Content/Demo/Assets/Items/HealthPotion/HealthPotion.glb" id="1_5vpjm"]
+
+[node name="HealthPotionGroundModel" instance=ExtResource("1_5vpjm")]
+transform = Transform3D(-2.62268e-09, -0.06, 0, 0.06, -2.62268e-09, 0, 0, 0, 0.06, 0, 0.0609007, 0)

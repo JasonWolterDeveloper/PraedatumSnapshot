@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5rpufxne7fc3"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Events/WeaponEvents/RateOfFireEvent.gd" id="1_hx64c"]
+
+[node name="RateOfFireEvent" type="Node"]
+script = ExtResource("1_hx64c")

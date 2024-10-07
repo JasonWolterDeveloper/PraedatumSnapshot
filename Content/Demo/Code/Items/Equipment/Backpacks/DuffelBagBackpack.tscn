@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://byp5b2hvy1q6e"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/Equipment/Backpack.gd" id="1_ggm8t"]
+
+[node name="DuffelBagBackpack" type="Node3D"]
+script = ExtResource("1_ggm8t")
+storage_height = 6
+display_name = "Duffel Bag"
+item_id = "duffel_bag"
+description = "This is a duffel"
+default_price = 500
+item_type = 5
+grid_square_width = 2
+grid_square_height = 2

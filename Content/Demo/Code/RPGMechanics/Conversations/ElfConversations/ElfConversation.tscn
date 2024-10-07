@@ -1,0 +1,139 @@
+[gd_scene load_steps=17 format=3 uid="uid://bmdkxj5xtjqhk"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Conversations/Conversation.gd" id="1_s3ml7"]
+[ext_resource type="PackedScene" uid="uid://c4w3qrdn1jree" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationDialogState.tscn" id="2_a62is"]
+[ext_resource type="Resource" uid="uid://cy7pan5b2oo3p" path="res://Content/Demo/Code/RPGMechanics/Conversations/ElfConversations/ElfConversationCharacter.tres" id="3_0iopt"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationDialogState.gd" id="3_qrkla"]
+[ext_resource type="PackedScene" uid="uid://dvhxoohg0r6db" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/ConversationChoiceState.tscn" id="5_8qmc0"]
+[ext_resource type="PackedScene" uid="uid://ds4vdec1i42tc" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/ConversationChoice.tscn" id="6_ib4bd"]
+[ext_resource type="PackedScene" uid="uid://2yic1h00v8q6" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/QuestMenuConversationChoice.tscn" id="6_ng7mp"]
+[ext_resource type="PackedScene" uid="uid://04f1d3v83y1k" path="res://ScratchPad/TestQuests/FetchScrapMetalTestQuest.tscn" id="7_27u8i"]
+[ext_resource type="PackedScene" uid="uid://0wnyqnknnmda" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/Quests/QuestNotStartedConversationChoice.tscn" id="7_517tp"]
+[ext_resource type="PackedScene" uid="uid://dpmsaw2wqi2la" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/Quests/StartQuestConversationChoice.tscn" id="8_n87gn"]
+[ext_resource type="PackedScene" uid="uid://b1g0yivmrpraj" path="res://ScratchPad/TestQuests/FetchCargoManifestTestQuest.tscn" id="8_s8abm"]
+[ext_resource type="PackedScene" uid="uid://ta1j0rdg10do" path="res://Content/Demo/Code/RPGMechanics/Quests/Foreman/KillForemanQuest.tscn" id="9_5qic8"]
+[ext_resource type="PackedScene" uid="uid://d15nfd6tkx7ib" path="res://Content/Demo/Code/RPGMechanics/Quests/Foreman/ForemanPart1.tscn" id="9_owf15"]
+[ext_resource type="PackedScene" uid="uid://cp023wus7hgcv" path="res://Content/Demo/Code/RPGMechanics/Conversations/ElfConversations/ElfConversationStates/ScrapMetalQuestConversation.tscn" id="10_76384"]
+[ext_resource type="PackedScene" uid="uid://bdw6l0sa05b6i" path="res://Content/Demo/Code/RPGMechanics/Quests/Foreman/ForemanPart2.tscn" id="10_xu6xv"]
+[ext_resource type="PackedScene" uid="uid://7m530xflw870" path="res://Content/Demo/Code/RPGMechanics/Quests/SideQuests/Collector/CollectorPart1.tscn" id="11_3cr2h"]
+
+[node name="ElfConversation" type="Node" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_s3ml7")
+initial_state = NodePath("InitialGreeting")
+conversation_root = true
+
+[node name="InitialGreeting" parent="." node_paths=PackedStringArray("next_state") instance=ExtResource("2_a62is")]
+conversation_character = ExtResource("3_0iopt")
+text = "Hi there! I'm going to be the primary quest giver for Praedatum!
+
+It's nice to meet you! "
+next_state = NodePath("../WhatWouldYouLikeToChatState")
+
+[node name="WhatWouldYouLikeToChatState" type="Node" parent="." node_paths=PackedStringArray("next_state")]
+script = ExtResource("3_qrkla")
+conversation_character = ExtResource("3_0iopt")
+text = "What would you like to chat about?"
+next_state = NodePath("../InitialBaseChoices")
+
+[node name="InitialBaseChoices" parent="." instance=ExtResource("5_8qmc0")]
+
+[node name="QuestMenuConversationChoice" parent="InitialBaseChoices" node_paths=PackedStringArray("quest_list") instance=ExtResource("6_ng7mp")]
+quest_list = NodePath("ElfQuestList")
+unique_id = "elf_quest_choice"
+text = "Quests"
+
+[node name="ElfQuestList" type="Node" parent="InitialBaseChoices/QuestMenuConversationChoice"]
+
+[node name="FetchScrapMetalTestQuest" parent="InitialBaseChoices/QuestMenuConversationChoice/ElfQuestList" instance=ExtResource("7_27u8i")]
+
+[node name="FetchCargoManifestTestQuest" parent="InitialBaseChoices/QuestMenuConversationChoice/ElfQuestList" instance=ExtResource("8_s8abm")]
+
+[node name="ForemanPart1" parent="InitialBaseChoices/QuestMenuConversationChoice/ElfQuestList" instance=ExtResource("9_owf15")]
+should_award_experience = false
+
+[node name="ForemanPart2" parent="InitialBaseChoices/QuestMenuConversationChoice/ElfQuestList" instance=ExtResource("10_xu6xv")]
+
+[node name="KillForemanQuest" parent="InitialBaseChoices/QuestMenuConversationChoice/ElfQuestList" instance=ExtResource("9_5qic8")]
+quest_description = "It is time. Go to the Foreman's Office and retire him."
+
+[node name="CollectorPart1" parent="InitialBaseChoices/QuestMenuConversationChoice/ElfQuestList" instance=ExtResource("11_3cr2h")]
+
+[node name="WeatherChoice" parent="InitialBaseChoices" node_paths=PackedStringArray("next_state") instance=ExtResource("6_ib4bd")]
+unique_id = "the_weather_elf_choice"
+text = "The Weather"
+next_state = NodePath("../../Weather")
+
+[node name="LeaveChoice" parent="InitialBaseChoices" node_paths=PackedStringArray("next_state") instance=ExtResource("6_ib4bd")]
+unique_id = "elf_leave_choice"
+text = "Leave"
+next_state = NodePath("../../Farewell")
+
+[node name="Weather" parent="." node_paths=PackedStringArray("next_state") instance=ExtResource("2_a62is")]
+conversation_character = ExtResource("3_0iopt")
+text = "Yeah it's pretty good weather I guess!"
+next_state = NodePath("../WhatWouldYouLikeToChatState")
+
+[node name="Farewell" parent="." instance=ExtResource("2_a62is")]
+conversation_character = ExtResource("3_0iopt")
+text = "Good bye!"
+
+[node name="QuestConversation" type="Node" parent="." node_paths=PackedStringArray("initial_state", "next_state")]
+script = ExtResource("1_s3ml7")
+initial_state = NodePath("QuestGreeting")
+next_state = NodePath("../WhatWouldYouLikeToChatState")
+
+[node name="QuestGreeting" parent="QuestConversation" node_paths=PackedStringArray("next_state") instance=ExtResource("2_a62is")]
+conversation_character = ExtResource("3_0iopt")
+text = "Sure! What Quest Do you Want?"
+next_state = NodePath("../QuestChoices")
+
+[node name="QuestChoices" parent="QuestConversation" instance=ExtResource("5_8qmc0")]
+
+[node name="ForemanConvoBranch" parent="QuestConversation/QuestChoices" node_paths=PackedStringArray("next_state") instance=ExtResource("7_517tp")]
+quest_id = "kill_foreman"
+unique_id = "foreman_convo_choice"
+text = "Retire The Foreman"
+next_state = NodePath("../../../QuestConversationFolderNode/KillForemanQuestConversation")
+
+[node name="ScrapMetalBranch" parent="QuestConversation/QuestChoices" node_paths=PackedStringArray("next_state") instance=ExtResource("6_ib4bd")]
+unique_id = "scrap_metal_branch_choice"
+text = "Fetch Scrap metal"
+next_state = NodePath("../../../QuestConversationFolderNode/ScrapMetalQuestConversation")
+
+[node name="NevermindChoice" parent="QuestConversation/QuestChoices" instance=ExtResource("6_ib4bd")]
+unique_id = "elf_quest_nvm_choice"
+text = "Nevermind"
+
+[node name="QuestConversationFolderNode" type="Node" parent="."]
+
+[node name="KillForemanQuestConversation" type="Node" parent="QuestConversationFolderNode" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_s3ml7")
+initial_state = NodePath("ForemanQuestGreeting")
+
+[node name="ForemanQuestGreeting" parent="QuestConversationFolderNode/KillForemanQuestConversation" node_paths=PackedStringArray("next_state") instance=ExtResource("2_a62is")]
+conversation_character = ExtResource("3_0iopt")
+text = "That foreman's been a pain in the neck for too long. It's about time he took retirement
+
+Plus if you're able to get something with his biosignature, you should be able to access floor 2
+"
+next_state = NodePath("../ForemanQuestDescription")
+
+[node name="ForemanQuestDescription" parent="QuestConversationFolderNode/KillForemanQuestConversation" node_paths=PackedStringArray("next_state") instance=ExtResource("2_a62is")]
+conversation_character = ExtResource("3_0iopt")
+text = "I want you to head to Floor 1 and retire the Foreman.
+
+Can you do that for me?"
+next_state = NodePath("../ForemanQuestChoices")
+
+[node name="ForemanQuestChoices" parent="QuestConversationFolderNode/KillForemanQuestConversation" instance=ExtResource("5_8qmc0")]
+
+[node name="AcceptChoice" parent="QuestConversationFolderNode/KillForemanQuestConversation/ForemanQuestChoices" instance=ExtResource("8_n87gn")]
+quest_scene = ExtResource("9_5qic8")
+unique_id = "accept_foreman_quest"
+text = "Accept Quest"
+
+[node name="RefuseChoice" parent="QuestConversationFolderNode/KillForemanQuestConversation/ForemanQuestChoices" instance=ExtResource("6_ib4bd")]
+unique_id = "refuse_foreman_quest"
+text = "Refuse Quest"
+
+[node name="ScrapMetalQuestConversation" parent="QuestConversationFolderNode" instance=ExtResource("10_76384")]

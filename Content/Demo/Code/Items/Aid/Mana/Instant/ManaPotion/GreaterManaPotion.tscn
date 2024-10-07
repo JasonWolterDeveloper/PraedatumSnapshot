@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkcbcw5ug3af4"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Aid/Health/Instant/HealthPotion.gd" id="1_nwkxd"]
+[ext_resource type="PackedScene" uid="uid://qjgqu8m6jh41" path="res://Content/Demo/Code/Items/Aid/Mana/Instant/ManaPotion/GreaterManaPotionStatusEffect.tscn" id="2_d7tud"]
+[ext_resource type="Texture2D" uid="uid://bj3jr4lf4ximr" path="res://Content/Demo/Assets/Items/Consumables/Instant/GreaterManaPotion/GreaterManaPotionInventoryImage.png" id="3_vxfhg"]
+[ext_resource type="PackedScene" uid="uid://dy4djq6vghycv" path="res://Content/Demo/Assets/Items/Consumables/Instant/GreaterManaPotion/GreaterManaPotionGroundItem.tscn" id="4_rta8r"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="5_a2gu4"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="6_6ovv7"]
+
+[sub_resource type="Resource" id="Resource_15v3e"]
+script = ExtResource("6_6ovv7")
+stat_title = "Restore Rate"
+stat_value = "10.0 / s"
+stat_value_colour = Color(0.0576289, 0.619461, 0.786592, 1)
+
+[sub_resource type="Resource" id="Resource_7487x"]
+script = ExtResource("6_6ovv7")
+stat_title = "Duration"
+stat_value = "7.5 s"
+stat_value_colour = Color(0.342207, 0.342207, 0.342207, 1)
+
+[sub_resource type="Resource" id="Resource_w33m5"]
+script = ExtResource("6_6ovv7")
+stat_title = "Total Restore"
+stat_value = "75.0 MP"
+stat_value_colour = Color(0.0588235, 0.619608, 0.788235, 1)
+
+[sub_resource type="Resource" id="Resource_1cdtt"]
+script = ExtResource("5_a2gu4")
+stat_entry_array = Array[ExtResource("6_6ovv7")]([SubResource("Resource_15v3e"), SubResource("Resource_7487x"), SubResource("Resource_w33m5")])
+
+[node name="GreaterManaPotion" type="Node3D"]
+script = ExtResource("1_nwkxd")
+restoration_status_effect_scene = ExtResource("2_d7tud")
+utility_item_use_message = "Quaffed Greater Mana Potion"
+inventory_image = ExtResource("3_vxfhg")
+ground_3d_model_scene = ExtResource("4_rta8r")
+display_name = "Greater Mana Potion"
+item_id = "greater_mana_potion"
+description = "A magical concoction with re-energizing properties. Quaffing it will gradually restore mana over time.
+
+This potion is more impressive than the standard varient."
+usable_from_inventory = true
+show_quantity_in_ui = true
+default_price = 90
+item_type = 3
+item_stat_entry_collection = SubResource("Resource_1cdtt")
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

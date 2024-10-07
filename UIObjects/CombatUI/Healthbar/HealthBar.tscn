@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://bg365ya67tc63"]
+
+[ext_resource type="Theme" uid="uid://dspqbixoprtdy" path="res://UIObjects/Themes/HUD/DamageBarTheme.tres" id="1_3o4j2"]
+[ext_resource type="Script" path="res://UIObjects/CombatUI/Healthbar/HealthBar.gd" id="1_rlys5"]
+[ext_resource type="PackedScene" uid="uid://ddq8llq7yhetp" path="res://UIObjects/CombatUI/Healthbar/StatSegmentOverlayControl.tscn" id="4_vdq2c"]
+[ext_resource type="Theme" uid="uid://q8fchd6stpns" path="res://UIObjects/Themes/CyberTheme.tres" id="6_fqa6n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xoffb"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.753984, 0.753984, 0.753984, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+
+[sub_resource type="Theme" id="Theme_xssxe"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_xoffb")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dikok"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0ge4"]
+bg_color = Color(0.665, 0.135, 0.143, 1)
+
+[sub_resource type="Theme" id="Theme_cwt4w"]
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_dikok")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_s0ge4")
+
+[node name="HealthBar" type="Control"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rlys5")
+
+[node name="BarContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xssxe")
+
+[node name="MarginContainer" type="MarginContainer" parent="BarContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BarContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="DamageBar" type="ProgressBar" parent="BarContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_3o4j2")
+value = 60.0
+show_percentage = false
+
+[node name="TopHealthBar" type="ProgressBar" parent="BarContainer/MarginContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_cwt4w")
+value = 40.0
+show_percentage = false
+
+[node name="StatSegmentOverlayControl" parent="BarContainer/MarginContainer" instance=ExtResource("4_vdq2c")]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="NoStatLabel" type="Label" parent="."]
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+theme = ExtResource("6_fqa6n")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "None"
+
+[connection signal="resized" from="BarContainer/MarginContainer/TopHealthBar" to="." method="_on_top_health_bar_resized"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

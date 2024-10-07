@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://bep74io4j31pd"]
+
+[ext_resource type="PackedScene" uid="uid://cwupmfqk12mhj" path="res://Content/Demo/Assets/Characters/Enemies/GunDrone/GunDrone.glb" id="1_lskau"]
+[ext_resource type="Script" path="res://Content/Demo/Assets/Characters/Enemies/GunDrone/GunDroneModel.gd" id="2_rhmq1"]
+[ext_resource type="AudioStream" uid="uid://c8nuuupy6q06d" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire1-001.wav" id="3_dwk6k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1k0up"]
+albedo_color = Color(0.97829, 0.674178, 0.28472, 1)
+emission_enabled = true
+emission = Color(0.648617, 0.487999, 5.77569e-07, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="Animation" id="Animation_w08dk"]
+resource_name = "WeaponFire"
+length = 0.065
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponFire:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_xjda6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponFire:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ioup7"]
+_data = {
+"RESET": SubResource("Animation_xjda6"),
+"WeaponFire": SubResource("Animation_w08dk")
+}
+
+[node name="GunDroneModel" instance=ExtResource("1_lskau")]
+script = ExtResource("2_rhmq1")
+
+[node name="WeaponFire" parent="." index="4"]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_1k0up")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WeaponFire" index="0"]
+transform = Transform3D(22.5478, 0, 0, 0, 22.5478, 0, 0, 0, 22.5478, 11.735, 0, 0)
+light_color = Color(0.957756, 0.751903, 0, 1)
+light_energy = 3.0
+
+[node name="GunshotStream" type="AudioStreamPlayer3D" parent="." index="5"]
+stream = ExtResource("3_dwk6k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_ioup7")
+}

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcd827env45l2"]
+
+[ext_resource type="PackedScene" uid="uid://d4e7tduv2knnk" path="res://Content/Demo/Assets/Weapons/TheBackup/BackupPistol.glb" id="1_jni7y"]
+
+[node name="BackupPistolGroundModel" instance=ExtResource("1_jni7y")]
+transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, 0.18, 0, -0.18, -7.86805e-09, 0.103625, 0.0189179, 0.018918)
+
+[node name="MuzzleFlash" parent="." index="10"]
+visible = false

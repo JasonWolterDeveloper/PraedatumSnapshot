@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1u8rrxxknwwf"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/Inventory.gd" id="1_7e2or"]
+[ext_resource type="PackedScene" uid="uid://bpryq34tbjf37" path="res://BaseGameObjects/Inventory/Storage.tscn" id="2_xv520"]
+[ext_resource type="PackedScene" uid="uid://btha885i6m8lm" path="res://BaseGameObjects/Inventory/BackpackSlot.tscn" id="4_pbanl"]
+[ext_resource type="PackedScene" uid="uid://dmo3psl8sib77" path="res://BaseGameObjects/Inventory/LoadoutSlots/ArmourSlot.tscn" id="5_jv5so"]
+
+[node name="Inventory" type="Node3D"]
+script = ExtResource("1_7e2or")
+
+[node name="MainStorage" parent="." instance=ExtResource("2_xv520")]
+grid_square_width = 6
+grid_square_height = 4
+
+[node name="ArmourSlot" parent="." instance=ExtResource("5_jv5so")]
+
+[node name="BackpackSlot" parent="." instance=ExtResource("4_pbanl")]
+
+[connection signal="changed" from="MainStorage" to="." method="on_inventory_changed"]
+[connection signal="changed" from="ArmourSlot" to="." method="on_inventory_changed"]
+[connection signal="changed" from="BackpackSlot" to="." method="on_inventory_size_changed"]

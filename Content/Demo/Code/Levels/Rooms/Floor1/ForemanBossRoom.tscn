@@ -1,0 +1,274 @@
+[gd_scene load_steps=31 format=3 uid="uid://cptnboamdgbk5"]
+
+[ext_resource type="PackedScene" uid="uid://bnb7cbsaksj6d" path="res://BaseGameObjects/Terrain/Rooms/Room.tscn" id="1_lv0jo"]
+[ext_resource type="Texture2D" uid="uid://cifsgyri2450u" path="res://Content/Demo/Assets/Terrain/Floors/Textures/BaseTileMap.png" id="2_mgwdc"]
+[ext_resource type="PackedScene" uid="uid://baxtpgybwbkqw" path="res://Content/Demo/Code/Enemies/Bosses/TheForeman/TheForeman.tscn" id="2_w3ibf"]
+[ext_resource type="PackedScene" uid="uid://b8w5fvpe0bkxt" path="res://Content/Demo/Code/Levels/Rooms/MonsterClosets/Floor1MonsterCloset.tscn" id="2_wqu6u"]
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="3_ws1ex"]
+[ext_resource type="PackedScene" uid="uid://bnideqtfbn8ib" path="res://BaseGameObjects/TriggerSystem/Trigger.tscn" id="4_xcrmg"]
+[ext_resource type="PackedScene" uid="uid://bwfg8ax8fbphh" path="res://Content/Default/Code/TriggerSystem/Effects/ClearForceLockDoorTriggerEffect.tscn" id="5_01fe4"]
+[ext_resource type="PackedScene" uid="uid://bah344ndkm5fi" path="res://Content/Default/Code/TriggerSystem/Effects/CloseAndForceLockDoorTriggerEffect.tscn" id="5_7coud"]
+[ext_resource type="PackedScene" uid="uid://3eka5872opal" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/SupportPiller/SupportPillar.tscn" id="5_hpcjn"]
+[ext_resource type="PackedScene" uid="uid://c3b154ughxtoj" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/OfficeDeskAndChair/DeskAndChairObstacle.tscn" id="5_kl2n6"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="5_qsgdf"]
+[ext_resource type="PackedScene" uid="uid://bkhagmsliovx1" path="res://Content/Demo/Code/Levels/Rooms/RoomConnectors/NLIBasicRoomConnector.tscn" id="6_s4r5a"]
+[ext_resource type="PackedScene" uid="uid://b0giptdlyx13u" path="res://Content/Demo/Code/InteractableObjects/TriggerInteractableObjects/TriggerInteractableNLIButtonDesk.tscn" id="7_bf0qc"]
+[ext_resource type="PackedScene" uid="uid://b2loh3gx3tpu1" path="res://Content/Default/Code/TriggerSystem/Effects/StartBossFightTriggerEffect.tscn" id="7_n4lkq"]
+[ext_resource type="PackedScene" uid="uid://cfl4v3aexofgf" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/NLIDoor.tscn" id="8_u48yh"]
+[ext_resource type="PackedScene" uid="uid://ny2cxhdt7asr" path="res://Content/Default/Code/TriggerSystem/Effects/Quests/CompleteQuestStepEffect.tscn" id="8_y3i42"]
+[ext_resource type="PackedScene" uid="uid://btl8xj2xo6ahl" path="res://Content/Default/Code/TriggerSystem/Effects/ActivateMonsterClosetTriggerEffect.tscn" id="10_aoa8k"]
+[ext_resource type="PackedScene" uid="uid://dl5cn5y4l205d" path="res://BaseGameObjects/RPGMechanics/Quests/QuestWaypoint.tscn" id="13_t1oi3"]
+[ext_resource type="PackedScene" uid="uid://bafdbdjpmgphd" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabBasic.tscn" id="17_g8jcq"]
+[ext_resource type="PackedScene" uid="uid://bk8wso3tg1vs4" path="res://BaseGameObjects/Behaviour/Patrol/Patrol.tscn" id="19_n46dd"]
+[ext_resource type="PackedScene" uid="uid://by0du1leu31pl" path="res://BaseGameObjects/Behaviour/Patrol/PatrolWaypoint.tscn" id="20_8u7ds"]
+[ext_resource type="PackedScene" uid="uid://cc5egrv13epry" path="res://Content/Demo/Code/Terrain/Spawners/HiveSpawner.tscn" id="20_ahg4r"]
+[ext_resource type="PackedScene" uid="uid://bi4mx8jcg6f8j" path="res://Content/Demo/Code/Terrain/Spawners/DroneSpawner.tscn" id="20_j5a07"]
+[ext_resource type="PackedScene" uid="uid://gdl8355qtdw" path="res://Content/Demo/Code/Levels/Level1/Rooms/ForemansOffice/ForemanBossGoonsMonsterCloset.tscn" id="22_vd21j"]
+[ext_resource type="PackedScene" uid="uid://dlkt24rw4n47w" path="res://Content/Demo/Code/Enemies/WageCage/Zombie.tscn" id="23_fro68"]
+[ext_resource type="Material" uid="uid://din4ispgmh8a2" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/Resources/NLIDoorHighlightWarningMaterial.tres" id="24_y0m25"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kvgc"]
+size = Vector3(32, 0, 32)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxmqq"]
+albedo_color = Color(0.564962, 0.564962, 0.564962, 1)
+albedo_texture = ExtResource("2_mgwdc")
+metallic = 0.3
+uv1_scale = Vector3(0.05, 0.05, 0.05)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nom0j"]
+size = Vector3(32, 0, 32)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4i4u5"]
+size = Vector3(32, 10, 32)
+
+[node name="ForemanBossRoom" instance=ExtResource("1_lv0jo")]
+display_name = "Foreman's Office"
+
+[node name="Floor1MonsterCloset" parent="." index="0" instance=ExtResource("2_wqu6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -19)
+
+[node name="Foreman" parent="Floor1MonsterCloset" index="7" node_paths=PackedStringArray("spawners", "monster_closets") instance=ExtResource("2_w3ibf")]
+transform = Transform3D(-1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, -1, 0, 1, 0)
+spawners = [NodePath("../../Terrain/HiveSpawner"), NodePath("../../Terrain/HiveSpawner3"), NodePath("../../Terrain/HiveSpawner2"), NodePath("../../Terrain/DroneSpawner"), NodePath("../../Terrain/DroneSpawner4"), NodePath("../../Terrain/DroneSpawner3"), NodePath("../../Terrain/DroneSpawner2")]
+monster_closets = [NodePath("../../ForemanGoonMonsterCloset"), NodePath("../../ForemanGoonMonsterCloset2")]
+should_auto_adjust_y_position = false
+ai_disabled = true
+
+[node name="QuestWaypoint" parent="Floor1MonsterCloset/Foreman" index="12" instance=ExtResource("13_t1oi3")]
+id = "kill_foreman_waypoint"
+
+[node name="Patrol" parent="Floor1MonsterCloset" index="8" instance=ExtResource("19_n46dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 19)
+
+[node name="PatrolWaypoint" parent="Floor1MonsterCloset/Patrol" index="0" instance=ExtResource("20_8u7ds")]
+
+[node name="Triggers" type="Node" parent="." index="1"]
+
+[node name="ForemanDefeatedTrigger" parent="Triggers" index="0" instance=ExtResource("4_xcrmg")]
+trigger_id = "foreman_defeated"
+
+[node name="ClearForceLockTriggerEffect2" parent="Triggers/ForemanDefeatedTrigger" index="0" node_paths=PackedStringArray("door") instance=ExtResource("5_01fe4")]
+door = NodePath("../../../RoomConnectors/ExitToRewardRoom/ExitToRewardRoomDoor")
+
+[node name="CompleteQuestStepEffect" parent="Triggers/ForemanDefeatedTrigger" index="1" instance=ExtResource("8_y3i42")]
+quest_id = "kill_foreman"
+quest_step_id = "retire_foreman"
+
+[node name="ForemanFightStartTrigger" parent="Triggers" index="1" instance=ExtResource("4_xcrmg")]
+trigger_id = "start_foreman_fight"
+allow_if_activated = true
+
+[node name="CloseAndForceLockDoorTriggerEffect" parent="Triggers/ForemanFightStartTrigger" index="0" node_paths=PackedStringArray("door") instance=ExtResource("5_7coud")]
+door = NodePath("../../../RoomConnectors/EntranceToRoom/RoomEntranceDoor")
+
+[node name="CloseAndForceLockDoorTriggerEffect2" parent="Triggers/ForemanFightStartTrigger" index="1" node_paths=PackedStringArray("door") instance=ExtResource("5_7coud")]
+door = NodePath("../../../RoomConnectors/ExitToRewardRoom/ExitToRewardRoomDoor")
+
+[node name="StartBossFightTriggerEffect" parent="Triggers/ForemanFightStartTrigger" index="2" node_paths=PackedStringArray("enemy") instance=ExtResource("7_n4lkq")]
+enemy = NodePath("../../../Floor1MonsterCloset/Foreman")
+
+[node name="ActivateMonsterClosetTriggerEffect" parent="Triggers/ForemanFightStartTrigger" index="3" node_paths=PackedStringArray("monster_cloest_to_activate") instance=ExtResource("10_aoa8k")]
+monster_cloest_to_activate = NodePath("../../../Floor1MonsterCloset")
+
+[node name="CompleteQuestStepEffect" parent="Triggers/ForemanFightStartTrigger" index="4" instance=ExtResource("8_y3i42")]
+quest_id = "kill_foreman"
+quest_step_id = "activate_foreman"
+
+[node name="TriggerInteractableNLIButtonDesk" parent="." index="2" instance=ExtResource("7_bf0qc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.32145, 1.18594, -6.46636)
+collision_layer = 1024
+collision_mask = 0
+trigger_id_to_activate = "start_foreman_fight"
+display_name = ""
+allow_if_activated = false
+display_text_on_activation = true
+text_to_display = "Foreman Activated"
+text_display_time = 5.1
+interaction_prompt_text = "Activate Foreman"
+interaction_prompt_subtext = ""
+spawn_ticket_cost = 1
+
+[node name="QuestWaypoint" parent="TriggerInteractableNLIButtonDesk" index="3" instance=ExtResource("13_t1oi3")]
+id = "activate_foreman_waypoint"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor" index="0"]
+mesh = SubResource("BoxMesh_4kvgc")
+surface_material_override/0 = SubResource("StandardMaterial3D_fxmqq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Floor" index="1"]
+shape = SubResource("BoxShape3D_nom0j")
+
+[node name="Endcaps" type="Node3D" parent="Terrain" index="1"]
+
+[node name="OfficeWallEndcap" parent="Terrain/Endcaps" index="0" instance=ExtResource("3_ws1ex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -16)
+
+[node name="OfficeWallEndcap2" parent="Terrain/Endcaps" index="1" instance=ExtResource("3_ws1ex")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, 0, 16)
+
+[node name="OfficeWallEndcap3" parent="Terrain/Endcaps" index="2" instance=ExtResource("3_ws1ex")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16, 0, 16)
+
+[node name="OfficeWallEndcap4" parent="Terrain/Endcaps" index="3" instance=ExtResource("3_ws1ex")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 16, 0, -16)
+
+[node name="Walls" type="Node3D" parent="Terrain" index="2"]
+
+[node name="OfficeWallPrefabBasic" parent="Terrain/Walls" index="0" instance=ExtResource("17_g8jcq")]
+transform = Transform3D(2.6, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 16)
+
+[node name="OfficeWallPrefabBasic2" parent="Terrain/Walls" index="1" instance=ExtResource("17_g8jcq")]
+transform = Transform3D(2.6, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 16)
+
+[node name="OfficeWallPrefabBasic3" parent="Terrain/Walls" index="2" instance=ExtResource("17_g8jcq")]
+transform = Transform3D(-2.6, 0, -8.74228e-08, 0, 1, 0, 2.27299e-07, 0, -1, -8.5, 0, -16)
+
+[node name="OfficeWallPrefabBasic6" parent="Terrain/Walls" index="3" instance=ExtResource("17_g8jcq")]
+transform = Transform3D(-1.4, 0, -1.50996e-07, 0, 1, 0, 2.11394e-07, 0, -1, 5.5, 0, -16)
+
+[node name="OfficeWallPrefabBasic4" parent="Terrain/Walls" index="4" instance=ExtResource("17_g8jcq")]
+transform = Transform3D(1.96295e-07, 0, -1, 0, 1, 0, 2.6, 0, 7.54979e-08, -16, 0, 8.5)
+
+[node name="OfficeWallPrefabBasic7" parent="Terrain/Walls" index="5" instance=ExtResource("17_g8jcq")]
+transform = Transform3D(1.96295e-07, 0, -1, 0, 1, 0, 2.6, 0, 7.54979e-08, -16, 0, -8.5)
+
+[node name="OfficeWallPrefabBasic5" parent="Terrain/Walls" index="6" instance=ExtResource("17_g8jcq")]
+transform = Transform3D(-4.23594e-07, 0, 1, 0, 1, 0, -2.6, 0, -1.62921e-07, 16, 0, -8.5)
+
+[node name="OfficeWallPrefabBasic8" parent="Terrain/Walls" index="7" instance=ExtResource("17_g8jcq")]
+transform = Transform3D(-4.23594e-07, 0, 1, 0, 1, 0, -2.6, 0, -1.62921e-07, 16, 0, 8.5)
+
+[node name="NLIWall2" parent="Terrain" index="3" instance=ExtResource("5_qsgdf")]
+transform = Transform3D(-2, 0, -1.50996e-07, 0, 1, 0, 3.01992e-07, 0, -1, 14, 0, -16)
+
+[node name="Obstacles" type="Node3D" parent="Terrain" index="4"]
+
+[node name="SupportPillar" parent="Terrain/Obstacles" index="0" instance=ExtResource("5_hpcjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 0)
+
+[node name="SupportPillar2" parent="Terrain/Obstacles" index="1" instance=ExtResource("5_hpcjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 0)
+
+[node name="DeskAndChairObstacle" parent="Terrain/Obstacles" index="2" instance=ExtResource("5_kl2n6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -8)
+
+[node name="HiveSpawner" parent="Terrain" index="5" instance=ExtResource("20_ahg4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -8)
+
+[node name="HiveSpawner3" parent="Terrain" index="6" instance=ExtResource("20_ahg4r")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 14)
+
+[node name="HiveSpawner2" parent="Terrain" index="7" instance=ExtResource("20_ahg4r")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14.5, 0, -9)
+
+[node name="DroneSpawner" parent="Terrain" index="8" instance=ExtResource("20_j5a07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 9)
+
+[node name="DroneSpawner4" parent="Terrain" index="9" instance=ExtResource("20_j5a07")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8, 0, 14)
+
+[node name="DroneSpawner3" parent="Terrain" index="10" instance=ExtResource("20_j5a07")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14, 0, 9)
+
+[node name="DroneSpawner2" parent="Terrain" index="11" instance=ExtResource("20_j5a07")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, -14.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area" index="0"]
+shape = SubResource("BoxShape3D_4i4u5")
+
+[node name="ForemanGoonMonsterCloset" parent="." index="7" instance=ExtResource("22_vd21j")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 0, 0)
+
+[node name="Zombie" parent="ForemanGoonMonsterCloset" index="6" node_paths=PackedStringArray("patrol") instance=ExtResource("23_fro68")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1, -1)
+visible = false
+ai_disabled = true
+initial_state_name = &"PersistentMeleeAttackState"
+patrol = NodePath("../../Floor1MonsterCloset/Patrol")
+
+[node name="Zombie2" parent="ForemanGoonMonsterCloset" index="7" node_paths=PackedStringArray("patrol") instance=ExtResource("23_fro68")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.5, 1, 1)
+visible = false
+ai_disabled = true
+initial_state_name = &"PersistentMeleeAttackState"
+patrol = NodePath("../../Floor1MonsterCloset/Patrol")
+
+[node name="ForemanGoonMonsterCloset2" parent="." index="8" instance=ExtResource("22_vd21j")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 0, 0)
+
+[node name="Zombie" parent="ForemanGoonMonsterCloset2" index="6" node_paths=PackedStringArray("patrol") instance=ExtResource("23_fro68")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.54979e-08, 1, -1)
+visible = false
+ai_disabled = true
+initial_state_name = &"PersistentMeleeAttackState"
+patrol = NodePath("../../Floor1MonsterCloset/Patrol")
+
+[node name="EntranceToRoom" parent="RoomConnectors" index="0" instance=ExtResource("6_s4r5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+
+[node name="RoomEntranceDoor" parent="RoomConnectors/EntranceToRoom" index="1" instance=ExtResource("8_u48yh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+destroyable = false
+key_codes = Array[String](["foreman_boss_room_key"])
+
+[node name="DoorHighlight" parent="RoomConnectors/EntranceToRoom/RoomEntranceDoor" index="3"]
+surface_material_override/1 = ExtResource("24_y0m25")
+
+[node name="DoorHighlight_001" parent="RoomConnectors/EntranceToRoom/RoomEntranceDoor" index="4"]
+surface_material_override/1 = ExtResource("24_y0m25")
+
+[node name="DoorPost" parent="RoomConnectors/EntranceToRoom/RoomEntranceDoor" index="5"]
+surface_material_override/1 = ExtResource("24_y0m25")
+
+[node name="DoorHighlight_002" parent="RoomConnectors/EntranceToRoom/RoomEntranceDoor/DoorPost" index="0"]
+surface_material_override/1 = ExtResource("24_y0m25")
+
+[node name="DoorPost_004" parent="RoomConnectors/EntranceToRoom/RoomEntranceDoor" index="6"]
+surface_material_override/1 = ExtResource("24_y0m25")
+
+[node name="DoorHighlight_003" parent="RoomConnectors/EntranceToRoom/RoomEntranceDoor/DoorPost_004" index="0"]
+surface_material_override/1 = ExtResource("24_y0m25")
+
+[node name="DoorPost_001" parent="RoomConnectors/EntranceToRoom/RoomEntranceDoor" index="7"]
+surface_material_override/1 = ExtResource("24_y0m25")
+
+[node name="DoorHighlight_004" parent="RoomConnectors/EntranceToRoom/RoomEntranceDoor/DoorPost_001" index="0"]
+surface_material_override/1 = ExtResource("24_y0m25")
+
+[node name="DoorPost_005" parent="RoomConnectors/EntranceToRoom/RoomEntranceDoor" index="8"]
+surface_material_override/1 = ExtResource("24_y0m25")
+
+[node name="DoorHighlight_005" parent="RoomConnectors/EntranceToRoom/RoomEntranceDoor/DoorPost_005" index="0"]
+surface_material_override/1 = ExtResource("24_y0m25")
+
+[node name="ExitToRewardRoom" parent="RoomConnectors" index="1" instance=ExtResource("6_s4r5a")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -16)
+
+[node name="ExitToRewardRoomDoor" parent="RoomConnectors/ExitToRewardRoom" index="1" instance=ExtResource("8_u48yh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37115e-08, 0, 0.5)
+locked = true
+key_codes = Array[String](["foreman_skull_key"])
+
+[editable path="RoomConnectors/EntranceToRoom/RoomEntranceDoor"]

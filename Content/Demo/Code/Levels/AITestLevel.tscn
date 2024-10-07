@@ -1,0 +1,400 @@
+[gd_scene load_steps=56 format=3 uid="uid://wirrq0spl8nw"]
+
+[ext_resource type="PackedScene" uid="uid://bgj3h4qtwgwkk" path="res://BaseGameObjects/Level.tscn" id="1_7hmb1"]
+[ext_resource type="PackedScene" uid="uid://oexi1wiwldiy" path="res://Content/Demo/Assets/Terrain/Obstacles/Crate/ColourCrate/ColourCrate.glb" id="2_65h76"]
+[ext_resource type="PackedScene" uid="uid://dt6t3wrrcsds1" path="res://Content/Default/Code/InteractableObjects/GroundItem.tscn" id="2_a54f1"]
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Walls/Wall.gd" id="2_axd2v"]
+[ext_resource type="PackedScene" uid="uid://dhv2lb5v71p31" path="res://Content/Demo/Assets/Terrain/Obstacles/Crate/ColourCrate/ColouredCrateModel.tscn" id="3_ah7q0"]
+[ext_resource type="Material" uid="uid://fp3hdtajq0n6" path="res://Content/Default/Code/Levels/VoidTexture.tres" id="3_vcpqy"]
+[ext_resource type="PackedScene" uid="uid://broj86uh4bw0d" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackup.tscn" id="3_xyr4x"]
+[ext_resource type="Texture2D" uid="uid://c3v65hua8ftcw" path="res://Content/Demo/Assets/Terrain/Textures/Metal/metall005-new-tileable.png" id="4_07w3e"]
+[ext_resource type="PackedScene" uid="uid://bvud2rdqx7bhg" path="res://Content/Demo/Code/Items/Aid/Health/Instant/HealthPotion.tscn" id="4_tywlo"]
+[ext_resource type="Texture2D" uid="uid://cxmt15yp3wpod" path="res://Content/Demo/Assets/Terrain/Textures/Metal/metall010-new-tileable.png" id="5_q5ecm"]
+[ext_resource type="PackedScene" uid="uid://d8vcljbj8r00" path="res://Content/Default/Code/InteractableObjects/ExtractionPortal.tscn" id="7_4pxpv"]
+[ext_resource type="PackedScene" uid="uid://cpsigia6qpjof" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/NormalRooms/Warehouse/AITestRoom.tscn" id="8_5f3wg"]
+[ext_resource type="PackedScene" uid="uid://dckx87yok3eou" path="res://UIObjects/PlayerHUD/TabStatusMenu/TabStatusPanel.tscn" id="8_g1yfw"]
+[ext_resource type="PackedScene" uid="uid://cfcg4n5b4ptpt" path="res://UIObjects/InventoryUI/ShopMenuUI/ShopMenu.tscn" id="9_3sqa7"]
+[ext_resource type="PackedScene" uid="uid://bl176wggn7k33" path="res://BaseGameObjects/Player.tscn" id="14_65qq5"]
+[ext_resource type="PackedScene" uid="uid://b3k3yerviij1e" path="res://Content/TestContent/Code/InteractableObjects/TestLootObject.tscn" id="15_ikxx6"]
+[ext_resource type="Texture2D" uid="uid://cow6b4wu20g5m" path="res://Content/Demo/Assets/Terrain/Textures/Concrete/ConcreteTile.png" id="15_sw1wh"]
+[ext_resource type="PackedScene" uid="uid://f6hgb2xt586e" path="res://Content/Default/Code/Items/Scrip.tscn" id="16_332n6"]
+[ext_resource type="PackedScene" uid="uid://c1iyt48pjsr43" path="res://Content/TestContent/Code/UtilityItems/Combat/TestExplosiveCharge.tscn" id="17_ygnwh"]
+[ext_resource type="PackedScene" uid="uid://4d3osy1662sk" path="res://Content/Demo/Code/Items/Ammo/SmallCaliberPistolAmmo.tscn" id="18_wf483"]
+[ext_resource type="PackedScene" uid="uid://bwjgf52uj5d3q" path="res://Content/Demo/Code/Items/Weapons/StunGrenade/StunGrenadeItem.tscn" id="19_vjqy5"]
+[ext_resource type="PackedScene" uid="uid://d08nydivn6fq8" path="res://Content/Demo/Code/Items/Weapons/FragGrenade/FragGrenadeItem.tscn" id="20_yiotj"]
+[ext_resource type="PackedScene" uid="uid://b2nq2it3xhtxa" path="res://Content/Demo/Code/Enemies/NanomachineHive/NanomachineHiveEnemy.tscn" id="21_4cwn1"]
+[ext_resource type="PackedScene" uid="uid://b8oeydt3qmek6" path="res://Content/Demo/Code/Items/Tools/BlueKey.tscn" id="21_5wqy7"]
+[ext_resource type="PackedScene" uid="uid://bervt8as74v6n" path="res://Content/Demo/Code/Items/Weapons/OlReliable/OlReliable.tscn" id="22_8e3n8"]
+[ext_resource type="PackedScene" uid="uid://bfpdm51gp77sq" path="res://BaseGameObjects/Inventory/Shops/Shop.tscn" id="23_n06if"]
+[ext_resource type="PackedScene" uid="uid://cq5j8ahjwhnoe" path="res://BaseGameObjects/Inventory/Shops/ShopItemEntry.tscn" id="24_gx1i8"]
+[ext_resource type="PackedScene" uid="uid://d2v0yvts8ob6f" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackup+1.tscn" id="25_b8asq"]
+[ext_resource type="Texture2D" uid="uid://c64bl5oury6gk" path="res://Content/Default/Assets/Terrain/Decals/Spatters/Splatter1.png" id="25_mp2hf"]
+[ext_resource type="Texture2D" uid="uid://bgps8qk3yiu0h" path="res://Content/Default/Assets/Terrain/Decals/Spatters/Pool1.png" id="26_r1g0f"]
+[ext_resource type="PackedScene" uid="uid://bpuhxp0ioa7rq" path="res://Content/Demo/Code/Items/ResourceItems/BasicWeaponParts.tscn" id="26_vaxk8"]
+[ext_resource type="PackedScene" uid="uid://ddn87piv0ke4m" path="res://Content/Demo/Code/Items/Weapons/TrenchMace/TrenchMace.tscn" id="27_8rkbj"]
+[ext_resource type="Texture2D" uid="uid://bvk1cj2i6oego" path="res://Content/Default/Assets/Terrain/Decals/Spatters/Pool2.png" id="27_eren4"]
+[ext_resource type="Texture2D" uid="uid://yqlfi0toji3c" path="res://Content/Default/Assets/Terrain/Decals/Spatters/Splatter2.png" id="28_tw0js"]
+[ext_resource type="Texture2D" uid="uid://b0f2p0lvtadja" path="res://Content/Default/Assets/Terrain/Decals/Spatters/Splatter7.png" id="29_dc684"]
+[ext_resource type="Texture2D" uid="uid://3vws7po5mbsg" path="res://Content/Default/Assets/Terrain/Decals/Spatters/Splatter5.png" id="30_saha1"]
+[ext_resource type="Texture2D" uid="uid://cpikq2qji7ubc" path="res://Content/Default/Assets/Terrain/Decals/Spatters/Splatter4.png" id="31_1fwm2"]
+[ext_resource type="Texture2D" uid="uid://b837hwh6tbmhk" path="res://Content/Default/Assets/Terrain/Decals/Spatters/Pool4.png" id="32_3lymt"]
+[ext_resource type="Texture2D" uid="uid://crhq8f8x3gsxt" path="res://Content/Default/Assets/Terrain/Decals/Spatters/Splatter8.png" id="33_e430s"]
+[ext_resource type="PackedScene" uid="uid://rdbil6eeu05e" path="res://Content/Demo/Code/Enemies/GunDrone/GunDroneEnemy.tscn" id="36_0c4tl"]
+[ext_resource type="PackedScene" uid="uid://dlkt24rw4n47w" path="res://Content/Demo/Code/Enemies/WageCage/Zombie.tscn" id="37_7oxlf"]
+[ext_resource type="PackedScene" uid="uid://dahkxjok5j6mm" path="res://Content/Demo/Code/Enemies/SecurityBot/SecurityBotEnemy.tscn" id="38_4g6ri"]
+[ext_resource type="PackedScene" uid="uid://w3o3b02oc36k" path="res://Content/Demo/Code/Enemies/Turret/TurretEnemy.tscn" id="39_ku2xo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uls1c"]
+resource_local_to_scene = true
+size = Vector3(1, 1, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_npne3"]
+material = ExtResource("3_vcpqy")
+size = Vector3(1, 4, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0plt2"]
+albedo_texture = ExtResource("4_07w3e")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_u1ewa"]
+material = SubResource("StandardMaterial3D_0plt2")
+size = Vector3(1, 4, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_63pq3"]
+albedo_texture = ExtResource("5_q5ecm")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_vn13m"]
+material = SubResource("StandardMaterial3D_63pq3")
+size = Vector3(1, 4, 0.2)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wxhnn"]
+sky_top_color = Color(0.14902, 0.188235, 0.239216, 1)
+sky_horizon_color = Color(0.588235, 0.588235, 0.592157, 1)
+sky_curve = 0.52233
+sky_energy_multiplier = 0.7
+ground_horizon_color = Color(0.587255, 0.589309, 0.593054, 1)
+ground_energy_multiplier = 0.0
+sun_angle_max = 0.0
+sun_curve = 51.638
+
+[sub_resource type="Sky" id="Sky_r4hy3"]
+sky_material = SubResource("ProceduralSkyMaterial_wxhnn")
+
+[sub_resource type="Environment" id="Environment_qw622"]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_r4hy3")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 10.0
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxap1"]
+albedo_texture = ExtResource("15_sw1wh")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xq0t0"]
+size = Vector2(5000, 5000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gj1h4"]
+render_priority = -100
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+
+[node name="AITestLevel" instance=ExtResource("1_7hmb1")]
+
+[node name="ColourCrate" parent="." index="0" instance=ExtResource("2_65h76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.723608, 15.779)
+
+[node name="ColourCrate2" parent="." index="1" instance=ExtResource("2_65h76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45339, 0.723608, 15.779)
+
+[node name="ColourCrate3" parent="." index="2" instance=ExtResource("2_65h76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45339, 0.723608, 14.3253)
+
+[node name="ColourCrate4" parent="." index="3" instance=ExtResource("2_65h76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0423288, 0.723608, 14.3253)
+
+[node name="ColourCrate5" parent="." index="4" instance=ExtResource("2_65h76")]
+transform = Transform3D(0.932463, 0, -0.361267, 0, 1, 0, 0.361267, 0, 0.932463, 0.733548, 2.32638, 14.9427)
+
+[node name="ColouredCrate" parent="." index="5" instance=ExtResource("3_ah7q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84867, 0.644932, 14.4355)
+
+[node name="ColouredCrate2" parent="." index="6" instance=ExtResource("3_ah7q0")]
+transform = Transform3D(-0.0788941, 0, -0.996883, 0, 1, 0, 0.996883, 0, -0.0788941, -5.34866, 0.644932, 14.4355)
+
+[node name="ColouredCrate3" parent="." index="7" instance=ExtResource("3_ah7q0")]
+transform = Transform3D(0.181566, 0, -0.983379, 0, 1, 0, 0.983379, 0, 0.181566, -5.26188, 0.644932, 16.092)
+
+[node name="ColouredCrate4" parent="." index="8" instance=ExtResource("3_ah7q0")]
+transform = Transform3D(0.185049, 0, -0.982729, 0, 1, 0, 0.982729, 0, 0.185049, -3.71562, 0.644932, 15.963)
+
+[node name="ColouredCrate5" parent="." index="9" instance=ExtResource("3_ah7q0")]
+transform = Transform3D(-0.293023, 0, -0.956106, 0, 1, 0, 0.956106, 0, -0.293023, -4.63214, 2.11642, 15.1376)
+
+[node name="OfficeWall" type="StaticBody3D" parent="." index="10"]
+transform = Transform3D(5.84122e-07, 0, -1, 0, 1, 0, 3, 0, 1.94707e-07, -12, 0, 4.5)
+script = ExtResource("2_axd2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OfficeWall" index="0"]
+shape = SubResource("BoxShape3D_uls1c")
+
+[node name="VoidPart" type="MeshInstance3D" parent="OfficeWall" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_npne3")
+
+[node name="Wall" type="MeshInstance3D" parent="OfficeWall" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.84217e-14, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_u1ewa")
+
+[node name="OfficeWall2" type="StaticBody3D" parent="." index="11"]
+transform = Transform3D(5.84122e-07, 0, -1, 0, 1, 0, 3, 0, 1.94707e-07, -12, 0, 8.5)
+script = ExtResource("2_axd2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OfficeWall2" index="0"]
+shape = SubResource("BoxShape3D_uls1c")
+
+[node name="VoidPart" type="MeshInstance3D" parent="OfficeWall2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_npne3")
+
+[node name="Wall" type="MeshInstance3D" parent="OfficeWall2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.84217e-14, 0, 1, 0, 2, 0)
+layers = 4
+mesh = SubResource("BoxMesh_vn13m")
+
+[node name="GroundItem" parent="." index="12" instance=ExtResource("2_a54f1")]
+transform = Transform3D(0.492515, 0, -0.870304, 0, 1, 0, 0.870304, 0, 0.492515, 10.4343, 0.719024, 3.01021)
+
+[node name="BurstPistol" parent="GroundItem" index="4" instance=ExtResource("3_xyr4x")]
+item_id = ""
+
+[node name="GroundItem2" parent="." index="13" instance=ExtResource("2_a54f1")]
+transform = Transform3D(0.492515, 0, -0.870304, 0, 1, 0, 0.870304, 0, 0.492515, 6.83116, 0.0138314, 1.72692)
+
+[node name="HealthPotion" parent="GroundItem2" index="4" instance=ExtResource("4_tywlo")]
+
+[node name="TestLevelTransitionInteractable" parent="." index="14" instance=ExtResource("7_4pxpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59899, 1, 12.4392)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="15"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
+light_color = Color(0.356863, 0.356863, 0.356863, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="16"]
+environment = SubResource("Environment_qw622")
+
+[node name="TabStatusPanel" parent="UILayer" index="0" instance=ExtResource("8_g1yfw")]
+
+[node name="ShopMenu" parent="UILayer" index="3" instance=ExtResource("9_3sqa7")]
+visible = false
+
+[node name="SuperSecretHitDetector" parent="." index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53964, 0)
+
+[node name="AITestRoom" parent="RoomMaster" index="0" instance=ExtResource("8_5f3wg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00745487, -0.0114717, 0.00247288)
+
+[node name="MeshInstance3D" parent="RoomMaster/AITestRoom/Terrain/Floor2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yxap1")
+
+[node name="Player" parent="." index="22" instance=ExtResource("14_65qq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07736, 2.11178, 5.19955)
+disable_control = null
+time_between_shots = null
+
+[node name="Void" type="MeshInstance3D" parent="." index="23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+mesh = SubResource("PlaneMesh_xq0t0")
+surface_material_override/0 = SubResource("StandardMaterial3D_gj1h4")
+
+[node name="TestLootObject" parent="." index="24" instance=ExtResource("15_ikxx6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.30945, 0, 13.9825)
+auto_spawn_loot = false
+
+[node name="Scrip" parent="TestLootObject" index="0" instance=ExtResource("16_332n6")]
+item_id = ""
+current_quantity = 5000
+
+[node name="TestExplosiveCharge" parent="TestLootObject" index="1" instance=ExtResource("17_ygnwh")]
+
+[node name="SmallCaliberPistolAmmo" parent="TestLootObject" index="7" instance=ExtResource("18_wf483")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 3)
+item_id = ""
+
+[node name="StunGrenadeItem" parent="TestLootObject" index="8" instance=ExtResource("19_vjqy5")]
+
+[node name="FragGrenadeItem" parent="TestLootObject" index="9" instance=ExtResource("20_yiotj")]
+
+[node name="FragGrenadeItem3" parent="TestLootObject" index="10" instance=ExtResource("20_yiotj")]
+
+[node name="FragGrenadeItem2" parent="TestLootObject" index="11" instance=ExtResource("20_yiotj")]
+
+[node name="BlueKey" parent="TestLootObject" index="12" instance=ExtResource("21_5wqy7")]
+
+[node name="OlReliable" parent="TestLootObject" index="13" instance=ExtResource("22_8e3n8")]
+
+[node name="BurstPistol" parent="TestLootObject" index="14" instance=ExtResource("3_xyr4x")]
+item_id = ""
+
+[node name="TheBackup+1" parent="TestLootObject" index="15" instance=ExtResource("25_b8asq")]
+item_id = ""
+
+[node name="BasicWeaponParts" parent="TestLootObject" index="16" instance=ExtResource("26_vaxk8")]
+item_id = ""
+current_quantity = 5
+
+[node name="BasicWeaponParts2" parent="TestLootObject" index="17" instance=ExtResource("26_vaxk8")]
+item_id = ""
+current_quantity = 5
+
+[node name="TrenchMace" parent="TestLootObject" index="19" instance=ExtResource("27_8rkbj")]
+
+[node name="Shop" parent="." index="25" instance=ExtResource("23_n06if")]
+
+[node name="ShopItemEntry" parent="Shop" index="1" instance=ExtResource("24_gx1i8")]
+stock_quantity = 30
+originial_stock_quantity = 30
+
+[node name="SmallCaliberPistolAmmo" parent="Shop/ShopItemEntry" index="0" instance=ExtResource("18_wf483")]
+item_id = ""
+
+[node name="ShopItemEntry2" parent="Shop" index="2" instance=ExtResource("24_gx1i8")]
+stock_quantity = 2
+originial_stock_quantity = 2
+
+[node name="HealthPotion" parent="Shop/ShopItemEntry2" index="0" instance=ExtResource("4_tywlo")]
+
+[node name="ShopItemEntry3" parent="Shop" index="3" instance=ExtResource("24_gx1i8")]
+stock_quantity = 2
+originial_stock_quantity = 2
+
+[node name="FragGrenadeItem" parent="Shop/ShopItemEntry3" index="0" instance=ExtResource("20_yiotj")]
+
+[node name="ShopItemEntry4" parent="Shop" index="4" instance=ExtResource("24_gx1i8")]
+
+[node name="BurstPistol" parent="Shop/ShopItemEntry4" index="0" instance=ExtResource("3_xyr4x")]
+item_id = ""
+
+[node name="ShopItemEntry5" parent="Shop" index="5" instance=ExtResource("24_gx1i8")]
+
+[node name="OlReliable" parent="Shop/ShopItemEntry5" index="0" instance=ExtResource("22_8e3n8")]
+
+[node name="Decal" type="Decal" parent="." index="26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.63003, 0, 8.51983)
+texture_albedo = ExtResource("25_mp2hf")
+modulate = Color(0.571842, 0.0198732, 0.0110533, 1)
+cull_mask = 1048574
+
+[node name="Decal10" type="Decal" parent="." index="27"]
+transform = Transform3D(0.12774, 0.991808, 0, -0.991808, 0.12774, 0, 0, 0, 1, -12.1301, 1.91627, 8.51983)
+texture_albedo = ExtResource("25_mp2hf")
+modulate = Color(0.571842, 0.0198732, 0.0110533, 1)
+cull_mask = 1048574
+
+[node name="Decal2" type="Decal" parent="." index="28"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.635408, 0, 8.51983)
+texture_albedo = ExtResource("26_r1g0f")
+modulate = Color(0.571842, 0.0198732, 0.0110533, 1)
+cull_mask = 1048574
+
+[node name="Decal3" type="Decal" parent="." index="29"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11506, 0, 8.51983)
+texture_albedo = ExtResource("27_eren4")
+modulate = Color(0.571842, 0.0198732, 0.0110533, 1)
+cull_mask = 1048574
+
+[node name="Decal4" type="Decal" parent="." index="30"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11506, 0, 10.8167)
+texture_albedo = ExtResource("28_tw0js")
+modulate = Color(0, 0, 0, 1)
+cull_mask = 1048574
+
+[node name="Decal5" type="Decal" parent="." index="31"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.686347, 0, 10.8167)
+texture_albedo = ExtResource("29_dc684")
+modulate = Color(0, 0, 0, 1)
+cull_mask = 1048574
+
+[node name="Decal6" type="Decal" parent="." index="32"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34841, 0, 10.6847)
+texture_albedo = ExtResource("30_saha1")
+modulate = Color(0, 0, 0, 1)
+cull_mask = 1048574
+
+[node name="Decal7" type="Decal" parent="." index="33"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34841, 0, 13.0344)
+texture_albedo = ExtResource("31_1fwm2")
+modulate = Color(0.0630147, 0.866251, 0.0531686, 1)
+cull_mask = 1048574
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decal7" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107052, 0.270965, 0)
+light_color = Color(0.157369, 0.592847, 0.182434, 1)
+light_energy = 2.0
+
+[node name="Decal8" type="Decal" parent="." index="34"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.735907, -0.042778, 13.0945)
+texture_albedo = ExtResource("32_3lymt")
+modulate = Color(0.0630147, 0.866251, 0.0531686, 1)
+cull_mask = 1048574
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decal8" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.271, 0)
+light_color = Color(0.125458, 0.480757, 0.144837, 1)
+light_energy = 3.0
+
+[node name="Decal9" type="Decal" parent="." index="35"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20155, 0, 13.0357)
+texture_albedo = ExtResource("33_e430s")
+modulate = Color(0.0630147, 0.866251, 0.0531686, 1)
+cull_mask = 1048574
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decal9" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.271, 0)
+light_color = Color(0.125458, 0.480757, 0.144837, 1)
+light_energy = 3.0
+
+[node name="GunDroneEnemy" parent="." index="36" instance=ExtResource("36_0c4tl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.552)
+
+[node name="Zombie" parent="." index="37" instance=ExtResource("37_7oxlf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4882, 0.255568, -1.84765)
+ai_disabled = true
+
+[node name="TurretEnemy" parent="." index="38" node_paths=PackedStringArray("loot_tables") instance=ExtResource("39_ku2xo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71756, 0.255568, -13.3495)
+ai_disabled = true
+loot_tables = []
+loot_spawn_height = 1.0
+
+[node name="SecurityBotEnemy" parent="." index="39" instance=ExtResource("38_4g6ri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54607, 0.255568, -6.11028)
+ai_disabled = true
+
+[node name="NanomachineHiveEnemy" parent="." index="40" instance=ExtResource("21_4cwn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.460113, 0.255568, -1.91286)
+ai_disabled = true
+pathfinding_debug_mode = true
+
+[node name="BasicWeaponParts" parent="." index="41" instance=ExtResource("26_vaxk8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.08646, 0.138172, 15.7186)
+item_id = ""
+
+[editable path="RoomMaster/AITestRoom"]
+[editable path="RoomMaster/AITestRoom/Terrain/Obstacles/Pillars/SupportPiller4"]
+[editable path="RoomMaster/AITestRoom/Terrain/Obstacles/Pillars/SupportPiller4/Pillar"]

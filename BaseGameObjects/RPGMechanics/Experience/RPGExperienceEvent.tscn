@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8qgh8too3rhc"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Experience/RPGExperienceEvent.gd" id="1_004k5"]
+
+[node name="RPGExperienceEvent" type="Node"]
+script = ExtResource("1_004k5")

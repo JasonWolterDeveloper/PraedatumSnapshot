@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://h0pbsyrrdft6"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/Enemies/RangedEnemy.gd" id="1_o16qd"]
+[ext_resource type="Script" path="res://BaseGameObjects/Behaviour/AIProperties.gd" id="2_1fl23"]
+
+[sub_resource type="Resource" id="Resource_aopdg"]
+script = ExtResource("2_1fl23")
+state_properties = {
+"pursue_after_suppression": false
+}
+link_properties = {}
+
+[node name="RangedEnemy" type="CharacterBody3D"]
+script = ExtResource("1_o16qd")
+ai_properties = SubResource("Resource_aopdg")

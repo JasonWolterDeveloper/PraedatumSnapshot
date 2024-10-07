@@ -1,0 +1,156 @@
+[gd_scene load_steps=13 format=3 uid="uid://cg3a6gsjf87a7"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/Room.gd" id="1_oupt4"]
+[ext_resource type="Material" uid="uid://cev4bf0o2ghrq" path="res://Content/Demo/Assets/Terrain/Floors/Materials/ConcreteFloorMaterial.tres" id="2_wrmbq"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="4_cnruc"]
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="4_qtheq"]
+[ext_resource type="PackedScene" uid="uid://cfl4v3aexofgf" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/NLIDoor.tscn" id="6_imrgo"]
+[ext_resource type="PackedScene" uid="uid://bkhagmsliovx1" path="res://Content/Demo/Code/Levels/Rooms/RoomConnectors/NLIBasicRoomConnector.tscn" id="6_n8wkc"]
+[ext_resource type="Material" uid="uid://dminm824kdd8g" path="res://Content/Demo/Code/Levels/Rooms/Floor1/ForemanBossRoomFloor.tres" id="7_or7c7"]
+[ext_resource type="PackedScene" uid="uid://d8vcljbj8r00" path="res://Content/Default/Code/InteractableObjects/ExtractionPortal.tscn" id="8_58d7j"]
+[ext_resource type="PackedScene" uid="uid://cruk2ufv2t61k" path="res://Content/Demo/Code/InteractableObjects/TriggerInteractableObjects/TriggerInteractableNLIButtonWall.tscn" id="8_cls4m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kv6rh"]
+size = Vector3(12, 0, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i24qq"]
+size = Vector3(12, 0, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s0rf6"]
+size = Vector3(8, 0, 8)
+
+[node name="Floor1Exit" type="Node3D"]
+
+[node name="TriggerInteractableNLIButtonWall" parent="." instance=ExtResource("8_cls4m")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, -14.8817)
+trigger_id_to_activate = "go_to_level_2"
+interaction_prompt_text = "Go To Level 2"
+
+[node name="ExitFoyer" type="Node3D" parent="."]
+script = ExtResource("1_oupt4")
+
+[node name="Terrain" type="NavigationRegion3D" parent="ExitFoyer"]
+
+[node name="Floor" type="StaticBody3D" parent="ExitFoyer/Terrain"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ExitFoyer/Terrain/Floor"]
+mesh = SubResource("BoxMesh_kv6rh")
+surface_material_override/0 = ExtResource("2_wrmbq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitFoyer/Terrain/Floor"]
+shape = SubResource("BoxShape3D_i24qq")
+
+[node name="Walls" type="Node3D" parent="ExitFoyer/Terrain"]
+
+[node name="OfficeWallEndcap" parent="ExitFoyer/Terrain/Walls" instance=ExtResource("4_qtheq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
+
+[node name="OfficeWallEndcap2" parent="ExitFoyer/Terrain/Walls" instance=ExtResource("4_qtheq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, -6)
+
+[node name="OfficeWallEndcap3" parent="ExitFoyer/Terrain/Walls" instance=ExtResource("4_qtheq")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6, 0, 6)
+
+[node name="OfficeWallEndcap4" parent="ExitFoyer/Terrain/Walls" instance=ExtResource("4_qtheq")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -6, 0, 6)
+
+[node name="NLIWall" parent="ExitFoyer/Terrain/Walls" instance=ExtResource("4_cnruc")]
+transform = Transform3D(1.31134e-06, 0, -1, 0, 1, 0, 10, 0, 1.31134e-07, -6, 0, 0)
+
+[node name="NLIWall3" parent="ExitFoyer/Terrain/Walls" instance=ExtResource("4_cnruc")]
+transform = Transform3D(3, 0, 1.74846e-07, 0, 1, 0, -5.24537e-07, 0, 1, -3.5, 0, 6)
+
+[node name="NLIWall4" parent="ExitFoyer/Terrain/Walls" instance=ExtResource("4_cnruc")]
+transform = Transform3D(3, 0, 1.74846e-07, 0, 1, 0, -5.24537e-07, 0, 1, 3.5, 0, 6)
+
+[node name="NLIWall5" parent="ExitFoyer/Terrain/Walls" instance=ExtResource("4_cnruc")]
+transform = Transform3D(-3, 0, -2.62268e-07, 0, 1, 0, 7.86805e-07, 0, -1, 3.5, 0, -6)
+
+[node name="NLIWall6" parent="ExitFoyer/Terrain/Walls" instance=ExtResource("4_cnruc")]
+transform = Transform3D(-3, 0, -2.62268e-07, 0, 1, 0, 7.86805e-07, 0, -1, -3.5, 0, -6)
+
+[node name="NLIWall2" parent="ExitFoyer/Terrain/Walls" instance=ExtResource("4_cnruc")]
+transform = Transform3D(-4.37114e-07, 0, 1, 0, 1, 0, -10, 0, -4.37114e-08, 6, 0, 0)
+
+[node name="Area" type="Area3D" parent="ExitFoyer"]
+collision_layer = 0
+collision_mask = 3
+
+[node name="EnemySpawners" type="Node3D" parent="ExitFoyer"]
+
+[node name="LootSpawners" type="Node3D" parent="ExitFoyer"]
+
+[node name="RoomConnectors" type="Node3D" parent="ExitFoyer"]
+
+[node name="NLIBasicRoomConnector" parent="ExitFoyer/RoomConnectors" instance=ExtResource("6_n8wkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="NLIBasicRoomConnector2" parent="ExitFoyer/RoomConnectors" node_paths=PackedStringArray("existing_door") instance=ExtResource("6_n8wkc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -6)
+existing_door = NodePath("../../ElevatorDoor")
+
+[node name="ElevatorDoor" parent="ExitFoyer" instance=ExtResource("6_imrgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.5)
+locked = true
+key_codes = Array[String](["foreman_skull_key"])
+
+[node name="TestLevelTransitionInteractable" parent="ExitFoyer" instance=ExtResource("8_58d7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15446, 1.25966, -0.828287)
+interaction_prompt_text = "Return to Hub"
+
+[node name="ExitElevator" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+script = ExtResource("1_oupt4")
+
+[node name="Terrain" type="NavigationRegion3D" parent="ExitElevator"]
+
+[node name="Floor" type="StaticBody3D" parent="ExitElevator/Terrain"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ExitElevator/Terrain/Floor"]
+mesh = SubResource("BoxMesh_s0rf6")
+surface_material_override/0 = ExtResource("7_or7c7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitElevator/Terrain/Floor"]
+shape = SubResource("BoxShape3D_i24qq")
+
+[node name="Walls" type="Node3D" parent="ExitElevator/Terrain"]
+
+[node name="OfficeWallEndcap" parent="ExitElevator/Terrain/Walls" instance=ExtResource("4_qtheq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="OfficeWallEndcap2" parent="ExitElevator/Terrain/Walls" instance=ExtResource("4_qtheq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -4)
+
+[node name="OfficeWallEndcap3" parent="ExitElevator/Terrain/Walls" instance=ExtResource("4_qtheq")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 0, 4)
+
+[node name="OfficeWallEndcap4" parent="ExitElevator/Terrain/Walls" instance=ExtResource("4_qtheq")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -4, 0, 4)
+
+[node name="NLIWall" parent="ExitElevator/Terrain/Walls" instance=ExtResource("4_cnruc")]
+transform = Transform3D(4.52987e-07, 0, -1, 0, 1, 0, 6, 0, 7.54979e-08, -4, 0, 0)
+
+[node name="NLIWall2" parent="ExitElevator/Terrain/Walls" instance=ExtResource("4_cnruc")]
+transform = Transform3D(-9.77524e-07, 0, 1, 0, 1, 0, -6, 0, -1.62921e-07, 4, 0, 0)
+
+[node name="NLIWall3" parent="ExitElevator/Terrain/Walls" instance=ExtResource("4_cnruc")]
+transform = Transform3D(-6, 0, -2.06632e-07, 0, 1, 0, 1.23979e-06, 0, -1, 0, 0, -4)
+
+[node name="NLIWall4" parent="ExitElevator/Terrain/Walls" instance=ExtResource("4_cnruc")]
+transform = Transform3D(1, 0, 2.94055e-07, 0, 1, 0, -2.94055e-07, 0, 1, -2.5, 0, 4)
+
+[node name="NLIWall5" parent="ExitElevator/Terrain/Walls" instance=ExtResource("4_cnruc")]
+transform = Transform3D(1, 0, 2.94055e-07, 0, 1, 0, -2.94055e-07, 0, 1, 2.5, 0, 4)
+
+[node name="Area" type="Area3D" parent="ExitElevator"]
+collision_layer = 0
+collision_mask = 3
+
+[node name="EnemySpawners" type="Node3D" parent="ExitElevator"]
+
+[node name="LootSpawners" type="Node3D" parent="ExitElevator"]
+
+[node name="RoomConnectors" type="Node3D" parent="ExitElevator"]
+
+[node name="NLIBasicRoomConnector3" parent="ExitElevator/RoomConnectors" instance=ExtResource("6_n8wkc")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 4)

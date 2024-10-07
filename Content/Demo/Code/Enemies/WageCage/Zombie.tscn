@@ -1,0 +1,194 @@
+[gd_scene load_steps=27 format=3 uid="uid://dlkt24rw4n47w"]
+
+[ext_resource type="PackedScene" uid="uid://bguuekuitrudm" path="res://BaseGameObjects/Character.tscn" id="1_22alx"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/WageCage/Zombie.gd" id="2_jhsvr"]
+[ext_resource type="PackedScene" uid="uid://8mvrt28j4q68" path="res://BaseGameObjects/RPGMechanics/Stats/MeleeRateStat.tscn" id="3_0yeh6"]
+[ext_resource type="PackedScene" uid="uid://c6pri36ik1gse" path="res://BaseGameObjects/PathfindingMaster.tscn" id="3_1ixxl"]
+[ext_resource type="PackedScene" uid="uid://1glgcwi0vwqm" path="res://Content/Default/Code/RPGMechanics/StatusEffects/SlowStatusEffect.tscn" id="3_53rox"]
+[ext_resource type="PackedScene" uid="uid://boq3yitw8a5td" path="res://BaseGameObjects/RPGMechanics/Stats/MeleeDamageStat.tscn" id="4_e4twq"]
+[ext_resource type="PackedScene" uid="uid://bvkbnjyrpuks2" path="res://Content/Demo/Code/Enemies/WageCage/WageCageDOTEffet.tscn" id="4_t1yq3"]
+[ext_resource type="PackedScene" uid="uid://yhpbb7jbww4d" path="res://UIObjects/CombatUI/EnemyInfoDisplay.tscn" id="5_1bleh"]
+[ext_resource type="PackedScene" uid="uid://c63nsvcqakoa5" path="res://Content/Demo/Code/Enemies/WageCage/Gibs/WageCageGibs.tscn" id="5_6bpig"]
+[ext_resource type="PackedScene" uid="uid://bvwk3se7k747a" path="res://BaseGameObjects/Aesthetics/PlayerDamage/PlayerDamagedAestheticEffect.tscn" id="6_uhait"]
+[ext_resource type="PackedScene" uid="uid://ctrs6m3mk7gbn" path="res://BaseGameObjects/Behaviour/Link.tscn" id="7_k6xf8"]
+[ext_resource type="PackedScene" uid="uid://c5gngw14gomuy" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/WageCage.glb" id="7_ynm6s"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/hitbox.gd" id="8_c18jj"]
+[ext_resource type="PackedScene" uid="uid://d10f0k62alknb" path="res://Content/Demo/Assets/Aesthetics/ElectricShock/ElectrickShockModel.tscn" id="10_pim3y"]
+[ext_resource type="PackedScene" uid="uid://c6bxidfwd3h3j" path="res://Content/Demo/Code/Enemies/WageCage/Behaviour/MeleeFSM.tscn" id="14_od3dv"]
+[ext_resource type="PackedScene" uid="uid://cdrxk3st3uk3u" path="res://Content/Demo/Code/Enemies/WageCage/Barks/WageCagePlayerDetectedBark.tscn" id="15_arv74"]
+[ext_resource type="PackedScene" uid="uid://crivall5lsmid" path="res://BaseGameObjects/Aesthetics/StatusEffectVFX/StunParticleEffect.tscn" id="17_umb2f"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/WageCage/WageCageLootTable.gd" id="18_vqkkd"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nop5v"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5q1br"]
+radius = 0.1
+
+[sub_resource type="Animation" id="Animation_kkx8q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_0rxqm"]
+resource_name = "tilting"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.25, 1, -0.19194, 0, 0, 0.981407)
+
+[sub_resource type="Animation" id="Animation_lbpad"]
+resource_name = "walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.3, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tall8"]
+_data = {
+"RESET": SubResource("Animation_kkx8q"),
+"tilting": SubResource("Animation_0rxqm"),
+"walking": SubResource("Animation_lbpad")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7lj5s"]
+radius = 3.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r5wcg"]
+radius = 0.659812
+height = 3.24647
+
+[node name="Zombie" node_paths=PackedStringArray("info_display", "loot_tables") instance=ExtResource("1_22alx")]
+collision_layer = 16
+collision_mask = 17
+script = ExtResource("2_jhsvr")
+slow_status_effect_scene = ExtResource("3_53rox")
+dot_status_effect_scene = ExtResource("4_t1yq3")
+wage_cage_gibs_scene = ExtResource("5_6bpig")
+should_auto_adjust_y_position = true
+ai_disabled = false
+behaviour_debug_mode = false
+pathfinding_debug_mode = false
+ai_properties = null
+sentry = false
+initial_state_name = &"WanderState"
+info_display = NodePath("EnemyHealthBar3D")
+awarded_experience_points = 50.0
+loot_tables = [NodePath("LootTables/LootTable")]
+loot_spawn_height = 1.0
+spawn_ticket_cost = 3
+display_name = "WAGE CAGE"
+
+[node name="PlayerDamagedAestheticEffect" parent="." index="0" instance=ExtResource("6_uhait")]
+screen_shake_amount = 0.5
+
+[node name="EnemyHealthBar3D" parent="." index="1" instance=ExtResource("5_1bleh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79345, 0)
+texture = SubResource("ViewportTexture_nop5v")
+
+[node name="HealthStat" parent="RPGMechanicsMaster" index="1"]
+base_number_of_segments = 5
+base_value_per_segment = 8.0
+value = 40.0
+
+[node name="MeleeRateStat" parent="RPGMechanicsMaster" index="2" instance=ExtResource("3_0yeh6")]
+base_value = 1.0
+value = 1.0
+
+[node name="MeleeDamageStat" parent="RPGMechanicsMaster" index="3" instance=ExtResource("4_e4twq")]
+base_value = 5.0
+value = 5.0
+
+[node name="MovementSpeedStat" parent="RPGMechanicsMaster" index="4"]
+base_value = 3.0
+value = 3.0
+
+[node name="CollisionShape3D" parent="." index="4"]
+shape = SubResource("CapsuleShape3D_5q1br")
+
+[node name="ElectrickShockModel" parent="LookStuff" index="0" instance=ExtResource("10_pim3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.597942, 0, -1.23375)
+
+[node name="ElectrickShockModel2" parent="LookStuff" index="1" instance=ExtResource("10_pim3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57288, 0, -1.3055)
+
+[node name="WageCage" parent="LookStuff" index="2" instance=ExtResource("7_ynm6s")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, -0.815807, 0)
+
+[node name="AimingMaster" parent="LookStuff" index="3" node_paths=PackedStringArray("look_stuff")]
+should_look_in_movement_direction = true
+look_stuff = NodePath("..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LookStuff" index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_tall8")
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LookStuff" index="5"]
+
+[node name="PathfindingMaster" parent="." index="6" instance=ExtResource("3_1ixxl")]
+
+[node name="MeleeArea" type="Area3D" parent="." index="7"]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeArea" index="0"]
+shape = SubResource("CylinderShape3D_7lj5s")
+
+[node name="Link" parent="." index="8" instance=ExtResource("7_k6xf8")]
+
+[node name="ProjectileHitbox" type="CharacterBody3D" parent="." index="9"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("8_c18jj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ProjectileHitbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.143409, 0)
+shape = SubResource("CapsuleShape3D_r5wcg")
+
+[node name="WageCagePlayerDetectedBarkType" parent="." index="10" instance=ExtResource("15_arv74")]
+
+[node name="StunParticleEffect" parent="." index="12" instance=ExtResource("17_umb2f")]
+visible = false
+
+[node name="ZombieFSM" parent="." index="13" instance=ExtResource("14_od3dv")]
+
+[node name="StatusEffectTextMarker" parent="." index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11964, 0)
+
+[node name="LootTables" type="Node" parent="." index="15"]
+process_mode = 4
+
+[node name="LootTable" type="Node" parent="LootTables" index="0"]
+script = ExtResource("18_vqkkd")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0epq7p6tnkpe"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/MagicBurstFire/MagicBurstFireAbility.gd" id="1_ub8ti"]
+[ext_resource type="PackedScene" uid="uid://buv74ha6c1lck" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/MagicBurstFire/MagicBurstFireProjectile.tscn" id="2_478g4"]
+
+[node name="MagicBurstFireAbility" type="Node"]
+script = ExtResource("1_ub8ti")
+projectile_scene = ExtResource("2_478g4")
+burst_amount = 3
+time_between_shots = 0.2
+is_active = true
+ability_id = "magic_burst_fire"
+display_name = "Magic Burst Fire"
+description = "The Magic Burst Fire Ability fires three Magic Missiles in quick succession"

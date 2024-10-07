@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://21w3uywlbi1k"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/SolarPower/SolarPanelFacility.gd" id="1_irqcp"]
+[ext_resource type="PackedScene" uid="uid://c4k44oc2nxt4i" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/BaseUpgradeRecipe.tscn" id="2_fcl0i"]
+[ext_resource type="PackedScene" uid="uid://b77bxtfmg87tc" path="res://Content/Demo/Code/Items/ResourceItems/ScrapMetal.tscn" id="2_vmgyc"]
+
+[node name="SolarPanelFacility" type="Node"]
+script = ExtResource("1_irqcp")
+max_upgrade_level = 1
+base_facility_id = "solar_panels"
+display_name = "Solar Panels"
+
+[node name="UpgradeRecipes" type="Node" parent="."]
+
+[node name="BaseUpgradeRecipe" parent="UpgradeRecipes" instance=ExtResource("2_fcl0i")]
+item_cost_dictionary = {
+NodePath("ScrapMetal"): 2
+}
+
+[node name="ScrapMetal" parent="UpgradeRecipes/BaseUpgradeRecipe" instance=ExtResource("2_vmgyc")]

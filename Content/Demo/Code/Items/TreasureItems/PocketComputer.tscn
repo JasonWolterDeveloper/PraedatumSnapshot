@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmh26ir4lbeut"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/TreasureItem.gd" id="1_dr44e"]
+[ext_resource type="Texture2D" uid="uid://bvw2n2q7qftlo" path="res://Content/Demo/Assets/Items/TreasureItems/PocketComputer/PocketComputerInventoryImage.png" id="2_boten"]
+[ext_resource type="PackedScene" uid="uid://bfwqmaco6as8i" path="res://Content/Demo/Assets/Items/TreasureItems/PocketComputer/PocketComputerGroundModel.tscn" id="3_7m7er"]
+
+[node name="PocketComputer" type="Node3D"]
+script = ExtResource("1_dr44e")
+inventory_image = ExtResource("2_boten")
+ground_3d_model_scene = ExtResource("3_7m7er")
+display_name = "Pocket Computer"
+item_id = "pocket_computer"
+description = "A Pocket Computer for keeping track of important stuff, but mostly for looking at man made horrors beyond your comprehension on the internet. 
+
+Now serves no purpose other than to be broken down into scrap, or sold"
+default_price = 200
+grid_square_width = 1
+grid_square_height = 1

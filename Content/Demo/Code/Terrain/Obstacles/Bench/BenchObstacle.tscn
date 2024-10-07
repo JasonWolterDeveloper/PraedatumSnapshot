@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx0nrps83jcd6"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_l7u6q"]
+[ext_resource type="PackedScene" uid="uid://dx7dwtpw3ddjn" path="res://Content/Demo/Assets/Terrain/Obstacles/Bench/PraedatumBench.glb" id="2_tvwnh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gejlo"]
+size = Vector3(3.86584, 0.143433, 0.958633)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l8b5o"]
+size = Vector3(0.167221, 0.300995, 0.85936)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6hrsh"]
+size = Vector3(0.242462, 0.685913, 0.241669)
+
+[node name="BenchObstacle" type="StaticBody3D"]
+script = ExtResource("1_l7u6q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0618172, 0.703269, 0.00497472)
+shape = SubResource("BoxShape3D_gejlo")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.692175, 0.877543, 0.0070194)
+shape = SubResource("BoxShape3D_l8b5o")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.600043, 0.871154, -0.00324214)
+shape = SubResource("BoxShape3D_l8b5o")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22372, 0.308945, 0.125344)
+shape = SubResource("BoxShape3D_6hrsh")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33629, 0.312675, 0.282799)
+shape = SubResource("BoxShape3D_6hrsh")
+
+[node name="PraedatumBench" parent="." instance=ExtResource("2_tvwnh")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 1.22735, 0.746242, 0)

@@ -1,0 +1,163 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5ny6grjeidov"]
+
+[ext_resource type="Script" path="res://UIObjects/InteractionUI/InteractionIcon.gd" id="1_pgs1y"]
+[ext_resource type="Texture2D" uid="uid://djv42mfohjkot" path="res://UIObjects/Assets/InputIcons/Blank_Key_Dark.png" id="2_b5684"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy3fx"]
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0eu50"]
+bg_color = Color(0.124083, 0.124083, 0.124083, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a3c7b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upeqx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.785)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f88n3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.749781, 0.74978, 0.74978, 0.785)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 4
+
+[node name="InteractionIcon" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_pgs1y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+offset_left = -93.0
+offset_top = -232.0
+offset_right = 107.0
+offset_bottom = 22.0
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gy3fx")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="PromptText" type="Label" parent="VBoxContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+text = "Unlock Door"
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0eu50")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="SubText" type="Label" parent="VBoxContainer/VBoxContainer/Panel2/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Cost: 1x Blue Keycard"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+z_index = 10
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_b5684")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="GhostTextureRect" type="Panel" parent="VBoxContainer"]
+z_index = 10
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a3c7b")
+
+[node name="GhostTextureRect2" type="Panel" parent="VBoxContainer/GhostTextureRect"]
+z_index = 10
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_upeqx")
+
+[node name="GhostTextureRect" type="Panel" parent="VBoxContainer/GhostTextureRect/GhostTextureRect2"]
+z_index = 10
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_f88n3")

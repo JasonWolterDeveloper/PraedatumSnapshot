@@ -1,0 +1,208 @@
+[gd_scene load_steps=32 format=3 uid="uid://brpnw1ubdeykp"]
+
+[ext_resource type="PackedScene" uid="uid://bgj3h4qtwgwkk" path="res://BaseGameObjects/Level.tscn" id="1_6rvh0"]
+[ext_resource type="PackedScene" uid="uid://bk8wso3tg1vs4" path="res://BaseGameObjects/Behaviour/Patrol/Patrol.tscn" id="2_3fvwv"]
+[ext_resource type="PackedScene" uid="uid://d8vcljbj8r00" path="res://Content/Default/Code/InteractableObjects/ExtractionPortal.tscn" id="2_5bgtk"]
+[ext_resource type="PackedScene" uid="uid://bl176wggn7k33" path="res://BaseGameObjects/Player.tscn" id="2_5fs0w"]
+[ext_resource type="PackedScene" uid="uid://cq5j8ahjwhnoe" path="res://BaseGameObjects/Inventory/Shops/ShopItemEntry.tscn" id="2_w51ov"]
+[ext_resource type="PackedScene" uid="uid://dt6t3wrrcsds1" path="res://Content/Default/Code/InteractableObjects/GroundItem.tscn" id="2_y58c3"]
+[ext_resource type="PackedScene" uid="uid://bv21mn40omyfs" path="res://Content/Demo/Code/Levels/Rooms/MedicalHallway.tscn" id="3_ikkh0"]
+[ext_resource type="PackedScene" uid="uid://by0du1leu31pl" path="res://BaseGameObjects/Behaviour/Patrol/PatrolWaypoint.tscn" id="3_pvbv7"]
+[ext_resource type="PackedScene" uid="uid://da7rupv1bdghc" path="res://Content/Demo/Code/Levels/Rooms/MedicalFoyer.tscn" id="3_s3e4u"]
+[ext_resource type="PackedScene" uid="uid://bvud2rdqx7bhg" path="res://Content/Demo/Code/Items/Aid/Health/Instant/HealthPotion.tscn" id="4_vvut2"]
+[ext_resource type="PackedScene" uid="uid://bj6wj2vfs8id0" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Closets/WarehouseLootRoom/WarehouseLootRoom.tscn" id="5_y3adh"]
+[ext_resource type="PackedScene" uid="uid://b3k3yerviij1e" path="res://Content/TestContent/Code/InteractableObjects/TestLootObject.tscn" id="6_6p25j"]
+[ext_resource type="PackedScene" uid="uid://bqygu4gs6nvck" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/NormalRooms/Warehouse/WarehouseBaseRoom.tscn" id="7_r4ipq"]
+[ext_resource type="PackedScene" uid="uid://dckx87yok3eou" path="res://UIObjects/PlayerHUD/TabStatusMenu/TabStatusPanel.tscn" id="8_as84i"]
+[ext_resource type="PackedScene" uid="uid://cfcg4n5b4ptpt" path="res://UIObjects/InventoryUI/ShopMenuUI/ShopMenu.tscn" id="8_r7v37"]
+[ext_resource type="PackedScene" uid="uid://broj86uh4bw0d" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackup.tscn" id="8_s7u0e"]
+[ext_resource type="PackedScene" uid="uid://4d3osy1662sk" path="res://Content/Demo/Code/Items/Ammo/SmallCaliberPistolAmmo.tscn" id="9_3uyge"]
+[ext_resource type="PackedScene" uid="uid://c1iyt48pjsr43" path="res://Content/TestContent/Code/UtilityItems/Combat/TestExplosiveCharge.tscn" id="9_p61u6"]
+[ext_resource type="PackedScene" uid="uid://w3o3b02oc36k" path="res://Content/Demo/Code/Enemies/Turret/TurretEnemy.tscn" id="12_kh26e"]
+[ext_resource type="PackedScene" uid="uid://d08nydivn6fq8" path="res://Content/Demo/Code/Items/Weapons/FragGrenade/FragGrenadeItem.tscn" id="13_h3uqb"]
+[ext_resource type="PackedScene" uid="uid://f6hgb2xt586e" path="res://Content/Default/Code/Items/Scrip.tscn" id="14_2il87"]
+[ext_resource type="PackedScene" uid="uid://dahkxjok5j6mm" path="res://Content/Demo/Code/Enemies/SecurityBot/SecurityBotEnemy.tscn" id="14_7ac0y"]
+[ext_resource type="PackedScene" uid="uid://bwjgf52uj5d3q" path="res://Content/Demo/Code/Items/Weapons/StunGrenade/StunGrenadeItem.tscn" id="14_pauee"]
+[ext_resource type="PackedScene" uid="uid://bervt8as74v6n" path="res://Content/Demo/Code/Items/Weapons/OlReliable/OlReliable.tscn" id="16_t6o5h"]
+[ext_resource type="PackedScene" uid="uid://b8oeydt3qmek6" path="res://Content/Demo/Code/Items/Tools/BlueKey.tscn" id="17_ax4mo"]
+[ext_resource type="PackedScene" uid="uid://bfpdm51gp77sq" path="res://BaseGameObjects/Inventory/Shops/Shop.tscn" id="24_0y6p1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wxhnn"]
+sky_top_color = Color(0.14902, 0.188235, 0.239216, 1)
+sky_horizon_color = Color(0.588235, 0.588235, 0.592157, 1)
+sky_curve = 0.52233
+sky_energy_multiplier = 0.7
+ground_horizon_color = Color(0.587255, 0.589309, 0.593054, 1)
+ground_energy_multiplier = 0.0
+sun_angle_max = 0.0
+sun_curve = 51.638
+
+[sub_resource type="Sky" id="Sky_r4hy3"]
+sky_material = SubResource("ProceduralSkyMaterial_wxhnn")
+
+[sub_resource type="Environment" id="Environment_qw622"]
+background_mode = 2
+background_energy_multiplier = 1.5
+sky = SubResource("Sky_r4hy3")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 10.0
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xq0t0"]
+size = Vector2(5000, 5000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gj1h4"]
+render_priority = -100
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+
+[node name="RoomSystemTestLevel" instance=ExtResource("1_6rvh0")]
+
+[node name="GroundItem" parent="." index="0" instance=ExtResource("2_y58c3")]
+transform = Transform3D(0.492515, 0, -0.870304, 0, 1, 0, 0.870304, 0, 0.492515, 0.5, 0.719024, 3.01021)
+
+[node name="BurstPistol" parent="GroundItem" index="4" instance=ExtResource("8_s7u0e")]
+
+[node name="GroundItem2" parent="." index="1" instance=ExtResource("2_y58c3")]
+transform = Transform3D(0.492515, 0, -0.870304, 0, 1, 0, 0.870304, 0, 0.492515, 1.74323, 0.0138314, 1.72692)
+
+[node name="HealthPotion" parent="GroundItem2" index="4" instance=ExtResource("4_vvut2")]
+
+[node name="Patrol" parent="." index="2" instance=ExtResource("2_3fvwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 0)
+
+[node name="PatrolWaypoint" parent="Patrol" index="0" instance=ExtResource("3_pvbv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+
+[node name="PatrolWaypoint2" parent="Patrol" index="1" instance=ExtResource("3_pvbv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="TestLevelTransitionInteractable" parent="." index="3" instance=ExtResource("2_5bgtk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -22)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="4"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
+light_color = Color(0.356863, 0.356863, 0.356863, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="5"]
+environment = SubResource("Environment_qw622")
+
+[node name="TabStatusPanel" parent="UILayer" index="0" instance=ExtResource("8_as84i")]
+
+[node name="ShopMenu" parent="UILayer" index="3" node_paths=PackedStringArray("debug_shop", "debug_player") instance=ExtResource("8_r7v37")]
+visible = false
+debug_shop = NodePath("../../Shop")
+debug_player = NodePath("../../Player")
+
+[node name="SuperSecretHitDetector" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53964, 0)
+
+[node name="WarehouseLootRoom" parent="RoomMaster" index="0" instance=ExtResource("5_y3adh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, 0, 0)
+
+[node name="MedicalFoyer" parent="RoomMaster" index="1" instance=ExtResource("3_s3e4u")]
+difficulty_level = 0
+starting_room = true
+increase_difficulty_level = false
+
+[node name="WarehouseBaseRoom" parent="RoomMaster" index="2" instance=ExtResource("7_r4ipq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -13)
+
+[node name="MedicalFoyer2" parent="RoomMaster" index="3" instance=ExtResource("3_s3e4u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17, 0, -10)
+display_name = "Foyer 2"
+
+[node name="MedicalFoyer3" parent="RoomMaster" index="4" node_paths=PackedStringArray("enemy_spawn_table") instance=ExtResource("3_s3e4u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17, 0, -44)
+display_name = "Foyer 2"
+difficulty_level = 2
+enemy_spawn_table = NodePath("../MedicalFoyer2/MedicalFacilityEnemySpawnTable")
+
+[node name="MedicalHallway" parent="RoomMaster" index="5" instance=ExtResource("3_ikkh0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
+
+[node name="MedicalHallway3" parent="RoomMaster" index="6" instance=ExtResource("3_ikkh0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -27)
+
+[node name="MedicalHallway2" parent="RoomMaster" index="7" instance=ExtResource("3_ikkh0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 0, 0)
+
+[node name="Player" parent="." index="11" instance=ExtResource("2_5fs0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67058, 1.21938, -0.6074)
+
+[node name="Void" type="MeshInstance3D" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+mesh = SubResource("PlaneMesh_xq0t0")
+surface_material_override/0 = SubResource("StandardMaterial3D_gj1h4")
+
+[node name="TestLootObject" parent="." index="13" instance=ExtResource("6_6p25j")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, -1)
+auto_spawn_loot = false
+
+[node name="Scrip" parent="TestLootObject" index="0" instance=ExtResource("14_2il87")]
+
+[node name="TestExplosiveCharge" parent="TestLootObject" index="1" instance=ExtResource("9_p61u6")]
+
+[node name="SmallCaliberPistolAmmo" parent="TestLootObject" index="7" instance=ExtResource("9_3uyge")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 3)
+
+[node name="StunGrenadeItem" parent="TestLootObject" index="8" instance=ExtResource("14_pauee")]
+
+[node name="FragGrenadeItem" parent="TestLootObject" index="9" instance=ExtResource("13_h3uqb")]
+
+[node name="FragGrenadeItem3" parent="TestLootObject" index="10" instance=ExtResource("13_h3uqb")]
+
+[node name="FragGrenadeItem2" parent="TestLootObject" index="11" instance=ExtResource("13_h3uqb")]
+
+[node name="BlueKey" parent="TestLootObject" index="12" instance=ExtResource("17_ax4mo")]
+
+[node name="OlReliable" parent="TestLootObject" index="13" instance=ExtResource("16_t6o5h")]
+
+[node name="BurstPistol" parent="TestLootObject" index="14" instance=ExtResource("8_s7u0e")]
+
+[node name="TurretEnemy" parent="." index="14" instance=ExtResource("12_kh26e")]
+transform = Transform3D(0.0265957, 0, -0.999646, 0, 1, 0, 0.999646, 0, 0.0265957, -0.37954, 4.76837e-07, -14.4725)
+
+[node name="SecurityBotEnemy" parent="." index="15" node_paths=PackedStringArray("patrol") instance=ExtResource("14_7ac0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 1.5, 0)
+patrol = NodePath("../Patrol")
+
+[node name="SecurityBotEnemy2" parent="." index="16" instance=ExtResource("14_7ac0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -9)
+
+[node name="SecurityBotEnemy3" parent="." index="17" instance=ExtResource("14_7ac0y")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 39, 1, 1)
+
+[node name="SecurityBotEnemy4" parent="." index="18" instance=ExtResource("14_7ac0y")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 33.5, 1, 4.5)
+
+[node name="Shop" parent="." index="19" instance=ExtResource("24_0y6p1")]
+
+[node name="ShopItemEntry" parent="Shop" index="1" instance=ExtResource("2_w51ov")]
+stock_quantity = 30
+originial_stock_quantity = 30
+
+[node name="SmallCaliberPistolAmmo" parent="Shop/ShopItemEntry" index="0" instance=ExtResource("9_3uyge")]
+
+[node name="ShopItemEntry2" parent="Shop" index="2" instance=ExtResource("2_w51ov")]
+stock_quantity = 2
+originial_stock_quantity = 2
+
+[node name="HealthPotion" parent="Shop/ShopItemEntry2" index="0" instance=ExtResource("4_vvut2")]
+
+[node name="ShopItemEntry3" parent="Shop" index="3" instance=ExtResource("2_w51ov")]
+stock_quantity = 2
+originial_stock_quantity = 2
+
+[node name="FragGrenadeItem" parent="Shop/ShopItemEntry3" index="0" instance=ExtResource("13_h3uqb")]
+
+[node name="ShopItemEntry4" parent="Shop" index="4" instance=ExtResource("2_w51ov")]
+
+[node name="BurstPistol" parent="Shop/ShopItemEntry4" index="0" instance=ExtResource("8_s7u0e")]
+
+[node name="ShopItemEntry5" parent="Shop" index="5" instance=ExtResource("2_w51ov")]
+
+[node name="OlReliable" parent="Shop/ShopItemEntry5" index="0" instance=ExtResource("16_t6o5h")]

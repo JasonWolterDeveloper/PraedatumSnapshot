@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b71w0bmwc7p6o"]
+
+[ext_resource type="PackedScene" uid="uid://ct7o5n0aoaunn" path="res://BaseGameObjects/RPGMechanics/RPGPerk.tscn" id="1_u15fm"]
+[ext_resource type="Script" path="res://Content/Demo/Code/RPGMechanics/Perks/QuadDamage/QuadDamagePerk.gd" id="2_lsrv4"]
+
+[node name="QuadDamagePerk" instance=ExtResource("1_u15fm")]
+script = ExtResource("2_lsrv4")
+multiplier = 4.0
+duration = 10.0
+apply_order = 20
+activatable = true
+maximum_number_of_uses = 2
+remaining_uses = 2
+
+[node name="Timer" type="Timer" parent="." index="0"]
+
+[connection signal="timeout" from="Timer" to="." method="timer_end"]

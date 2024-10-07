@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://fmos4ivtd3pw"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/NonHitscan/NonHitscanBullet.gd" id="1_b3obu"]
+
+[node name="NonHitscanBullet" type="CharacterBody3D"]
+motion_mode = 1
+script = ExtResource("1_b3obu")

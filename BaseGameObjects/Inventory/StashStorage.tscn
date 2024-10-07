@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://drmvhept2gj3k"]
+
+[ext_resource type="PackedScene" uid="uid://bpryq34tbjf37" path="res://BaseGameObjects/Inventory/Storage.tscn" id="1_1jtx8"]
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/StashStorage.gd" id="2_x8yx3"]
+
+[node name="StashStorage" instance=ExtResource("1_1jtx8")]
+script = ExtResource("2_x8yx3")
+grid_square_width = 10
+grid_square_height = 12

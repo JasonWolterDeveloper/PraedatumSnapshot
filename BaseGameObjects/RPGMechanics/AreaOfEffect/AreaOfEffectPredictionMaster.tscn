@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://di16876lbo26t"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/AreaOfEffect/AreaOfEffectPredictionMaster.gd" id="1_eogeq"]
+[ext_resource type="PackedScene" uid="uid://yuwtjq07gndg" path="res://BaseGameObjects/Combat/AreaOfEffect/AreaOfEffectIndicator.tscn" id="2_oiw2r"]
+[ext_resource type="PackedScene" uid="uid://56n3nnlph1w0" path="res://BaseGameObjects/Combat/Projectiles/ProjectileTrajectoryPredictor.tscn" id="3_e80c8"]
+
+[node name="AreaOfEffectPredictionMaster" type="Node3D"]
+script = ExtResource("1_eogeq")
+default_area_of_effect_indicator_scene = ExtResource("2_oiw2r")
+
+[node name="ProjectileTrajectoryPredictor" parent="." instance=ExtResource("3_e80c8")]

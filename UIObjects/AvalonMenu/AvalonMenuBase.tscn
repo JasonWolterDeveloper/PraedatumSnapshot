@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://bddfnfw3e6yfc"]
+
+[ext_resource type="Script" path="res://UIObjects/AvalonMenu/AvalonMenuBase.gd" id="1_p8qtr"]
+[ext_resource type="PackedScene" uid="uid://b2bfigmawa4m0" path="res://UIObjects/AvalonMenu/RaidMenu/RaidMenu.tscn" id="2_dn0r5"]
+[ext_resource type="PackedScene" uid="uid://ckiaaj8fysaxo" path="res://UIObjects/AvalonMenu/StashMenu/StashMenu.tscn" id="2_oa45g"]
+[ext_resource type="PackedScene" uid="uid://bc76tc1euvusa" path="res://UIObjects/AvalonMenu/ShopMenu/AvalonShopMenu.tscn" id="3_fj4e3"]
+[ext_resource type="PackedScene" uid="uid://bqrdoqkobcgqj" path="res://UIObjects/InventoryUI/InventoryMenuTemplates/LostAndFoundInventoryUIMenu.tscn" id="3_umj3o"]
+[ext_resource type="PackedScene" uid="uid://btot2o0db0ac8" path="res://UIObjects/ConversationSystem/ContactsMenu.tscn" id="4_qek81"]
+[ext_resource type="PackedScene" uid="uid://da1kluq7m63h4" path="res://UIObjects/BaseFacilityMenu/SelectionMenu/BaseFacilitySelectionMenu.tscn" id="5_k8xjp"]
+[ext_resource type="PackedScene" uid="uid://iwafti1d83h1" path="res://ScratchPad/QuestMenu/quest_menu.tscn" id="6_d5rb4"]
+[ext_resource type="PackedScene" uid="uid://dngnbei71s0af" path="res://UIObjects/AvalonMenu/WarriorMenus/WarriorMenu.tscn" id="7_bj8y7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0hsd"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_vxss0"]
+Panel/styles/panel = SubResource("StyleBoxFlat_e0hsd")
+
+[node name="AvalonMenuBase" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p8qtr")
+
+[node name="BlackBackground" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_vxss0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+current_tab = 0
+
+[node name="Stash" parent="MarginContainer/TabContainer" instance=ExtResource("2_oa45g")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Lost And Found" parent="MarginContainer/TabContainer" instance=ExtResource("3_umj3o")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Ye Auld Shoppe" parent="MarginContainer/TabContainer" instance=ExtResource("3_fj4e3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Contacts" parent="MarginContainer/TabContainer" instance=ExtResource("4_qek81")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Quests" parent="MarginContainer/TabContainer" instance=ExtResource("6_d5rb4")]
+visible = false
+layout_mode = 2
+build_from_active_quests = true
+closable = false
+allow_quest_completion = false
+allow_quest_acceptance = false
+metadata/_tab_index = 4
+
+[node name="Base Facilities" parent="MarginContainer/TabContainer" instance=ExtResource("5_k8xjp")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="WarriorMenu" parent="MarginContainer/TabContainer" instance=ExtResource("7_bj8y7")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+
+[node name="Raid" parent="MarginContainer/TabContainer" instance=ExtResource("2_dn0r5")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 7
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="QuitButton" type="Button" parent="MarginContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "X"
+
+[connection signal="tab_selected" from="MarginContainer/TabContainer" to="." method="_on_tab_container_tab_selected"]
+[connection signal="pressed" from="MarginContainer2/QuitButton" to="." method="quit"]

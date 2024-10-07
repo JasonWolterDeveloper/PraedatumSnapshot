@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq8o4vvh6dq50"]
+
+[ext_resource type="PackedScene" uid="uid://u4pfc7d47yu8" path="res://BaseGameObjects/RPGMechanics/StatusEffects/StunnedStatusEffect.tscn" id="1_cpilf"]
+
+[node name="FlashBangStunnedStatusEffect" instance=ExtResource("1_cpilf")]
+duration = 4.0

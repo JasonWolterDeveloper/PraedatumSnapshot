@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsq3ip43hb8p6"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_hjjk1"]
+[ext_resource type="PackedScene" uid="uid://bymlkqlvg6rce" path="res://Content/Demo/Assets/Terrain/Obstacles/FilingCabinet/FilingCabinet.glb" id="2_xvv6b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k8iex"]
+size = Vector3(0.845734, 1.22461, 0.834351)
+
+[node name="FilingCabinet" type="StaticBody3D"]
+script = ExtResource("1_hjjk1")
+
+[node name="FilingCabinet" parent="." instance=ExtResource("2_xvv6b")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00539923, 0.619959, -0.00372314)
+shape = SubResource("BoxShape3D_k8iex")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cra3x5g141pur"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGSegmentedStat.gd" id="1_ytd44"]
+
+[node name="ManaStat" type="Node"]
+script = ExtResource("1_ytd44")
+stat_id = "mana"

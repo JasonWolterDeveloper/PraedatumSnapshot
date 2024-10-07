@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://f57fj6ee0cjl"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_imtye"]
+[ext_resource type="PackedScene" uid="uid://celg1hf7via6x" path="res://Content/Demo/Assets/Terrain/Obstacles/RestaurantBooth/PraedatumBoothSeat.glb" id="2_ds0yv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x8n57"]
+size = Vector3(1.12817, 1.39105, 3.75757)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jabs3"]
+size = Vector3(0.474335, 2.51669, 3.80103)
+
+[node name="BoothSeat" type="StaticBody3D"]
+script = ExtResource("1_imtye")
+
+[node name="PraedatumBoothSeat" parent="." instance=ExtResource("2_ds0yv")]
+transform = Transform3D(1.4, 0, 0, 0, 1.6, 0, 0, 0, 1.4, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0640869, 0.195526, 0.0159912)
+shape = SubResource("BoxShape3D_x8n57")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.549142, 0.758347, 0.00720215)
+shape = SubResource("BoxShape3D_jabs3")

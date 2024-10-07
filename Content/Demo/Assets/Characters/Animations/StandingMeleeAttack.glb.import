@@ -1,0 +1,43 @@
+[remap]
+
+importer="animation_library"
+importer_version=1
+type="AnimationLibrary"
+uid="uid://8s0vcy64his2"
+path="res://.godot/imported/StandingMeleeAttack.glb-b0fc0ad25ce6485fdba8b94f7085f422.res"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Characters/Animations/StandingMeleeAttack.glb"
+dest_files=["res://.godot/imported/StandingMeleeAttack.glb-b0fc0ad25ce6485fdba8b94f7085f422.res"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Armature/Skeleton3D": {
+"rest_pose/external_animation_library": null,
+"retarget/bone_map": Resource("res://Content/Demo/Assets/Characters/Animations/BoneMaps/Mixamo BoneMap.tres")
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

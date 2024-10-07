@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dminm824kdd8g"]
+
+[ext_resource type="Texture2D" uid="uid://cifsgyri2450u" path="res://Content/Demo/Assets/Terrain/Floors/Textures/BaseTileMap.png" id="1_r385g"]
+
+[resource]
+albedo_color = Color(0.564962, 0.564962, 0.564962, 1)
+albedo_texture = ExtResource("1_r385g")
+metallic = 0.3
+uv1_scale = Vector3(0.05, 0.05, 0.05)
+uv1_triplanar = true

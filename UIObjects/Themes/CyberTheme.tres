@@ -1,0 +1,50 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://q8fchd6stpns"]
+
+[ext_resource type="FontFile" uid="uid://jjpdtk4jb6ea" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="1_qcf56"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4k2ae"]
+bg_color = Color(0.61339, 0.61339, 0.61339, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vs2ex"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pytk4"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[resource]
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_qcf56")
+Button/styles/hover = SubResource("StyleBoxFlat_4k2ae")
+Button/styles/normal = SubResource("StyleBoxFlat_vs2ex")
+Label/constants/outline_size = 2
+Label/fonts/font = ExtResource("1_qcf56")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_pytk4")
+RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/fonts/normal_font = ExtResource("1_qcf56")

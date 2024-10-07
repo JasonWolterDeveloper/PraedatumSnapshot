@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2sq3ugd3qatg"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Ammo/AmmoItem.gd" id="1_lgca8"]
+
+[node name="LargeCaliberRifleAmmo" type="Node3D"]
+script = ExtResource("1_lgca8")
+ammo_type = "7.62"
+current_quantity = 12
+max_quantity = 12
+delete_at_zero_quantity = true
+grid_square_width = 2
+grid_square_height = 3

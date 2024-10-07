@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxvaom4vak7hi"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/SavingLoading/GlobalConfigMaster.gd" id="1_cc784"]
+
+[node name="GlobalConfigMaster" type="Node"]
+script = ExtResource("1_cc784")

@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://cqewl117ysqe"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Enemies/EnemyGibs/EnemyGibs.gd" id="1_5756e"]
+[ext_resource type="PackedScene" uid="uid://bsnuu3g2dn1bv" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/GibAssets/PraedatumSecurityBotGun.glb" id="2_afsio"]
+[ext_resource type="PackedScene" uid="uid://coeean42e5elt" path="res://BaseGameObjects/Aesthetics/ExplosionVFX/ExplosionVFX.tscn" id="2_jabym"]
+[ext_resource type="PackedScene" uid="uid://dg08e1lthn73c" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/GibAssets/PraedatumSecurityBotArm.glb" id="3_d3ia5"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Enemies/EnemyGibs/EnemyGiblet.gd" id="4_q6d2i"]
+[ext_resource type="PackedScene" uid="uid://rshw7c821ty5" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/GibAssets/PraedatumSecurityBotBody.glb" id="5_0lais"]
+[ext_resource type="PackedScene" uid="uid://drjbujd61qyt7" path="res://BaseGameObjects/Combat/Enemies/EnemyGibs/EnemyGiblet.tscn" id="6_ayvdf"]
+[ext_resource type="PackedScene" uid="uid://bng8cy1edn3xl" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/GibAssets/PraedatumSecurityBotHead.glb" id="7_h24ji"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dr8do"]
+size = Vector3(0.914551, 0.837769, 0.700317)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u6vys"]
+radius = 0.355082
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0p53s"]
+size = Vector3(0.336426, 1.00574, 0.301514)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tx05d"]
+size = Vector3(0.296661, 0.296875, 1)
+
+[node name="SecurityBotGibs" type="Node3D"]
+script = ExtResource("1_5756e")
+physics_force_random_high_value = 2.0
+
+[node name="ExplosionVFX" parent="." instance=ExtResource("2_jabym")]
+explosion_length_scale = 0.5
+
+[node name="EnemyGiblet" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.898948, 0)
+collision_layer = 0
+mass = 2.0
+script = ExtResource("4_q6d2i")
+
+[node name="PraedatumSecurityBotBody" parent="EnemyGiblet" instance=ExtResource("5_0lais")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyGiblet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, -0.00689697, 6.10352e-05)
+shape = SubResource("BoxShape3D_dr8do")
+
+[node name="HeadGiblet" parent="." instance=ExtResource("6_ayvdf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56708, 0)
+collision_layer = 0
+mass = 0.9
+
+[node name="PraedatumSecurityBotHead" parent="HeadGiblet" instance=ExtResource("7_h24ji")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeadGiblet"]
+shape = SubResource("SphereShape3D_u6vys")
+
+[node name="ArmGiblet" parent="." instance=ExtResource("6_ayvdf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.526258, 0.734762, 0)
+collision_layer = 0
+
+[node name="PraedatumSecurityBotArm" parent="ArmGiblet" instance=ExtResource("3_d3ia5")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ArmGiblet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00561523, -0.055481, 0.0233154)
+shape = SubResource("BoxShape3D_0p53s")
+
+[node name="GunArmGiblet" parent="." instance=ExtResource("6_ayvdf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.630871, 1.0164, 0)
+collision_layer = 0
+
+[node name="PraedatumSecurityBotGun" parent="GunArmGiblet" instance=ExtResource("2_afsio")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GunArmGiblet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00688171, 0.0185547, -0.350651)
+shape = SubResource("BoxShape3D_tx05d")
+
+[node name="DisappearTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]

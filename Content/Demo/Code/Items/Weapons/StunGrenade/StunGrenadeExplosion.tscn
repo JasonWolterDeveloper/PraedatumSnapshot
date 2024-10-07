@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://k1nenvec51n7"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Weapons/StunGrenade/StunGrenadeExplosion.gd" id="1_7ysiv"]
+[ext_resource type="PackedScene" uid="uid://cq8o4vvh6dq50" path="res://Content/Demo/Code/Items/Weapons/StunGrenade/FlashBangStunStatusEffect.tscn" id="2_d5yfq"]
+[ext_resource type="PackedScene" uid="uid://bc5fkqdy8l04a" path="res://Content/Demo/Code/Items/Weapons/StunGrenade/FlashbangExplosionVFX.tscn" id="3_0wkyr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yhoo7"]
+radius = 5.0
+
+[node name="StunGrenadeExplosion" type="Area3D" node_paths=PackedStringArray("explosion_vfx")]
+collision_layer = 19
+collision_mask = 19
+script = ExtResource("1_7ysiv")
+stun_effect_scene = ExtResource("2_d5yfq")
+damage = 0.0
+explosion_vfx = NodePath("ExplosionVFX")
+
+[node name="ExplosionVFX" parent="." instance=ExtResource("3_0wkyr")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_yhoo7")

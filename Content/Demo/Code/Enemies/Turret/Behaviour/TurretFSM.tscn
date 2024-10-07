@@ -1,0 +1,43 @@
+[gd_scene load_steps=12 format=3 uid="uid://cycso66262rjc"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretFSM.gd" id="1_i68e6"]
+[ext_resource type="PackedScene" uid="uid://js8wwnnd2jmn" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/TargetSeenLink.tscn" id="2_wjybw"]
+[ext_resource type="PackedScene" uid="uid://dc4viavry3njr" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/DamagedByPlayerLink.tscn" id="3_241rc"]
+[ext_resource type="PackedScene" uid="uid://cqlpvhr31easw" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretTargetReacquiredLink.tscn" id="4_8gowa"]
+[ext_resource type="PackedScene" uid="uid://bbl4xkosr7jq7" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretTargetDetectedLink.tscn" id="5_lygd3"]
+[ext_resource type="PackedScene" uid="uid://cb6bxenonnowd" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretTargetLostLink.tscn" id="6_wi1ep"]
+[ext_resource type="PackedScene" uid="uid://bd0ud4a5jgraa" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretPassiveScanState.tscn" id="7_cfrv8"]
+[ext_resource type="PackedScene" uid="uid://c6p12dcbn4mii" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretActiveScanState.tscn" id="8_we12j"]
+[ext_resource type="PackedScene" uid="uid://bb5uym7ms6op7" path="res://Content/Default/Code/Behaviour/Links/TimeoutLink.tscn" id="10_2tt6k"]
+[ext_resource type="PackedScene" uid="uid://3c8pt1g21kah" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretRangedEngageFSM.tscn" id="10_qdn2l"]
+[ext_resource type="PackedScene" uid="uid://c6ykrh2py7bjl" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/SuppressionTimeoutLink.tscn" id="11_krqs6"]
+
+[node name="TurretFSM" type="Node3D"]
+script = ExtResource("1_i68e6")
+
+[node name="TargetSeenLink" parent="." instance=ExtResource("2_wjybw")]
+uses_vision_cone = true
+vision_cone_angle = 1.5708
+detection_range = 12.0
+collision_mask_for_raycast = 3
+debug_mode = false
+
+[node name="DamagedByPlayerLink" parent="." instance=ExtResource("3_241rc")]
+
+[node name="TurretTargetReacquiredLink" parent="." instance=ExtResource("4_8gowa")]
+
+[node name="TurretTargetDetectedLink" parent="." instance=ExtResource("5_lygd3")]
+
+[node name="TurretTargetLostLink" parent="." instance=ExtResource("6_wi1ep")]
+
+[node name="TurretPassiveScanState" parent="." instance=ExtResource("7_cfrv8")]
+
+[node name="TurretActiveScanState" parent="." instance=ExtResource("8_we12j")]
+
+[node name="TimeoutLink" parent="." instance=ExtResource("10_2tt6k")]
+duration = 3.0
+
+[node name="TurretRangedEngageFSM" parent="." instance=ExtResource("10_qdn2l")]
+
+[node name="SuppressionTimeoutLink" parent="." node_paths=PackedStringArray("turret_ranged_engage_state") instance=ExtResource("11_krqs6")]
+turret_ranged_engage_state = NodePath("../TurretRangedEngageFSM")

@@ -1,0 +1,70 @@
+[gd_scene load_steps=17 format=3 uid="uid://cfebsm0500lyg"]
+
+[ext_resource type="PackedScene" uid="uid://b153i424xgox6" path="res://Content/Default/Code/Behaviour/StateMachines/PatrolFSM/PatrolFSM.tscn" id="1_a602m"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/NanomachineHive/Behaviour/NanomachineHiveFSM.gd" id="1_lqwc8"]
+[ext_resource type="PackedScene" uid="uid://cxfhphg6p8uah" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/MeleeAttackState.tscn" id="2_l38tb"]
+[ext_resource type="PackedScene" uid="uid://bulwv1e7hn6jw" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/PersistentAttackStates/PersistentMeleeAttackState.tscn" id="3_bvvr0"]
+[ext_resource type="PackedScene" uid="uid://cas1v5jkm1ijr" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/PursuitState.tscn" id="3_tqlye"]
+[ext_resource type="PackedScene" uid="uid://lcpw3l8d56n8" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/TargetJustLostState.tscn" id="4_sf4l8"]
+[ext_resource type="PackedScene" uid="uid://b7jw58tx8mlvx" path="res://Content/Default/Code/Behaviour/States/IdleStates/GuardState.tscn" id="5_ebenv"]
+[ext_resource type="PackedScene" uid="uid://bvosbqgnmk7xp" path="res://Content/Demo/Code/Enemies/NanomachineHive/Behaviour/HiveMoveState.tscn" id="6_8wl86"]
+[ext_resource type="PackedScene" uid="uid://cfvr8h561gjft" path="res://Content/Demo/Code/Behaviour/States/WanderState.tscn" id="6_fmqig"]
+[ext_resource type="PackedScene" uid="uid://js8wwnnd2jmn" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/TargetSeenLink.tscn" id="7_yt6t5"]
+[ext_resource type="PackedScene" uid="uid://cnegwbqp3akle" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/SixthSenseLink.tscn" id="8_4qogv"]
+[ext_resource type="PackedScene" uid="uid://xbrrtb7vsjpn" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/TargetHeardLink.tscn" id="8_iluxi"]
+[ext_resource type="PackedScene" uid="uid://dc4viavry3njr" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/DamagedByPlayerLink.tscn" id="9_uv07e"]
+[ext_resource type="PackedScene" uid="uid://dtrohyw5kg0wg" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/NoTargetLOSLink.tscn" id="10_xry0u"]
+[ext_resource type="PackedScene" uid="uid://bl2yji2yd5ds" path="res://Content/Default/Code/Behaviour/Links/DestinationReachedLink.tscn" id="11_mq688"]
+[ext_resource type="PackedScene" uid="uid://bb5uym7ms6op7" path="res://Content/Default/Code/Behaviour/Links/TimeoutLink.tscn" id="12_sdhey"]
+
+[node name="NanomachineHiveFSM" type="Node3D"]
+script = ExtResource("1_lqwc8")
+
+[node name="PatrolFSM" parent="." instance=ExtResource("1_a602m")]
+
+[node name="PersistentMeleeAttackState" parent="." instance=ExtResource("3_bvvr0")]
+
+[node name="MeleeAttackState" parent="." instance=ExtResource("2_l38tb")]
+visiting_point_tolerance = 1.1
+
+[node name="PursuitState" parent="." instance=ExtResource("3_tqlye")]
+
+[node name="GuardState" parent="." instance=ExtResource("5_ebenv")]
+
+[node name="TargetJustLostState" parent="." instance=ExtResource("4_sf4l8")]
+
+[node name="MoveState" parent="." instance=ExtResource("6_8wl86")]
+
+[node name="WanderState" parent="." instance=ExtResource("6_fmqig")]
+
+[node name="TargetHeardLink" parent="." instance=ExtResource("8_iluxi")]
+triggered_bark_name = &"target_detected_bark"
+
+[node name="TargetSeenLink" parent="." instance=ExtResource("7_yt6t5")]
+triggered_bark_name = &"target_detected_bark"
+
+[node name="SixthSenseLink" parent="." instance=ExtResource("8_4qogv")]
+triggered_bark_name = &"target_detected_bark"
+
+[node name="DamagedByPlayerLink" parent="." instance=ExtResource("9_uv07e")]
+triggered_bark_name = &"target_detected_bark"
+
+[node name="NoTargetLOSLink" parent="." instance=ExtResource("10_xry0u")]
+
+[node name="DestinationReachedLink" parent="." instance=ExtResource("11_mq688")]
+
+[node name="PursuitTimeoutLink" parent="." instance=ExtResource("12_sdhey")]
+duration = 10.0
+
+[node name="TargetJustLostTimeoutLink" parent="." instance=ExtResource("12_sdhey")]
+duration = 2.0
+
+[node name="DestinationReachedLink2" parent="." instance=ExtResource("11_mq688")]
+
+[node name="TargetHeardLink2" parent="." instance=ExtResource("8_iluxi")]
+
+[node name="TargetSeenLink2" parent="." instance=ExtResource("7_yt6t5")]
+
+[node name="SixthSenseLink2" parent="." instance=ExtResource("8_4qogv")]
+
+[node name="DamagedByPlayerLink2" parent="." instance=ExtResource("9_uv07e")]

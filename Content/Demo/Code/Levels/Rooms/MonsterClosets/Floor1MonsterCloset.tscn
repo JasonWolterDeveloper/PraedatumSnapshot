@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8w5fvpe0bkxt"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/MonsterClosets/MonsterClosetRoom.gd" id="1_5imen"]
+[ext_resource type="PackedScene" uid="uid://bu01on1ubhj5s" path="res://BaseGameObjects/Aesthetics/FogOfWar/RoomHideBlackBox.tscn" id="2_wf36g"]
+[ext_resource type="Material" uid="uid://dminm824kdd8g" path="res://Content/Demo/Code/Levels/Rooms/Floor1/ForemanBossRoomFloor.tres" id="3_v36x6"]
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="4_mpkis"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="5_c7r8o"]
+[ext_resource type="PackedScene" uid="uid://cfl4v3aexofgf" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/NLIDoor.tscn" id="6_0sc0n"]
+[ext_resource type="PackedScene" uid="uid://bkhagmsliovx1" path="res://Content/Demo/Code/Levels/Rooms/RoomConnectors/NLIBasicRoomConnector.tscn" id="7_tthpd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oapwr"]
+size = Vector3(6, 0, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xio3g"]
+size = Vector3(6, 0, 4)
+
+[node name="Floor1MonsterCloset" type="Node3D"]
+script = ExtResource("1_5imen")
+
+[node name="Area" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="RoomHideBlackBox" parent="." instance=ExtResource("2_wf36g")]
+transform = Transform3D(6.5, 0, 0, 0, 9, 0, 0, 0, 4.5, 0, 0, 0)
+fade_out_time = 0.5
+
+[node name="NLIDoorway" parent="." instance=ExtResource("6_0sc0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+destroyable = false
+locked = true
+
+[node name="Terrain" type="NavigationRegion3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Terrain"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor"]
+mesh = SubResource("BoxMesh_oapwr")
+surface_material_override/0 = ExtResource("3_v36x6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Floor"]
+shape = SubResource("BoxShape3D_xio3g")
+
+[node name="OfficeWallEndcap" parent="Terrain" instance=ExtResource("4_mpkis")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 2)
+
+[node name="OfficeWallEndcap2" parent="Terrain" instance=ExtResource("4_mpkis")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -3, 0, 2)
+
+[node name="OfficeWallEndcap3" parent="Terrain" instance=ExtResource("4_mpkis")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -3, 0, -2)
+
+[node name="OfficeWallEndcap4" parent="Terrain" instance=ExtResource("4_mpkis")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 3, 0, -2)
+
+[node name="NLIWall" parent="Terrain" instance=ExtResource("5_c7r8o")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1, 0, 2, 0, -4.37114e-08, -3, 0, 0)
+
+[node name="NLIWall2" parent="Terrain" instance=ExtResource("5_c7r8o")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 1, 0, -2, 0, -4.37114e-08, 3, 0, 0)
+
+[node name="NLIWall3" parent="Terrain" instance=ExtResource("5_c7r8o")]
+transform = Transform3D(-4, 0, -8.74228e-08, 0, 1, 0, 3.49691e-07, 0, -1, 0, 0, -2)
+
+[node name="EnemySpawners" type="Node3D" parent="."]
+
+[node name="RoomConnectors" type="Node3D" parent="."]
+
+[node name="NLIBasicRoomConnector" parent="RoomConnectors" instance=ExtResource("7_tthpd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="LootSpawners" type="Node3D" parent="."]
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

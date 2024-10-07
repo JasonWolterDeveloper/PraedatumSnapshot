@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://djggf34k3jc00"]
+
+[ext_resource type="PackedScene" uid="uid://dx6821ykxxm82" path="res://Content/Demo/Assets/Items/ResourceItems/Electronics/Electronics.glb" id="1_t58sc"]
+
+[node name="ElectronicsGroundModel" type="Node3D"]
+
+[node name="Electronics" parent="." instance=ExtResource("1_t58sc")]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, 0, 0)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://uqvxm2o5mqy2"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/Effects/Quests/StartQuestEffect.gd" id="1_wgppw"]
+
+[node name="StartQuestEffect" type="Node"]
+script = ExtResource("1_wgppw")

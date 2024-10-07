@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvosbqgnmk7xp"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/NanomachineHive/Behaviour/HiveMoveState.gd" id="1_6i8mq"]
+
+[node name="HiveMoveState" type="Node3D"]
+script = ExtResource("1_6i8mq")

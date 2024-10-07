@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://8nguh885vg64"]
+
+[ext_resource type="PackedScene" uid="uid://de8po4eej2tpy" path="res://BaseGameObjects/Combat/Enemies/EnemyGibs/EnemyGibs.tscn" id="1_yv4uc"]
+[ext_resource type="PackedScene" uid="uid://dftbn554b21sw" path="res://Content/Demo/Assets/Characters/Enemies/Turret/TurretBase.glb" id="2_ijury"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Turret/TurretEnemyGibs.gd" id="2_vuuyg"]
+[ext_resource type="PackedScene" uid="uid://coeean42e5elt" path="res://BaseGameObjects/Aesthetics/ExplosionVFX/ExplosionVFX.tscn" id="3_4u3pm"]
+[ext_resource type="PackedScene" uid="uid://b4x8oc6dtgw5h" path="res://Content/Demo/Assets/Characters/Enemies/Turret/TurretGimbal.glb" id="3_kqdls"]
+[ext_resource type="PackedScene" uid="uid://cff2mqi3y2eup" path="res://Content/Demo/Assets/Characters/Enemies/Turret/TurretGunModel.tscn" id="4_ekecv"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Enemies/EnemyGibs/EnemyGiblet.gd" id="6_bbyln"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xnfp6"]
+size = Vector3(0.890015, 0.61438, 1.57793)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_msdp4"]
+size = Vector3(0.82019, 0.741089, 0.664124)
+
+[node name="TurretEnemyGibs" instance=ExtResource("1_yv4uc")]
+script = ExtResource("2_vuuyg")
+physics_force_random_low_value = 0.5
+physics_force_random_high_value = 2.0
+
+[node name="ExplosionVFX" parent="." index="0" instance=ExtResource("3_4u3pm")]
+explosion_length_scale = 0.2
+
+[node name="TurretBase" parent="." index="1" instance=ExtResource("2_ijury")]
+transform = Transform3D(-12, 0, -1.81195e-06, 0, 12, 0, 1.81195e-06, 0, -12, 0, 0, 0)
+
+[node name="TurretGimbal" parent="." index="2" instance=ExtResource("3_kqdls")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="TurretGun" type="RigidBody3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0402333, 0)
+collision_layer = 0
+script = ExtResource("6_bbyln")
+
+[node name="TurretGunModel" parent="TurretGun" index="0" instance=ExtResource("4_ekecv")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.0316662, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TurretGun" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00539815, 1.26942, -0.146189)
+shape = SubResource("BoxShape3D_xnfp6")
+
+[node name="DisappearTimer" type="Timer" parent="." index="4"]
+wait_time = 5.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="5"]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015686, 0.417154, 0.00530505)
+shape = SubResource("BoxShape3D_msdp4")
+
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://buv74ha6c1lck"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/NonHitscan/NonHitscanBullet.gd" id="1_j1hj7"]
+[ext_resource type="PackedScene" uid="uid://bkr1d2gxli76a" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/SecurityBoltModel.tscn" id="2_2daps"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdupu"]
+albedo_color = Color(0.172549, 0.231373, 1, 1)
+emission_enabled = true
+emission = Color(0.124162, 0.148684, 0.595465, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_re1xi"]
+size = Vector3(0.05, 0.05, 0.5)
+
+[node name="MagicBurstFireProjectile" type="CharacterBody3D"]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_j1hj7")
+speed = 15.0
+damage = 10.0
+
+[node name="SecurityBolt" parent="." instance=ExtResource("2_2daps")]
+transform = Transform3D(-3.93403e-09, 0, 0.09, 0, 0.09, 0, -0.09, 0, -3.93403e-09, 0, 0, -0.170493)
+
+[node name="Cube" parent="SecurityBolt" index="0"]
+cast_shadow = 0
+surface_material_override/0 = SubResource("StandardMaterial3D_wdupu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_re1xi")
+
+[editable path="SecurityBolt"]

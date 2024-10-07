@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvkbnjyrpuks2"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/StatusEffects/DamageOverTimeStatusEffect.gd" id="1_q0wd7"]
+
+[node name="WageCageDotEffet" type="Node3D"]
+script = ExtResource("1_q0wd7")
+damage_per_second = 30.0
+periodic_effect = true
+period_length = 0.5
+duration = 0.8

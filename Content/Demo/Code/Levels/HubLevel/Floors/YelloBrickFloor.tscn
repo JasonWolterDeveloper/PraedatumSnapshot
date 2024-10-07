@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjp3i27vxgmkn"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Floor.gd" id="1_2x3nu"]
+[ext_resource type="Texture2D" uid="uid://bg632tafl6ieg" path="res://Content/Demo/Assets/Terrain/Avalon/Floors/YellowBrickPathTexture.png" id="2_dauo8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_trhrn"]
+size = Vector3(1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qphb1"]
+albedo_color = Color(0.808998, 0.808998, 0.808998, 1)
+albedo_texture = ExtResource("2_dauo8")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="Floor" type="StaticBody3D"]
+script = ExtResource("1_2x3nu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_trhrn")
+surface_material_override/0 = SubResource("StandardMaterial3D_qphb1")

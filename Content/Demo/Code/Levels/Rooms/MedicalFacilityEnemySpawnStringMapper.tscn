@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://iry75ltpexrd"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Rooms/MedicalFacilityEnemySpawnStringMapper.gd" id="1_u20cc"]
+
+[node name="MedicalFacilityEnemySpawnStringMapper" type="Node"]
+script = ExtResource("1_u20cc")

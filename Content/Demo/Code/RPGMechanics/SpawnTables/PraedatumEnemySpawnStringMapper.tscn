@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci3bupjr84ukl"]
+
+[ext_resource type="PackedScene" uid="uid://bx4ir1pym4bx3" path="res://BaseGameObjects/Terrain/Rooms/SpawnStringMapper.tscn" id="1_2pww4"]
+[ext_resource type="Script" path="res://Content/Demo/Code/RPGMechanics/SpawnTables/PraedatumEnemySpawnStringMapper.gd" id="2_88owe"]
+
+[node name="PraedatumEnemySpawnStringMapper" instance=ExtResource("1_2pww4")]
+script = ExtResource("2_88owe")

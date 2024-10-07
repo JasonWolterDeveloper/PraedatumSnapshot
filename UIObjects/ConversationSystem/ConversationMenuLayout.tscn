@@ -1,0 +1,127 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt7tn6og54vl1"]
+
+[ext_resource type="Texture2D" uid="uid://d3xch8m1senc6" path="res://UIObjects/Assets/ConversationUI/DefaultPortrait.png" id="1_rdd3c"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_ve6hl"]
+[ext_resource type="Texture2D" uid="uid://b80tld83mq8o5" path="res://UIObjects/Assets/ConversationUI/PlayerPortrait.png" id="3_n27e2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1200, 700)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_rdd3c")
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -50.5
+offset_right = 36.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ve6hl")
+theme_override_font_sizes/font_size = 32
+text = "Flirt"
+
+[node name="Button5" type="Button" parent="Panel/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ve6hl")
+theme_override_font_sizes/font_size = 32
+text = "Accept Quest"
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ve6hl")
+theme_override_font_sizes/font_size = 32
+text = "Witty Choice"
+
+[node name="Button3" type="Button" parent="Panel/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ve6hl")
+theme_override_font_sizes/font_size = 32
+text = "Wittiest Conceptual Choice"
+
+[node name="Button4" type="Button" parent="Panel/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ve6hl")
+theme_override_font_sizes/font_size = 32
+text = "Refuse Quest"
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("3_n27e2")
+
+[node name="TextPanel" type="Panel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/TextPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer/TextPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]This is some sample text. It's very cool and interesting, or, at least I hope it is[/center]
+
+[center]Lorem Ipsum or whatever[/center]
+
+[center]Kerblam Over n' Out[/center]"
+fit_content = true
+visible_characters_behavior = 1

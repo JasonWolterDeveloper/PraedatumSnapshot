@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpnmrfinsrq7l"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_x02io"]
+[ext_resource type="Texture2D" uid="uid://bgiffrfdi5uvh" path="res://Content/Demo/Assets/Items/ResourceItems/DuctTape/DuctTapeInventoryImage.png" id="2_4enw3"]
+[ext_resource type="PackedScene" uid="uid://cceu0o3o7kpni" path="res://Content/Demo/Assets/Items/ResourceItems/DuctTape/DuctTapeGroundModel.tscn" id="3_nai7q"]
+
+[node name="DuctTape" type="Node3D"]
+script = ExtResource("1_x02io")
+inventory_image = ExtResource("2_4enw3")
+ground_3d_model_scene = ExtResource("3_nai7q")
+display_name = "Duct Tape"
+item_id = "duct_tape"
+description = "Everyone's favourite adhesive after hockey tape, which is, unfortunately, not available from the NLI Commissary
+
+Can be used for crafting, or sold"
+show_quantity_in_ui = true
+default_price = 20
+max_quantity = 5
+grid_square_width = 1
+grid_square_height = 1

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3qppxr048ofv"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/RPGMechanics/SpawnTables/PraedatumLootSpawnStringMapper.gd" id="1_j7g5g"]
+
+[node name="PraedatumLootSpawnStringMapper" type="Node"]
+script = ExtResource("1_j7g5g")

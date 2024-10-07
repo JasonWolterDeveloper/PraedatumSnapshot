@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://c63nsvcqakoa5"]
+
+[ext_resource type="PackedScene" uid="uid://i31eiobgfo2y" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Gibs/WageCageSkull.glb" id="1_mo3nl"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Enemies/EnemyGibs/EnemyGibs.gd" id="1_oxemi"]
+[ext_resource type="PackedScene" uid="uid://coeean42e5elt" path="res://BaseGameObjects/Aesthetics/ExplosionVFX/ExplosionVFX.tscn" id="2_ownmj"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Enemies/EnemyGibs/EnemyGiblet.gd" id="3_6c6nt"]
+[ext_resource type="PackedScene" uid="uid://bmjv8mhv8jh8o" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Gibs/WageCageArm.glb" id="3_flb1g"]
+[ext_resource type="PackedScene" uid="uid://dndyxbvdc8dna" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Gibs/WageCageControlPanel.glb" id="3_p2vrx"]
+[ext_resource type="PackedScene" uid="uid://crfqu6ff8k6no" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Gibs/WageCageBase.glb" id="4_52clu"]
+[ext_resource type="PackedScene" uid="uid://b4fojohl25tth" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/WageCage.glb" id="5_07ho8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s0hqw"]
+size = Vector3(0.23, 0.12, 0.07)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_buegt"]
+size = Vector3(0.500488, 0.522034, 1.53918)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4wsq"]
+size = Vector3(0.500488, 0.522034, 1.53918)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d1ccm"]
+radius = 0.3
+
+[node name="WageCageGibs" type="Node3D"]
+script = ExtResource("1_oxemi")
+
+[node name="ExplosionVFX" parent="." instance=ExtResource("2_ownmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25885, 0)
+explosion_length_scale = 0.2
+
+[node name="ControlPanel" type="RigidBody3D" parent="."]
+collision_layer = 0
+script = ExtResource("3_6c6nt")
+
+[node name="WageCageControlPanel" parent="ControlPanel" instance=ExtResource("3_p2vrx")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ControlPanel"]
+transform = Transform3D(0.895373, 0.20909, 0.393178, 0.00163259, 0.881369, -0.472425, -0.445315, 0.423638, 0.788813, -0.182979, 1.17116, -0.406123)
+shape = SubResource("BoxShape3D_s0hqw")
+
+[node name="Arm" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.529793, 0.935481, -0.569085)
+collision_layer = 0
+script = ExtResource("3_6c6nt")
+
+[node name="WageCageArm" parent="Arm" instance=ExtResource("3_flb1g")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0.526836, -0.942537, 0.586722)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0278783, 0, 0)
+shape = SubResource("BoxShape3D_buegt")
+
+[node name="Arm2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12489, 0, 0)
+collision_layer = 0
+script = ExtResource("3_6c6nt")
+
+[node name="WageCageArm" parent="Arm2" instance=ExtResource("3_flb1g")]
+transform = Transform3D(-2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, -1.12551, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arm2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585074, 0.92182, -0.606609)
+shape = SubResource("BoxShape3D_c4wsq")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81698, 0)
+collision_layer = 0
+linear_damp = 0.1
+script = ExtResource("3_6c6nt")
+
+[node name="WageCageSkull" parent="RigidBody3D" instance=ExtResource("1_mo3nl")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0645721, 0)
+shape = SubResource("SphereShape3D_d1ccm")
+
+[node name="DisappearTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="WageCageBase" parent="." instance=ExtResource("4_52clu")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, -0.82, 0)
+
+[node name="WageCage" parent="." instance=ExtResource("5_07ho8")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, 0)
+visible = false
+
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo5a4ahaen4lh"]
+
+[ext_resource type="PackedScene" uid="uid://bjq5duwaglfm7" path="res://Content/Demo/Code/InteractableObjects/LootObjects/LootLocker.tscn" id="1_4vxl4"]
+[ext_resource type="PackedScene" uid="uid://bahjuu5cct3pq" path="res://Content/Demo/Code/RPGMechanics/SpawnTables/LootTables/BasicMilitaryLootTable.tscn" id="2_2oa5u"]
+
+[node name="MilitaryLootLocker" instance=ExtResource("1_4vxl4")]
+
+[node name="BasicMilitaryLootTable" parent="." index="5" instance=ExtResource("2_2oa5u")]
+number_of_rolls = 2

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcgc581lxtanr"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Reloading/ReloadMasterInternalMagazine.gd" id="1_br8cj"]
+
+[node name="ReloadMasterInternalMagazine" type="Node3D"]
+script = ExtResource("1_br8cj")

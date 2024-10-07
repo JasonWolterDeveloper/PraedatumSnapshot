@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1nnepqxby7kn"]
+
+[ext_resource type="Script" path="res://DifficultyMaster.gd" id="1_mb7x6"]
+
+[node name="DifficultyMaster" type="Node"]
+script = ExtResource("1_mb7x6")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnlsc7wp2kjaq"]
+
+[ext_resource type="PackedScene" uid="uid://b5ogqj38e8aao" path="res://Content/Demo/Assets/Interactables/LootInteractables/Locker/LootLocker.glb" id="1_2f8lj"]
+
+[node name="LootLockerModel" type="Node3D"]
+
+[node name="LootLocker" parent="." instance=ExtResource("1_2f8lj")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[editable path="LootLocker"]

@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=4 uid="uid://yw6iar2t32h3"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Weapons/WeaponModel.gd" id="1_j2l6x"]
+[ext_resource type="PackedScene" uid="uid://cueif6ienbyx3" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/PraedatumTrenchSweeper.glb" id="2_ej7ns"]
+[ext_resource type="PackedScene" uid="uid://dxeaxseydtmae" path="res://BaseGameObjects/Combat/Weapons/EjectionPort.tscn" id="3_8jf01"]
+[ext_resource type="PackedScene" uid="uid://dtaf2s13w2nke" path="res://Content/Demo/Code/Items/Weapons/Casings/Casing12Gauge.tscn" id="4_u5mnh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktajg"]
+resource_name = "MuzzleFlashMaterial"
+cull_mode = 2
+albedo_color = Color(0.906505, 0.38308, 0.173383, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(1, 0.330935, 0.0441019, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vpa6q"]
+_surfaces = [{
+"aabb": AABB(-1, -4.69936, -7.28144, 37.1985, 9.39873, 14.5629),
+"format": 34896613377,
+"index_count": 240,
+"index_data": PackedByteArray("KQADABUAKQAfAAMAHwAHAAMAHwAgAAcAIQAIAAQAIQAjAAgAIQABAAUAIQAeAAEAFAAEABYAFAAAAAQAFwABABUAFwAFAAEAGQANAAkAGQAbAA0AFgAKAAYAFgAYAAoAFwAJAAUAFwAZAAkAIAALAAcAIAAiAAsAJAATAA8AJAAmABMAIgAPAAsAIgAkAA8AIwAMAAgAIwAlAAwAGAAOAAoAGAAaAA4AKAARAB0AKAAnABEAJQAQAAwAJQAnABAAGgASAA4AGgAcABIAGwARAA0AGwAdABEADwAdABsADwATAB0ADAAcABoADAAQABwAJgAdABMAJgAoAB0ACAAaABgACAAMABoABwAZABcABwALABkABAAYABYABAAIABgACwAbABkACwAPABsABwAVAAMABwAXABUAAgAWAAYAAgAUABYAHgAVAAEAHgApABUAAAApAB4AAAAUACkAEgAoACYAEgAcACgADQAnACUADQARACcAHAAnACgAHAAQACcACQAlACMACQANACUACgAkACIACgAOACQADgAmACQADgASACYABgAiACAABgAKACIABAAeACEABAAAAB4ABQAjACEABQAJACMAAgAgAB8AAgAGACAAFAAfACkAFAACAB8A"),
+"lods": [0.685577, PackedByteArray("KQADABUAHgApABUAHgAVAAEAAAApAB4AAAAUACkAFAADACkAFAACAAMAAgAgAAMAAgAGACAAAwAgAAcAIAAiAAcABgAiACAAIgATAAcABgAmACIABgASACYAIgAmABMAJgAdABMABwATAB0ABwAdABkABwAZABcABwAVAAMABwAXABUAFwABABUAFwAFAAEAFwAJAAUAFwAZAAkAGQARAAkABQAJACEAIQABAAUAIQAeAAEABAAeACEACQAnACEAIQAnABAAIQAQAAwADAAQABwAHAAQACcAHAAnACgADAAcABoAGgAcABIAEgAcACgAEgAoACYAJgAoAB0AGgASAAYAFgAaAAYAAgAWAAYAAgAUABYABAAaABYAFAAEABYAFAAAAAQABAAAAB4ABAAMABoAIQAMAAQAGQAdABEAKAARAB0AKAAnABEACQARACcA"), 3.13846, PackedByteArray("BQAeAAEABAAeAAUABwAFAAMABQABAAMABAAAAB4AAgAAAAQAAgAEAAYABAASAAYABAAcABIABgASACYAEgAcACYABgAmABMAHAAnACYAJgAnAB0AJgAdABMABwATAB0ABgATAAcAAgAGAAcAAgAHAAMAAAACAAMAAAADAB4AHgADAAEABQAQAAQABQAnABAAHAAQACcABAAQABwABwAnAAUABwAdACcA"), 22.3134, PackedByteArray("BQAeAAEABAAeAAUABwAFAAMABQABAAMABAAAAB4AAgAEAAYAAgAAAAQABgAFAAcABAAFAAYAHgADAAEAAAADAB4AAAACAAMAAgAHAAMAAgAGAAcA")],
+"name": "MuzzleFlashMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 42,
+"vertex_data": PackedByteArray("AADCZJORAAAAADybk5EAAAAAwmRrbgAAAAA8m2tuAACTCXRVdJsAAJMJiqp0mwAAkwl0VYpkAACTCYqqimQAACYculcxmgAAJhwkqRClAAAmHLpXF2YAACYcdKhWXgAApy/ySHizAACnLw23h6MAAKcv8kh3XAAApy8Nt3dcAAD+/wAA/v8AAP7//v///wAA/v8AAAAAAAD+////AAAAAAAAwmT/fwAAAAA8m/9/AACTCXRV/38AAJMJiqr/fwAAJhxnQiKAAAAmHHe+LIAAAKcv8kj/fwAApy8Nt/9/AAD///Ai/38AAP//Dt3/fwAAAAD/f5ORAAAAAP9/a24AAJMJ/3+KZAAAkwn/f3SbAAAmHOl/cFgAACYc9YDepwAApy//f3dcAACnL/9/lasAAP///3/wIgAA////fw7dAAD///9//38AAAAA/3//fwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rkuck"]
+resource_name = "PraedatumTrenchSweeper_Cube_027"
+_surfaces = [{
+"aabb": AABB(-1, -4.69936, -7.28144, 37.1985, 9.39873, 14.5629),
+"attribute_data": PackedByteArray("/x//P/9fAAD/X////58AAP+f////3/8//x//f/9f/7//n/+//9//f/9f/z//n/8//1//f/+f/3//X/8//5//P/9f/3//n/9//1//P/+f/z//X/9//5//f/9f/z//n/8//1//f/+f/3//H/9f/1//3/+f/9//3/9f/1//X/+f/1//X/9f/5//X/9f/1//n/9f/1//X/+f/1//fwAA/3////9//7//f/9//3//P/9//3//f/8//3//f/9//z//f/9//3//P/9//1//f//f/x//P/9f////n////9//P/8f/3//X/+//5//v//f/3//X/8//1//P/9f/z//n/8//5//P/+f/z//X/9//1//f/9f/3//n/9//5//f/+f/3//fwAA/3////8f/z//XwAA/1/////f/z//H/9//1//v/+f/7//n/+//9//f/9f/z//X/8//1//P/9f/z//n/8//5//P/+f/z//n/8//1//f/9f/3//n/9//5//f/+f/3//n/9//1//P/9f/z//X/9//5//f/9f/1//X/9f/1//X/+f/1//n/9f/5//X/9/AAD/f////3//f/9//3//f/8//3//P/9//z//nwAA/9//P/8f/3//X/+//5//v/9f/z//X/8//5//P/9f/3//X/9//5//f/+f/3//n/8//5//P/9f/z//X/8//1//P/+f/z//X/9//1//f/+f/3//H/9f/1//3/+f/9//3/9f/1//X/+f/1//n/9f/5//X/9f/1//X/9f/1//X/9f/1//n/9f/5//X/9/AAD/f/9//3//P/9//z//f/9//3//P/9//z//f/8//3//X/9//18="),
+"format": 34896613399,
+"index_count": 240,
+"index_data": PackedByteArray("MgAIABwAMgAoAAgAKAANAAgAKAApAA0AKgAOAAoAKgAsAA4AKgADAAsAKgAmAAMAGgAKAB4AGgAAAAoAHwAFAB0AHwALAAUAIQATAA8AIQAjABMAHgAQAAwAHgAgABAAHwAPAAsAHwAhAA8AKQARAA0AKQArABEALQAZABUALQAvABkAKwAVABEAKwAtABUALAASAA4ALAAuABIAIAAUABAAIAAiABQAMQAXACUAMQAwABcALgAWABIALgAwABYAIgAYABQAIgAkABgAIwAXABMAIwAlABcAFQAlACMAFQAZACUAEgAkACIAEgAWACQALwAlABkALwAxACUADgAiACAADgASACIADQAhAB8ADQARACEACgAgAB4ACgAOACAAEQAjACEAEQAVACMADQAdAAkADQAfAB0ABgAeAAwABgAaAB4AJwAcAAQAJwAyABwAAgAyACcAAgAbADIAGAAxAC8AGAAkADEAEwAwAC4AEwAXADAAJAAwADEAJAAWADAADwAuACwADwATAC4AEAAtACsAEAAUAC0AFAAvAC0AFAAYAC8ADAArACkADAAQACsACgAmACoACgABACYACwAsACoACwAPACwABwApACgABwAMACkAGwAoADIAGwAHACgA"),
+"lods": [0.685577, PackedByteArray("MgB1AIgAJwAyAIgAJwCIAAQAAgAyACcAAgCHADIAhwB1ADIAhwB0AHUAdACVAHUAdAB5AJUAdQCVAHsAlQArAHsAegArAJUAKwAZAA0ADAAvACsADAAYAJgAKwCYAIUAmACTAIUAfACFAJMAfACTAI0AewCNAIsAewCJAAkAewCLAIkAiwByAIkAiwB4AHIAiwB9AHgAiwCMAH0AjAAXAH0AeAB9AJYAlgBxAHgAlgCUAHEAdwCUAJYAfgCaAJYAlwCaAIEAlwCBAH8AfwCBAJAAkACBAJsAkQCbAJ0AgACQAI4AjgCPAIMAhACPAJ0AhACdAJgAmACdAJIAjgCDAHkAigCOAHkAcwCKAHkAcwCGAIoAdgCOAIoAhgB2AIoAhgAAAHYAdgABAJQAdgASACIAKgASAAoAIQCSAIIAnACCAJIAnACZAIIADwCCAJkA"), 3.13846, PackedByteArray("VgBqAAMAUwBqAFkAXwBWAFEAVgBMAFEAUgBKAGoATQBJAFIATQBSAFoAVABiAFoAVABkAGIADABiAG0AYgBmAG0ADAAvABkAZgBuAGwAbABuAGcAbABnAGMAXgBjAGkAWwAZAFwATgBbAFwATgBcAFAASwBOAE8ASwBPAGsAawBPAAQAVwBgAFMAVwBvAGAAZQBgAG8AVQBhAGUAXQBwAFgAXQBoAHAA"), 22.3134, PackedByteArray("PgBHAAMAPQBHAEAARQA+ADoAPgA2ADoAOwABAEcANwA7AEEANwAzADsAQgA/AEQAPAA/AEIASAA5ADUANAA5AEgANAA4ADkAOABGADkAOABDAEYA")],
+"material": SubResource("StandardMaterial3D_ktajg"),
+"name": "MuzzleFlashMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 158,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_vpa6q")
+
+[node name="TrenchSweeperWeaponModel" type="Node3D"]
+script = ExtResource("1_j2l6x")
+
+[node name="PraedatumTrenchSweeper" parent="." instance=ExtResource("2_ej7ns")]
+transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 0, 0.0063664, 0)
+
+[node name="MuzzleFlashTop1" parent="PraedatumTrenchSweeper" index="19"]
+visible = false
+
+[node name="MuzzleFlashBottom1" parent="PraedatumTrenchSweeper" index="20"]
+visible = false
+
+[node name="MuzzleFlashBoth1" parent="PraedatumTrenchSweeper" index="21"]
+visible = false
+
+[node name="MuzzleFlash" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.93403e-10, -0.009, 0, -3.93403e-10, 1.71962e-17, -0.009, 0.009, -3.93403e-10, -3.93403e-10, 0, 0.0263349, 0.30899)
+visible = false
+mesh = SubResource("ArrayMesh_rkuck")
+skeleton = NodePath("")
+
+[node name="MuzzleFlashLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0256078, 0.32096)
+visible = false
+light_color = Color(0.580392, 0.576471, 0, 1)
+light_energy = 5.0
+omni_range = 2.0
+
+[node name="BulletStartPos" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0273651, 0.302435)
+
+[node name="LaserPos" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00746691, 0.301551)
+
+[node name="EjectionPort" parent="." instance=ExtResource("3_8jf01")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00857233, 0.035683, -0.0248837)
+casing_scene = ExtResource("4_u5mnh")
+initial_linear_velocity = Vector3(-5, 0, 0)
+initial_angular_velocity = Vector3(0, -8, 0)
+linear_velocity_variance = Vector3(0, 0, 0.6)
+
+[node name="EjectionPort2" parent="." instance=ExtResource("3_8jf01")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00928373, 0.035683, -0.0248837)
+casing_scene = ExtResource("4_u5mnh")
+initial_linear_velocity = Vector3(5, 0, 0)
+initial_angular_velocity = Vector3(0, 8, 0)
+linear_velocity_variance = Vector3(0, 0, 0.6)
+
+[editable path="PraedatumTrenchSweeper"]

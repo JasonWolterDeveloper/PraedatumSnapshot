@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c73ohs5pjl3fh"]
+
+[ext_resource type="Texture2D" uid="uid://b3hsyn2y77t2e" path="res://Content/Demo/Assets/Terrain/Floors/Textures/BaseTileMap.png" id="1_j2o7a"]
+
+[resource]
+albedo_texture = ExtResource("1_j2o7a")
+uv1_scale = Vector3(0.034, 0.034, 0.034)
+uv1_triplanar = true
+uv1_world_triplanar = true

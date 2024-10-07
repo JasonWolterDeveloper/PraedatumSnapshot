@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://db6xf8vkpc17"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/HomeBaseFacility.gd" id="1_l52dm"]
+[ext_resource type="PackedScene" uid="uid://djwxhbudveff7" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingCategory.tscn" id="2_jiew3"]
+[ext_resource type="PackedScene" uid="uid://6hru5qdn2i6y" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/BrewingStand/Recipes/Coffee/PixieDustRecipe.tscn" id="3_x8sxg"]
+[ext_resource type="PackedScene" uid="uid://bir6sonlwanqf" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/BrewingStand/Recipes/Coffee/CupOJoeRecipe.tscn" id="4_c2o80"]
+[ext_resource type="PackedScene" uid="uid://c4k44oc2nxt4i" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/BaseUpgradeRecipe.tscn" id="4_mw242"]
+[ext_resource type="PackedScene" uid="uid://b77bxtfmg87tc" path="res://Content/Demo/Code/Items/ResourceItems/ScrapMetal.tscn" id="5_cm1mf"]
+[ext_resource type="PackedScene" uid="uid://deec4hbccfuna" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/BrewingStand/Recipes/Coffee/FancyCoffeeRecipe.tscn" id="5_sk4g0"]
+[ext_resource type="PackedScene" uid="uid://b3gjp4gda6op0" path="res://Content/Demo/Code/Items/ResourceItems/NutsNBolts.tscn" id="6_fi0fx"]
+[ext_resource type="PackedScene" uid="uid://1hpaxthojfob" path="res://Content/Demo/Code/Items/ResourceItems/IngredientsItem.tscn" id="7_yy7f0"]
+[ext_resource type="PackedScene" uid="uid://rfc60m7m2mxb" path="res://Content/Demo/Code/Items/ResourceItems/Special/Toolkit/Toolkit.tscn" id="8_mwrn0"]
+
+[node name="BrewingStand" type="Node" node_paths=PackedStringArray("top_level_crafting_category")]
+script = ExtResource("1_l52dm")
+max_upgrade_level = 2
+top_level_crafting_category = NodePath("TopLevelCategory")
+
+[node name="TopLevelCategory" parent="." instance=ExtResource("2_jiew3")]
+category_id = "toplevel"
+
+[node name="PixieDustRecipe" parent="TopLevelCategory" instance=ExtResource("3_x8sxg")]
+base_facility_level_required = 1
+
+[node name="BeveragesCategory" parent="TopLevelCategory" instance=ExtResource("2_jiew3")]
+display_name = "Beverages"
+category_id = "beverages"
+
+[node name="CoffeeCategory" parent="TopLevelCategory/BeveragesCategory" instance=ExtResource("2_jiew3")]
+display_name = "Coffee"
+category_id = "coffee"
+
+[node name="CupOfJoeRecipe" parent="TopLevelCategory/BeveragesCategory/CoffeeCategory" instance=ExtResource("4_c2o80")]
+
+[node name="FancyCoffeeRecipe" parent="TopLevelCategory/BeveragesCategory/CoffeeCategory" instance=ExtResource("5_sk4g0")]
+
+[node name="UpgradeRecipes" type="Node" parent="."]
+
+[node name="BaseUpgradeRecipe" parent="UpgradeRecipes" instance=ExtResource("4_mw242")]
+item_cost_dictionary = {
+NodePath("ScrapMetal"): 10,
+NodePath("NutsNBolts"): 5,
+NodePath("IngredientsItem"): 5
+}
+
+[node name="ScrapMetal" parent="UpgradeRecipes/BaseUpgradeRecipe" instance=ExtResource("5_cm1mf")]
+
+[node name="NutsNBolts" parent="UpgradeRecipes/BaseUpgradeRecipe" instance=ExtResource("6_fi0fx")]
+
+[node name="IngredientsItem" parent="UpgradeRecipes/BaseUpgradeRecipe" instance=ExtResource("7_yy7f0")]
+
+[node name="BaseUpgradeRecipe2" parent="UpgradeRecipes" instance=ExtResource("4_mw242")]
+upgrade_for_level = 2
+item_cost_dictionary = {
+NodePath("ScrapMetal"): 15,
+NodePath("NutsNBolts"): 5,
+NodePath("IngredientsItem"): 10,
+NodePath("Toolkit"): 1
+}
+
+[node name="ScrapMetal" parent="UpgradeRecipes/BaseUpgradeRecipe2" instance=ExtResource("5_cm1mf")]
+
+[node name="NutsNBolts" parent="UpgradeRecipes/BaseUpgradeRecipe2" instance=ExtResource("6_fi0fx")]
+
+[node name="IngredientsItem" parent="UpgradeRecipes/BaseUpgradeRecipe2" instance=ExtResource("7_yy7f0")]
+
+[node name="Toolkit" parent="UpgradeRecipes/BaseUpgradeRecipe2" instance=ExtResource("8_mwrn0")]

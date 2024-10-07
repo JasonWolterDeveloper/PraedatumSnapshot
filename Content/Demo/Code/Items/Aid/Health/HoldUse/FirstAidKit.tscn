@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://bo2yhfxb4t8te"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Aid/Health/HoldUse/Bandage/Bandage.gd" id="1_wk33d"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="2_xlex5"]
+[ext_resource type="Texture2D" uid="uid://gu1mbajrm1q6" path="res://Content/Demo/Assets/Items/Consumables/HoldUse/Health/FirstAidKitInventoryImage.png" id="3_t3rd6"]
+[ext_resource type="PackedScene" uid="uid://c6k5eulx2lnae" path="res://Content/Demo/Assets/Items/Consumables/HoldUse/Health/FirstAidKitGroundModel.tscn" id="4_2ubhm"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="5_35r0h"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="6_06ioi"]
+
+[sub_resource type="Resource" id="Resource_5y3af"]
+script = ExtResource("2_xlex5")
+stat_id = "movement_speed"
+value = -0.5
+is_multiplicative = true
+is_number_of_segments = false
+is_value_per_segment = false
+
+[sub_resource type="Resource" id="Resource_aq0uc"]
+script = ExtResource("6_06ioi")
+stat_title = "HP Restored"
+stat_value = "100.0"
+stat_value_colour = Color(0.639216, 0.0509804, 0, 1)
+
+[sub_resource type="Resource" id="Resource_yp67d"]
+script = ExtResource("6_06ioi")
+stat_title = "Use Time"
+stat_value = "4.0 s"
+stat_value_colour = Color(0.342207, 0.342207, 0.342207, 1)
+
+[sub_resource type="Resource" id="Resource_3ugby"]
+script = ExtResource("6_06ioi")
+stat_title = "Move Spd."
+stat_value = "-50%"
+stat_value_colour = Color(0.724651, 0, 0.147926, 1)
+
+[sub_resource type="Resource" id="Resource_1rbri"]
+script = ExtResource("5_35r0h")
+stat_entry_array = Array[ExtResource("6_06ioi")]([SubResource("Resource_aq0uc"), SubResource("Resource_yp67d"), SubResource("Resource_3ugby")])
+
+[node name="FirstAidKit" type="Node3D"]
+script = ExtResource("1_wk33d")
+heal_amount = 100.0
+time_to_use = 4.0
+holding_use_message = "Healing..."
+hold_use_stat_modifiers = Array[ExtResource("2_xlex5")]([SubResource("Resource_5y3af")])
+utility_item_use_message = "Used First Aid Kit"
+inventory_image = ExtResource("3_t3rd6")
+ground_3d_model_scene = ExtResource("4_2ubhm")
+display_name = "First Aid Kit"
+item_id = "first_aid_kit"
+description = "A collection of first aid supplies for treating even grievous wounds. Takes time to use."
+show_quantity_in_ui = true
+default_price = 100
+item_stat_entry_collection = SubResource("Resource_1rbri")
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://coy07wwrfffa5"]
+
+[ext_resource type="PackedScene" uid="uid://bm1782qnuiwwn" path="res://BaseGameObjects/Bullet.tscn" id="1_h2rwj"]
+
+[node name="OlReliableBullet" instance=ExtResource("1_h2rwj")]
+damage = 30
+speed = 120

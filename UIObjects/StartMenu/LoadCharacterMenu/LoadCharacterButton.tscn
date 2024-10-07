@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0runhdknynyp"]
+
+[ext_resource type="Script" path="res://UIObjects/StartMenu/LoadCharacterMenu/LoadCharacterButton.gd" id="1_jq68w"]
+
+[node name="LoadCharacterButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_jq68w")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

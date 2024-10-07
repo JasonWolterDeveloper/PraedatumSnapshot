@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://q7jkepdp3m2w"]
+
+[ext_resource type="Script" path="res://UIObjects/BaseFacilityMenu/SelectionMenu/BaseFacilitySelectionButton.gd" id="1_fe4gk"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="1_vtxga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwa2n"]
+bg_color = Color(0.0768361, 0.0768358, 0.0768356, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncxen"]
+bg_color = Color(0.489623, 0.489622, 0.489621, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xxqv"]
+bg_color = Color(0.847475, 0.847474, 0.847474, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[node name="BaseFacilitySelectionButton" type="Button"]
+custom_minimum_size = Vector2(600, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -15.5
+offset_right = 39.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_vtxga")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_hwa2n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ncxen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2xxqv")
+text = "Test Text"
+script = ExtResource("1_fe4gk")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

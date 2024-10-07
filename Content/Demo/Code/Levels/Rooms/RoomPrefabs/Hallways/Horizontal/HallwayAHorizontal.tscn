@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpxssvp5sjse7"]
+
+[ext_resource type="PackedScene" uid="uid://cfm22w4ppbop6" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Hallways/Horizontal/HallwayBaseHorizontal.tscn" id="1_ydbah"]
+[ext_resource type="PackedScene" uid="uid://bswi5j5spoqri" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/VendingMachine/VendingMachineObstacle.tscn" id="2_wpfkv"]
+[ext_resource type="PackedScene" uid="uid://bl5l7d4t111a4" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/TrashBin/TrashBinObstacle.tscn" id="3_2foip"]
+
+[node name="HallwayAHorizontal" instance=ExtResource("1_ydbah")]
+
+[node name="VendingMachineObstacle" parent="Terrain/Obstacles" index="0" instance=ExtResource("2_wpfkv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.17777, 0, -2.30625)
+
+[node name="TrashBinObstacle" parent="Terrain/Obstacles/VendingMachineObstacle" index="2" instance=ExtResource("3_2foip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.42633, 0, -0.0496769)

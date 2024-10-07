@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://btvd4wwl8yapc"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ToolItems/DoorKeyItem.gd" id="1_h3wel"]
+
+[node name="DoorKeyItem" type="Node3D"]
+script = ExtResource("1_h3wel")
+current_quantity = 1
+max_quantity = 1
+delete_at_zero_quantity = true
+item_type = 3

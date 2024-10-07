@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://htfiqu8t00ov"]
+
+[ext_resource type="PackedScene" uid="uid://7y1nd68hql6x" path="res://Content/Demo/Assets/Items/TreasureItems/GiftCard/GiftCard.glb" id="1_elhic"]
+
+[node name="GiftCardGroundModel" type="Node3D"]
+
+[node name="GiftCard2" parent="." instance=ExtResource("1_elhic")]
+transform = Transform3D(-1.74846e-08, 0.4, 0, -0.4, -1.74846e-08, 0, 0, 0, 0.4, 0, 0.01, 0)

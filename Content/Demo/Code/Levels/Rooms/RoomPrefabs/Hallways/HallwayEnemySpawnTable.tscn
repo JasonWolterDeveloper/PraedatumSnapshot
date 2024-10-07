@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://11ria537kkqk"]
+
+[ext_resource type="PackedScene" uid="uid://dmircn58amnv7" path="res://BaseGameObjects/Terrain/Rooms/SpawnTable.tscn" id="1_nulc4"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Hallways/HallwayEnemySpawnTable.gd" id="2_pengn"]
+[ext_resource type="PackedScene" uid="uid://ci3bupjr84ukl" path="res://Content/Demo/Code/RPGMechanics/SpawnTables/PraedatumEnemySpawnStringMapper.tscn" id="3_4mt37"]
+
+[node name="HallwayEnemySpawnTable" instance=ExtResource("1_nulc4")]
+script = ExtResource("2_pengn")
+
+[node name="SpawnStringMapper" parent="." index="0" instance=ExtResource("3_4mt37")]

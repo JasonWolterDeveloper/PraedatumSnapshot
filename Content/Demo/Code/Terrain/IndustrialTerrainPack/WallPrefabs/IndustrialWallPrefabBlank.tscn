@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bktu8ff5wqqhg"]
+
+[ext_resource type="PackedScene" uid="uid://c14yeba554ow1" path="res://BaseGameObjects/Terrain/Walls/Wall.tscn" id="1_xt621"]
+[ext_resource type="Material" uid="uid://fp3hdtajq0n6" path="res://Content/Default/Code/Levels/VoidTexture.tres" id="2_ibd0n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cimuk"]
+albedo_color = Color(0.180005, 0.180005, 0.180005, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dunrh"]
+material = SubResource("StandardMaterial3D_cimuk")
+size = Vector3(1, 4, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y8bhu"]
+material = ExtResource("2_ibd0n")
+size = Vector3(1, 4.05, 0.2)
+
+[node name="IndustrialWallPrefabBasic" type="Node3D"]
+
+[node name="Wall" parent="." instance=ExtResource("1_xt621")]
+transform = Transform3D(5, 0, -1.06581e-14, 0, 1, 0, 5.68434e-14, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_dunrh")
+
+[node name="VoidPart" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_y8bhu")

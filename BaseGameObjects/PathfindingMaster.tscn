@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6pri36ik1gse"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/PathfindingMaster.gd" id="1_m1i6v"]
+
+[node name="PathfindingMaster" type="Node3D"]
+script = ExtResource("1_m1i6v")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="SoundNavAgent" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="update_path"]

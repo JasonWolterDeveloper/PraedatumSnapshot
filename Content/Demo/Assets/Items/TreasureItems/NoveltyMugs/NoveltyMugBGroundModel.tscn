@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8dng8ie1ofeo"]
+
+[ext_resource type="PackedScene" uid="uid://pwidjmus6o1o" path="res://Content/Demo/Assets/Items/TreasureItems/NoveltyMugs/NoveltyMugBModel.glb" id="2_bdb5g"]
+
+[node name="NoveltyMugBGroundModel" type="Node3D"]
+
+[node name="NoveltyMugBModel" parent="." instance=ExtResource("2_bdb5g")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)

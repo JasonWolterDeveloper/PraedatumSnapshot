@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh3idit7jsjrj"]
+
+[ext_resource type="PackedScene" uid="uid://ys8h61e5txn" path="res://Content/Demo/Assets/Items/ResourceItems/Meds/MedsModel.glb" id="1_dl6qb"]
+
+[node name="MedsGroundModel" type="Node3D"]
+
+[node name="MedsModel" parent="." instance=ExtResource("1_dl6qb")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.165264, 0, 0.274126)

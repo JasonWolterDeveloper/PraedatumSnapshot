@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfo4f3igyy5es"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Constants/PhysicsConstants.gd" id="1_74qy0"]
+
+[node name="PhysicsConstants" type="Node"]
+script = ExtResource("1_74qy0")

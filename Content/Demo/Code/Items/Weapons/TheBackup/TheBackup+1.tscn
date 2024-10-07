@@ -1,0 +1,197 @@
+[gd_scene load_steps=44 format=3 uid="uid://d2v0yvts8ob6f"]
+
+[ext_resource type="PackedScene" uid="uid://csohifpc4ffbj" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Gun.tscn" id="1_d5ymu"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackup.gd" id="2_vi2iw"]
+[ext_resource type="PackedScene" uid="uid://bveo47i8m3j3g" path="res://Content/Demo/Assets/Weapons/TheBackup/BackupPistolModel.tscn" id="3_qwuln"]
+[ext_resource type="Texture2D" uid="uid://clgsjgrcfhf24" path="res://Content/Demo/Assets/Weapons/TheBackup/Backup+1PistolInventoryImage.png" id="4_jtppf"]
+[ext_resource type="PackedScene" uid="uid://dcd827env45l2" path="res://Content/Demo/Assets/Weapons/TheBackup/BackupPistolGroundModel.tscn" id="5_10h7o"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="6_lyef6"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGTags.gd" id="6_ml1t7"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGEventModifier.gd" id="7_a8wxo"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="7_reme2"]
+[ext_resource type="PackedScene" uid="uid://cfmjnswr2bn8j" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackupMagazine.tscn" id="7_v823q"]
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/EventModifiers/DamageEventModifier.gd" id="8_de22x"]
+[ext_resource type="PackedScene" uid="uid://dkqcr854w5h5r" path="res://BaseGameObjects/SoundMaster.tscn" id="8_w1ubd"]
+[ext_resource type="AudioStream" uid="uid://cnhor7kjcshos" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire1-001.wav" id="9_vcpd1"]
+[ext_resource type="AudioStream" uid="uid://bru623sjul5d" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire1-002.wav" id="10_asouj"]
+[ext_resource type="AudioStream" uid="uid://bydiwmouobf3" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire1-003.wav" id="11_2e40y"]
+[ext_resource type="AudioStream" uid="uid://iccr66ali4hp" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire1-004.wav" id="12_5b33o"]
+[ext_resource type="AudioStream" uid="uid://dn5lyemmo3sbu" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire2-001.wav" id="13_wx8qh"]
+[ext_resource type="AudioStream" uid="uid://4mhrqv37cxo0" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire2-002.wav" id="14_c5vqj"]
+[ext_resource type="AudioStream" uid="uid://dlo51plafpmia" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire2-003.wav" id="15_lfypu"]
+[ext_resource type="AudioStream" uid="uid://dutyuucjbhqek" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire2-004.wav" id="16_ai4sd"]
+[ext_resource type="AudioStream" uid="uid://dxrtyglau3hjr" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire3-001.wav" id="17_o5lkv"]
+[ext_resource type="AudioStream" uid="uid://cqy3sbmckdgo6" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire3-002.wav" id="18_y1n18"]
+[ext_resource type="AudioStream" uid="uid://c656hpsgu62m6" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire3-003.wav" id="19_8d2x0"]
+[ext_resource type="AudioStream" uid="uid://d1gok0wk3dewf" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_fire3-004.wav" id="20_p76gi"]
+[ext_resource type="AudioStream" uid="uid://wlh74xy1ttja" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_select-fire-001.wav" id="21_1mvx1"]
+[ext_resource type="AudioStream" uid="uid://capaqsuofhmto" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_mag-eject-001.wav" id="22_2abao"]
+[ext_resource type="AudioStream" uid="uid://c3sb6gibrybee" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_mag-insert-001.wav" id="23_vlo43"]
+[ext_resource type="AudioStream" uid="uid://we7vebauqiur" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_mag-insert-002.wav" id="24_lm68l"]
+[ext_resource type="AudioStream" uid="uid://cps4tt330xwh" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_dry-fire-001.wav" id="25_p7h3g"]
+
+[sub_resource type="Resource" id="Resource_u2fwr"]
+script = ExtResource("7_reme2")
+stat_title = "Damage"
+stat_value = "6"
+stat_value_colour = Color(0.641577, 0.088861, 0.157988, 1)
+
+[sub_resource type="Resource" id="Resource_55kss"]
+script = ExtResource("7_reme2")
+stat_title = "Capacity"
+stat_value = "15"
+stat_value_colour = Color(0.572335, 0.429194, 0.0976343, 1)
+
+[sub_resource type="Resource" id="Resource_ermdj"]
+script = ExtResource("7_reme2")
+stat_title = "Reload Spd."
+stat_value = "2.0 s"
+stat_value_colour = Color(0.572335, 0.429194, 0.0976343, 1)
+
+[sub_resource type="Resource" id="Resource_plvch"]
+script = ExtResource("7_reme2")
+stat_title = "Handling"
+stat_value = "Good"
+stat_value_colour = Color(0.0829862, 0.496847, 0.688897, 1)
+
+[sub_resource type="Resource" id="Resource_whsdg"]
+script = ExtResource("7_reme2")
+stat_title = "Accuracy"
+stat_value = "Good"
+stat_value_colour = Color(0.0829862, 0.496847, 0.688897, 1)
+
+[sub_resource type="Resource" id="Resource_lclnd"]
+script = ExtResource("7_reme2")
+stat_title = "Recoil"
+stat_value = "Low"
+stat_value_colour = Color(0.0823529, 0.498039, 0.690196, 1)
+
+[sub_resource type="Resource" id="Resource_5okfc"]
+script = ExtResource("7_reme2")
+stat_title = "Mode"
+stat_value = "Semi"
+stat_value_colour = Color(0.662452, 0.662452, 0.662452, 1)
+
+[sub_resource type="Resource" id="Resource_mh7ja"]
+script = ExtResource("7_reme2")
+stat_title = "Special"
+stat_value = "Burst"
+stat_value_colour = Color(0.662745, 0.662745, 0.662745, 1)
+
+[sub_resource type="Resource" id="Resource_e36k0"]
+script = ExtResource("6_lyef6")
+stat_entry_array = Array[ExtResource("7_reme2")]([SubResource("Resource_u2fwr"), SubResource("Resource_55kss"), SubResource("Resource_ermdj"), SubResource("Resource_plvch"), SubResource("Resource_whsdg"), SubResource("Resource_lclnd"), SubResource("Resource_5okfc"), SubResource("Resource_mh7ja")])
+
+[sub_resource type="Resource" id="Resource_7urdx"]
+script = ExtResource("6_ml1t7")
+tags = Array[String](["pistol"])
+
+[sub_resource type="Resource" id="Resource_5qtt1"]
+script = ExtResource("8_de22x")
+additive_modifier = 2.0
+multiplicative_modifier = 0.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hicjr"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("9_vcpd1")
+stream_1/stream = ExtResource("10_asouj")
+stream_2/stream = ExtResource("11_2e40y")
+stream_3/stream = ExtResource("12_5b33o")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fsqmx"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("13_wx8qh")
+stream_1/stream = ExtResource("14_c5vqj")
+stream_2/stream = ExtResource("15_lfypu")
+stream_3/stream = ExtResource("16_ai4sd")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_atcdh"]
+streams_count = 4
+stream_0/stream = ExtResource("17_o5lkv")
+stream_1/stream = ExtResource("18_y1n18")
+stream_2/stream = ExtResource("19_8d2x0")
+stream_3/stream = ExtResource("20_p76gi")
+
+[node name="TheBackup+1" instance=ExtResource("1_d5ymu")]
+script = ExtResource("2_vi2iw")
+shots_per_burst_semi = 1
+shots_per_burst_burst = 3
+base_spread_semi = 0.05
+base_spread_burst = 0.15
+time_between_shots_semi = 0.1
+time_between_shots_burst = 0.4
+time_between_shots = 0.1
+time_between_burst_shots = 0.038
+recoil_per_shot = 0.2
+movement_spread_gain_per_second = 0.2
+movement_spread_recovery_per_second = 1.8
+maximum_movement_spread = 0.3
+maximum_walking_movement_spread = 0.05
+screen_shake_on_fire_amount = 0.03
+gunshot_screen_flash_amount = 0.1
+gunshot_screen_flash_duration = 0.05
+low_ammo_amount = 5
+critical_ammo_amount = 2
+weapon_pose = "pistol"
+weapon_model_scene = ExtResource("3_qwuln")
+inventory_image = ExtResource("4_jtppf")
+ground_3d_model_scene = ExtResource("5_10h7o")
+display_name = "The Backup +1"
+item_id = "backup_pistol_+1"
+player_pose = "pistol"
+description = "Widely regarded among both state and corporate security forces as a dependable, if perhaps underpowered sidearm. Its compact size and plentiful ammunition make it a great \"Backup\" weapon, or as a primary for dedicated loot runs in less dangerous areas.
+
+Alt fire swaps between semi-auto and burst fire modes.
+
+This model has been improved slightly.
+
+Chambered in Parabellum Ammunition"
+default_price = 250
+item_stat_entry_collection = SubResource("Resource_e36k0")
+rpg_tags = SubResource("Resource_7urdx")
+rpg_event_modifiers = Array[ExtResource("7_a8wxo")]([SubResource("Resource_5qtt1")])
+grid_square_width = 2
+grid_square_height = 1
+
+[node name="TheBackupMagazine" parent="." index="0" instance=ExtResource("7_v823q")]
+current_quantity = 15
+max_quantity = 15
+
+[node name="SoundMaster" parent="." index="2" instance=ExtResource("8_w1ubd")]
+
+[node name="FireHigh" type="AudioStreamPlayer" parent="SoundMaster" index="0"]
+stream = SubResource("AudioStreamRandomizer_hicjr")
+bus = &"Gun Fire"
+
+[node name="FireLow" type="AudioStreamPlayer" parent="SoundMaster" index="1"]
+stream = SubResource("AudioStreamRandomizer_fsqmx")
+bus = &"Gun Fire"
+
+[node name="FireCritical" type="AudioStreamPlayer" parent="SoundMaster" index="2"]
+stream = SubResource("AudioStreamRandomizer_atcdh")
+pitch_scale = 1.1
+bus = &"Gun Fire"
+
+[node name="SelectFire" type="AudioStreamPlayer" parent="SoundMaster" index="3"]
+stream = ExtResource("21_1mvx1")
+volume_db = -3.267
+bus = &"Gun Other"
+
+[node name="MagEject" type="AudioStreamPlayer" parent="SoundMaster" index="4"]
+stream = ExtResource("22_2abao")
+bus = &"Gun Other"
+
+[node name="MagInsert" type="AudioStreamPlayer" parent="SoundMaster" index="5"]
+stream = ExtResource("23_vlo43")
+bus = &"Gun Other"
+
+[node name="MagInsertPerfect" type="AudioStreamPlayer" parent="SoundMaster" index="6"]
+stream = ExtResource("24_lm68l")
+bus = &"Gun Other"
+
+[node name="DryFire" type="AudioStreamPlayer" parent="SoundMaster" index="7"]
+stream = ExtResource("25_p7h3g")
+volume_db = -4.357
+bus = &"Gun Other"

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1g8i0nmcjom1"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGStat.gd" id="1_aylaf"]
+
+[node name="RPGStat" type="Node"]
+script = ExtResource("1_aylaf")

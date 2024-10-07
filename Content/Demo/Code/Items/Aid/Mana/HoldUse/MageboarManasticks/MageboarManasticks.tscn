@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2ro4tbkp7g0o"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Aid/Mana/HoldUse/MageboarManasticks/MageboarManasticks.gd" id="1_0ygkc"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="2_71w1x"]
+[ext_resource type="Texture2D" uid="uid://dcjg2oshj6b" path="res://Content/Demo/Assets/Items/Consumables/MageboarCigs/MageboarInventoryImage.png" id="2_toii7"]
+[ext_resource type="PackedScene" uid="uid://cnl4ehinvm42f" path="res://Content/Demo/Assets/Items/Consumables/MageboarCigs/MageboarCigarettesGroundModel.tscn" id="3_3rvou"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="5_mlp8a"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="6_w17h4"]
+
+[sub_resource type="Resource" id="Resource_tpt4h"]
+script = ExtResource("2_71w1x")
+stat_id = "move_speed"
+value = -0.5
+is_multiplicative = true
+is_number_of_segments = false
+is_value_per_segment = false
+
+[sub_resource type="Resource" id="Resource_h2yl3"]
+script = ExtResource("6_w17h4")
+stat_title = "Mana Restored"
+stat_value = "25.0"
+stat_value_colour = Color(0.0588235, 0.619608, 0.788235, 1)
+
+[sub_resource type="Resource" id="Resource_rb1j2"]
+script = ExtResource("6_w17h4")
+stat_title = "Use Time"
+stat_value = "2.0 s"
+stat_value_colour = Color(0.342207, 0.342207, 0.342207, 1)
+
+[sub_resource type="Resource" id="Resource_xwvhm"]
+script = ExtResource("6_w17h4")
+stat_title = "Move Spd."
+stat_value = "-50%"
+stat_value_colour = Color(0.724651, 0, 0.147926, 1)
+
+[sub_resource type="Resource" id="Resource_oxc1a"]
+script = ExtResource("5_mlp8a")
+stat_entry_array = Array[ExtResource("6_w17h4")]([SubResource("Resource_h2yl3"), SubResource("Resource_rb1j2"), SubResource("Resource_xwvhm")])
+
+[node name="MageboarManasticks" type="Node3D"]
+script = ExtResource("1_0ygkc")
+time_to_use = 2.0
+holding_use_message = "Smoking..."
+hold_use_stat_modifiers = Array[ExtResource("2_71w1x")]([SubResource("Resource_tpt4h")])
+utility_item_use_message = "Ripped a Mageboar"
+inventory_image = ExtResource("2_toii7")
+ground_3d_model_scene = ExtResource("3_3rvou")
+display_name = "Mageboar Manasticks"
+item_id = "mageboar_manasticks"
+description = "A popular brand of manasticks claiming to feature \"Pure, unfiltered Pixie Dust\" wrapped in attractive packaging. Smoking one will restore some mana."
+show_quantity_in_ui = true
+default_price = 15
+item_type = 3
+item_stat_entry_collection = SubResource("Resource_oxc1a")
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

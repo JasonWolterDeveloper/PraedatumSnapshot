@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ufxvmlc65k1r"]
+
+[ext_resource type="PackedScene" uid="uid://cph85pqgusfp0" path="res://Content/Demo/Assets/Items/Consumables/HoldUse/Mana/Pipe/ManaPipeModel.glb" id="1_njgee"]
+
+[node name="PipeGroundModel" type="Node3D"]
+
+[node name="ManaPipeModel" parent="." instance=ExtResource("1_njgee")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -0.208537, 0, 0)

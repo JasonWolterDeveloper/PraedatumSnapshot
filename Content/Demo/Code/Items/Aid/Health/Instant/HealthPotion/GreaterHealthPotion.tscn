@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://bsq33sowjnnuy"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Aid/Health/Instant/HealthPotion.gd" id="1_5n7b0"]
+[ext_resource type="PackedScene" uid="uid://bt83wq66i4p6m" path="res://Content/Demo/Code/Items/Aid/Health/Instant/HealthPotion/GreaterHealthPotionStatusEffect.tscn" id="2_asqqa"]
+[ext_resource type="Texture2D" uid="uid://c1ukj7r6usxyw" path="res://Content/Demo/Assets/Items/Consumables/Instant/GreaterHealthPotion/GreaterHealthPotionInventoryImage.png" id="3_hfmlb"]
+[ext_resource type="PackedScene" uid="uid://dkgtmrm5mya3w" path="res://Content/Demo/Assets/Items/Consumables/Instant/GreaterHealthPotion/GreaterHealthPotionGroundItem.tscn" id="4_k03pm"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="5_wwgce"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="6_27xcc"]
+
+[sub_resource type="Resource" id="Resource_eavrr"]
+script = ExtResource("6_27xcc")
+stat_title = "Restore Rate"
+stat_value = "8.0 / s"
+stat_value_colour = Color(0.64045, 0.0501781, 2.40654e-07, 1)
+
+[sub_resource type="Resource" id="Resource_krtu2"]
+script = ExtResource("6_27xcc")
+stat_title = "Duration"
+stat_value = "7.5 s"
+stat_value_colour = Color(0.342207, 0.342207, 0.342207, 1)
+
+[sub_resource type="Resource" id="Resource_ksty7"]
+script = ExtResource("6_27xcc")
+stat_title = "Total Restore"
+stat_value = "60.0 HP"
+stat_value_colour = Color(0.639216, 0.0509804, 0, 1)
+
+[sub_resource type="Resource" id="Resource_xq8q2"]
+script = ExtResource("5_wwgce")
+stat_entry_array = Array[ExtResource("6_27xcc")]([SubResource("Resource_eavrr"), SubResource("Resource_krtu2"), SubResource("Resource_ksty7")])
+
+[node name="GreaterHealthPotion" type="Node3D"]
+script = ExtResource("1_5n7b0")
+restoration_status_effect_scene = ExtResource("2_asqqa")
+utility_item_use_message = "Quaffed Greater Health Potion"
+inventory_image = ExtResource("3_hfmlb")
+ground_3d_model_scene = ExtResource("4_k03pm")
+display_name = "Greater Health Potion"
+item_id = "greater_health_potion"
+description = "A magical concoction with medical properties. Quaffing it will gradually heal you over time.
+
+This varient is more impressive than standard."
+usable_from_inventory = true
+show_quantity_in_ui = true
+default_price = 90
+item_type = 3
+item_stat_entry_collection = SubResource("Resource_xq8q2")
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

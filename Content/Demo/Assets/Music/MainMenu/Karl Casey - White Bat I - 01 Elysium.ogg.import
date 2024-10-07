@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bouqwy2481u4d"
+path="res://.godot/imported/Karl Casey - White Bat I - 01 Elysium.ogg-6ae610284f770233b505546d97179a9f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Music/MainMenu/Karl Casey - White Bat I - 01 Elysium.ogg"
+dest_files=["res://.godot/imported/Karl Casey - White Bat I - 01 Elysium.ogg-6ae610284f770233b505546d97179a9f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

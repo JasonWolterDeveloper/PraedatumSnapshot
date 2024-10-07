@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://dknju1ust6muh"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Ammo/AmmoItem.gd" id="1_efbwr"]
+[ext_resource type="Texture2D" uid="uid://v0t0vxm6hu0r" path="res://Content/Demo/Assets/Items/Ammo/SmallCaliberPistolAmmo/SmallCaliberAmmoBoxOverPressure.png" id="2_tltco"]
+[ext_resource type="PackedScene" uid="uid://brdme5wno58os" path="res://Content/Demo/Assets/Items/Ammo/SmallCaliberPistolAmmo/SmallCaliberAmmoBoxGroundModel.tscn" id="3_id5gu"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="4_vag0b"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="5_tt2ov"]
+
+[sub_resource type="Resource" id="Resource_gmf31"]
+script = ExtResource("5_tt2ov")
+stat_title = "Damage Bonus"
+stat_value = "+2"
+stat_value_colour = Color(0.247969, 0.603298, 0, 1)
+
+[sub_resource type="Resource" id="Resource_o3x06"]
+script = ExtResource("4_vag0b")
+stat_entry_array = Array[ExtResource("5_tt2ov")]([SubResource("Resource_gmf31")])
+
+[node name="SmallCaliberPistolAmmoOverPressure" type="Node3D"]
+script = ExtResource("1_efbwr")
+ammo_type = "Parabellum Ammo"
+ammo_sub_type = "+P"
+inventory_image = ExtResource("2_tltco")
+ground_3d_model_scene = ExtResource("3_id5gu")
+display_name = "Parabellum Ammo Overpressured"
+item_id = "parabellum_overpressured"
+description = "A box of Parabellum Pistol Ammunition. Designed primarily for use by law enforcement and backline personnel. Like they say, if you want peace, prepare for war.
+
+These cartridges contain extra powder for a nastier bite"
+show_quantity_in_ui = true
+default_price = 6
+item_type = 2
+item_stat_entry_collection = SubResource("Resource_o3x06")
+current_quantity = 60
+max_quantity = 60
+grid_square_width = 2
+grid_square_height = 1

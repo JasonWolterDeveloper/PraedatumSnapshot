@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbw1ih0y1n2k"]
+
+[ext_resource type="PackedScene" uid="uid://dexhnvcg5620g" path="res://BaseGameObjects/InteractableObjects/Quests/CompleteQuestStepInteractableObject.tscn" id="1_om4vh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ann15"]
+radius = 3.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxrer"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tqhp3"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hj0kf"]
+albedo_color = Color(0.207843, 0.466667, 1, 1)
+
+[node name="QuestComputerInteractableObject" instance=ExtResource("1_om4vh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ActivationArea" index="0"]
+shape = SubResource("SphereShape3D_ann15")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_nxrer")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3"]
+mesh = SubResource("BoxMesh_tqhp3")
+surface_material_override/0 = SubResource("StandardMaterial3D_hj0kf")

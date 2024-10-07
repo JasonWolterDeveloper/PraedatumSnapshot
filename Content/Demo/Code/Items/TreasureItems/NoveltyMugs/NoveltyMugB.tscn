@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs77micbfw4fw"]
+
+[ext_resource type="PackedScene" uid="uid://cv4bfar1mukqc" path="res://Content/Demo/Code/Items/TreasureItems/NoveltyMugs/NoveltyMugA.tscn" id="1_icxic"]
+[ext_resource type="Texture2D" uid="uid://b1w4qeasxcsi7" path="res://Content/Demo/Assets/Items/TreasureItems/NoveltyMugs/NoveltyMugBInventoryImage.png" id="2_3h85a"]
+[ext_resource type="PackedScene" uid="uid://b8dng8ie1ofeo" path="res://Content/Demo/Assets/Items/TreasureItems/NoveltyMugs/NoveltyMugBGroundModel.tscn" id="3_7uaxk"]
+
+[node name="NoveltyMugB" instance=ExtResource("1_icxic")]
+inventory_image = ExtResource("2_3h85a")
+ground_3d_model_scene = ExtResource("3_7uaxk")
+display_name = "Novelty Mug B"
+item_id = "novelty_mug_b"
+description = "A novelty mug offered in NLI Commissaries and as gifts for loyal employees
+
+This varient reminds employees of the ethos and values of Ninth Level Industries
+
+Someone might be looking to collect these, otherwise it can be sold, or scrapped."

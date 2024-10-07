@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://c85xbk2ufhwoh"]
+
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDominos/ItemDominoGrid.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dlxc4st6u7ga6" path="res://Content/Default/Assets/UI/Inventory/ItemInventorySquare.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dce43yoyfi3sx" path="res://Content/Default/Assets/UI/Inventory/ItemValidSquare.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bvkc28cqkn5qw" path="res://Content/Default/Assets/UI/Inventory/ItemHoveredInventorySquare.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cyonduldqh8q2" path="res://Content/Default/Assets/UI/Inventory/ItemInvalidSquare.png" id="5_jf8pg"]
+[ext_resource type="Texture2D" uid="uid://cfup7gjdn1wm8" path="res://Content/Default/Assets/UI/Inventory/ItemMergeSquare.png" id="6_r0g5f"]
+
+[node name="ItemDominoGrid" type="NinePatchRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+script = ExtResource("1")
+normal_texture = ExtResource("2")
+hover_texture = ExtResource("4")
+valid_texture = ExtResource("3")
+invalid_texture = ExtResource("5_jf8pg")
+merge_texture = ExtResource("6_r0g5f")

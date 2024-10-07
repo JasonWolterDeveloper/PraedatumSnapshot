@@ -1,0 +1,122 @@
+[gd_scene load_steps=25 format=3 uid="uid://bf1jvltqtwej1"]
+
+[ext_resource type="PackedScene" uid="uid://bgj3h4qtwgwkk" path="res://BaseGameObjects/Level.tscn" id="1_2kxrl"]
+[ext_resource type="Script" path="res://Content/Default/Code/Levels/HubLevel.gd" id="2_ce4k3"]
+[ext_resource type="PackedScene" uid="uid://bl176wggn7k33" path="res://BaseGameObjects/Player.tscn" id="2_fu0my"]
+[ext_resource type="PackedScene" uid="uid://bddfnfw3e6yfc" path="res://UIObjects/AvalonMenu/AvalonMenuBase.tscn" id="2_h3abn"]
+[ext_resource type="PackedScene" uid="uid://olp28uqesxwi" path="res://BaseGameObjects/InteractableObjects/LootObject.tscn" id="3_ksctc"]
+[ext_resource type="PackedScene" uid="uid://drmvhept2gj3k" path="res://BaseGameObjects/Inventory/StashStorage.tscn" id="3_upd2a"]
+[ext_resource type="PackedScene" uid="uid://c51fopgumc7jq" path="res://Content/Default/Code/InteractableObjects/StashObject.tscn" id="3_yoq5b"]
+[ext_resource type="PackedScene" uid="uid://co06vjb4oagua" path="res://BaseGameObjects/Inventory/LostAndFound/LostAndFoundStorage.tscn" id="4_qdd8s"]
+[ext_resource type="PackedScene" uid="uid://d8vcljbj8r00" path="res://Content/Default/Code/InteractableObjects/ExtractionPortal.tscn" id="5_ui83a"]
+[ext_resource type="PackedScene" uid="uid://b1dlc2v1p0vra" path="res://Content/TestContent/Code/RPGMechanics/Quests/SimpleTestQuest/StartSimpleQuest.tscn" id="6_o8cme"]
+[ext_resource type="PackedScene" uid="uid://dbw1ih0y1n2k" path="res://Content/TestContent/Code/RPGMechanics/Quests/SimpleTestQuest/QuestComputerInteractableObject.tscn" id="7_fdhdw"]
+[ext_resource type="PackedScene" uid="uid://21w3uywlbi1k" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/SolarPower/SolarPanelFacility.tscn" id="10_ar2nk"]
+[ext_resource type="PackedScene" uid="uid://cb0sj5ae0d1wr" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/Stash/HomeBasePlayerStashFacility.tscn" id="10_nemsc"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/HomeBaseFacility.gd" id="11_6faj6"]
+[ext_resource type="PackedScene" uid="uid://dysm7p0o4vlum" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/DonutMaker/DonutMakerFacility.tscn" id="12_e2m47"]
+[ext_resource type="PackedScene" uid="uid://bbx6faic3elfa" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/SolarPower/SolarBatteryFacility.tscn" id="13_72jxw"]
+[ext_resource type="PackedScene" uid="uid://e3d62e1h5ab4" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/Shop/ShopFacility.tscn" id="15_upjpn"]
+[ext_resource type="PackedScene" uid="uid://dhllymjyv2trr" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/WeaponWorkshop/WeaponWorkshopFacility.tscn" id="18_2k0n6"]
+[ext_resource type="PackedScene" uid="uid://db6xf8vkpc17" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/BrewingStand/BrewingStand.tscn" id="19_67yyo"]
+[ext_resource type="PackedScene" uid="uid://c6fmluymc3n3c" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/AmmoBench/AmmoBench.tscn" id="20_5gc8q"]
+[ext_resource type="PackedScene" uid="uid://c0pj0ruqhv6cj" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/Infirmary/Infirmary.tscn" id="20_raprd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xidm1"]
+size = Vector3(40, 0, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ieka"]
+albedo_color = Color(0.501961, 0.501961, 0.509804, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1scfs"]
+size = Vector3(40, 0, 40)
+
+[node name="HubLevel" node_paths=PackedStringArray("lost_and_found_storage", "stash_storage") instance=ExtResource("1_2kxrl")]
+script = ExtResource("2_ce4k3")
+lost_and_found_storage = NodePath("LootObject/LostAndFoundStorage")
+stash_storage = NodePath("StashObject/StashStorage")
+is_hub_level = true
+
+[node name="LootObject" parent="." index="0" node_paths=PackedStringArray("storage") instance=ExtResource("3_ksctc")]
+storage = NodePath("LostAndFoundStorage")
+auto_spawn_loot = false
+
+[node name="LostAndFoundStorage" parent="LootObject" index="2" instance=ExtResource("4_qdd8s")]
+
+[node name="AvalonMenuBase" parent="UILayer" index="0" node_paths=PackedStringArray("player", "stash_storage", "lost_and_found_storage") instance=ExtResource("2_h3abn")]
+player = NodePath("../../Player")
+stash_storage = NodePath("../../StashObject/StashStorage")
+lost_and_found_storage = NodePath("../../LootObject/LostAndFoundStorage")
+
+[node name="PlayerHUD" parent="UILayer" index="1"]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.53796, 0)
+light_energy = 3.0
+omni_range = 20.0
+
+[node name="Player" parent="." index="7" instance=ExtResource("2_fu0my")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22278, 0)
+disable_control = true
+
+[node name="StashObject" parent="." index="8" node_paths=PackedStringArray("storage") instance=ExtResource("3_yoq5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.98842, 0.222628, 0)
+storage = NodePath("StashStorage")
+
+[node name="StashStorage" parent="StashObject" index="3" instance=ExtResource("3_upd2a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.98842, -0.222628, 0)
+
+[node name="Ground" type="StaticBody3D" parent="." index="9"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" index="0"]
+mesh = SubResource("BoxMesh_xidm1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_0ieka")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" index="1"]
+shape = SubResource("BoxShape3D_1scfs")
+
+[node name="TestLevelTransitionInteractable" parent="." index="10" instance=ExtResource("5_ui83a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13843, 0.915044, 2.45671)
+destination_level = "res://Content/TestContent/Code/TestLevel.tscn"
+interaction_prompt_text = ""
+
+[node name="StartSimpleQuest" parent="." index="11" instance=ExtResource("6_o8cme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7761, 0.987425, -5.01276)
+interaction_prompt_text = ""
+
+[node name="QuestComputerInteractableObject" parent="." index="12" instance=ExtResource("7_fdhdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65619, 0.447545, -6.31084)
+quest_id = "simplequest"
+step_id = "return"
+interaction_prompt_text = ""
+
+[node name="HomeBaseFacilities" type="Node" parent="." index="13"]
+process_mode = 4
+
+[node name="HomeBasePlayerStashFacility" parent="HomeBaseFacilities" index="0" instance=ExtResource("10_nemsc")]
+
+[node name="SolarPanelFacility" parent="HomeBaseFacilities" index="1" instance=ExtResource("10_ar2nk")]
+
+[node name="DonutMakerFacility" parent="HomeBaseFacilities" index="2" instance=ExtResource("12_e2m47")]
+
+[node name="SolarBatteryFacility" parent="HomeBaseFacilities" index="3" instance=ExtResource("13_72jxw")]
+
+[node name="HomeBaseFacility" type="Node" parent="HomeBaseFacilities" index="4"]
+script = ExtResource("11_6faj6")
+base_facility_id = "test"
+display_name = "Test Facility"
+
+[node name="ShopFacility" parent="HomeBaseFacilities" index="5" instance=ExtResource("15_upjpn")]
+
+[node name="WeaponWorkshopFacility" parent="HomeBaseFacilities" index="6" instance=ExtResource("18_2k0n6")]
+
+[node name="BrewingStand" parent="HomeBaseFacilities" index="7" instance=ExtResource("19_67yyo")]
+base_facility_id = "brewing_stand"
+display_name = "Brewing Stand"
+description = "A stand for brewing all sorts of powerful potions. Just make sure they aren't too strong for you, warrior."
+
+[node name="Infirmary" parent="HomeBaseFacilities" index="8" instance=ExtResource("20_raprd")]
+
+[node name="AmmoBench" parent="HomeBaseFacilities" index="9" instance=ExtResource("20_5gc8q")]

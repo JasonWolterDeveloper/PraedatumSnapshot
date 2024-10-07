@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://p1r2hpbgg70l"]
+
+[ext_resource type="PackedScene" uid="uid://c5p35bnyqwmx4" path="res://Content/Demo/Assets/Weapons/TrenchMace/TrenchMace.glb" id="1_e7ofd"]
+
+[node name="TrenchMaceGroundModel" type="Node3D"]
+
+[node name="TrenchMace" parent="." instance=ExtResource("1_e7ofd")]
+transform = Transform3D(0.00674008, -0.0746965, 0, 0.0746965, 0.00674008, 0, 0, 0, 0.075, 0, 0.0814837, 0)

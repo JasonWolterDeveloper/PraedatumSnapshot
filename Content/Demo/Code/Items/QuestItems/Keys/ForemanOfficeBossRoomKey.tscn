@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpfjsxtuh1vv"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ToolItems/DoorKeyItem.gd" id="1_0clo6"]
+[ext_resource type="Texture2D" uid="uid://gwtj4f2shdft" path="res://Content/Demo/Assets/Items/QuestItems/Keys/BossRoomKey/BossRoomKeyInventoryImage.png" id="2_y337a"]
+[ext_resource type="PackedScene" uid="uid://cqlt6soadyah4" path="res://Content/Demo/Assets/Items/QuestItems/Keys/BossRoomKey/BossRoomKeycardGroundModel.tscn" id="3_ap3mr"]
+
+[node name="ForemanOfficeBossKey" type="Node3D"]
+script = ExtResource("1_0clo6")
+key_level = 2
+key_code = "foreman_boss_room_key"
+inventory_image = ExtResource("2_y337a")
+ground_3d_model_scene = ExtResource("3_ap3mr")
+display_name = "Foreman's Key"
+item_id = "foreman_key"
+grid_square_width = 1
+grid_square_height = 1

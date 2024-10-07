@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d711chubk3v2"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/SpawnConstants.gd" id="1_ddxim"]
+
+[node name="SpawnConstants" type="Node"]
+script = ExtResource("1_ddxim")

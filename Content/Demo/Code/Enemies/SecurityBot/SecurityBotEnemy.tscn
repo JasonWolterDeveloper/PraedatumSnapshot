@@ -1,0 +1,179 @@
+[gd_scene load_steps=33 format=3 uid="uid://dahkxjok5j6mm"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/SecurityBot/SecurityBotEnemy.gd" id="1_iqc7r"]
+[ext_resource type="PackedScene" uid="uid://cb2idb77flvyy" path="res://Content/Demo/Code/Enemies/SecurityBot/SecurityBotProjectile.tscn" id="2_243bk"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGMechanicsMaster.gd" id="2_aw6vw"]
+[ext_resource type="PackedScene" uid="uid://cqewl117ysqe" path="res://Content/Demo/Code/Enemies/SecurityBot/SecurityBotGibs.tscn" id="2_igj4d"]
+[ext_resource type="PackedScene" uid="uid://c75fxotvsst8s" path="res://Content/Demo/Code/Enemies/SecurityBot/Behaviour/RangedFSM.tscn" id="2_yd50s"]
+[ext_resource type="PackedScene" uid="uid://bwxcjb4ifiqo6" path="res://BaseGameObjects/RPGMechanics/Stats/MaxHealthStat.tscn" id="3_eg0s4"]
+[ext_resource type="PackedScene" uid="uid://yhpbb7jbww4d" path="res://UIObjects/CombatUI/EnemyInfoDisplay.tscn" id="3_k7bo3"]
+[ext_resource type="PackedScene" uid="uid://bl05whbxs0x1b" path="res://BaseGameObjects/Sound/Barks/BarkType.tscn" id="4_1ja4i"]
+[ext_resource type="Script" path="res://BaseGameObjects/Behaviour/AIProperties.gd" id="4_fnyvg"]
+[ext_resource type="PackedScene" uid="uid://cc2jty7a6a6vg" path="res://BaseGameObjects/RPGMechanics/Stats/HealthStat.tscn" id="4_ny1s8"]
+[ext_resource type="PackedScene" uid="uid://bjdk8rkgd5vas" path="res://BaseGameObjects/Sound/Barks/Bark.tscn" id="5_8iram"]
+[ext_resource type="PackedScene" uid="uid://2327nkwxqmib" path="res://UIObjects/CombatUI/StatusEffectUI/StatusEffectDisplay.tscn" id="5_66j48"]
+[ext_resource type="PackedScene" uid="uid://bfrof6tgmg7ik" path="res://Content/Default/Code/RPGMechanics/Stats/MovementSpeedStat.tscn" id="5_eime3"]
+[ext_resource type="AudioStream" uid="uid://cpxvwjveinovn" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/Sounds/Barks/TargetDetected/Security Breach.wav" id="6_88nxy"]
+[ext_resource type="AudioStream" uid="uid://hm08c2qfshg7" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/Sounds/Barks/TargetDetected/Threat Detected.wav" id="6_ov6k1"]
+[ext_resource type="PackedScene" uid="uid://br3xiyr41w1ms" path="res://BaseGameObjects/MovementMaster.tscn" id="7_eyq4u"]
+[ext_resource type="Script" path="res://BaseGameObjects/AimingMaster.gd" id="7_n14fl"]
+[ext_resource type="AudioStream" uid="uid://b2ii3o1p4qygi" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/Sounds/Barks/TargetDetected/Halt.wav" id="8_psni3"]
+[ext_resource type="PackedScene" uid="uid://c6pri36ik1gse" path="res://BaseGameObjects/PathfindingMaster.tscn" id="8_vyn8j"]
+[ext_resource type="PackedScene" uid="uid://c4gvkwfl3kdie" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/SecurityBotModel.tscn" id="9_28wnp"]
+[ext_resource type="AudioStream" uid="uid://cj7sm2ndhdtxd" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/Sounds/Barks/TargetDetected/10-80 in progress.wav" id="9_p4e0e"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/hitbox.gd" id="10_486ug"]
+[ext_resource type="AudioStream" uid="uid://c2ud0m8vs3wl8" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/Sounds/Barks/TargetDetected/Stop Right There.wav" id="10_ydrq1"]
+[ext_resource type="AudioStream" uid="uid://dpf1oufccilbi" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/Sounds/Barks/TargetDetected/Stop Resisting.wav" id="11_irf7q"]
+[ext_resource type="PackedScene" uid="uid://cmi0g7wqmeswm" path="res://BaseGameObjects/Behaviour/AIMemory.tscn" id="23_8543t"]
+
+[sub_resource type="Resource" id="Resource_mn068"]
+script = ExtResource("4_fnyvg")
+state_properties = {
+"prusue_after_suppression": false
+}
+link_properties = {}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_w4ude"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yhspp"]
+radius = 0.496492
+height = 3.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eef6j"]
+radius = 0.6
+height = 3.05403
+
+[sub_resource type="Animation" id="Animation_qc3fr"]
+resource_name = "moving"
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LookStuff/PraedatumSecurityGuard")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.9, 0, 0.4, 1, 0, 1.3, 0, 0.8, 1, 0, 0.8, 0, 1, 1, 0, 0.9, 0)
+
+[sub_resource type="Animation" id="Animation_f8vic"]
+resource_name = "reset"
+length = 0.1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LookStuff/PraedatumSecurityGuard")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.928421, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8d85v"]
+_data = {
+"moving": SubResource("Animation_qc3fr"),
+"reset": SubResource("Animation_f8vic")
+}
+
+[node name="SecurityBotEnemy" type="CharacterBody3D"]
+collision_layer = 16
+collision_mask = 19
+script = ExtResource("1_iqc7r")
+gibs_scene = ExtResource("2_igj4d")
+time_between_shots_turret = 1.2
+bullet_scene = ExtResource("2_243bk")
+spread = 0.01
+shots_per_burst = 3
+time_between_burst_shots = 0.15
+aim_tolerance_to_fire = 10.0
+ai_properties = SubResource("Resource_mn068")
+initial_state_name = &"GuardState"
+status_effect_text_scene = ExtResource("5_66j48")
+
+[node name="SecurityGuardTargetDetectedBark" parent="." instance=ExtResource("4_1ja4i")]
+bark_type_string = "SecurityBotTargetDetected"
+
+[node name="Bark" parent="SecurityGuardTargetDetectedBark" instance=ExtResource("5_8iram")]
+audio = ExtResource("6_88nxy")
+subtitle = "Security Breach"
+
+[node name="Bark2" parent="SecurityGuardTargetDetectedBark" instance=ExtResource("5_8iram")]
+audio = ExtResource("6_ov6k1")
+subtitle = "Threat Detected"
+
+[node name="Bark3" parent="SecurityGuardTargetDetectedBark" instance=ExtResource("5_8iram")]
+audio = ExtResource("8_psni3")
+weight = 2.0
+subtitle = "Halt"
+
+[node name="Bark4" parent="SecurityGuardTargetDetectedBark" instance=ExtResource("5_8iram")]
+audio = ExtResource("9_p4e0e")
+weight = 0.5
+subtitle = "10-80 in progress"
+
+[node name="Bark5" parent="SecurityGuardTargetDetectedBark" instance=ExtResource("5_8iram")]
+audio = ExtResource("10_ydrq1")
+weight = 2.0
+subtitle = "Stop right there."
+
+[node name="Bark6" parent="SecurityGuardTargetDetectedBark" instance=ExtResource("5_8iram")]
+audio = ExtResource("11_irf7q")
+weight = 0.5
+subtitle = "Stop Resisting!"
+
+[node name="EnemyHealthBar3D" parent="." instance=ExtResource("3_k7bo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32313, 0)
+texture = SubResource("ViewportTexture_w4ude")
+
+[node name="RPGMechanicsMaster" type="Node" parent="."]
+script = ExtResource("2_aw6vw")
+
+[node name="MaxHealthStat" parent="RPGMechanicsMaster" instance=ExtResource("3_eg0s4")]
+value = 20.0
+
+[node name="MovementSpeedStat" parent="RPGMechanicsMaster" instance=ExtResource("5_eime3")]
+value = 5.0
+
+[node name="HealthStat" parent="RPGMechanicsMaster" instance=ExtResource("4_ny1s8")]
+base_value_per_segment = 20.0
+value = 20.0
+
+[node name="SecurityBotFSM" parent="." instance=ExtResource("2_yd50s")]
+
+[node name="LookStuff" type="Node3D" parent="."]
+
+[node name="PraedatumSecurityGuard" parent="LookStuff" instance=ExtResource("9_28wnp")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.9, 0)
+
+[node name="AimingMaster" type="Node3D" parent="LookStuff" node_paths=PackedStringArray("look_stuff")]
+visible = false
+script = ExtResource("7_n14fl")
+should_look_in_movement_direction = true
+look_stuff = NodePath("..")
+
+[node name="BulletOrigin" type="Marker3D" parent="LookStuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573683, 0.274251, -0.934717)
+
+[node name="PathfindingMaster" parent="." instance=ExtResource("8_vyn8j")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_yhspp")
+
+[node name="MovementMaster" parent="." instance=ExtResource("7_eyq4u")]
+
+[node name="ProjectileHitbox" type="CharacterBody3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("10_486ug")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ProjectileHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.472149, 0)
+shape = SubResource("CapsuleShape3D_eef6j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8d85v")
+}
+
+[node name="AIMemory" parent="." instance=ExtResource("23_8543t")]
+
+[node name="StatusEffectTextMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91306, 0)

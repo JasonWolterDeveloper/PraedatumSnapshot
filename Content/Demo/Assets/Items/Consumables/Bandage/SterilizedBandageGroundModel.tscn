@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dumhh77op4wob"]
+
+[ext_resource type="PackedScene" uid="uid://8ury8u1e5bhx" path="res://Content/Demo/Assets/Items/Consumables/Bandage/Bandage.glb" id="1_a8rxa"]
+[ext_resource type="PackedScene" uid="uid://01y57k1ep873" path="res://Content/Demo/Assets/Items/Consumables/Bandage/SterilizedBandage.glb" id="2_qn1qg"]
+
+[node name="SterilizedBandageGroundModel" type="Node3D"]
+
+[node name="Bandage" parent="." instance=ExtResource("1_a8rxa")]
+transform = Transform3D(-1.09278e-07, -2.5, -1.09278e-07, 0, -1.09278e-07, 2.5, -2.5, 1.09278e-07, 4.77671e-15, -2.97763e-09, 0.0681202, 1.30156e-16)
+
+[node name="SterilizedBandage" parent="." instance=ExtResource("2_qn1qg")]

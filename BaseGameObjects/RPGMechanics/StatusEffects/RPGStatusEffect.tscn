@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l1oojqydfau8"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/StatusEffects/RPGStatusEffect.gd" id="1_hrkqw"]
+
+[node name="RPGStatusEffect" type="Node3D"]
+script = ExtResource("1_hrkqw")

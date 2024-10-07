@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpowwkhh45xd6"]
+
+[ext_resource type="Script" path="res://UIObjects/Deprecated - InteractionIcon.gd" id="1_hymuk"]
+[ext_resource type="Texture2D" uid="uid://cuaoeryxcafs6" path="res://Content/Default/Assets/UI/UsableIcon.png" id="2_qgt4m"]
+[ext_resource type="Texture2D" uid="uid://f838hy0lbjix" path="res://Content/Default/Assets/UI/HoveredIcon.png" id="3_3eh81"]
+[ext_resource type="Texture2D" uid="uid://cvs06bbu4iemn" path="res://Content/Default/Assets/UI/UnusableIcon.png" id="4_p03js"]
+
+[node name="InteractionIcon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hymuk")
+
+[node name="interactionButton" type="TextureButton" parent="."]
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 76.0
+button_mask = 0
+texture_normal = ExtResource("2_qgt4m")
+texture_hover = ExtResource("3_3eh81")
+texture_disabled = ExtResource("4_p03js")
+
+[connection signal="mouse_entered" from="interactionButton" to="." method="_on_interaction_button_mouse_entered"]
+[connection signal="mouse_exited" from="interactionButton" to="." method="_on_interaction_button_mouse_exited"]

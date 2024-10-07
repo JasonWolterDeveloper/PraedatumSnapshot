@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfmjnswr2bn8j"]
+
+[ext_resource type="PackedScene" uid="uid://d0rkk07rrw0a1" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Magazine.tscn" id="1_d0liw"]
+[ext_resource type="PackedScene" uid="uid://4d3osy1662sk" path="res://Content/Demo/Code/Items/Ammo/SmallCaliberPistolAmmo.tscn" id="2_3di33"]
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Ammo/AmmoType.gd" id="2_7dq5p"]
+[ext_resource type="PackedScene" uid="uid://cbr3t05n0gyxj" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackupBullet.tscn" id="4_4oxrk"]
+[ext_resource type="PackedScene" uid="uid://dknju1ust6muh" path="res://Content/Demo/Code/Items/Ammo/SmallCaliberPistolAmmoOverPressure.tscn" id="4_yl3sh"]
+[ext_resource type="PackedScene" uid="uid://cho8yvrmlcqmo" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackupOverpressuredBullet.tscn" id="5_tvu0g"]
+
+[sub_resource type="Resource" id="Resource_265mk"]
+script = ExtResource("2_7dq5p")
+ammo_type = "Parabellum Ammo"
+available_subtypes = Array[String](["STRD", "+P"])
+subtype_to_ammo_item_mapping = {
+"+P": ExtResource("4_yl3sh"),
+"STRD": ExtResource("2_3di33")
+}
+default_ammo_item_scene = ExtResource("2_3di33")
+
+[node name="BurstPistolMagazine" instance=ExtResource("1_d0liw")]
+ammo_type = SubResource("Resource_265mk")
+bullet_scene = ExtResource("4_4oxrk")
+ammo_subtype_to_bullet_scene_mapping = {
+"+P": ExtResource("5_tvu0g"),
+"STRD": ExtResource("4_4oxrk")
+}
+item_type = 2
+current_quantity = 12
+max_quantity = 12
+grid_square_width = 2
+grid_square_height = 1

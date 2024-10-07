@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwjgf52uj5d3q"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/UtilityItems/GrenadeItem.gd" id="1_t1d6a"]
+[ext_resource type="Texture2D" uid="uid://cp1lppa10e3ty" path="res://Content/Demo/Assets/Weapons/StunGrenade/StunGrenadeInventoryImage.png" id="2_i5fsr"]
+[ext_resource type="PackedScene" uid="uid://c7ot82wv7n6s" path="res://Content/Demo/Code/Items/Weapons/StunGrenade/StunGrenadeProjectileScene.tscn" id="2_yl8le"]
+[ext_resource type="PackedScene" uid="uid://dak65lse3lsvx" path="res://Content/Demo/Assets/Weapons/StunGrenade/StunGrenadeGroundModel.tscn" id="4_on5x4"]
+
+[node name="StunGrenadeItem" type="Node3D"]
+script = ExtResource("1_t1d6a")
+grenade_projectile_scene = ExtResource("2_yl8le")
+inventory_image = ExtResource("2_i5fsr")
+ground_3d_model_scene = ExtResource("4_on5x4")
+display_name = "Stun Grenade"
+item_id = "stun_grenade"
+item_type = 3
+grid_square_width = 1
+grid_square_height = 1

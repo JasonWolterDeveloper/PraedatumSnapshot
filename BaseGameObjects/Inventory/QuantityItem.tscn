@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://chjpj123qjj8m"]
+
+[ext_resource type="PackedScene" uid="uid://u0a6kr2dhs16" path="res://BaseGameObjects/Inventory/Item.tscn" id="1_6gse7"]
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/QuantityItem.gd" id="2_txuks"]
+
+[node name="QuantityItem" instance=ExtResource("1_6gse7")]
+script = ExtResource("2_txuks")

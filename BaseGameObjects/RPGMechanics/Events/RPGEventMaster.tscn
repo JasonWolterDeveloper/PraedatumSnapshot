@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://di5jmr81x0om3"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Events/RPGEventMaster.gd" id="1_2486e"]
+
+[node name="RPGEventMaster" type="Node"]
+script = ExtResource("1_2486e")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxo75uvf437ia"]
+
+[ext_resource type="PackedScene" uid="uid://deym5hd7jiaoi" path="res://Content/Default/Assets/Scrip/ScripStackModel.glb" id="1_ogsb0"]
+
+[node name="ScripGroundModel" type="Node3D"]
+
+[node name="ScripStackModel" parent="." instance=ExtResource("1_ogsb0")]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 0, 0)

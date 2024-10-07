@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctrs6m3mk7gbn"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Behaviour/Link.gd" id="1_sx5pr"]
+
+[node name="Link" type="Node3D"]
+script = ExtResource("1_sx5pr")

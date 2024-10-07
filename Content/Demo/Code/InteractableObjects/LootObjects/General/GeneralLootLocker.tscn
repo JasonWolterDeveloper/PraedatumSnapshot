@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://be8takm1e54m"]
+
+[ext_resource type="PackedScene" uid="uid://bjq5duwaglfm7" path="res://Content/Demo/Code/InteractableObjects/LootObjects/LootLocker.tscn" id="1_qmhno"]
+[ext_resource type="PackedScene" uid="uid://cdm2ss6tggpah" path="res://Content/Demo/Code/Levels/Level1/LootTables/Level1BasicCrateLootTable.tscn" id="2_0exic"]
+
+[node name="GeneralLootLocker" instance=ExtResource("1_qmhno")]
+
+[node name="Level1BasicCrateLootTable" parent="." index="5" instance=ExtResource("2_0exic")]
+number_of_rolls = 2

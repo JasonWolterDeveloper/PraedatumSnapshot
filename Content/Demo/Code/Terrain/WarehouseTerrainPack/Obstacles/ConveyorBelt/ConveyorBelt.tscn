@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdv4gvnqvyw7v"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_7awhv"]
+[ext_resource type="PackedScene" uid="uid://s5oad2leu7my" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/ConveyorBelt/ConveyorBeltSegment.tscn" id="2_furka"]
+[ext_resource type="PackedScene" uid="uid://ct45jk0i5oj5p" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/ConveyorBelt/ConveyorBeltEndcap.tscn" id="3_bebv5"]
+[ext_resource type="PackedScene" uid="uid://beeeqr6dhym5b" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/ConveyorBelt/ConveyorBeltWallEndcap.tscn" id="4_622md"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vc4gi"]
+size = Vector3(5.75977, 1.02512, 1)
+
+[node name="ConveyorBeltMk2" type="StaticBody3D"]
+script = ExtResource("1_7awhv")
+
+[node name="ConveyorBeltSegment" parent="." instance=ExtResource("2_furka")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, -1.49645, 0, -0.005)
+
+[node name="ConveyorBeltEndcap" parent="." instance=ExtResource("3_bebv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89478, 0, 0)
+
+[node name="ConveyorBeltWallEndcap" parent="." instance=ExtResource("4_622md")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.53844, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37695, 0.384079, 0)
+shape = SubResource("BoxShape3D_vc4gi")

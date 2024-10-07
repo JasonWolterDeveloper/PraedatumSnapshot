@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqlpvhr31easw"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretTargetReacquiredLink.gd" id="1_u8kbm"]
+
+[node name="TurretTargetReacquiredLink" type="Node3D"]
+script = ExtResource("1_u8kbm")
+
+[node name="DetectionRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 3

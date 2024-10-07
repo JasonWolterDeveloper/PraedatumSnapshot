@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctnp45jh7qbya"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Warriors/Warrior.gd" id="1_i4rbw"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGMechanicsMaster.gd" id="2_lo6jf"]
+[ext_resource type="PackedScene" uid="uid://bwxcjb4ifiqo6" path="res://BaseGameObjects/RPGMechanics/Stats/MaxHealthStat.tscn" id="4_30mqc"]
+[ext_resource type="PackedScene" uid="uid://cc2jty7a6a6vg" path="res://BaseGameObjects/RPGMechanics/Stats/HealthStat.tscn" id="5_66iw3"]
+[ext_resource type="PackedScene" uid="uid://bfrof6tgmg7ik" path="res://Content/Default/Code/RPGMechanics/Stats/MovementSpeedStat.tscn" id="8_vbxj8"]
+
+[node name="Warrior" type="Node"]
+script = ExtResource("1_i4rbw")
+
+[node name="RPGMechanicsMaster" type="Node" parent="."]
+script = ExtResource("2_lo6jf")
+is_player_mechanics_master = true
+
+[node name="MaxHealthStat" parent="RPGMechanicsMaster" instance=ExtResource("4_30mqc")]
+value = 100.0
+
+[node name="HealthStat" parent="RPGMechanicsMaster" instance=ExtResource("5_66iw3")]
+value = 100.0
+
+[node name="MovementSpeedStat" parent="RPGMechanicsMaster" instance=ExtResource("8_vbxj8")]
+value = 5.0

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0ko20jwvaukn"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Behaviour/State.gd" id="1_2rxws"]
+
+[node name="State" type="Node3D"]
+script = ExtResource("1_2rxws")

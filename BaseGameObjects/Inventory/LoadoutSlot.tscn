@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyqfldqgwpunk"]
+
+[ext_resource type="PackedScene" uid="uid://dsnsbrhp7dh5p" path="res://BaseGameObjects/Inventory/ItemHolder.tscn" id="1_b22fv"]
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/LoadoutSlot.gd" id="2_65udo"]
+
+[node name="LoadoutSlot" instance=ExtResource("1_b22fv")]
+script = ExtResource("2_65udo")
+item_type = 0

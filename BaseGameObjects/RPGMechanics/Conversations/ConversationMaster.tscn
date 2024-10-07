@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bflmfxckwdasx"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationMaster.gd" id="1_e8s0e"]
+
+[node name="ConversationMaster" type="Node"]
+script = ExtResource("1_e8s0e")

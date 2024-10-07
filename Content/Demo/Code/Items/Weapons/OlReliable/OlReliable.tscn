@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://bervt8as74v6n"]
+
+[ext_resource type="PackedScene" uid="uid://csohifpc4ffbj" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Gun.tscn" id="1_w6vrn"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Weapons/OlReliable/OlReliable.gd" id="2_aoxow"]
+[ext_resource type="Texture2D" uid="uid://bpjlcx7a67u5c" path="res://Content/Demo/Assets/Weapons/OlReliable/OlReliableInventoryImage.png" id="3_7lnbi"]
+[ext_resource type="PackedScene" uid="uid://gcqhoyutcxjp" path="res://Content/Demo/Code/Items/Weapons/OlReliable/OlReliableMagazine.tscn" id="3_kavwf"]
+[ext_resource type="PackedScene" uid="uid://bspirboiil7op" path="res://Content/Demo/Assets/Weapons/OlReliable/OlReliableWeaponModel.tscn" id="3_omklk"]
+[ext_resource type="PackedScene" uid="uid://echjtqjtbn0l" path="res://Content/Demo/Assets/Weapons/OlReliable/OlReliableGroundModel.tscn" id="5_m6plp"]
+
+[node name="OlReliable" instance=ExtResource("1_w6vrn")]
+script = ExtResource("2_aoxow")
+charge_durations = Array[float]([0.5, 0.75, 1.0])
+charge_damage_mults = Array[float]([2.0, 3.0, 4.0])
+charge_ammo_usage = Array[int]([2, 3, 4])
+charge_recoil_mults = Array[float]([2.0, 3.0, 4.0])
+time_between_shots = 0.3
+weapon_model_scene = ExtResource("3_omklk")
+inventory_image = ExtResource("3_7lnbi")
+ground_3d_model_scene = ExtResource("5_m6plp")
+display_name = "Ol' Reliable"
+player_pose = "rifle"
+grid_square_width = 4
+grid_square_height = 2
+
+[node name="OlReliableMagazine" parent="." index="1" instance=ExtResource("3_kavwf")]

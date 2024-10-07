@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ConversationCharacter" load_steps=2 format=3 uid="uid://cy7pan5b2oo3p"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationCharacter.gd" id="1_8111s"]
+
+[resource]
+script = ExtResource("1_8111s")
+unique_id = "elf_character"
+display_name = "Elf"
+display_name_colour = Color(1, 1, 1, 1)
+portraits = {}

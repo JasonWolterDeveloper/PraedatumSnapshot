@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://boq3yitw8a5td"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Stats/MeleeDamageStat.gd" id="1_s2ge5"]
+
+[node name="MeleeDamageStat" type="Node"]
+script = ExtResource("1_s2ge5")
+stat_id = "melee_damage"

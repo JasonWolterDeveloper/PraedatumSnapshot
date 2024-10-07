@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxgi1aaspolyc"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/UtilityItems/ArmourShard.gd" id="1_fvvjj"]
+[ext_resource type="Texture2D" uid="uid://bwabcoho7iv2w" path="res://Content/Demo/Assets/Items/Armour/ArmourShard/ArmourShardInventoryImage.png" id="2_g6iyx"]
+[ext_resource type="PackedScene" uid="uid://cnjyg4x1j7yd5" path="res://Content/Demo/Assets/Items/Armour/ArmourShard/ArmourShardModel.tscn" id="3_h05bb"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="4_dl67e"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="5_l4gjd"]
+
+[sub_resource type="Resource" id="Resource_v4y0b"]
+script = ExtResource("5_l4gjd")
+stat_title = "Armour Segments Restored:"
+stat_value = "1"
+stat_value_colour = Color(0.521674, 0.395035, 0.0561335, 1)
+
+[sub_resource type="Resource" id="Resource_tj3wo"]
+script = ExtResource("5_l4gjd")
+stat_title = "Insertion Time"
+stat_value = "1.0 s"
+stat_value_colour = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_kcsut"]
+script = ExtResource("4_dl67e")
+stat_entry_array = Array[ExtResource("5_l4gjd")]([SubResource("Resource_v4y0b"), SubResource("Resource_tj3wo")])
+
+[node name="ArmourShard" type="Node3D"]
+script = ExtResource("1_fvvjj")
+holding_use_message = "Inserting Shard..."
+utility_item_use_message = "Inserted Armour Shard"
+inventory_image = ExtResource("2_g6iyx")
+ground_3d_model_scene = ExtResource("3_h05bb")
+display_name = "Armour Shard"
+item_id = "armour_shard"
+description = "A mass manufactured trauma plate used as a modular component in most human armour in 21XX. Can be used to restore the durability of armour"
+show_quantity_in_ui = true
+default_price = 15
+item_type = 3
+item_stat_entry_collection = SubResource("Resource_kcsut")
+current_quantity = 2
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

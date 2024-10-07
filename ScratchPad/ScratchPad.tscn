@@ -1,0 +1,116 @@
+[gd_scene load_steps=15 format=3 uid="uid://bdgakyr5omf72"]
+
+[ext_resource type="Script" path="res://ScratchPad/ScratchPad.gd" id="2_y2qoy"]
+[ext_resource type="Material" uid="uid://d8yo02dpqsls" path="res://ScratchPad/triplanarmaterial.tres" id="3_r5185"]
+[ext_resource type="PackedScene" uid="uid://ir4bcr65f64i" path="res://ScratchPad/ScratchObject.tscn" id="3_u8r6u"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pedg6"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_wp865"]
+sky_material = SubResource("ProceduralSkyMaterial_pedg6")
+
+[sub_resource type="Environment" id="Environment_4xtjw"]
+background_mode = 2
+sky = SubResource("Sky_wp865")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ux3jt"]
+
+[sub_resource type="Animation" id="Animation_jgfi7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rotate:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_viydl"]
+resource_name = "rotate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rotate:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -3.08897), Vector3(0, 0, -0.117234)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hg1xx"]
+_data = {
+"RESET": SubResource("Animation_jgfi7"),
+"rotate": SubResource("Animation_viydl")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b8rqp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hak4d"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_826ko"]
+material = ExtResource("3_r5185")
+size = Vector3(4, 0, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jdmgo"]
+material = ExtResource("3_r5185")
+size = Vector3(10, 0, 10)
+
+[node name="ScratchPad" type="Node3D"]
+script = ExtResource("2_y2qoy")
+scratch_object_scene = ExtResource("3_u8r6u")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4xtjw")
+
+[node name="ScratchObject" parent="." instance=ExtResource("3_u8r6u")]
+
+[node name="rotate" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.97508)
+visible = false
+mesh = SubResource("CylinderMesh_ux3jt")
+skeleton = NodePath("../Camera3D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rotate"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_hg1xx")
+}
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 10)
+
+[node name="Area3D2" type="Area3D" parent="."]
+collision_layer = 524288
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+shape = SubResource("SphereShape3D_b8rqp")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 524288
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_hak4d")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+mesh = SubResource("BoxMesh_826ko")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+mesh = SubResource("BoxMesh_jdmgo")

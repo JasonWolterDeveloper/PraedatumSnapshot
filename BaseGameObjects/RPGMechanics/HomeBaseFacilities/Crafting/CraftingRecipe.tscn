@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b84coq5n7mtbx"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingRecipe.gd" id="1_i0uj4"]
+
+[node name="CraftingRecipe" type="Node"]
+process_mode = 4
+script = ExtResource("1_i0uj4")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://6hru5qdn2i6y"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingRecipe.gd" id="1_jmplf"]
+[ext_resource type="PackedScene" uid="uid://qveld3mp6tu1" path="res://Content/Demo/Code/Items/ResourceItems/PixieDust.tscn" id="2_k01qw"]
+
+[node name="PixieDustRecipe" type="Node"]
+script = ExtResource("1_jmplf")
+power_cost = 1
+crafted_item_dictionary = {
+NodePath("PixieDust"): 5
+}
+
+[node name="PixieDust" parent="." instance=ExtResource("2_k01qw")]

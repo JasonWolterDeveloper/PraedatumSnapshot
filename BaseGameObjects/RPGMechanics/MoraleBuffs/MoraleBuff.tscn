@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b75hew24gks7o"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/MoraleBuffs/MoraleBuff.gd" id="1_6ku4g"]
+
+[node name="MoraleBuff" type="Node"]
+script = ExtResource("1_6ku4g")

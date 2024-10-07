@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhfiamio02oxv"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGAbilities/Events/RestoreManaEvent.gd" id="1_gbjb3"]
+
+[node name="RestoreManaEvent" type="Node"]
+script = ExtResource("1_gbjb3")

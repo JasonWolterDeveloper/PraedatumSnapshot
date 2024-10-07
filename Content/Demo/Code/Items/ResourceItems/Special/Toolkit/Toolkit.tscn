@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://rfc60m7m2mxb"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_rlaob"]
+[ext_resource type="Texture2D" uid="uid://berops1482pyd" path="res://Content/Demo/Assets/Items/ResourceItems/Special/Toolkit/ToolkitInventoryImage.png" id="2_b0x3b"]
+[ext_resource type="PackedScene" uid="uid://1orba88rutfv" path="res://Content/Demo/Code/Items/ResourceItems/Special/Toolkit/ToolkitGroundModel.tscn" id="3_6hn3m"]
+
+[node name="Toolkit" type="Node3D"]
+script = ExtResource("1_rlaob")
+inventory_image = ExtResource("2_b0x3b")
+ground_3d_model_scene = ExtResource("3_6hn3m")
+display_name = "Toolkit"
+item_id = "toolkit"
+description = "Contains a wide variety of basic tools required by the modern engineer. Engineering Degree sold separately.
+
+Can be used to upgrade base facilities, scrapped, or sold."
+default_price = 100
+grid_square_width = 2
+grid_square_height = 1

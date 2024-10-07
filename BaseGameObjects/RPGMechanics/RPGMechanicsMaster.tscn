@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfh5bdcjic1rq"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGMechanicsMaster.gd" id="1_s1t7s"]
+
+[node name="RPGMechanicsMaster" type="Node"]
+script = ExtResource("1_s1t7s")

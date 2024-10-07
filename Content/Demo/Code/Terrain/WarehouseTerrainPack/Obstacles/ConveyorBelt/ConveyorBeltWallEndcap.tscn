@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://beeeqr6dhym5b"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_y500d"]
+[ext_resource type="PackedScene" uid="uid://cqdakvcynyrnp" path="res://Content/Demo/Assets/Terrain/Obstacles/ConveyorBelt/ConveyorBeltWallEndcap.glb" id="2_xktms"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wfp6x"]
+size = Vector3(1, 0.767, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aulsx"]
+size = Vector3(0.348, 1.594, 1)
+
+[node name="ConveyorBeltWallEndcap" type="StaticBody3D"]
+script = ExtResource("1_y500d")
+
+[node name="ConveyorBeltWallEndcap" parent="." instance=ExtResource("2_xktms")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144267, 0.403136, 0.00088501)
+shape = SubResource("BoxShape3D_wfp6x")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200065, 0.796703, 0.00439453)
+shape = SubResource("BoxShape3D_aulsx")

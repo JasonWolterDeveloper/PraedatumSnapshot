@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4k44oc2nxt4i"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/BaseUpgradeRecipe.gd" id="1_in8rq"]
+
+[node name="BaseUpgradeRecipe" type="Node"]
+script = ExtResource("1_in8rq")

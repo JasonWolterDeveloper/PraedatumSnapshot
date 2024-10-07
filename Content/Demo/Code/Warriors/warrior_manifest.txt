@@ -1,0 +1,2 @@
+Legionnaire.tscn
+Paladin.tscn

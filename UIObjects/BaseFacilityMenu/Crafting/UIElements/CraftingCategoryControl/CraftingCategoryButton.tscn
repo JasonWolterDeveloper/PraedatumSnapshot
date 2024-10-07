@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctar5p076lbd4"]
+
+[ext_resource type="Theme" uid="uid://q8fchd6stpns" path="res://UIObjects/Themes/CyberTheme.tres" id="1_tc6vv"]
+[ext_resource type="Script" path="res://UIObjects/BaseFacilityMenu/Crafting/UIElements/CraftingCategoryControl/CraftingCategoryButton.gd" id="2_ios8n"]
+
+[node name="CraftingCategoryButton" type="Button"]
+custom_minimum_size = Vector2(800, 80)
+offset_right = 251.0
+offset_bottom = 34.0
+theme = ExtResource("1_tc6vv")
+text = "Crafting Category"
+script = ExtResource("2_ios8n")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

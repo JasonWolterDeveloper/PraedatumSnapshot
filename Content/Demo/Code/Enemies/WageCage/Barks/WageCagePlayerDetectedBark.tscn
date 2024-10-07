@@ -1,0 +1,60 @@
+[gd_scene load_steps=13 format=3 uid="uid://cdrxk3st3uk3u"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/WageCage/Barks/WageCagePlayerDetectedBark.gd" id="1_svism"]
+[ext_resource type="PackedScene" uid="uid://bjdk8rkgd5vas" path="res://BaseGameObjects/Sound/Barks/Bark.tscn" id="2_pa2ie"]
+[ext_resource type="AudioStream" uid="uid://cgf6s6f7kv6hk" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Sounds/PlayerDetectedBark/Back To Work.wav" id="2_yygma"]
+[ext_resource type="AudioStream" uid="uid://dshdot8a16xo5" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Sounds/PlayerDetectedBark/Delivering Value.wav" id="3_b6evr"]
+[ext_resource type="AudioStream" uid="uid://ckq77lj1c55qf" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Sounds/PlayerDetectedBark/Wagie.wav" id="4_gxi6q"]
+[ext_resource type="AudioStream" uid="uid://bs24i48yxmak2" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Sounds/PlayerDetectedBark/Wagie Detected.wav" id="5_j1oyc"]
+[ext_resource type="AudioStream" uid="uid://cq3opn066t6tf" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Sounds/PlayerDetectedBark/Deploying Wagie Prod.wav" id="6_0xbne"]
+[ext_resource type="AudioStream" uid="uid://gblqsn7c2hit" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Sounds/PlayerDetectedBark/Do Not Resist.wav" id="7_iwf1g"]
+[ext_resource type="AudioStream" uid="uid://b2rrdagu8gv7b" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Sounds/PlayerDetectedBark/human resources.wav" id="8_2ral5"]
+[ext_resource type="AudioStream" uid="uid://p01dnhw2d0d3" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Sounds/PlayerDetectedBark/Pacifying.wav" id="9_mvrdh"]
+[ext_resource type="AudioStream" uid="uid://br6wvfdt5gshn" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Sounds/PlayerDetectedBark/Wagie Wagie Get in Cagie.wav" id="10_xmb01"]
+[ext_resource type="AudioStream" uid="uid://bgms0k43e6kpo" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Sounds/PlayerDetectedBark/Help Me.wav" id="11_etbru"]
+
+[node name="WageCagePlayerDetectedBarkType" type="AudioStreamPlayer3D"]
+max_distance = 30.0
+script = ExtResource("1_svism")
+bark_type_string = "WageCageTargetDetected"
+
+[node name="Bark" parent="." instance=ExtResource("2_pa2ie")]
+audio = ExtResource("2_yygma")
+subtitle = "Back To Work"
+
+[node name="Bark2" parent="." instance=ExtResource("2_pa2ie")]
+audio = ExtResource("3_b6evr")
+subtitle = "Delivering Value"
+
+[node name="Bark3" parent="." instance=ExtResource("2_pa2ie")]
+audio = ExtResource("6_0xbne")
+subtitle = "Deploying Wagie Prod"
+
+[node name="Bark4" parent="." instance=ExtResource("2_pa2ie")]
+audio = ExtResource("7_iwf1g")
+subtitle = "Do Not Resist"
+
+[node name="Bark5" parent="." instance=ExtResource("2_pa2ie")]
+audio = ExtResource("11_etbru")
+weight = 0.2
+subtitle = "Help Me"
+
+[node name="Bark6" parent="." instance=ExtResource("2_pa2ie")]
+audio = ExtResource("8_2ral5")
+subtitle = "Human Resources"
+
+[node name="Bark7" parent="." instance=ExtResource("2_pa2ie")]
+audio = ExtResource("9_mvrdh")
+subtitle = "Pacifying"
+
+[node name="Bark8" parent="." instance=ExtResource("2_pa2ie")]
+audio = ExtResource("5_j1oyc")
+subtitle = "Wagie Detected"
+
+[node name="Bark9" parent="." instance=ExtResource("2_pa2ie")]
+audio = ExtResource("4_gxi6q")
+
+[node name="Bark10" parent="." instance=ExtResource("2_pa2ie")]
+audio = ExtResource("10_xmb01")
+weight = 0.2
+subtitle = "Wagie Wagie Get in Cagie"

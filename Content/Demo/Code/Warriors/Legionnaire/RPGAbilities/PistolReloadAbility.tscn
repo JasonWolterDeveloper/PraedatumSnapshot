@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cexdm31pf4lcp"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGAbilities/RPGAbility.gd" id="1_wi885"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/PassiveAbilities/PistolReloadEventModifier.gd" id="2_wjv2e"]
+
+[sub_resource type="Resource" id="Resource_k2l55"]
+script = ExtResource("2_wjv2e")
+modification_amount = 0.5
+
+[node name="PistolReloadAbility" type="Node"]
+script = ExtResource("1_wi885")
+is_passive = true
+rpg_event_modifiers = Array[Resource("res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGEventModifier.gd")]([SubResource("Resource_k2l55")])
+ability_id = "pistol_reload_speed"
+display_name = "Gunslinger"
+equipped = true

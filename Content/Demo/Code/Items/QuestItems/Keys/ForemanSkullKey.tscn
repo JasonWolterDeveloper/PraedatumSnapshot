@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlnqn30c5sl0"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ToolItems/DoorKeyItem.gd" id="1_kks3r"]
+[ext_resource type="Texture2D" uid="uid://uv4j7q0f8qt4" path="res://Content/Demo/Assets/Items/QuestItems/Keys/SkullKey/InventoryImage.png" id="2_0hyiw"]
+[ext_resource type="PackedScene" uid="uid://b8anhdft4fl0w" path="res://Content/Demo/Assets/Items/QuestItems/Keys/SkullKey/ForemanSkullKeyGroundModel.tscn" id="3_5mfs2"]
+
+[node name="ForemanSkullKey" type="Node3D"]
+script = ExtResource("1_kks3r")
+key_level = 2
+key_code = "foreman_skull_key"
+inventory_image = ExtResource("2_0hyiw")
+ground_3d_model_scene = ExtResource("3_5mfs2")
+display_name = "Foreman's Skull"
+grid_square_width = 2
+grid_square_height = 2

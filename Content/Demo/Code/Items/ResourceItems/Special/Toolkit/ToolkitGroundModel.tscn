@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://1orba88rutfv"]
+
+[ext_resource type="PackedScene" uid="uid://b1mhdqf2630hr" path="res://Content/Demo/Assets/Items/ResourceItems/Special/Toolkit/ToolKitModel.glb" id="1_o7j23"]
+
+[node name="ToolkitGroundModel" type="Node3D"]
+
+[node name="ToolKitModel" parent="." instance=ExtResource("1_o7j23")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.0783279, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ToolKitModel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.447659, 0)
+light_color = Color(0.803789, 0.630445, 0.142882, 1)
+light_energy = 0.5
+omni_range = 2.0

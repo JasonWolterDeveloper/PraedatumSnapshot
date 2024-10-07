@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnl4ehinvm42f"]
+
+[ext_resource type="PackedScene" uid="uid://dlbahlejoaxf5" path="res://Content/Demo/Assets/Items/Consumables/MageboarCigs/MageboarCigarettesModel.glb" id="1_on8k7"]
+
+[node name="MageboarCigarettesGroundModel" type="Node3D"]
+
+[node name="MageboarCigarettesModel" parent="." instance=ExtResource("1_on8k7")]
+transform = Transform3D(-3.49691e-09, -0.08, 3.49691e-09, 0, -3.49691e-09, -0.08, 0.08, -3.49691e-09, 1.52855e-16, 0, 0, 0)

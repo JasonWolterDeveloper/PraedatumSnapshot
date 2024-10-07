@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4xfiyab1tw5s"]
+
+[ext_resource type="Texture2D" uid="uid://dre53irv6spqp" path="res://Content/Demo/Assets/Items/Consumables/Morale/Donut/PremiumDonut/InventoryImage.png" id="1_n0b3c"]
+[ext_resource type="Script" path="res://UIObjects/PlayerHUD/MoraleBuffs/MoraleBuffSlotUI.gd" id="1_n2ogw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iub74"]
+bg_color = Color(0.0605303, 0.0605304, 0.0605303, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsype"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="MoraleBuffSlotControl" type="Control"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 30.0
+offset_bottom = 30.0
+script = ExtResource("1_n2ogw")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_iub74")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gsype")
+value = 30.0
+show_percentage = false
+
+[node name="MarginContainer" type="MarginContainer" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="MoraleBuffImage" type="TextureRect" parent="ProgressBar/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_n0b3c")
+expand_mode = 1
+stretch_mode = 5

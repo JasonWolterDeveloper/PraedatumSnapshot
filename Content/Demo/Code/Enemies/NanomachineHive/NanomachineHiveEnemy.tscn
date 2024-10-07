@@ -1,0 +1,163 @@
+[gd_scene load_steps=32 format=3 uid="uid://b2nq2it3xhtxa"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/NanomachineHive/NanomachineHiveEnemy.gd" id="1_d1c7a"]
+[ext_resource type="PackedScene" uid="uid://lhgmj1owl0s4" path="res://Content/Demo/Code/Enemies/NanomachineHive/NanomachineGibs.tscn" id="2_hx1kr"]
+[ext_resource type="PackedScene" uid="uid://yhpbb7jbww4d" path="res://UIObjects/CombatUI/EnemyInfoDisplay.tscn" id="2_mdo0v"]
+[ext_resource type="PackedScene" uid="uid://cmi0g7wqmeswm" path="res://BaseGameObjects/Behaviour/AIMemory.tscn" id="3_6ik5q"]
+[ext_resource type="PackedScene" uid="uid://cfebsm0500lyg" path="res://Content/Demo/Code/Enemies/NanomachineHive/Behaviour/NanoMachineHiveFSM.tscn" id="3_esq3e"]
+[ext_resource type="PackedScene" uid="uid://bvwk3se7k747a" path="res://BaseGameObjects/Aesthetics/PlayerDamage/PlayerDamagedAestheticEffect.tscn" id="3_iefpg"]
+[ext_resource type="Script" path="res://BaseGameObjects/Behaviour/AIProperties.gd" id="3_jm1kg"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGMechanicsMaster.gd" id="3_nixqs"]
+[ext_resource type="PackedScene" uid="uid://crivall5lsmid" path="res://BaseGameObjects/Aesthetics/StatusEffectVFX/StunParticleEffect.tscn" id="3_p70rn"]
+[ext_resource type="PackedScene" uid="uid://2327nkwxqmib" path="res://UIObjects/CombatUI/StatusEffectUI/StatusEffectDisplay.tscn" id="4_ao4vt"]
+[ext_resource type="PackedScene" uid="uid://bwxcjb4ifiqo6" path="res://BaseGameObjects/RPGMechanics/Stats/MaxHealthStat.tscn" id="4_v2yb7"]
+[ext_resource type="PackedScene" uid="uid://cc2jty7a6a6vg" path="res://BaseGameObjects/RPGMechanics/Stats/HealthStat.tscn" id="5_iusui"]
+[ext_resource type="PackedScene" uid="uid://8mvrt28j4q68" path="res://BaseGameObjects/RPGMechanics/Stats/MeleeRateStat.tscn" id="6_vxqgj"]
+[ext_resource type="PackedScene" uid="uid://boq3yitw8a5td" path="res://BaseGameObjects/RPGMechanics/Stats/MeleeDamageStat.tscn" id="7_vuvdh"]
+[ext_resource type="PackedScene" uid="uid://bfrof6tgmg7ik" path="res://Content/Default/Code/RPGMechanics/Stats/MovementSpeedStat.tscn" id="8_fn6ro"]
+[ext_resource type="PackedScene" uid="uid://br3xiyr41w1ms" path="res://BaseGameObjects/MovementMaster.tscn" id="9_tfil3"]
+[ext_resource type="PackedScene" uid="uid://b6jpo77es7i4c" path="res://ScratchPad/NanomachineHiveAesthetics.tscn" id="11_6pwuo"]
+[ext_resource type="PackedScene" uid="uid://d380hkk655x51" path="res://BaseGameObjects/AimingMaster.tscn" id="12_devug"]
+[ext_resource type="PackedScene" uid="uid://c6pri36ik1gse" path="res://BaseGameObjects/PathfindingMaster.tscn" id="13_jiadv"]
+[ext_resource type="PackedScene" uid="uid://ctrs6m3mk7gbn" path="res://BaseGameObjects/Behaviour/Link.tscn" id="14_2nmol"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/hitbox.gd" id="15_nqo5r"]
+[ext_resource type="PackedScene" uid="uid://bl05whbxs0x1b" path="res://BaseGameObjects/Sound/Barks/BarkType.tscn" id="20_47d34"]
+[ext_resource type="PackedScene" uid="uid://bjdk8rkgd5vas" path="res://BaseGameObjects/Sound/Barks/Bark.tscn" id="20_pmoxy"]
+[ext_resource type="AudioStream" uid="uid://bh1i740n61v70" path="res://Content/Demo/Assets/Characters/Enemies/NanomachineHive/Sounds/NanomachineHiveBuzzer.ogg" id="21_n57b4"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/NanomachineHive/HiveLootTable.gd" id="25_wn68t"]
+
+[sub_resource type="Resource" id="Resource_2fde0"]
+script = ExtResource("3_jm1kg")
+state_properties = {
+"melee_visiting_point_tolerance": 1.5
+}
+link_properties = {}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0psg3"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7qo8d"]
+radius = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_80yci"]
+radius = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y6ojt"]
+radius = 0.659812
+height = 3.24647
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hysly"]
+radius = 0.243485
+height = 3.24647
+
+[node name="NanomachineHiveEnemy" type="CharacterBody3D" node_paths=PackedStringArray("info_display", "loot_tables", "stun_aesthetic_effect")]
+collision_layer = 16
+collision_mask = 19
+script = ExtResource("1_d1c7a")
+wage_cage_gibs_scene = ExtResource("2_hx1kr")
+ai_properties = SubResource("Resource_2fde0")
+initial_state_name = &"WanderState"
+info_display = NodePath("EnemyHealthBar3D")
+loot_tables = [NodePath("LootTables/LootTable")]
+display_name = "HIVE"
+stun_aesthetic_effect = NodePath("StunParticleEffect")
+status_effect_text_scene = ExtResource("4_ao4vt")
+
+[node name="NanomachineHiveFSM" parent="." instance=ExtResource("3_esq3e")]
+
+[node name="StunParticleEffect" parent="." instance=ExtResource("3_p70rn")]
+visible = false
+
+[node name="PlayerDamagedAestheticEffect" parent="." instance=ExtResource("3_iefpg")]
+screen_shake_amount = 0.05
+damage_vignette_amount = 0.6
+
+[node name="AIMemory" parent="." instance=ExtResource("3_6ik5q")]
+
+[node name="EnemyHealthBar3D" parent="." instance=ExtResource("2_mdo0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79345, 0)
+texture = SubResource("ViewportTexture_0psg3")
+
+[node name="RPGMechanicsMaster" type="Node" parent="."]
+script = ExtResource("3_nixqs")
+
+[node name="MaxHealthStat" parent="RPGMechanicsMaster" instance=ExtResource("4_v2yb7")]
+value = 20.0
+
+[node name="HealthStat" parent="RPGMechanicsMaster" instance=ExtResource("5_iusui")]
+base_number_of_segments = 2
+base_value_per_segment = 9.0
+value = 18.0
+
+[node name="MeleeRateStat" parent="RPGMechanicsMaster" instance=ExtResource("6_vxqgj")]
+base_value = 20.0
+value = 20.0
+
+[node name="MeleeDamageStat" parent="RPGMechanicsMaster" instance=ExtResource("7_vuvdh")]
+base_value = 2.0
+value = 2.0
+
+[node name="MovementSpeedStat" parent="RPGMechanicsMaster" instance=ExtResource("8_fn6ro")]
+base_value = 7.0
+value = 7.0
+
+[node name="MovementMaster" parent="." instance=ExtResource("9_tfil3")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_7qo8d")
+
+[node name="LookStuff" type="Node3D" parent="."]
+
+[node name="AimingMaster" parent="LookStuff" node_paths=PackedStringArray("look_stuff") instance=ExtResource("12_devug")]
+should_look_in_movement_direction = true
+look_stuff = NodePath("..")
+
+[node name="NanomachineHiveAesthetics" parent="LookStuff" instance=ExtResource("11_6pwuo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.7, 0)
+
+[node name="PathfindingMaster" parent="." instance=ExtResource("13_jiadv")]
+path_refresh_period = 0.2
+
+[node name="MeleeArea" type="Area3D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeArea"]
+shape = SubResource("CylinderShape3D_80yci")
+
+[node name="Link" parent="." instance=ExtResource("14_2nmol")]
+
+[node name="ProjectileHitbox" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("15_nqo5r")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ProjectileHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+shape = SubResource("CapsuleShape3D_y6ojt")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="ProjectileHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+shape = SubResource("CapsuleShape3D_hysly")
+
+[node name="NanomachineActivationTImer" type="Timer" parent="."]
+one_shot = true
+
+[node name="NanomachinePlayerDetectedBark" parent="." instance=ExtResource("20_47d34")]
+bark_type_string = "NanomachineTargetDetected"
+
+[node name="Bark1" parent="NanomachinePlayerDetectedBark" instance=ExtResource("20_pmoxy")]
+audio = ExtResource("21_n57b4")
+subtitle = "BEEP"
+
+[node name="StatusEffectTextMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1488, 0)
+
+[node name="LootTables" type="Node" parent="."]
+process_mode = 4
+
+[node name="LootTable" type="Node" parent="LootTables"]
+script = ExtResource("25_wn68t")
+
+[connection signal="timeout" from="NanomachineActivationTImer" to="." method="on_nanomachines_activated"]

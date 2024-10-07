@@ -1,0 +1,91 @@
+[gd_scene load_steps=17 format=3 uid="uid://y5w3pddymd0a"]
+
+[ext_resource type="PackedScene" uid="uid://bgj3h4qtwgwkk" path="res://BaseGameObjects/Level.tscn" id="1_lboeo"]
+[ext_resource type="PackedScene" uid="uid://d8vcljbj8r00" path="res://Content/Default/Code/InteractableObjects/ExtractionPortal.tscn" id="2_8w07s"]
+[ext_resource type="PackedScene" uid="uid://dckx87yok3eou" path="res://UIObjects/PlayerHUD/TabStatusMenu/TabStatusPanel.tscn" id="3_y3ic5"]
+[ext_resource type="PackedScene" uid="uid://cfcg4n5b4ptpt" path="res://UIObjects/InventoryUI/ShopMenuUI/ShopMenu.tscn" id="4_0ohrf"]
+[ext_resource type="PackedScene" uid="uid://bnrbfeusfsh5" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Foyer.tscn" id="5_ngo3a"]
+[ext_resource type="PackedScene" uid="uid://ce7kbssgu33di" path="res://Content/Demo/Code/Levels/Level1/Rooms/LoadingDock/NewLoadingDockRoom.tscn" id="5_pwfdm"]
+[ext_resource type="PackedScene" uid="uid://dt6t3wrrcsds1" path="res://Content/Default/Code/InteractableObjects/GroundItem.tscn" id="6_bcagr"]
+[ext_resource type="PackedScene" uid="uid://bl176wggn7k33" path="res://BaseGameObjects/Player.tscn" id="6_dfsjj"]
+[ext_resource type="PackedScene" uid="uid://b2kyc8kmyeblf" path="res://Content/Demo/Code/Items/TreasureItems/GiftCard.tscn" id="7_sj463"]
+[ext_resource type="PackedScene" uid="uid://cmh26ir4lbeut" path="res://Content/Demo/Code/Items/TreasureItems/PocketComputer.tscn" id="8_k8ump"]
+[ext_resource type="PackedScene" uid="uid://2gu85cg3m1r4" path="res://Content/Demo/Code/Levels/Rooms/EmployeeLockerRoom.tscn" id="10_rn6fk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wxhnn"]
+sky_top_color = Color(0.14902, 0.188235, 0.239216, 1)
+sky_horizon_color = Color(0.588235, 0.588235, 0.592157, 1)
+sky_curve = 0.52233
+sky_energy_multiplier = 0.7
+ground_horizon_color = Color(0.587255, 0.589309, 0.593054, 1)
+ground_energy_multiplier = 0.0
+sun_angle_max = 0.0
+sun_curve = 51.638
+
+[sub_resource type="Sky" id="Sky_r4hy3"]
+sky_material = SubResource("ProceduralSkyMaterial_wxhnn")
+
+[sub_resource type="Environment" id="Environment_qw622"]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_r4hy3")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 10.0
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xq0t0"]
+size = Vector2(5000, 5000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gj1h4"]
+render_priority = -100
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+
+[node name="NewRoomTestLevel" instance=ExtResource("1_lboeo")]
+
+[node name="TestLevelTransitionInteractable" parent="." index="0" instance=ExtResource("2_8w07s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40101, 1, 64.9392)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
+light_color = Color(0.356863, 0.356863, 0.356863, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
+environment = SubResource("Environment_qw622")
+
+[node name="TabStatusPanel" parent="UILayer" index="0" instance=ExtResource("3_y3ic5")]
+
+[node name="ShopMenu" parent="UILayer" index="3" instance=ExtResource("4_0ohrf")]
+visible = false
+
+[node name="SuperSecretHitDetector" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53964, 0)
+
+[node name="Foyer" parent="RoomMaster" index="0" instance=ExtResource("5_ngo3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 63)
+
+[node name="GroundItem" parent="RoomMaster/Foyer" index="5" instance=ExtResource("6_bcagr")]
+
+[node name="GiftCard" parent="RoomMaster/Foyer/GroundItem" index="4" instance=ExtResource("7_sj463")]
+
+[node name="GroundItem2" parent="RoomMaster/Foyer" index="6" instance=ExtResource("6_bcagr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="PocketComputer" parent="RoomMaster/Foyer/GroundItem2" index="4" instance=ExtResource("8_k8ump")]
+
+[node name="NewLoadingDockRoom" parent="RoomMaster" index="1" instance=ExtResource("5_pwfdm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -149.5)
+
+[node name="EmployeeLockerRoom" parent="RoomMaster" index="2" instance=ExtResource("10_rn6fk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, 40)
+
+[node name="Player" parent="." index="8" instance=ExtResource("6_dfsjj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13734, 2.16607, 64.3607)
+
+[node name="Void" type="MeshInstance3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+mesh = SubResource("PlaneMesh_xq0t0")
+surface_material_override/0 = SubResource("StandardMaterial3D_gj1h4")

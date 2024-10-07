@@ -1,0 +1,120 @@
+[gd_scene load_steps=7 format=3 uid="uid://8f50ryabrmw"]
+
+[ext_resource type="Script" path="res://UIObjects/StartMenu/SaveSlotControl.gd" id="1_b06ax"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_1tqg5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_357mc"]
+bg_color = Color(0.113049, 0.113049, 0.113049, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0gep"]
+bg_color = Color(0.0768361, 0.0768358, 0.0768356, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5wx8"]
+bg_color = Color(0.489623, 0.489622, 0.489621, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3w1w5"]
+bg_color = Color(0.847475, 0.847474, 0.847474, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[node name="SaveSlotControl" type="PanelContainer"]
+custom_minimum_size = Vector2(600, 150)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_357mc")
+script = ExtResource("1_b06ax")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="SaveSlotName" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1tqg5")
+theme_override_font_sizes/font_size = 20
+text = "Save Slot 1:"
+
+[node name="SaveSlotDescription" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1tqg5")
+theme_override_font_sizes/font_size = 20
+text = "Empty"
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+alignment = 2
+
+[node name="LoadButton" type="Button" parent="MarginContainer/ButtonContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1tqg5")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_g0gep")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d5wx8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3w1w5")
+text = "Load"
+icon_alignment = 1
+
+[node name="DeleteButton" type="Button" parent="MarginContainer/ButtonContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1tqg5")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_g0gep")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d5wx8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3w1w5")
+text = "Delete"
+icon_alignment = 1
+
+[node name="NewGameButton" type="Button" parent="MarginContainer/ButtonContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1tqg5")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_g0gep")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d5wx8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3w1w5")
+text = "New Game"
+icon_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/ButtonContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContainer/DeleteButton" to="." method="delete_save_in_slot"]
+[connection signal="pressed" from="MarginContainer/ButtonContainer/NewGameButton" to="." method="start_new_game_for_slot"]

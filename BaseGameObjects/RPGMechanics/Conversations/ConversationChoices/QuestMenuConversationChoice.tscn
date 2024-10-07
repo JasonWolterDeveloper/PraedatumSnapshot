@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://2yic1h00v8q6"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/QuestMenuConversationChoice.gd" id="1_tsno3"]
+
+[node name="QuestMenuConversationChoice" type="Node"]
+script = ExtResource("1_tsno3")

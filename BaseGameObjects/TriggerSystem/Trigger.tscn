@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnideqtfbn8ib"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/TriggerSystem/Trigger.gd" id="1_ug80n"]
+
+[node name="Trigger" type="Node"]
+script = ExtResource("1_ug80n")

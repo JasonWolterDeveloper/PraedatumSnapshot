@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6ykrh2py7bjl"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/SuppressionTimeoutLink.gd" id="1_bi20w"]
+
+[node name="SuppressionTimeoutLink" type="Node3D"]
+script = ExtResource("1_bi20w")

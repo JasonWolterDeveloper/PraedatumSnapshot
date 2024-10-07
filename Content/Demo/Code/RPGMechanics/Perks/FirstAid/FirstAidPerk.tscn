@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c52hyjtm8622f"]
+
+[ext_resource type="PackedScene" uid="uid://ct7o5n0aoaunn" path="res://BaseGameObjects/RPGMechanics/RPGPerk.tscn" id="1_gim25"]
+[ext_resource type="Script" path="res://Content/Demo/Code/RPGMechanics/Perks/FirstAid/FirstAidPerk.gd" id="2_l55ud"]
+
+[node name="FirstAidPerk" instance=ExtResource("1_gim25")]
+script = ExtResource("2_l55ud")
+time_until_heal = 5
+heal_amount_per_second = 10

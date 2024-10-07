@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://birce3rs40j8w"]
+
+[ext_resource type="PackedScene" uid="uid://dfpgui17nup0r" path="res://BaseGameObjects/InteractableObjects/InteractableObject.tscn" id="1_560r8"]
+[ext_resource type="Script" path="res://BaseGameObjects/InteractableObjects/Quests/StartQuestInteractableObject.gd" id="2_ub568"]
+
+[node name="StartQuestInteractableObject" instance=ExtResource("1_560r8")]
+script = ExtResource("2_ub568")
+quest_to_start_scene = null

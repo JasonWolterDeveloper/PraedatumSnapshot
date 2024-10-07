@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwyw6j4tfep8m"]
+
+[ext_resource type="PackedScene" uid="uid://la5swv6g83xj" path="res://BaseGameObjects/Combat/Bullets/SpentRound.tscn" id="1_yl6tb"]
+[ext_resource type="PackedScene" uid="uid://b27rqparu5kmw" path="res://Content/Demo/Assets/Weapons/Casings/CasingParabellumModel.tscn" id="2_sgs1f"]
+[ext_resource type="AudioStream" uid="uid://clv10opvt3h32" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_casing-001.wav" id="4_r42ey"]
+[ext_resource type="AudioStream" uid="uid://c3hfo5rj40bd1" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_casing-002.wav" id="5_pvd41"]
+[ext_resource type="AudioStream" uid="uid://bd0krfux68tca" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_casing-003.wav" id="6_07hke"]
+[ext_resource type="AudioStream" uid="uid://j2tetl37ac3f" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_casing-004.wav" id="7_x6pjx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_judcc"]
+height = 0.198007
+radius = 0.0798884
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gtegt"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("4_r42ey")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_pvd41")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_07hke")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_x6pjx")
+stream_3/weight = 1.0
+
+[node name="CasingParabellum" instance=ExtResource("1_yl6tb")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_judcc")
+
+[node name="CasingParabellum" parent="." index="1" instance=ExtResource("2_sgs1f")]
+
+[node name="Casing" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = SubResource("AudioStreamRandomizer_gtegt")
+volume_db = -9.0
+bus = &"Gun Other"
+doppler_tracking = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,186 @@
+[gd_scene load_steps=13 format=3 uid="uid://bo7h77wma3mob"]
+
+[ext_resource type="PackedScene" uid="uid://vsupjpijdqsl" path="res://UIObjects/WeaponUI/LoadoutInfoCard/LoadoutInfoCard.tscn" id="1_b4rsw"]
+[ext_resource type="Script" path="res://UIObjects/PlayerHUD.gd" id="1_m2dp0"]
+[ext_resource type="PackedScene" uid="uid://6bf8knfrvrw7" path="res://UIObjects/PlayerHUD/MoraleBuffs/MoraleBuffHudUI.tscn" id="2_q5lq8"]
+[ext_resource type="PackedScene" uid="uid://cm2c54v2x3gei" path="res://UIObjects/PlayerHUD/ExperiencePointBar.tscn" id="2_sb81b"]
+[ext_resource type="PackedScene" uid="uid://drp26vmoy5uue" path="res://ScratchPad/hint_control.tscn" id="2_v7lqd"]
+[ext_resource type="PackedScene" uid="uid://c4lm23nutj6q8" path="res://UIObjects/PlayerHUD/EquippedItemInfo/SelectedAmmoSubtypeIndicator.tscn" id="4_ho1h4"]
+[ext_resource type="PackedScene" uid="uid://bsn2qp52mn3pq" path="res://UIObjects/PlayerHUD/Hotbar/Hotbar.tscn" id="8_xf8aj"]
+[ext_resource type="PackedScene" uid="uid://cyrvsi8mb5alo" path="res://UIObjects/PlayerHUD/ActiveAbilities/ActiveAbilityHUDControl.tscn" id="9_rl2vi"]
+[ext_resource type="Theme" uid="uid://q8fchd6stpns" path="res://UIObjects/Themes/CyberTheme.tres" id="11_vltgk"]
+[ext_resource type="PackedScene" uid="uid://7qr6d5kiavc8" path="res://UIObjects/CombatUI/Healthbar/ArmourBar.tscn" id="12_hwaq5"]
+[ext_resource type="PackedScene" uid="uid://bg365ya67tc63" path="res://UIObjects/CombatUI/Healthbar/HealthBar.tscn" id="12_rf1bg"]
+[ext_resource type="PackedScene" uid="uid://du8nkqi1ll2p2" path="res://UIObjects/CombatUI/Healthbar/ManaBar.tscn" id="14_j5e7y"]
+
+[node name="PlayerHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_m2dp0")
+
+[node name="HintControl" parent="." instance=ExtResource("2_v7lqd")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_top = 150.0
+
+[node name="CurrentRoomLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1360.0
+offset_top = 960.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_font_sizes/font_size = 32
+text = "Current Room: "
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 45
+
+[node name="PlayerHUDPanel" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("11_vltgk")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PlayerHUDPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 12
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/PlayerHUDPanel/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LoadoutInfoCard" parent="MarginContainer/PlayerHUDPanel/MarginContainer2/HBoxContainer" instance=ExtResource("1_b4rsw")]
+custom_minimum_size = Vector2(350, 105)
+layout_mode = 2
+
+[node name="SelectedAmmoSubtypeIndicator" parent="MarginContainer/PlayerHUDPanel/MarginContainer2/HBoxContainer" instance=ExtResource("4_ho1h4")]
+layout_mode = 2
+
+[node name="Hotbar" parent="MarginContainer" instance=ExtResource("8_xf8aj")]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="ActiveAbilityHUDControl" parent="VBoxContainer" instance=ExtResource("9_rl2vi")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="ExperienceBar" parent="VBoxContainer" instance=ExtResource("2_sb81b")]
+layout_mode = 2
+
+[node name="TestHealthStuff" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TestHealthStuff"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TestHealthStuff/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TestHealthStuff/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TestHealthStuff/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("11_vltgk")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Armour:"
+
+[node name="ArmourBar" parent="TestHealthStuff/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("12_hwaq5")]
+layout_mode = 2
+dynamic_length = true
+length_to_max_value_ratio = 4.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TestHealthStuff/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TestHealthStuff/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("11_vltgk")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Health:"
+
+[node name="PlayerHealthBar" parent="TestHealthStuff/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("12_rf1bg")]
+custom_minimum_size = Vector2(400, 20)
+layout_mode = 2
+dynamic_length = true
+length_to_max_value_ratio = 4.0
+
+[node name="NoStatLabel" parent="TestHealthStuff/MarginContainer/VBoxContainer/HBoxContainer2/PlayerHealthBar" index="2"]
+offset_right = 100.0
+offset_bottom = 23.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TestHealthStuff/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TestHealthStuff/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("11_vltgk")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Mana:"
+
+[node name="ManaBar" parent="TestHealthStuff/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("14_j5e7y")]
+layout_mode = 2
+dynamic_length = true
+length_to_max_value_ratio = 4.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TestHealthStuff/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TestHealthStuff/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+theme = ExtResource("11_vltgk")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Buffs:"
+vertical_alignment = 1
+
+[node name="MoraleBuffHUDUI" parent="TestHealthStuff/MarginContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("2_q5lq8")]
+layout_mode = 2
+
+[editable path="TestHealthStuff/MarginContainer/VBoxContainer/HBoxContainer2/PlayerHealthBar"]
+[editable path="TestHealthStuff/MarginContainer/VBoxContainer/HBoxContainer2/PlayerHealthBar/BarContainer/MarginContainer/StatSegmentOverlayControl"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdhgjjhgjdcph"]
+
+[ext_resource type="PackedScene" uid="uid://fmos4ivtd3pw" path="res://BaseGameObjects/Combat/NonHitscan/NonHitscanBullet.tscn" id="1_34gyw"]
+[ext_resource type="PackedScene" uid="uid://bvwk3se7k747a" path="res://BaseGameObjects/Aesthetics/PlayerDamage/PlayerDamagedAestheticEffect.tscn" id="2_2446y"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ofalc"]
+size = Vector3(0.1, 0.1, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3a12"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 4.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mghw0"]
+size = Vector3(0.1, 0.1, 0.75)
+
+[node name="NonHitscanBullet" node_paths=PackedStringArray("player_damaged_aesthetic_effect") instance=ExtResource("1_34gyw")]
+collision_layer = 32768
+collision_mask = 5
+speed = 30.0
+damage = 18.0
+player_damaged_aesthetic_effect = NodePath("PlayerDamagedAestheticEffect")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ofalc")
+surface_material_override/0 = SubResource("StandardMaterial3D_c3a12")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("BoxShape3D_mghw0")
+
+[node name="PlayerDamagedAestheticEffect" parent="." index="2" instance=ExtResource("2_2446y")]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq48r6hvwvcvq"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Events/WeaponEvents/MovementSpreadRecoveryEvent.gd" id="1_hn4l6"]
+
+[node name="MovementSpreadRecoveryEvent" type="Node"]
+script = ExtResource("1_hn4l6")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://datcdglrg6nt0"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Reloading/ReloadMaster.gd" id="1_su2ys"]
+
+[node name="ReloadMaster" type="Node3D"]
+script = ExtResource("1_su2ys")

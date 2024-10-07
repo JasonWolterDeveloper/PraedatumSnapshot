@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://chwe6ed5dyfs3"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Projectiles/Grenades/GrenadeProjectile.gd" id="1_hk5oi"]
+[ext_resource type="PackedScene" uid="uid://c78rutv1otbal" path="res://Content/Demo/Code/Items/Weapons/FragGrenade/FragGrenadeBasicExplosion.tscn" id="2_sfi1e"]
+[ext_resource type="PackedScene" uid="uid://cd2e7uh7ysisc" path="res://Content/Demo/Assets/Weapons/ModularGrenade/ModularFragNoSpoon.tscn" id="3_g6etw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c1m1o"]
+radius = 0.219507
+height = 0.582386
+
+[node name="FragGrenadeProjectileBasic" type="CharacterBody3D" node_paths=PackedStringArray("grenade_3D_model")]
+collision_layer = 4
+script = ExtResource("1_hk5oi")
+grenade_3D_model = NodePath("ModularFragNoSpoon")
+
+[node name="ModularFragNoSpoon" parent="." instance=ExtResource("3_g6etw")]
+transform = Transform3D(0.12941, 0.482963, 0, -0.482963, 0.12941, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Explosion" parent="." instance=ExtResource("2_sfi1e")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0, 1, 0, -0.0244541, 0)
+shape = SubResource("CapsuleShape3D_c1m1o")
+
+[connection signal="explosion_finished" from="Explosion" to="." method="_on_explosion_explosion_finished"]

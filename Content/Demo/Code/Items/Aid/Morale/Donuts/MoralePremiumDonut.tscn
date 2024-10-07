@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://rij04buhtkop"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/AidItems/MoraleConsumables/MoraleItem.gd" id="1_yd7y3"]
+[ext_resource type="PackedScene" uid="uid://get0ly60p0fc" path="res://Content/Demo/Code/Items/Aid/Morale/Donuts/MoralePremiumDonutMoraleBuff.tscn" id="2_3brn6"]
+[ext_resource type="Texture2D" uid="uid://dre53irv6spqp" path="res://Content/Demo/Assets/Items/Consumables/Morale/Donut/PremiumDonut/InventoryImage.png" id="2_3dbwy"]
+[ext_resource type="PackedScene" uid="uid://3uir4aes2tbw" path="res://Content/Demo/Code/Items/Aid/Morale/Donuts/MoralePremiumDonutGroundModel.tscn" id="3_5ctha"]
+
+[node name="MoralePremiumDonut" type="Node3D"]
+script = ExtResource("1_yd7y3")
+morale_value_restored = 250.0
+morale_buff_scene = ExtResource("2_3brn6")
+utility_item_use_message = "Ate Premium Donut"
+inventory_image = ExtResource("2_3dbwy")
+ground_3d_model_scene = ExtResource("3_5ctha")
+display_name = "Premium Donut"
+item_type = 3
+grid_square_width = 2
+grid_square_height = 1

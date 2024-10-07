@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dexhnvcg5620g"]
+
+[ext_resource type="PackedScene" uid="uid://dfpgui17nup0r" path="res://BaseGameObjects/InteractableObjects/InteractableObject.tscn" id="1_hpt66"]
+[ext_resource type="Script" path="res://BaseGameObjects/InteractableObjects/Quests/CompleteQuestStepInteractableObject.gd" id="2_vc34o"]
+
+[node name="CompleteQuestStepInteractableObject" instance=ExtResource("1_hpt66")]
+script = ExtResource("2_vc34o")
+quest_id = ""
+step_id = ""

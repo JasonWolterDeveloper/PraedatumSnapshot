@@ -1,0 +1,15 @@
+@export var damage_per_second : float = 1.0
+var origin_character : Character = null 
+
+
+func calculate_damage_amount(delta: float):
+    return delta*damage_per_second
+
+
+func apply_periodic_effect(delta : float):
+    var damage_event = RPGEventConstants.DAMAGE_EVENT.instantiate()
+			
+	damage_event.damager_character = origin_character
+    damage_event.damage_amount = calculate_damage_amount(delta)
+	damage_event.damaged_character = get_character()
+	damage_event.invoke_event()

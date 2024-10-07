@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch3adrwy8wif3"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/AidItems/PotionItem.gd" id="1_3vxr6"]
+
+[node name="PotionItem" type="Node3D"]
+script = ExtResource("1_3vxr6")
+usable_from_inventory = true
+item_type = 3

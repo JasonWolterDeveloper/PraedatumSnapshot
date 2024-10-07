@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsh0f6id4wrm3"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Projectiles/Projectile.gd" id="1_dd26q"]
+
+[node name="Projectile" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_dd26q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]

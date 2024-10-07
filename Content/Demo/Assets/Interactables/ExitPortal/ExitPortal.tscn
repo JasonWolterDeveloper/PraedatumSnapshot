@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvgq688pdkfqo"]
+
+[ext_resource type="PackedScene" uid="uid://ij2n46ddjgs0" path="res://Content/Demo/Assets/Interactables/ExitPortal/ExitPortal.glb" id="1_1wu8x"]
+[ext_resource type="PackedScene" uid="uid://dgoly5dmtdqvc" path="res://ScratchPad/Portal/PortalEffect.tscn" id="2_eb452"]
+
+[node name="ExitPortal" type="Node3D"]
+
+[node name="ExitPortal" parent="." instance=ExtResource("1_1wu8x")]
+transform = Transform3D(0.575, 0, 0, 0, 0.575, 0, 0, 0, 0.575, 0, 0, 0)
+
+[node name="PortalEffect" parent="." instance=ExtResource("2_eb452")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.257169, 0.200961, 0.91701)
+visible = false
+light_color = Color(0.142147, 0.292837, 0.495486, 1)
+light_energy = 2.0
+omni_range = 1.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278267, 0)
+light_color = Color(0, 0.818735, 0.905102, 1)
+light_energy = 4.0

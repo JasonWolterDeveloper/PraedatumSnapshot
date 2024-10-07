@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnjyg4x1j7yd5"]
+
+[ext_resource type="PackedScene" uid="uid://dy4x4n2qmakha" path="res://Content/Demo/Assets/Items/Armour/ArmourShard/ArmourShardModel.glb" id="1_r33de"]
+
+[node name="ArmourShardModel" type="Node3D"]
+
+[node name="ArmourShardModel" parent="." instance=ExtResource("1_r33de")]
+transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, 0.15, 0, -0.15, -6.55671e-09, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.150255, 0.0396178, -0.0777139)
+light_color = Color(0.645768, 0.508666, 0, 1)
+light_energy = 2.0
+omni_range = 0.326556

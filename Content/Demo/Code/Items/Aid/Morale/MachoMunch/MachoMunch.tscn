@@ -1,0 +1,47 @@
+[gd_scene load_steps=11 format=3 uid="uid://cn4md1ex3y74l"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/AidItems/MoraleConsumables/MoraleItem.gd" id="1_qmk1k"]
+[ext_resource type="PackedScene" uid="uid://bpsp5sb3t7faa" path="res://Content/Demo/Code/Items/Aid/Morale/MachoMunch/MachoMunchBuff.tscn" id="2_5bdy3"]
+[ext_resource type="Texture2D" uid="uid://b8v44lj653hiu" path="res://Content/Demo/Assets/Items/Consumables/Morale/MachoMunch/MachoMunchInventoryImage.png" id="3_nnfv0"]
+[ext_resource type="PackedScene" uid="uid://bvj4f3im5juy7" path="res://Content/Demo/Assets/Items/Consumables/Morale/MachoMunch/MachoMunchGroundModel.tscn" id="4_kp41q"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="5_inftl"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="6_x5k14"]
+
+[sub_resource type="Resource" id="Resource_v50kh"]
+script = ExtResource("6_x5k14")
+stat_title = "Health per Segment"
+stat_value = "5.0"
+stat_value_colour = Color(0.639216, 0.0509804, 0, 1)
+
+[sub_resource type="Resource" id="Resource_i7pks"]
+script = ExtResource("6_x5k14")
+stat_title = "Duration"
+stat_value = "450"
+stat_value_colour = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_kdaqx"]
+script = ExtResource("6_x5k14")
+stat_title = "Inventory Rows"
+stat_value = "+ 1"
+stat_value_colour = Color(0.625198, 0.464516, 0.17314, 1)
+
+[sub_resource type="Resource" id="Resource_jr3uw"]
+script = ExtResource("5_inftl")
+stat_entry_array = Array[ExtResource("6_x5k14")]([SubResource("Resource_v50kh"), SubResource("Resource_i7pks"), SubResource("Resource_kdaqx")])
+
+[node name="MachoMunch" type="Node3D"]
+script = ExtResource("1_qmk1k")
+morale_buff_scene = ExtResource("2_5bdy3")
+utility_item_use_message = "Ate Macho Munch"
+inventory_image = ExtResource("3_nnfv0")
+ground_3d_model_scene = ExtResource("4_kp41q")
+display_name = "Macho Munch"
+item_id = "macho_munch"
+description = "A tub of strawberry flavoured protein powder. Shoveling this down your gullet will give you the strength to carry extra loot for a time. "
+show_quantity_in_ui = true
+default_price = 75
+item_type = 3
+item_stat_entry_collection = SubResource("Resource_jr3uw")
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bspirboiil7op"]
+
+[ext_resource type="PackedScene" uid="uid://cyd470th2d8op" path="res://Content/Demo/Assets/Weapons/OlReliable/OlReliable.glb" id="1_rvsnw"]
+[ext_resource type="Script" path="res://Content/Demo/Assets/Weapons/OlReliable/OlReliableWeaponModel.gd" id="2_t1j7d"]
+
+[node name="OlReliable" instance=ExtResource("1_rvsnw")]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 0, 0)
+script = ExtResource("2_t1j7d")
+
+[node name="ActualLightOne" parent="WeaponLightOne" index="0"]
+visible = false
+
+[node name="ActualLightTwo" parent="WeaponLightTwo" index="0"]
+visible = false
+
+[node name="ActualLightThree" parent="WeaponLightThree" index="0"]
+visible = false
+
+[node name="LaserPos" type="Marker3D" parent="." index="22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.197386, 2.04052)
+
+[node name="BulletStartPos" type="Marker3D" parent="." index="23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00509369, 0.288286, 2.23204)

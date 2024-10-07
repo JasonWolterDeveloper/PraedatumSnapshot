@@ -1,0 +1,315 @@
+[gd_scene load_steps=14 format=3 uid="uid://bdg76kaxfhkh8"]
+
+[ext_resource type="Texture2D" uid="uid://dthc1ed2aot7v" path="res://Content/Demo/Assets/Items/HealthPotion/DoubleHealthPotionInventoryImage.png" id="1_3kd3d"]
+[ext_resource type="FontFile" uid="uid://jjpdtk4jb6ea" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="1_34swr"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemDetailMenuControl.gd" id="1_pvvkk"]
+[ext_resource type="PackedScene" uid="uid://djridrwb0apd3" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryControl.tscn" id="2_lggdp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8kjd"]
+bg_color = Color(0, 0, 0, 0.415686)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ig1d"]
+bg_color = Color(0.0295066, 0.0295066, 0.0295065, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs7p2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iqc0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfreg"]
+bg_color = Color(0.489623, 0.489622, 0.489621, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lt25q"]
+bg_color = Color(0.847475, 0.847474, 0.847474, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akaft"]
+bg_color = Color(0.0768361, 0.0768358, 0.0768356, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7ecs"]
+bg_color = Color(1, 0.0392157, 0.0235294, 0.784314)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy0ut"]
+bg_color = Color(0.847475, 0.847474, 0.847474, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[node name="ItemDetailMenuControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_pvvkk")
+ItemStatEntryControl = ExtResource("2_lggdp")
+
+[node name="CloseItemDescriptionBackgroundPanel" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_k8kjd")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k8kjd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k8kjd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k8kjd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k8kjd")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(1200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -119.5
+offset_right = 250.0
+offset_bottom = 119.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ig1d")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="DisplayNameLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_34swr")
+theme_override_font_sizes/font_size = 32
+text = "Health Potion"
+horizontal_alignment = 1
+
+[node name="ItemImage" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_3kd3d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatVbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Separator" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StatVbox"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fs7p2")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StatVbox"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="Separator" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StatVbox/MarginContainer"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_8iqc0")
+
+[node name="StatGrid" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StatVbox/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+columns = 2
+
+[node name="ItemStatEntryControl2" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StatVbox/MarginContainer/StatGrid" instance=ExtResource("2_lggdp")]
+layout_mode = 2
+text = "Damage : [color=#ff00ff]25"
+
+[node name="ItemStatEntryControl" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StatVbox/MarginContainer/StatGrid" instance=ExtResource("2_lggdp")]
+layout_mode = 2
+text = "Damage : [color=#ff00ff]25"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StatVbox/MarginContainer/StatGrid"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("1_34swr")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Total Healing: [color=green]100"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StatVbox/MarginContainer/StatGrid"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("1_34swr")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Duration: [color=red]5"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StatVbox/MarginContainer/StatGrid"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("1_34swr")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Cost: [color=gold]25"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StatVbox/MarginContainer/StatGrid"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("1_34swr")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "Time To Use: [color=cyan]1"
+
+[node name="Separator2" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StatVbox"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fs7p2")
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_34swr")
+theme_override_fonts/mono_font = ExtResource("1_34swr")
+theme_override_fonts/italics_font = ExtResource("1_34swr")
+theme_override_fonts/bold_italics_font = ExtResource("1_34swr")
+theme_override_fonts/bold_font = ExtResource("1_34swr")
+theme_override_font_sizes/normal_font_size = 20
+text = "This is a nice Health Potion. It heals you a lot and I think that's pretty great. This one is actually a Double Health. Wow. Let me make"
+fit_content = true
+
+[node name="Buttons" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = 784.0
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="UseButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer2"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_34swr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_cfreg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lt25q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_akaft")
+text = "Use"
+icon_alignment = 1
+
+[node name="EquipButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer2"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_34swr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_cfreg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lt25q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_akaft")
+text = "Equip"
+icon_alignment = 1
+
+[node name="DropButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer2"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_34swr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_cfreg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lt25q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_akaft")
+text = "Drop
+"
+icon_alignment = 1
+
+[node name="DismantleButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer2"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_34swr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_k7ecs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qy0ut")
+theme_override_styles/normal = SubResource("StyleBoxFlat_akaft")
+text = "Dismantle"
+icon_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "X"
+
+[connection signal="button_down" from="CloseItemDescriptionBackgroundPanel" to="." method="close"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer2/UseButton" to="." method="use_item"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer2/EquipButton" to="." method="equip_item"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer2/DropButton" to="." method="drop_item"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer2/DismantleButton" to="." method="dismantle_item"]
+[connection signal="pressed" from="PanelContainer/MarginContainer2/QuitButton" to="." method="close"]

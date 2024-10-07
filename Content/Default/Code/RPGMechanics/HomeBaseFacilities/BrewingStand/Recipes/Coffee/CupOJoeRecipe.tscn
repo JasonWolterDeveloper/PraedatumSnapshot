@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bir6sonlwanqf"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingRecipe.gd" id="1_mgw0i"]
+[ext_resource type="PackedScene" uid="uid://1hpaxthojfob" path="res://Content/Demo/Code/Items/ResourceItems/IngredientsItem.tscn" id="2_48vjp"]
+[ext_resource type="PackedScene" uid="uid://cbo7uwe7bx5lm" path="res://Content/Demo/Code/Items/Aid/Morale/CupOfJoe/CupOfJoe.tscn" id="3_bd63b"]
+
+[node name="CopOJoeRecipe" type="Node"]
+script = ExtResource("1_mgw0i")
+item_cost_dictionary = {
+NodePath("IngredientsItem"): 2
+}
+crafted_item_dictionary = {
+NodePath("CupOfJoe"): 1
+}
+base_facility_level_required = 1
+
+[node name="IngredientsItem" parent="." instance=ExtResource("2_48vjp")]
+
+[node name="CupOfJoe" parent="." instance=ExtResource("3_bd63b")]

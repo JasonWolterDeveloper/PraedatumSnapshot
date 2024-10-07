@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://cj0rbbpox5yvr"]
+
+[ext_resource type="PackedScene" uid="uid://btr7u4ovc2xw" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallOuterCorner.tscn" id="1_i3lys"]
+[ext_resource type="PackedScene" uid="uid://c14yeba554ow1" path="res://BaseGameObjects/Terrain/Walls/Wall.tscn" id="2_mxewd"]
+[ext_resource type="PackedScene" uid="uid://bufpahsb7jek6" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallSegment.tscn" id="3_7enty"]
+[ext_resource type="Material" uid="uid://fp3hdtajq0n6" path="res://Content/Default/Code/Levels/VoidTexture.tres" id="4_7432o"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_77gu0"]
+material = ExtResource("4_7432o")
+size = Vector3(1, 4.05, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_thkjs"]
+material = ExtResource("4_7432o")
+size = Vector3(1, 4.05, 0.2)
+
+[node name="OfficeWallPrefabDivot" type="Node3D"]
+
+[node name="OfficeWallOuterCorner" parent="." instance=ExtResource("1_i3lys")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, -0.9)
+
+[node name="VoidPart2" parent="OfficeWallOuterCorner" index="2"]
+visible = false
+
+[node name="VoidPart3" parent="OfficeWallOuterCorner" index="3"]
+visible = false
+
+[node name="OfficeWallOuterCorner2" parent="." instance=ExtResource("1_i3lys")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.5, 0, -0.9)
+
+[node name="VoidPart2" parent="OfficeWallOuterCorner2" index="2"]
+visible = false
+
+[node name="VoidPart3" parent="OfficeWallOuterCorner2" index="3"]
+visible = false
+
+[node name="VoidPart2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 5.2, 0, 2, -0.3)
+mesh = SubResource("BoxMesh_77gu0")
+skeleton = NodePath("../Wall")
+
+[node name="VoidPart3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_thkjs")
+skeleton = NodePath("../Wall2")
+
+[node name="Wall" parent="." instance=ExtResource("2_mxewd")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.72529e-08)
+visible = false
+
+[node name="OfficeWallSegment" parent="Wall" instance=ExtResource("3_7enty")]
+
+[node name="VoidPart" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_thkjs")
+
+[node name="Wall2" parent="." instance=ExtResource("2_mxewd")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+
+[node name="OfficeWallSegment" parent="Wall2" instance=ExtResource("3_7enty")]
+
+[node name="VoidPart" type="MeshInstance3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_thkjs")
+
+[node name="Wall4" parent="." instance=ExtResource("2_mxewd")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="OfficeWallSegment" parent="Wall4" instance=ExtResource("3_7enty")]
+
+[node name="VoidPart" type="MeshInstance3D" parent="Wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_thkjs")
+
+[editable path="OfficeWallOuterCorner"]
+[editable path="OfficeWallOuterCorner2"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb0sj5ae0d1wr"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/Stash/HomeBasePlayerStashFacility.gd" id="1_pn0ad"]
+[ext_resource type="PackedScene" uid="uid://c4k44oc2nxt4i" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/BaseUpgradeRecipe.tscn" id="2_mnixe"]
+[ext_resource type="PackedScene" uid="uid://b77bxtfmg87tc" path="res://Content/Demo/Code/Items/ResourceItems/ScrapMetal.tscn" id="2_owiph"]
+
+[node name="HomeBasePlayerStashFacility" type="Node"]
+script = ExtResource("1_pn0ad")
+max_upgrade_level = 1
+base_facility_id = "stash_facility"
+display_name = "Player Stash"
+description = "A Stash for storing items safely back at base where they cannot be lost on death"
+
+[node name="UpgradeRecipes" type="Node" parent="."]
+
+[node name="BaseUpgradeRecipe" parent="UpgradeRecipes" instance=ExtResource("2_mnixe")]
+item_cost_dictionary = {
+NodePath("ScrapMetal"): 2
+}
+
+[node name="ScrapMetal" parent="UpgradeRecipes/BaseUpgradeRecipe" instance=ExtResource("2_owiph")]

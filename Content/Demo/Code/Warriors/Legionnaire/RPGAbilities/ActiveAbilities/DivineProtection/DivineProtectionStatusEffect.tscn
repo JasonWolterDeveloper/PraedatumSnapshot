@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dswlty6tmdnil"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/StatusEffects/RPGStatusEffect.gd" id="1_pqsrm"]
+[ext_resource type="Resource" uid="uid://eigh8ah3ki7i" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/DivineProtection/DivineProtectionEventModifier.tres" id="2_iu14d"]
+
+[node name="DivineProtectionStatusEffect" type="Node3D"]
+script = ExtResource("1_pqsrm")
+duration = 15.0
+rpg_event_modifiers = Array[Resource("res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGEventModifier.gd")]([ExtResource("2_iu14d")])

@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://inefk4b4y7yt"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Bosses/TheForeman/ForemanFSM.gd" id="1_vwwon"]
+[ext_resource type="PackedScene" uid="uid://c6bxidfwd3h3j" path="res://Content/Demo/Code/Enemies/WageCage/Behaviour/MeleeFSM.tscn" id="2_spu4s"]
+[ext_resource type="PackedScene" uid="uid://bb5uym7ms6op7" path="res://Content/Default/Code/Behaviour/Links/TimeoutLink.tscn" id="3_bii2m"]
+[ext_resource type="PackedScene" uid="uid://biljo0l4ysfxm" path="res://Content/Demo/Code/Enemies/Bosses/TheForeman/ForemanCallInState.tscn" id="3_upv1b"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Bosses/TheForeman/ForemanCallInTimerLink.gd" id="5_akpmh"]
+
+[node name="ForemanFSM" type="Node3D"]
+script = ExtResource("1_vwwon")
+
+[node name="ZombieFSM" parent="." instance=ExtResource("2_spu4s")]
+
+[node name="ForemanCallInState" parent="." instance=ExtResource("3_upv1b")]
+
+[node name="TimeToCallInTimeoutLink" parent="." instance=ExtResource("3_bii2m")]
+script = ExtResource("5_akpmh")
+duration = 10.0
+
+[node name="CallInEndedTimeoutLink" parent="." instance=ExtResource("3_bii2m")]
+duration = 7.0

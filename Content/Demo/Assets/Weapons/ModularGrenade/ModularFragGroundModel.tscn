@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfbq7wx0m6iae"]
+
+[ext_resource type="PackedScene" uid="uid://cihuoon7ff0rm" path="res://Content/Demo/Assets/Weapons/ModularGrenade/ModularFrag.glb" id="1_ccrdn"]
+
+[node name="ModularFragGroundModel" type="Node3D"]
+
+[node name="ModularFrag" parent="." instance=ExtResource("1_ccrdn")]
+transform = Transform3D(-2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0, 0.5, 0, 0, 0)

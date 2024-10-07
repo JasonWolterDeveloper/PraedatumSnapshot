@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://el360g5qryfu"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_abmub"]
+[ext_resource type="PackedScene" uid="uid://dnsjipe86u8ly" path="res://Content/Demo/Assets/Terrain/WarehouseTerrainPack/Obstacles/OilTank.glb" id="2_1ilqp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nt0i6"]
+radius = 2.18889
+height = 9.51617
+
+[node name="Obstacle" type="StaticBody3D"]
+script = ExtResource("1_abmub")
+
+[node name="OilTank2" parent="." instance=ExtResource("2_1ilqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.57629, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 2.49879, 0)
+shape = SubResource("CapsuleShape3D_nt0i6")

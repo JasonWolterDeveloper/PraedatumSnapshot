@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="DivineProtectionEventModifier" load_steps=2 format=3 uid="uid://eigh8ah3ki7i"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/DivineProtection/DivineProtectionEventModifier.gd" id="1_rbhjv"]
+
+[resource]
+script = ExtResource("1_rbhjv")

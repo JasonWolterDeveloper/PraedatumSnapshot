@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvrw0a7odqoc6"]
+
+[ext_resource type="PackedScene" uid="uid://bm1782qnuiwwn" path="res://BaseGameObjects/Bullet.tscn" id="1_6hyir"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Bullets/Buckshot.gd" id="2_s2nc1"]
+
+[node name="Buckshot" instance=ExtResource("1_6hyir")]
+script = ExtResource("2_s2nc1")
+pellet_scene = null
+number_of_pellets = 5
+spread = 0.005
+speed = 100
+
+[node name="MeshInstance3D" parent="." index="1"]
+visible = false

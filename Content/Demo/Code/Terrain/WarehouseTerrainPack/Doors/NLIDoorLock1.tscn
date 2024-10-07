@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpslxjakvvryg"]
+
+[ext_resource type="PackedScene" uid="uid://cfl4v3aexofgf" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/NLIDoor.tscn" id="1_ielgp"]
+[ext_resource type="Material" uid="uid://l1awwsoc52xc" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/Resources/NLIDoorHighlightLock1.tres" id="2_7d2my"]
+
+[node name="NLIDoorwayLock1" instance=ExtResource("1_ielgp")]
+locked = true
+key_codes = Array[String](["blue"])
+lock_level = 1
+
+[node name="DoorHighlight" parent="." index="3"]
+surface_material_override/1 = ExtResource("2_7d2my")
+
+[node name="DoorHighlight_001" parent="." index="4"]
+surface_material_override/1 = ExtResource("2_7d2my")
+
+[node name="DoorPost" parent="." index="5"]
+surface_material_override/1 = ExtResource("2_7d2my")
+
+[node name="DoorHighlight_002" parent="DoorPost" index="0"]
+surface_material_override/1 = ExtResource("2_7d2my")
+
+[node name="DoorPost_004" parent="." index="6"]
+surface_material_override/1 = ExtResource("2_7d2my")
+
+[node name="DoorHighlight_003" parent="DoorPost_004" index="0"]
+surface_material_override/1 = ExtResource("2_7d2my")
+
+[node name="DoorPost_001" parent="." index="7"]
+surface_material_override/1 = ExtResource("2_7d2my")
+
+[node name="DoorHighlight_004" parent="DoorPost_001" index="0"]
+surface_material_override/1 = ExtResource("2_7d2my")
+
+[node name="DoorPost_005" parent="." index="8"]
+surface_material_override/1 = ExtResource("2_7d2my")
+
+[node name="DoorHighlight_005" parent="DoorPost_005" index="0"]
+surface_material_override/1 = ExtResource("2_7d2my")

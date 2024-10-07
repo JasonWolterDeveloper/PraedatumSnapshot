@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="ItemStatEntryCollection" load_steps=12 format=3 uid="uid://dy4ytk3blwfue"]
+
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="1_21tay"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="2_o43h0"]
+
+[sub_resource type="Resource" id="Resource_2tkgs"]
+script = ExtResource("2_o43h0")
+stat_title = "Damage"
+stat_value = "6 x 4"
+stat_value_colour = Color(0.641577, 0.088861, 0.157988, 1)
+
+[sub_resource type="Resource" id="Resource_qsdil"]
+script = ExtResource("2_o43h0")
+stat_title = "Capacity"
+stat_value = "4"
+stat_value_colour = Color(0.572335, 0.429194, 0.0976343, 1)
+
+[sub_resource type="Resource" id="Resource_6r6p7"]
+script = ExtResource("2_o43h0")
+stat_title = "Reload Spd."
+stat_value = "1.5 s"
+stat_value_colour = Color(0.572335, 0.429194, 0.0976343, 1)
+
+[sub_resource type="Resource" id="Resource_4xbpg"]
+script = ExtResource("2_o43h0")
+stat_title = "Handling"
+stat_value = "Poor"
+stat_value_colour = Color(0.0829862, 0.496847, 0.688897, 1)
+
+[sub_resource type="Resource" id="Resource_l6cur"]
+script = ExtResource("2_o43h0")
+stat_title = "Accuracy"
+stat_value = "Average"
+stat_value_colour = Color(0.0829862, 0.496847, 0.688897, 1)
+
+[sub_resource type="Resource" id="Resource_u0ma8"]
+script = ExtResource("2_o43h0")
+stat_title = "Recoil"
+stat_value = "High"
+stat_value_colour = Color(0.0823529, 0.498039, 0.690196, 1)
+
+[sub_resource type="Resource" id="Resource_b3s31"]
+script = ExtResource("2_o43h0")
+stat_title = "Mode"
+stat_value = "Semi"
+stat_value_colour = Color(0.662452, 0.662452, 0.662452, 1)
+
+[sub_resource type="Resource" id="Resource_g1sgk"]
+script = ExtResource("2_o43h0")
+stat_title = "Special"
+stat_value = "Dbl Barrel"
+stat_value_colour = Color(0.662745, 0.662745, 0.662745, 1)
+
+[sub_resource type="Resource" id="Resource_j4wlm"]
+script = ExtResource("2_o43h0")
+stat_title = "Move Spd."
+stat_value = "-20%"
+stat_value_colour = Color(0.825594, 0.170964, 0.152049, 1)
+
+[resource]
+script = ExtResource("1_21tay")
+stat_entry_array = Array[ExtResource("2_o43h0")]([SubResource("Resource_2tkgs"), SubResource("Resource_qsdil"), SubResource("Resource_6r6p7"), SubResource("Resource_4xbpg"), SubResource("Resource_l6cur"), SubResource("Resource_u0ma8"), SubResource("Resource_b3s31"), SubResource("Resource_g1sgk"), SubResource("Resource_j4wlm")])

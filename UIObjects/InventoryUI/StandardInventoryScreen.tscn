@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/StandardInventoryScreen.gd" id="1"]
+[ext_resource type="PackedScene" path="res://WARPrototypes/InventoryUI/HolderContainers/LoadoutSlotInventoryContainer.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://WARPrototypes/InventoryUI/HolderContainers/ItemHolderInventoryContainer.tscn" id="3"]
+
+[node name="StandardInventoryScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SecondaryWeaponSlot" parent="." instance=ExtResource( 2 )]
+margin_left = 680.0
+margin_top = 288.0
+margin_right = 1128.0
+margin_bottom = 480.0
+
+[node name="PrimaryWeaponSlot" parent="." instance=ExtResource( 2 )]
+margin_left = 680.0
+margin_top = 32.0
+margin_right = 1128.0
+margin_bottom = 224.0
+
+[node name="MainInventory" parent="." instance=ExtResource( 3 )]
+margin_right = 610.0
+margin_bottom = 759.0

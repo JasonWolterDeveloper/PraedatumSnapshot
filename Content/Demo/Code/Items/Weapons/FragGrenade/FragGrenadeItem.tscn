@@ -1,0 +1,27 @@
+[gd_scene load_steps=10 format=3 uid="uid://d08nydivn6fq8"]
+
+[ext_resource type="PackedScene" uid="uid://cmgl2x2hix1pj" path="res://BaseGameObjects/Inventory/CombatItems/UtilityItems/GrenadeItem.tscn" id="1_u1opf"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Weapons/FragGrenade/FragGrenadeItem.gd" id="2_ygqx8"]
+[ext_resource type="PackedScene" uid="uid://chwe6ed5dyfs3" path="res://Content/Demo/Code/Items/Weapons/FragGrenade/FragGrenadeProjectileBasic.tscn" id="2_yxvq0"]
+[ext_resource type="PackedScene" uid="uid://0tjk614abfyc" path="res://Content/Demo/Code/Items/Weapons/FragGrenade/FragGrenadeProjectileMedium.tscn" id="3_r8qfb"]
+[ext_resource type="PackedScene" uid="uid://c8r1ppa7s7vv1" path="res://Content/Demo/Code/Items/Weapons/FragGrenade/FragGrenadeProjectileLarge.tscn" id="4_ifoi6"]
+[ext_resource type="Texture2D" uid="uid://chdpignal333n" path="res://Content/Demo/Assets/Weapons/ModularGrenade/SingleFinal.png" id="5_06ds6"]
+[ext_resource type="Texture2D" uid="uid://c3xvxqhmso1mp" path="res://Content/Demo/Assets/Weapons/ModularGrenade/DoubleFinal.png" id="6_pyvtn"]
+[ext_resource type="Texture2D" uid="uid://dyattjthaxo4o" path="res://Content/Demo/Assets/Weapons/ModularGrenade/TripleFinal.png" id="7_x00nd"]
+[ext_resource type="PackedScene" uid="uid://cfbq7wx0m6iae" path="res://Content/Demo/Assets/Weapons/ModularGrenade/ModularFragGroundModel.tscn" id="9_vhx60"]
+
+[node name="FragGrenadeItem" instance=ExtResource("1_u1opf")]
+script = ExtResource("2_ygqx8")
+grenade_medium_projectile_scene = ExtResource("3_r8qfb")
+grenade_large_projectile_scene = ExtResource("4_ifoi6")
+small_inventory_image = ExtResource("5_06ds6")
+medium_inventory_image = ExtResource("6_pyvtn")
+large_inventory_image = ExtResource("7_x00nd")
+grenade_projectile_scene = ExtResource("2_yxvq0")
+inventory_image = ExtResource("5_06ds6")
+ground_3d_model_scene = ExtResource("9_vhx60")
+display_name = "Modular Grenade"
+item_id = "modular_grenade"
+default_price = 50
+grid_square_width = 1
+grid_square_height = 1

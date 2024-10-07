@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://biljo0l4ysfxm"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Bosses/TheForeman/ForemanCallInState.gd" id="1_fgs0d"]
+
+[node name="ForemanCallInState" type="Node3D"]
+script = ExtResource("1_fgs0d")

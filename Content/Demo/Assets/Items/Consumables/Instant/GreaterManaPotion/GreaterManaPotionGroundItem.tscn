@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy4djq6vghycv"]
+
+[ext_resource type="PackedScene" uid="uid://ovyg6bj8fbt5" path="res://Content/Demo/Assets/Items/Consumables/Instant/GreaterManaPotion/BigManaPotion.glb" id="1_u3uuh"]
+
+[node name="GreaterManaPotionGroundItem" type="Node3D"]
+
+[node name="BigManaPotion" parent="." instance=ExtResource("1_u3uuh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

@@ -1,0 +1,47 @@
+[gd_scene load_steps=11 format=3 uid="uid://bvlc6s3lx8dhd"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Aid/Mana/Instant/ManaPotion/ManaPotion.gd" id="1_4judu"]
+[ext_resource type="Texture2D" uid="uid://qstglfyd6qrv" path="res://Content/Demo/Assets/Items/Consumables/ManaPotion/ManaPotionInventoryImage.png" id="2_gwft1"]
+[ext_resource type="PackedScene" uid="uid://bi5f4dnnx6wkx" path="res://Content/Demo/Code/Items/Aid/Mana/Instant/ManaPotion/ManaPotionStatusEffect.tscn" id="2_h304b"]
+[ext_resource type="PackedScene" uid="uid://daypyk564a36a" path="res://Content/Demo/Code/Items/Aid/Mana/Instant/ManaPotion/ManaPotionGroundModel.tscn" id="3_71qnm"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="5_168i6"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="6_xyaro"]
+
+[sub_resource type="Resource" id="Resource_45fvy"]
+script = ExtResource("6_xyaro")
+stat_title = "Restore Rate"
+stat_value = "5.0 / s"
+stat_value_colour = Color(0.0576289, 0.619461, 0.786592, 1)
+
+[sub_resource type="Resource" id="Resource_7cyjl"]
+script = ExtResource("6_xyaro")
+stat_title = "Duration"
+stat_value = "5.0 s"
+stat_value_colour = Color(0.342207, 0.342207, 0.342207, 1)
+
+[sub_resource type="Resource" id="Resource_mv7uo"]
+script = ExtResource("6_xyaro")
+stat_title = "Total Restore"
+stat_value = "25.0 MP"
+stat_value_colour = Color(0.0588235, 0.619608, 0.788235, 1)
+
+[sub_resource type="Resource" id="Resource_w731r"]
+script = ExtResource("5_168i6")
+stat_entry_array = Array[ExtResource("6_xyaro")]([SubResource("Resource_45fvy"), SubResource("Resource_7cyjl"), SubResource("Resource_mv7uo")])
+
+[node name="ManaPotion" type="Node3D"]
+script = ExtResource("1_4judu")
+restoration_status_effect_scene = ExtResource("2_h304b")
+utility_item_use_message = "Quaffed Mana Potion"
+inventory_image = ExtResource("2_gwft1")
+ground_3d_model_scene = ExtResource("3_71qnm")
+display_name = "Mana Potion"
+item_id = "mana_potion"
+description = "A magical concoction with re-energizing properties. Quaffing it will gradually restore mana over time."
+show_quantity_in_ui = true
+item_type = 3
+item_stat_entry_collection = SubResource("Resource_w731r")
+current_quantity = 3
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

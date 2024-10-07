@@ -1,0 +1,253 @@
+[gd_scene load_steps=28 format=3 uid="uid://w3rxaads51sp"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/DismantleMaster.gd" id="1_kiqpi"]
+[ext_resource type="PackedScene" uid="uid://b84coq5n7mtbx" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingRecipe.tscn" id="2_e7cqk"]
+[ext_resource type="PackedScene" uid="uid://b3gjp4gda6op0" path="res://Content/Demo/Code/Items/ResourceItems/NutsNBolts.tscn" id="2_in08k"]
+[ext_resource type="PackedScene" uid="uid://b77bxtfmg87tc" path="res://Content/Demo/Code/Items/ResourceItems/ScrapMetal.tscn" id="2_mwwxq"]
+[ext_resource type="PackedScene" uid="uid://qveld3mp6tu1" path="res://Content/Demo/Code/Items/ResourceItems/PixieDust.tscn" id="2_v6s35"]
+[ext_resource type="PackedScene" uid="uid://ptrijd5ixe65" path="res://Content/Demo/Code/Items/ResourceItems/Meds.tscn" id="3_7k8kl"]
+[ext_resource type="PackedScene" uid="uid://broj86uh4bw0d" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackup.tscn" id="3_jkv5h"]
+[ext_resource type="PackedScene" uid="uid://bpuhxp0ioa7rq" path="res://Content/Demo/Code/Items/ResourceItems/BasicWeaponParts.tscn" id="4_2tpt5"]
+[ext_resource type="PackedScene" uid="uid://h640qe37xgs8" path="res://Content/Demo/Code/Items/ResourceItems/Electronics.tscn" id="4_52um8"]
+[ext_resource type="PackedScene" uid="uid://baehkmtc4wahr" path="res://Content/Demo/Code/Items/ResourceItems/Special/Food/CoffeeMaker.tscn" id="4_fkjg0"]
+[ext_resource type="PackedScene" uid="uid://1hpaxthojfob" path="res://Content/Demo/Code/Items/ResourceItems/IngredientsItem.tscn" id="5_7k8o4"]
+[ext_resource type="PackedScene" uid="uid://d2v0yvts8ob6f" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackup+1.tscn" id="5_w3h57"]
+[ext_resource type="PackedScene" uid="uid://ducxre6wep103" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackup+2.tscn" id="6_wnxlu"]
+[ext_resource type="PackedScene" uid="uid://cmh26ir4lbeut" path="res://Content/Demo/Code/Items/TreasureItems/PocketComputer.tscn" id="7_0srgs"]
+[ext_resource type="PackedScene" uid="uid://c80ekrrr7fmlj" path="res://Content/Demo/Code/Items/ResourceItems/Kevlar.tscn" id="8_uqixx"]
+[ext_resource type="PackedScene" uid="uid://xfneuv3uming" path="res://Content/Demo/Code/Items/ResourceItems/GunpowderItem.tscn" id="9_me5at"]
+[ext_resource type="PackedScene" uid="uid://cbo7uwe7bx5lm" path="res://Content/Demo/Code/Items/Aid/Morale/CupOfJoe/CupOfJoe.tscn" id="9_w4cr2"]
+[ext_resource type="PackedScene" uid="uid://e31edncml26a" path="res://Content/Demo/Code/Items/Aid/Morale/CupOfJoe/FancyCoffee.tscn" id="10_4xwsm"]
+[ext_resource type="PackedScene" uid="uid://bs040psypjfup" path="res://Content/Demo/Code/Items/Aid/Morale/Donuts/MoraleDonut.tscn" id="10_yb7gm"]
+[ext_resource type="PackedScene" uid="uid://d2ro4tbkp7g0o" path="res://Content/Demo/Code/Items/Aid/Mana/HoldUse/MageboarManasticks/MageboarManasticks.tscn" id="19_p8mxt"]
+[ext_resource type="PackedScene" uid="uid://t2se0242xwu2" path="res://Content/Demo/Code/Items/Aid/Health/HoldUse/Bandage/Bandage.tscn" id="20_2v6jn"]
+[ext_resource type="PackedScene" uid="uid://bvud2rdqx7bhg" path="res://Content/Demo/Code/Items/Aid/Health/Instant/HealthPotion.tscn" id="21_gky61"]
+[ext_resource type="PackedScene" uid="uid://cxgi1aaspolyc" path="res://BaseGameObjects/Inventory/CombatItems/UtilityItems/ArmourShard.tscn" id="21_qpx8t"]
+[ext_resource type="PackedScene" uid="uid://bvlc6s3lx8dhd" path="res://Content/Demo/Code/Items/Aid/Mana/Instant/ManaPotion/ManaPotion.tscn" id="22_48ac3"]
+[ext_resource type="PackedScene" uid="uid://4d3osy1662sk" path="res://Content/Demo/Code/Items/Ammo/SmallCaliberPistolAmmo.tscn" id="25_wa37p"]
+[ext_resource type="PackedScene" uid="uid://183uukpvhubk" path="res://Content/Demo/Code/Items/Weapons/TrenchSweeper/TrenchSweeper.tscn" id="26_sckfr"]
+[ext_resource type="PackedScene" uid="uid://bu787mbegg5wp" path="res://Content/Demo/Code/Items/Weapons/Barracuda/Barracuda.tscn" id="27_3xmyl"]
+
+[node name="DismantleMaster" type="Node"]
+process_mode = 4
+script = ExtResource("1_kiqpi")
+
+[node name="ResourceFolder" type="Node" parent="."]
+
+[node name="PixieDust" parent="ResourceFolder" instance=ExtResource("2_v6s35")]
+
+[node name="Meds" parent="ResourceFolder" instance=ExtResource("3_7k8kl")]
+
+[node name="NutsNBolts" parent="ResourceFolder" instance=ExtResource("2_in08k")]
+
+[node name="ScrapMetal" parent="ResourceFolder" instance=ExtResource("2_mwwxq")]
+
+[node name="Electronics" parent="ResourceFolder" instance=ExtResource("4_52um8")]
+
+[node name="IngredientsItem" parent="ResourceFolder" instance=ExtResource("5_7k8o4")]
+
+[node name="Kevlar" parent="ResourceFolder" instance=ExtResource("8_uqixx")]
+
+[node name="GunpowderItem" parent="ResourceFolder" instance=ExtResource("9_me5at")]
+
+[node name="BasicWeaponParts" parent="ResourceFolder" instance=ExtResource("4_2tpt5")]
+
+[node name="ResourceItems" type="Node" parent="."]
+
+[node name="DismantleCoffeeMaker" parent="ResourceItems" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("CoffeeMaker"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../ResourceFolder/ScrapMetal"): 10,
+NodePath("../../ResourceFolder/Electronics"): 5,
+NodePath("../../ResourceFolder/NutsNBolts"): 5
+}
+
+[node name="CoffeeMaker" parent="ResourceItems/DismantleCoffeeMaker" instance=ExtResource("4_fkjg0")]
+
+[node name="DismantlePocketComputer" parent="ResourceItems" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("PocketComputer"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../ResourceFolder/ScrapMetal"): 5,
+NodePath("../../ResourceFolder/Electronics"): 5
+}
+
+[node name="PocketComputer" parent="ResourceItems/DismantlePocketComputer" instance=ExtResource("7_0srgs")]
+
+[node name="FoodItems" type="Node" parent="."]
+
+[node name="DismantleCupOJoe" parent="FoodItems" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("CupOfJoe"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../ResourceFolder/IngredientsItem"): 2
+}
+
+[node name="CupOfJoe" parent="FoodItems/DismantleCupOJoe" instance=ExtResource("9_w4cr2")]
+
+[node name="DismantleFancyCoffee" parent="FoodItems" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("FancyCoffee"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../ResourceFolder/IngredientsItem"): 5
+}
+
+[node name="FancyCoffee" parent="FoodItems/DismantleFancyCoffee" instance=ExtResource("10_4xwsm")]
+
+[node name="DismantleDonut" parent="FoodItems" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("MoraleDonut"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../ResourceFolder/IngredientsItem"): 2
+}
+
+[node name="MoraleDonut" parent="FoodItems/DismantleDonut" instance=ExtResource("10_yb7gm")]
+
+[node name="ConsumableItems" type="Node" parent="."]
+
+[node name="Mana" type="Node" parent="ConsumableItems"]
+
+[node name="DismantleManaSticks" parent="ConsumableItems/Mana" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("MageboarManasticks"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../../ResourceFolder/PixieDust"): 3
+}
+
+[node name="MageboarManasticks" parent="ConsumableItems/Mana/DismantleManaSticks" instance=ExtResource("19_p8mxt")]
+
+[node name="Health" type="Node" parent="ConsumableItems"]
+
+[node name="DismantleBandage" parent="ConsumableItems/Health" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("Bandage"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../../ResourceFolder/PixieDust"): 1,
+NodePath("../../../ResourceFolder/Meds"): 3
+}
+
+[node name="Bandage" parent="ConsumableItems/Health/DismantleBandage" instance=ExtResource("20_2v6jn")]
+
+[node name="Armour" type="Node" parent="ConsumableItems"]
+
+[node name="DismantleArmourShard" parent="ConsumableItems/Armour" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("ArmourShard"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../../ResourceFolder/Kevlar"): 2
+}
+
+[node name="ArmourShard" parent="ConsumableItems/Armour/DismantleArmourShard" instance=ExtResource("21_qpx8t")]
+
+[node name="Potions" type="Node" parent="ConsumableItems"]
+
+[node name="Health" type="Node" parent="ConsumableItems/Potions"]
+
+[node name="DismantleHealthPotion" parent="ConsumableItems/Potions/Health" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("HealthPotion"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../../../ResourceFolder/Meds"): 3,
+NodePath("../../../../ResourceFolder/PixieDust"): 1
+}
+
+[node name="HealthPotion" parent="ConsumableItems/Potions/Health/DismantleHealthPotion" instance=ExtResource("21_gky61")]
+
+[node name="Mana" type="Node" parent="ConsumableItems/Potions"]
+
+[node name="DismantleManaPotion" parent="ConsumableItems/Potions/Mana" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("ManaPotion"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../../../ResourceFolder/PixieDust"): 3
+}
+
+[node name="ManaPotion" parent="ConsumableItems/Potions/Mana/DismantleManaPotion" instance=ExtResource("22_48ac3")]
+
+[node name="AmmoItems" type="Node" parent="."]
+
+[node name="TierOne" type="Node" parent="AmmoItems"]
+
+[node name="DismantleSmallCalibrePistolAmmo" parent="AmmoItems/TierOne" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("SmallCaliberPistolAmmo"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../../ResourceFolder/GunpowderItem"): 1
+}
+
+[node name="SmallCaliberPistolAmmo" parent="AmmoItems/TierOne/DismantleSmallCalibrePistolAmmo" instance=ExtResource("25_wa37p")]
+
+[node name="Weapons" type="Node" parent="."]
+
+[node name="Tier1" type="Node" parent="Weapons"]
+
+[node name="TrenchSweeperRecipe" parent="Weapons/Tier1" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("TrenchSweeper"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../../ResourceFolder/BasicWeaponParts"): 10,
+NodePath("../../../ResourceFolder/ScrapMetal"): 10,
+NodePath("../../../ResourceFolder/NutsNBolts"): 5
+}
+
+[node name="TrenchSweeper" parent="Weapons/Tier1/TrenchSweeperRecipe" instance=ExtResource("26_sckfr")]
+
+[node name="BarracudaRecipe" parent="Weapons/Tier1" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("Barracuda"): 1
+}
+crafted_item_dictionary = {
+NodePath("../../../ResourceFolder/BasicWeaponParts"): 15,
+NodePath("../../../ResourceFolder/ScrapMetal"): 5
+}
+
+[node name="Barracuda" parent="Weapons/Tier1/BarracudaRecipe" instance=ExtResource("27_3xmyl")]
+
+[node name="DismantleTheBackup" parent="Weapons/Tier1" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("TheBackup"): 1
+}
+crafted_item_dictionary = {
+NodePath("BasicWeaponParts"): 1
+}
+
+[node name="TheBackup" parent="Weapons/Tier1/DismantleTheBackup" instance=ExtResource("3_jkv5h")]
+
+[node name="BasicWeaponParts" parent="Weapons/Tier1/DismantleTheBackup" instance=ExtResource("4_2tpt5")]
+
+[node name="DismantleTheBackup+1" parent="Weapons/Tier1" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("TheBackup+1"): 1
+}
+crafted_item_dictionary = {
+NodePath("BasicWeaponParts"): 5
+}
+
+[node name="TheBackup+1" parent="Weapons/Tier1/DismantleTheBackup+1" instance=ExtResource("5_w3h57")]
+
+[node name="BasicWeaponParts" parent="Weapons/Tier1/DismantleTheBackup+1" instance=ExtResource("4_2tpt5")]
+
+[node name="DismantleTheBackup+2" parent="Weapons/Tier1" instance=ExtResource("2_e7cqk")]
+item_cost_dictionary = {
+NodePath("TheBackup+2"): 1
+}
+crafted_item_dictionary = {
+NodePath("BasicWeaponParts"): 12
+}
+
+[node name="TheBackup+2" parent="Weapons/Tier1/DismantleTheBackup+2" instance=ExtResource("6_wnxlu")]
+
+[node name="BasicWeaponParts" parent="Weapons/Tier1/DismantleTheBackup+2" instance=ExtResource("4_2tpt5")]

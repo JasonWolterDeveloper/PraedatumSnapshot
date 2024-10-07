@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpryq34tbjf37"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/Storage.gd" id="1_muxm5"]
+
+[node name="Storage" type="Node3D"]
+script = ExtResource("1_muxm5")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdkeu1bs2xua"]
+
+[ext_resource type="PackedScene" uid="uid://dhycqneeoikbx" path="res://Content/Demo/Assets/Weapons/Casings/OriginalModels/ShotgunShell.glb" id="1_hmys2"]
+
+[node name="ShotgunShellModel" instance=ExtResource("1_hmys2")]
+
+[node name="ShotgunShell" parent="." index="0"]
+transform = Transform3D(5.84122e-09, 0, 0.03, 0, 0.03, 0, -0.03, 0, 5.84122e-09, 0, 0, 0)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt6t3wrrcsds1"]
+
+[ext_resource type="PackedScene" uid="uid://dfpgui17nup0r" path="res://BaseGameObjects/InteractableObjects/InteractableObject.tscn" id="1_4ardu"]
+[ext_resource type="Script" path="res://Content/Default/Code/InteractableObjects/GroundItem.gd" id="2_eustj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppsbf"]
+size = Vector3(0.640015, 4.6687, 0.585194)
+
+[sub_resource type="BoxMesh" id="BoxMesh_70ih2"]
+size = Vector3(0.5, 0.05, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ck3ug"]
+albedo_color = Color(0.321569, 0.372549, 0.160784, 1)
+
+[node name="GroundItem" instance=ExtResource("1_4ardu")]
+script = ExtResource("2_eustj")
+auto_spawn_loot = true
+allow_if_activated = true
+
+[node name="ActivationArea#CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000549316, -0.00671351, -0.0035305)
+shape = SubResource("BoxShape3D_ppsbf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3"]
+mesh = SubResource("BoxMesh_70ih2")
+surface_material_override/0 = SubResource("StandardMaterial3D_ck3ug")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buclfecv855hl"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGAbilities/ActiveAbilityTypes/BuffAbility.gd" id="1_vmh8m"]
+
+[node name="BuffAbility" type="Node"]
+script = ExtResource("1_vmh8m")

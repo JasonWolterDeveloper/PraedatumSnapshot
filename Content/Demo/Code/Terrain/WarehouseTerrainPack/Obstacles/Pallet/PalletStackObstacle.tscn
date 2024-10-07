@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci78tmsvhjsv3"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_me3co"]
+[ext_resource type="PackedScene" uid="uid://ptsdasa1ce4b" path="res://Content/Demo/Assets/Terrain/Greebles/Pallet/PraedatumPallet.glb" id="2_eyxyq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rut7p"]
+size = Vector3(3.74994, 1.62781, 4.63037)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_luver"]
+size = Vector3(1.10938, 3.04584, 4.6026)
+
+[node name="PalletStackObstacle" type="StaticBody3D"]
+script = ExtResource("1_me3co")
+
+[node name="PraedatumPallet" parent="." instance=ExtResource("2_eyxyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0277958, -0.0274683, 0.0019145)
+
+[node name="PraedatumPallet2" parent="." instance=ExtResource("2_eyxyq")]
+transform = Transform3D(0.996402, 0, -0.0847561, 0, 1, 0, 0.0847561, 0, 0.996402, 0.0277958, 0.305985, 0.0019145)
+
+[node name="PraedatumPallet3" parent="." instance=ExtResource("2_eyxyq")]
+transform = Transform3D(0.991606, 0, 0.129297, 0, 1, 0, -0.129297, 0, 0.991606, 0.0277958, 0.620116, 0.0019145)
+
+[node name="PraedatumPallet4" parent="." instance=ExtResource("2_eyxyq")]
+transform = Transform3D(0.993203, 0, -0.116393, 0, 1, 0, 0.116393, 0, 0.993203, 0.0277958, 0.950136, 0.0019145)
+
+[node name="PraedatumPallet5" parent="." instance=ExtResource("2_eyxyq")]
+transform = Transform3D(0.592361, 0.805598, 0.0110119, -0.805458, 0.592463, -0.0149734, -0.0185867, -2.44746e-10, 0.999827, 1.926, 1.27471, 0.0019145)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0542908, 0.313904, 0.0465903)
+shape = SubResource("BoxShape3D_rut7p")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73271, 1.33682, -0.032908)
+shape = SubResource("BoxShape3D_luver")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo3s6horhsqlp"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Quests/QuestSystemMaster.gd" id="1_xmx0t"]
+
+[node name="QuestSystemMaster" type="Node"]
+script = ExtResource("1_xmx0t")

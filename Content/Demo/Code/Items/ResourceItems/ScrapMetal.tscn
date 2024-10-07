@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b77bxtfmg87tc"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_jgeb7"]
+[ext_resource type="Texture2D" uid="uid://dgseptmhx12v5" path="res://Content/Demo/Assets/Items/ResourceItems/ScrapMetal/InventoryImage.png" id="2_3anln"]
+[ext_resource type="PackedScene" uid="uid://ces46c8v637q6" path="res://Content/Demo/Code/Items/ResourceItems/ScrapMetalGroundModel.tscn" id="3_dcj27"]
+
+[node name="ScrapMetal" type="Node3D"]
+script = ExtResource("1_jgeb7")
+inventory_image = ExtResource("2_3anln")
+ground_3d_model_scene = ExtResource("3_dcj27")
+display_name = "Scrap Metal"
+item_id = "scrap_metal"
+description = "Random bits of scrap metal. Some say you shouldn't reuse old pieces of rebar for construction, but I say reduce reuse recycle!
+
+Can be used for crafting, or sold."
+show_quantity_in_ui = true
+default_price = 10
+max_quantity = 50
+grid_square_width = 1
+grid_square_height = 1

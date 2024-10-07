@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bopyilj4ealbe"
+path="res://.godot/imported/Karl Casey - White Bat XIII - 01 Space Dust.ogg-86bdddcecb7cf71be0e792e1fc3fc09c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat XIII - 01 Space Dust.ogg"
+dest_files=["res://.godot/imported/Karl Casey - White Bat XIII - 01 Space Dust.ogg-86bdddcecb7cf71be0e792e1fc3fc09c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

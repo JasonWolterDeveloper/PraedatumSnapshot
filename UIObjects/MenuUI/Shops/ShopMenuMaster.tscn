@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmv01civ8ufdg"]
+
+[ext_resource type="Script" path="res://UIObjects/MenuUI/Shops/ShopMenuMaster.gd" id="1_ah8gp"]
+[ext_resource type="PackedScene" uid="uid://cfcg4n5b4ptpt" path="res://UIObjects/InventoryUI/ShopMenuUI/ShopMenu.tscn" id="2_akyxc"]
+
+[node name="ShopMenuMaster" type="Node"]
+script = ExtResource("1_ah8gp")
+
+[node name="ShopMenu" parent="." instance=ExtResource("2_akyxc")]
+visible = false

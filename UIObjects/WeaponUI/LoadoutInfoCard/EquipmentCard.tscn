@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm6hmstyfrud7"]
+
+[ext_resource type="Script" path="res://UIObjects/WeaponUI/LoadoutInfoCard/EquipmentCard.gd" id="1_rwy4x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ic4nb"]
+bg_color = Color(0.423529, 0.423529, 0.423529, 0.717647)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[node name="EquipmentCard" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -852.0
+offset_bottom = -548.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ic4nb")
+script = ExtResource("1_rwy4x")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="EquipmentImage" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5

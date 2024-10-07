@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bjfppxwvxtv8a"
+path="res://.godot/imported/Karl Casey - White Bat XXIX - 03 White Gold.ogg-1a97a885005db111d9c9dd77711a0e9c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat XXIX - 03 White Gold.ogg"
+dest_files=["res://.godot/imported/Karl Casey - White Bat XXIX - 03 White Gold.ogg-1a97a885005db111d9c9dd77711a0e9c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

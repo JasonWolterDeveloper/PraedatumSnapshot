@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://vug316ks8onf"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGAbilities/ActiveAbilityTypes/MovementAbility.gd" id="1_mv58b"]
+[ext_resource type="PackedScene" uid="uid://betrun4bhurv0" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/Dash/DashStatusEffect.tscn" id="2_fsak2"]
+
+[node name="DashAbility2" type="Node"]
+script = ExtResource("1_mv58b")
+status_effect_scene = ExtResource("2_fsak2")
+cooldown = 2.0
+ability_id = "dash_2"
+ability_point_cost = 4
+display_name = "Improved Dash"
+description = "Allows the Warrior to move extremely quickly for a brief moment, dashing out of the way of danger.
+
+The Improved Dash has a significantly reduced Cooldown"

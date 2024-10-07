@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://c0pj0ruqhv6cj"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/HomeBaseFacility.gd" id="1_rdrir"]
+[ext_resource type="PackedScene" uid="uid://djwxhbudveff7" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingCategory.tscn" id="3_bys8r"]
+[ext_resource type="PackedScene" uid="uid://b84coq5n7mtbx" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingRecipe.tscn" id="3_joevb"]
+[ext_resource type="PackedScene" uid="uid://t2se0242xwu2" path="res://Content/Demo/Code/Items/Aid/Health/HoldUse/Bandage/Bandage.tscn" id="3_p3x4l"]
+[ext_resource type="PackedScene" uid="uid://ptrijd5ixe65" path="res://Content/Demo/Code/Items/ResourceItems/Meds.tscn" id="4_hi8h1"]
+[ext_resource type="PackedScene" uid="uid://c4k44oc2nxt4i" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/BaseUpgradeRecipe.tscn" id="5_6mxl0"]
+[ext_resource type="PackedScene" uid="uid://d0y5ntsomm8r7" path="res://Content/Demo/Code/Items/Aid/Health/HoldUse/Bandage/SterilizedBandage.tscn" id="6_4csmf"]
+[ext_resource type="PackedScene" uid="uid://b77bxtfmg87tc" path="res://Content/Demo/Code/Items/ResourceItems/ScrapMetal.tscn" id="6_gxa1q"]
+[ext_resource type="PackedScene" uid="uid://bo2yhfxb4t8te" path="res://Content/Demo/Code/Items/Aid/Health/HoldUse/FirstAidKit.tscn" id="7_vwokk"]
+[ext_resource type="PackedScene" uid="uid://b3gjp4gda6op0" path="res://Content/Demo/Code/Items/ResourceItems/NutsNBolts.tscn" id="10_vya3f"]
+[ext_resource type="PackedScene" uid="uid://rfc60m7m2mxb" path="res://Content/Demo/Code/Items/ResourceItems/Special/Toolkit/Toolkit.tscn" id="11_lo1ac"]
+
+[node name="Infirmary" type="Node" node_paths=PackedStringArray("top_level_crafting_category")]
+process_mode = 4
+script = ExtResource("1_rdrir")
+max_upgrade_level = 2
+base_facility_id = "infirmary"
+display_name = "Infirmary"
+top_level_crafting_category = NodePath("TopLevelCategory")
+
+[node name="ResourceFolder" type="Node" parent="."]
+
+[node name="Meds" parent="ResourceFolder" instance=ExtResource("4_hi8h1")]
+
+[node name="Bandage" parent="ResourceFolder" instance=ExtResource("3_p3x4l")]
+
+[node name="SterilizedBandage" parent="ResourceFolder" instance=ExtResource("6_4csmf")]
+
+[node name="TopLevelCategory" parent="." instance=ExtResource("3_bys8r")]
+display_name = "General"
+category_id = "top_level_infirm_cat"
+
+[node name="FirstAidCategory" parent="TopLevelCategory" instance=ExtResource("3_bys8r")]
+display_name = "First Aid"
+category_id = "first_aid"
+
+[node name="BandageRecipe" parent="TopLevelCategory/FirstAidCategory" instance=ExtResource("3_joevb")]
+item_cost_dictionary = {
+NodePath("../../../ResourceFolder/Meds"): 4
+}
+crafted_item_dictionary = {
+NodePath("Bandage"): 1
+}
+
+[node name="Bandage" parent="TopLevelCategory/FirstAidCategory/BandageRecipe" instance=ExtResource("3_p3x4l")]
+
+[node name="SterilizedBandageRecipe" parent="TopLevelCategory/FirstAidCategory" instance=ExtResource("3_joevb")]
+item_cost_dictionary = {
+NodePath("../../../ResourceFolder/Meds"): 5,
+NodePath("../../../ResourceFolder/Bandage"): 1
+}
+crafted_item_dictionary = {
+NodePath("SterilizedBandage"): 1
+}
+
+[node name="SterilizedBandage" parent="TopLevelCategory/FirstAidCategory/SterilizedBandageRecipe" instance=ExtResource("6_4csmf")]
+
+[node name="FirstAidKitRecipe" parent="TopLevelCategory/FirstAidCategory" instance=ExtResource("3_joevb")]
+item_cost_dictionary = {
+NodePath("../../../ResourceFolder/Meds"): 5,
+NodePath("../../../ResourceFolder/SterilizedBandage"): 2
+}
+crafted_item_dictionary = {
+NodePath("FirstAidKit"): 1
+}
+
+[node name="FirstAidKit" parent="TopLevelCategory/FirstAidCategory/FirstAidKitRecipe" instance=ExtResource("7_vwokk")]
+
+[node name="FreeMedsRecipe" parent="TopLevelCategory" instance=ExtResource("3_joevb")]
+power_cost = 1
+crafted_item_dictionary = {
+NodePath("Meds"): 10
+}
+
+[node name="Meds" parent="TopLevelCategory/FreeMedsRecipe" instance=ExtResource("4_hi8h1")]
+
+[node name="UpgradeRecipes" type="Node" parent="."]
+
+[node name="BaseUpgradeRecipe" parent="UpgradeRecipes" instance=ExtResource("5_6mxl0")]
+item_cost_dictionary = {
+NodePath("ScrapMetal"): 10,
+NodePath("NutsNBolts"): 5,
+NodePath("../../ResourceFolder/Meds"): 5
+}
+
+[node name="ScrapMetal" parent="UpgradeRecipes/BaseUpgradeRecipe" instance=ExtResource("6_gxa1q")]
+
+[node name="NutsNBolts" parent="UpgradeRecipes/BaseUpgradeRecipe" instance=ExtResource("10_vya3f")]
+
+[node name="BaseUpgradeRecipe2" parent="UpgradeRecipes" instance=ExtResource("5_6mxl0")]
+upgrade_for_level = 2
+item_cost_dictionary = {
+NodePath("ScrapMetal"): 15,
+NodePath("NutsNBolts"): 5,
+NodePath("../../ResourceFolder/Meds"): 10
+}
+
+[node name="ScrapMetal" parent="UpgradeRecipes/BaseUpgradeRecipe2" instance=ExtResource("6_gxa1q")]
+
+[node name="NutsNBolts" parent="UpgradeRecipes/BaseUpgradeRecipe2" instance=ExtResource("10_vya3f")]
+
+[node name="Toolkit" parent="UpgradeRecipes/BaseUpgradeRecipe2" instance=ExtResource("11_lo1ac")]

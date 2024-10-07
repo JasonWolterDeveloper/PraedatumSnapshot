@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6wwbxvivi0ps"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGAbilities/Events/PayManaCostEvent.gd" id="1_wf8r7"]
+
+[node name="PayManaCostEvent" type="Node"]
+script = ExtResource("1_wf8r7")

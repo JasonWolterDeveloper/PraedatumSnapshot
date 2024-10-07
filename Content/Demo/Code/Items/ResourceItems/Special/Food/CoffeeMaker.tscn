@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://baehkmtc4wahr"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_d7u3s"]
+[ext_resource type="Texture2D" uid="uid://bnnnts1el4boo" path="res://Content/Demo/Assets/Items/ResourceItems/Special/Food/CoffeeMaker/CoffeeMakerInventoryImage.png" id="2_cfufl"]
+[ext_resource type="PackedScene" uid="uid://ck0osbtnpqip7" path="res://Content/Demo/Assets/Items/ResourceItems/Special/Food/CoffeeMaker/CoffeeMakerGroundModel.tscn" id="3_mrwif"]
+
+[node name="CoffeeMaker" type="Node3D"]
+script = ExtResource("1_d7u3s")
+inventory_image = ExtResource("2_cfufl")
+ground_3d_model_scene = ExtResource("3_mrwif")
+display_name = "Coffee Maker"
+item_id = "coffee_maker"
+description = "A device that produces coffee when provided with the appropriate beans and water. I hate most machines, but this one is okay.
+
+Can be used for base upgrades, scrapped, or sold."
+default_price = 300
+grid_square_width = 2
+grid_square_height = 3

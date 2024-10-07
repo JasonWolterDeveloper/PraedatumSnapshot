@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvft3c1fnhvwg"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/Effects/ShowRoomTriggerEffect.gd" id="1_bbrm0"]
+
+[node name="ShowRoomTriggerEffect" type="Node"]
+script = ExtResource("1_bbrm0")

@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://c6fmluymc3n3c"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/HomeBaseFacility.gd" id="1_kf5qf"]
+[ext_resource type="PackedScene" uid="uid://djwxhbudveff7" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingCategory.tscn" id="2_21pbh"]
+[ext_resource type="PackedScene" uid="uid://xfneuv3uming" path="res://Content/Demo/Code/Items/ResourceItems/GunpowderItem.tscn" id="2_mkxn6"]
+[ext_resource type="PackedScene" uid="uid://b84coq5n7mtbx" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingRecipe.tscn" id="5_3nrk4"]
+[ext_resource type="PackedScene" uid="uid://4d3osy1662sk" path="res://Content/Demo/Code/Items/Ammo/SmallCaliberPistolAmmo.tscn" id="6_e8rvm"]
+[ext_resource type="PackedScene" uid="uid://c4k44oc2nxt4i" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/BaseUpgradeRecipe.tscn" id="6_mrokd"]
+[ext_resource type="PackedScene" uid="uid://b77bxtfmg87tc" path="res://Content/Demo/Code/Items/ResourceItems/ScrapMetal.tscn" id="7_mo643"]
+[ext_resource type="PackedScene" uid="uid://dknju1ust6muh" path="res://Content/Demo/Code/Items/Ammo/SmallCaliberPistolAmmoOverPressure.tscn" id="7_xuld5"]
+[ext_resource type="PackedScene" uid="uid://73xg4xe6aohn" path="res://Content/Demo/Code/Items/Ammo/ShotgunShellAmmo.tscn" id="8_bdlcy"]
+[ext_resource type="PackedScene" uid="uid://b3gjp4gda6op0" path="res://Content/Demo/Code/Items/ResourceItems/NutsNBolts.tscn" id="8_e8mdy"]
+[ext_resource type="PackedScene" uid="uid://rfc60m7m2mxb" path="res://Content/Demo/Code/Items/ResourceItems/Special/Toolkit/Toolkit.tscn" id="10_hh30a"]
+
+[node name="AmmoBench" type="Node" node_paths=PackedStringArray("top_level_crafting_category")]
+script = ExtResource("1_kf5qf")
+max_upgrade_level = 2
+base_facility_id = "ammo_bench"
+display_name = "Ammo Bench"
+top_level_crafting_category = NodePath("TopLevelCategory")
+
+[node name="ResourceFolder" type="Node" parent="."]
+
+[node name="GunpowderItem" parent="ResourceFolder" instance=ExtResource("2_mkxn6")]
+
+[node name="NutsNBolts" parent="ResourceFolder" instance=ExtResource("8_e8mdy")]
+
+[node name="TopLevelCategory" parent="." instance=ExtResource("2_21pbh")]
+category_id = "toplevel"
+
+[node name="PistolCategory" parent="TopLevelCategory" instance=ExtResource("2_21pbh")]
+display_name = "Pistol Calibres"
+category_id = "pistol_ammo"
+
+[node name="ParabellumCategory" parent="TopLevelCategory/PistolCategory" instance=ExtResource("2_21pbh")]
+display_name = "Parabellum"
+category_id = "coffee"
+
+[node name="STRDParabellumRecipe" parent="TopLevelCategory/PistolCategory/ParabellumCategory" instance=ExtResource("5_3nrk4")]
+item_cost_dictionary = {
+NodePath("../../../../ResourceFolder/GunpowderItem"): 60
+}
+crafted_item_dictionary = {
+NodePath("SmallCaliberPistolAmmo"): 30
+}
+
+[node name="SmallCaliberPistolAmmo" parent="TopLevelCategory/PistolCategory/ParabellumCategory/STRDParabellumRecipe" instance=ExtResource("6_e8rvm")]
+
+[node name="OverPressureParabellumRecipe" parent="TopLevelCategory/PistolCategory/ParabellumCategory" instance=ExtResource("5_3nrk4")]
+item_cost_dictionary = {
+NodePath("../../../../ResourceFolder/GunpowderItem"): 60,
+NodePath("SmallCaliberPistolAmmo"): 30
+}
+crafted_item_dictionary = {
+NodePath("SmallCaliberPistolAmmoOverPressure"): 30
+}
+base_facility_level_required = 1
+
+[node name="SmallCaliberPistolAmmo" parent="TopLevelCategory/PistolCategory/ParabellumCategory/OverPressureParabellumRecipe" instance=ExtResource("6_e8rvm")]
+
+[node name="SmallCaliberPistolAmmoOverPressure" parent="TopLevelCategory/PistolCategory/ParabellumCategory/OverPressureParabellumRecipe" instance=ExtResource("7_xuld5")]
+
+[node name="ShotgunCategory" parent="TopLevelCategory" instance=ExtResource("2_21pbh")]
+display_name = "Shotgun Ammo"
+category_id = "shotgun_ammo"
+
+[node name="ShotgunShells" parent="TopLevelCategory/ShotgunCategory" instance=ExtResource("5_3nrk4")]
+item_cost_dictionary = {
+NodePath("../../../ResourceFolder/GunpowderItem"): 120
+}
+crafted_item_dictionary = {
+NodePath("ShotgunShellAmmo"): 12
+}
+base_facility_level_required = 1
+
+[node name="ShotgunShellAmmo" parent="TopLevelCategory/ShotgunCategory/ShotgunShells" instance=ExtResource("8_bdlcy")]
+
+[node name="GunpowderCraftingRecipe" parent="TopLevelCategory" instance=ExtResource("5_3nrk4")]
+power_cost = 1
+crafted_item_dictionary = {
+NodePath("GunpowderItem"): 60
+}
+
+[node name="GunpowderItem" parent="TopLevelCategory/GunpowderCraftingRecipe" instance=ExtResource("2_mkxn6")]
+
+[node name="UpgradeRecipes" type="Node" parent="."]
+
+[node name="BaseUpgradeRecipe" parent="UpgradeRecipes" instance=ExtResource("6_mrokd")]
+item_cost_dictionary = {
+NodePath("ScrapMetal"): 10,
+NodePath("NutsNBolts"): 5,
+NodePath("../../ResourceFolder/GunpowderItem"): 20
+}
+
+[node name="ScrapMetal" parent="UpgradeRecipes/BaseUpgradeRecipe" instance=ExtResource("7_mo643")]
+
+[node name="NutsNBolts" parent="UpgradeRecipes/BaseUpgradeRecipe" instance=ExtResource("8_e8mdy")]
+
+[node name="BaseUpgradeRecipe2" parent="UpgradeRecipes" instance=ExtResource("6_mrokd")]
+upgrade_for_level = 2
+item_cost_dictionary = {
+NodePath("ScrapMetal"): 15,
+NodePath("NutsNBolts"): 5,
+NodePath("Toolkit"): 1,
+NodePath("../../ResourceFolder/GunpowderItem"): 20
+}
+
+[node name="ScrapMetal" parent="UpgradeRecipes/BaseUpgradeRecipe2" instance=ExtResource("7_mo643")]
+
+[node name="NutsNBolts" parent="UpgradeRecipes/BaseUpgradeRecipe2" instance=ExtResource("8_e8mdy")]
+
+[node name="Toolkit" parent="UpgradeRecipes/BaseUpgradeRecipe2" instance=ExtResource("10_hh30a")]

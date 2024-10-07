@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3yliu14cwgpv"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretSuppressionState.gd" id="1_m4b4c"]
+
+[node name="TurretSuppressionState" type="Node3D"]
+script = ExtResource("1_m4b4c")

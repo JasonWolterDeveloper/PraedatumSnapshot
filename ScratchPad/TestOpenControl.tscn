@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://b454blbm38sj"]
+
+[ext_resource type="Theme" uid="uid://q8fchd6stpns" path="res://UIObjects/Themes/CyberTheme.tres" id="1_543wr"]
+[ext_resource type="Script" path="res://ScratchPad/TestOpenControl.gd" id="2_2puxf"]
+[ext_resource type="Texture2D" uid="uid://b80tld83mq8o5" path="res://UIObjects/Assets/ConversationUI/PlayerPortrait.png" id="2_xvua4"]
+
+[node name="TestOpenControl" type="PanelContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(300, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_543wr")
+script = ExtResource("2_2puxf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Hello This is a test"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("2_xvua4")
+expand_mode = 1
+stretch_mode = 5

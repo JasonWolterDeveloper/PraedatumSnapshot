@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://vsupjpijdqsl"]
+
+[ext_resource type="Script" path="res://UIObjects/WeaponUI/LoadoutInfoCard/LoadoutInfoCard.gd" id="1_31rwv"]
+[ext_resource type="PackedScene" uid="uid://cm6hmstyfrud7" path="res://UIObjects/WeaponUI/LoadoutInfoCard/EquipmentCard.tscn" id="1_ycjjq"]
+[ext_resource type="PackedScene" uid="uid://dyalvqhgwl1gs" path="res://UIObjects/WeaponUI/LoadoutInfoCard/AmmoCounter.tscn" id="3_hriab"]
+[ext_resource type="FontFile" uid="uid://cca5u1ctfk0tj" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="4_f53nr"]
+
+[node name="LoadoutInfoCard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_31rwv")
+
+[node name="SelectedEquipmentCard" parent="." instance=ExtResource("1_ycjjq")]
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 20.0
+offset_top = 5.0
+offset_right = 320.0
+offset_bottom = 125.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="SelectedEquipmentCard"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 0
+
+[node name="AmmoCounter" parent="SelectedEquipmentCard/MarginContainer2" instance=ExtResource("3_hriab")]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="QuantityLabel" type="Label" parent="SelectedEquipmentCard/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_f53nr")
+theme_override_font_sizes/font_size = 18
+text = "1"
+horizontal_alignment = 1

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct7o5n0aoaunn"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGPerk.gd" id="1_3l0rh"]
+
+[node name="RPGPerk" type="Node"]
+script = ExtResource("1_3l0rh")

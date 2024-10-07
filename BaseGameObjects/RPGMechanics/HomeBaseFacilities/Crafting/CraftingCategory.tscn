@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://djwxhbudveff7"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingCategory.gd" id="1_ng263"]
+
+[node name="CraftingCategory" type="Node"]
+script = ExtResource("1_ng263")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://daypyk564a36a"]
+
+[ext_resource type="PackedScene" uid="uid://r04wgyqhg0nl" path="res://Content/Demo/Assets/Items/Consumables/ManaPotion/ManaPotionModel.glb" id="1_u4vc6"]
+
+[node name="ManaPotionGroundModel" type="Node3D"]
+
+[node name="ManaPotionModel2" parent="." instance=ExtResource("1_u4vc6")]
+transform = Transform3D(-2.62268e-09, -0.06, 0, 0.06, -2.62268e-09, 0, 0, 0, 0.06, 0, 0.0458173, 0)

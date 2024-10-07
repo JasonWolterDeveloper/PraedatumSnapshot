@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbi2itgh7a54d"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Aid/Mana/HoldUse/MageboarManasticks/MageboarManasticks.gd" id="1_qkosc"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="2_kwtct"]
+[ext_resource type="Texture2D" uid="uid://b0lxy2vtkgapx" path="res://Content/Demo/Assets/Items/Consumables/HoldUse/Mana/Pipe/ManaPipeInventoryImage.png" id="3_k4vdk"]
+[ext_resource type="PackedScene" uid="uid://ufxvmlc65k1r" path="res://Content/Demo/Assets/Items/Consumables/HoldUse/Mana/Pipe/PipeGroundModel.tscn" id="4_1uyxj"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="5_d0vq1"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="6_ssuh8"]
+
+[sub_resource type="Resource" id="Resource_ibwyd"]
+script = ExtResource("2_kwtct")
+stat_id = "movement_speed"
+value = -0.5
+is_multiplicative = true
+is_number_of_segments = false
+is_value_per_segment = false
+
+[sub_resource type="Resource" id="Resource_5lklo"]
+script = ExtResource("6_ssuh8")
+stat_title = "Mana Restored"
+stat_value = "100.0"
+stat_value_colour = Color(0.0588235, 0.619608, 0.788235, 1)
+
+[sub_resource type="Resource" id="Resource_eiu7g"]
+script = ExtResource("6_ssuh8")
+stat_title = "Use Time"
+stat_value = "3.0 s"
+stat_value_colour = Color(0.342207, 0.342207, 0.342207, 1)
+
+[sub_resource type="Resource" id="Resource_xwvhm"]
+script = ExtResource("6_ssuh8")
+stat_title = "Move Spd."
+stat_value = "-50%"
+stat_value_colour = Color(0.724651, 0, 0.147926, 1)
+
+[sub_resource type="Resource" id="Resource_xfsic"]
+script = ExtResource("5_d0vq1")
+stat_entry_array = Array[ExtResource("6_ssuh8")]([SubResource("Resource_5lklo"), SubResource("Resource_eiu7g"), SubResource("Resource_xwvhm")])
+
+[node name="ManaPipe" type="Node3D"]
+script = ExtResource("1_qkosc")
+mana_restore_amount = 100.0
+time_to_use = 3.0
+holding_use_message = "Smoking..."
+hold_use_stat_modifiers = Array[ExtResource("2_kwtct")]([SubResource("Resource_ibwyd")])
+utility_item_use_message = "Smoked Mana Pipe"
+inventory_image = ExtResource("3_k4vdk")
+ground_3d_model_scene = ExtResource("4_1uyxj")
+display_name = "Pixie Pipe"
+item_id = "mana_pipe"
+description = "A pipe filled with very potent pixie dust. A quick smoke of this will have your mana bar propped up quick"
+show_quantity_in_ui = true
+default_price = 100
+item_stat_entry_collection = SubResource("Resource_xfsic")
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

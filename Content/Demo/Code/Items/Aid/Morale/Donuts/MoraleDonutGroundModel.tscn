@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt7dmgal7h5g4"]
+
+[ext_resource type="PackedScene" uid="uid://d3hop70st1e1j" path="res://Content/Demo/Assets/Items/Consumables/Morale/Donut/Donut.glb" id="1_cdky2"]
+
+[node name="DonutGroundModel" type="Node3D"]
+
+[node name="Donut2" parent="." instance=ExtResource("1_cdky2")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+
+[node name="Donut" parent="Donut2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[editable path="Donut2"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://demt5xdlcigxp"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/InventoryMaster.gd" id="1_dkmub"]
+
+[node name="InventoryMaster" type="Node"]
+script = ExtResource("1_dkmub")

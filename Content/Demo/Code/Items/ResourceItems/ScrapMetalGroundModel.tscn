@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ces46c8v637q6"]
+
+[ext_resource type="PackedScene" uid="uid://bymfrtij7o00t" path="res://Content/Demo/Assets/Items/ResourceItems/ScrapMetal/ScrapMetal.glb" id="1_eb6fk"]
+
+[node name="ScrapMetalGroundModel" instance=ExtResource("1_eb6fk")]
+
+[node name="Bolt" parent="." index="0"]
+transform = Transform3D(0.0134128, 0, -0.0489575, 0, 0.066, 0, 0.0148356, 0, 0.0442624, 0.0556643, 0.0608274, 0.139046)

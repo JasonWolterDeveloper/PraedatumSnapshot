@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc2jty7a6a6vg"]
+
+[ext_resource type="PackedScene" uid="uid://c1g8i0nmcjom1" path="res://BaseGameObjects/RPGMechanics/RPGStat.tscn" id="1_nv1th"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Stats/HealthStat.gd" id="2_5wh1c"]
+
+[node name="HealthStat" instance=ExtResource("1_nv1th")]
+script = ExtResource("2_5wh1c")
+base_number_of_segments = 1
+base_value_per_segment = 1.0
+stat_id = "health"

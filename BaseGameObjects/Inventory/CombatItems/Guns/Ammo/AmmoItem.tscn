@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfy3foqvhls33"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Ammo/AmmoItem.gd" id="1_fw0q7"]
+
+[node name="AmmoItem" type="Node3D"]
+script = ExtResource("1_fw0q7")

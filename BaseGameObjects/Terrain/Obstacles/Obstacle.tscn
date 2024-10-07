@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvyct6wqtuwtk"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_70x1l"]
+
+[node name="Obstacle" type="StaticBody3D"]
+script = ExtResource("1_70x1l")

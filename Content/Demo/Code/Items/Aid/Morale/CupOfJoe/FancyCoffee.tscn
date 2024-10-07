@@ -1,0 +1,47 @@
+[gd_scene load_steps=11 format=3 uid="uid://e31edncml26a"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/AidItems/MoraleConsumables/MoraleItem.gd" id="1_jwgl4"]
+[ext_resource type="PackedScene" uid="uid://cfiqi10jy7gax" path="res://Content/Demo/Code/Items/Aid/Morale/CupOfJoe/FancyCoffeeBuff.tscn" id="2_3d115"]
+[ext_resource type="Texture2D" uid="uid://dtxailrmt4rd1" path="res://Content/Demo/Assets/Items/Consumables/Morale/CupOfJoe/FancyCoffee/FancyCoffeeInventoryImage.png" id="3_4vj42"]
+[ext_resource type="PackedScene" uid="uid://d0a4iqp0p2nna" path="res://Content/Demo/Assets/Items/Consumables/Morale/CupOfJoe/FancyCoffee/FancyCoffeeGroundModel.tscn" id="4_k5y2y"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="5_gvgy5"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="6_gqq5y"]
+
+[sub_resource type="Resource" id="Resource_4bkj3"]
+script = ExtResource("6_gqq5y")
+stat_title = "Mana per Segment"
+stat_value = "15.0"
+stat_value_colour = Color(0.0588235, 0.619608, 0.788235, 1)
+
+[sub_resource type="Resource" id="Resource_3djb4"]
+script = ExtResource("6_gqq5y")
+stat_title = "Health per Segment"
+stat_value = "5.0"
+stat_value_colour = Color(0.639216, 0.0509804, 0, 1)
+
+[sub_resource type="Resource" id="Resource_bklnv"]
+script = ExtResource("6_gqq5y")
+stat_title = "Duration"
+stat_value = "600"
+stat_value_colour = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_y4uds"]
+script = ExtResource("5_gvgy5")
+stat_entry_array = Array[ExtResource("6_gqq5y")]([SubResource("Resource_4bkj3"), SubResource("Resource_3djb4"), SubResource("Resource_bklnv")])
+
+[node name="FancyCoffee" type="Node3D"]
+script = ExtResource("1_jwgl4")
+morale_buff_scene = ExtResource("2_3d115")
+utility_item_use_message = "Drank Fancy Coffee"
+inventory_image = ExtResource("3_4vj42")
+ground_3d_model_scene = ExtResource("4_k5y2y")
+display_name = "Fancy Coffee"
+item_id = "fancy_coffee"
+description = "A slight improvement over your standard Cup o' Joe. Lasts longer and puts a little extra pep in your step"
+usable_from_inventory = true
+show_quantity_in_ui = true
+default_price = 100
+item_stat_entry_collection = SubResource("Resource_y4uds")
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

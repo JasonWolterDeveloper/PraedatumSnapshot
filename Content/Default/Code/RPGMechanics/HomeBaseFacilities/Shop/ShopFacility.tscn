@@ -1,0 +1,140 @@
+[gd_scene load_steps=19 format=3 uid="uid://e3d62e1h5ab4"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/Shop/ShopFacility.gd" id="1_1o1ju"]
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/Shops/Shop.gd" id="2_ug1dc"]
+[ext_resource type="PackedScene" uid="uid://cq5j8ahjwhnoe" path="res://BaseGameObjects/Inventory/Shops/ShopItemEntry.tscn" id="3_hy4qu"]
+[ext_resource type="PackedScene" uid="uid://broj86uh4bw0d" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackup.tscn" id="4_b805y"]
+[ext_resource type="PackedScene" uid="uid://4d3osy1662sk" path="res://Content/Demo/Code/Items/Ammo/SmallCaliberPistolAmmo.tscn" id="4_vce54"]
+[ext_resource type="PackedScene" uid="uid://73xg4xe6aohn" path="res://Content/Demo/Code/Items/Ammo/ShotgunShellAmmo.tscn" id="5_5iqa7"]
+[ext_resource type="PackedScene" uid="uid://bs040psypjfup" path="res://Content/Demo/Code/Items/Aid/Morale/Donuts/MoraleDonut.tscn" id="6_n3fby"]
+[ext_resource type="PackedScene" uid="uid://rij04buhtkop" path="res://Content/Demo/Code/Items/Aid/Morale/Donuts/MoralePremiumDonut.tscn" id="7_gy2yk"]
+[ext_resource type="PackedScene" uid="uid://dkohhhqq2nci" path="res://Content/Demo/Code/Items/Armour/SecurityVestArmourItem.tscn" id="7_kr4c1"]
+[ext_resource type="PackedScene" uid="uid://c4k44oc2nxt4i" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/BaseUpgradeRecipe.tscn" id="8_1nib3"]
+[ext_resource type="PackedScene" uid="uid://cxgi1aaspolyc" path="res://BaseGameObjects/Inventory/CombatItems/UtilityItems/ArmourShard.tscn" id="8_ou4tq"]
+[ext_resource type="PackedScene" uid="uid://b77bxtfmg87tc" path="res://Content/Demo/Code/Items/ResourceItems/ScrapMetal.tscn" id="9_wf6xp"]
+[ext_resource type="PackedScene" uid="uid://bvud2rdqx7bhg" path="res://Content/Demo/Code/Items/Aid/Health/Instant/HealthPotion.tscn" id="10_exgsq"]
+[ext_resource type="PackedScene" uid="uid://bvlc6s3lx8dhd" path="res://Content/Demo/Code/Items/Aid/Mana/Instant/ManaPotion/ManaPotion.tscn" id="11_pchfp"]
+[ext_resource type="PackedScene" uid="uid://t2se0242xwu2" path="res://Content/Demo/Code/Items/Aid/Health/HoldUse/Bandage/Bandage.tscn" id="12_w82jv"]
+[ext_resource type="PackedScene" uid="uid://d2ro4tbkp7g0o" path="res://Content/Demo/Code/Items/Aid/Mana/HoldUse/MageboarManasticks/MageboarManasticks.tscn" id="13_ae44w"]
+[ext_resource type="PackedScene" uid="uid://bwjgf52uj5d3q" path="res://Content/Demo/Code/Items/Weapons/StunGrenade/StunGrenadeItem.tscn" id="14_j7xdg"]
+[ext_resource type="PackedScene" uid="uid://d08nydivn6fq8" path="res://Content/Demo/Code/Items/Weapons/FragGrenade/FragGrenadeItem.tscn" id="15_axdf7"]
+
+[node name="ShopFacility" type="Node" node_paths=PackedStringArray("shop_per_level")]
+script = ExtResource("1_1o1ju")
+shop_per_level = [NodePath("Shop"), NodePath("Shop2")]
+max_upgrade_level = 1
+base_facility_id = "shop"
+display_name = "Shop Facility"
+
+[node name="Shop" type="Node3D" parent="."]
+script = ExtResource("2_ug1dc")
+will_buy_items = true
+
+[node name="ShopItemEntry3" parent="Shop" instance=ExtResource("3_hy4qu")]
+stock_quantity = 60
+originial_stock_quantity = 60
+
+[node name="BurstPistol" parent="Shop/ShopItemEntry3" instance=ExtResource("4_b805y")]
+
+[node name="ShopItemEntry" parent="Shop" instance=ExtResource("3_hy4qu")]
+stock_quantity = 300
+originial_stock_quantity = 300
+
+[node name="SmallCaliberPistolAmmo" parent="Shop/ShopItemEntry" instance=ExtResource("4_vce54")]
+
+[node name="ShopItemEntry2" parent="Shop" instance=ExtResource("3_hy4qu")]
+stock_quantity = 60
+originial_stock_quantity = 60
+
+[node name="ShotgunShellAmmo" parent="Shop/ShopItemEntry2" instance=ExtResource("5_5iqa7")]
+
+[node name="ShopItemEntry6" parent="Shop" instance=ExtResource("3_hy4qu")]
+stock_quantity = 2
+originial_stock_quantity = 2
+
+[node name="MoraleDonut" parent="Shop/ShopItemEntry6" instance=ExtResource("6_n3fby")]
+
+[node name="ShopItemEntry4" parent="Shop" instance=ExtResource("3_hy4qu")]
+stock_quantity = 60
+originial_stock_quantity = 60
+
+[node name="SecurityVestArmour" parent="Shop/ShopItemEntry4" instance=ExtResource("7_kr4c1")]
+
+[node name="ShopItemEntry5" parent="Shop" instance=ExtResource("3_hy4qu")]
+stock_quantity = 60
+originial_stock_quantity = 60
+
+[node name="ArmourShard" parent="Shop/ShopItemEntry5" instance=ExtResource("8_ou4tq")]
+
+[node name="ShopItemEntry7" parent="Shop" instance=ExtResource("3_hy4qu")]
+stock_quantity = 60
+originial_stock_quantity = 60
+
+[node name="HealthPotion" parent="Shop/ShopItemEntry7" instance=ExtResource("10_exgsq")]
+
+[node name="ShopItemEntry8" parent="Shop" instance=ExtResource("3_hy4qu")]
+stock_quantity = 60
+originial_stock_quantity = 60
+
+[node name="ManaPotion" parent="Shop/ShopItemEntry8" instance=ExtResource("11_pchfp")]
+
+[node name="ShopItemEntry9" parent="Shop" instance=ExtResource("3_hy4qu")]
+stock_quantity = 60
+originial_stock_quantity = 60
+
+[node name="Bandage" parent="Shop/ShopItemEntry9" instance=ExtResource("12_w82jv")]
+
+[node name="ShopItemEntry10" parent="Shop" instance=ExtResource("3_hy4qu")]
+stock_quantity = 60
+originial_stock_quantity = 60
+
+[node name="MageboarManasticks" parent="Shop/ShopItemEntry10" instance=ExtResource("13_ae44w")]
+
+[node name="ShopItemEntry11" parent="Shop" instance=ExtResource("3_hy4qu")]
+stock_quantity = 60
+originial_stock_quantity = 60
+
+[node name="StunGrenadeItem" parent="Shop/ShopItemEntry11" instance=ExtResource("14_j7xdg")]
+
+[node name="ShopItemEntry12" parent="Shop" instance=ExtResource("3_hy4qu")]
+stock_quantity = 60
+originial_stock_quantity = 60
+
+[node name="FragGrenadeItem" parent="Shop/ShopItemEntry12" instance=ExtResource("15_axdf7")]
+
+[node name="Shop2" type="Node3D" parent="."]
+script = ExtResource("2_ug1dc")
+will_buy_items = true
+
+[node name="ShopItemEntry" parent="Shop2" instance=ExtResource("3_hy4qu")]
+stock_quantity = 30
+originial_stock_quantity = 30
+
+[node name="SmallCaliberPistolAmmo" parent="Shop2/ShopItemEntry" instance=ExtResource("4_vce54")]
+
+[node name="ShopItemEntry2" parent="Shop2" instance=ExtResource("3_hy4qu")]
+stock_quantity = 150
+originial_stock_quantity = 150
+
+[node name="ShotgunShellAmmo" parent="Shop2/ShopItemEntry2" instance=ExtResource("5_5iqa7")]
+
+[node name="ShopItemEntry3" parent="Shop2" instance=ExtResource("3_hy4qu")]
+stock_quantity = 2
+originial_stock_quantity = 2
+
+[node name="MoraleDonut" parent="Shop2/ShopItemEntry3" instance=ExtResource("6_n3fby")]
+
+[node name="ShopItemEntry4" parent="Shop2" instance=ExtResource("3_hy4qu")]
+stock_quantity = 10
+originial_stock_quantity = 10
+
+[node name="MoralePremiumDonut" parent="Shop2/ShopItemEntry4" instance=ExtResource("7_gy2yk")]
+
+[node name="UpgradeRecipes" type="Node" parent="."]
+
+[node name="BaseUpgradeRecipe" parent="UpgradeRecipes" instance=ExtResource("8_1nib3")]
+item_cost_dictionary = {
+NodePath("ScrapMetal"): 2
+}
+
+[node name="ScrapMetal" parent="UpgradeRecipes/BaseUpgradeRecipe" instance=ExtResource("9_wf6xp")]

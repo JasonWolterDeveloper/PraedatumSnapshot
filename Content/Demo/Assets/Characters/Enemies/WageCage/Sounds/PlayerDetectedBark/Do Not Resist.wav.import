@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ds5nnpasefqbr"
+path="res://.godot/imported/Do Not Resist.wav-79628c46df9676041e18403947c198ef.sample"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Characters/Enemies/WageCage/Sounds/PlayerDetectedBark/Do Not Resist.wav"
+dest_files=["res://.godot/imported/Do Not Resist.wav-79628c46df9676041e18403947c198ef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

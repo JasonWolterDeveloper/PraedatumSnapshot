@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqt456g1vjnwq"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerInteractableObject.gd" id="1_0smv5"]
+[ext_resource type="PackedScene" uid="uid://b5ny6grjeidov" path="res://UIObjects/InteractionUI/InteractionIcon.tscn" id="2_cjm2c"]
+
+[node name="TriggerInteractableObject" type="StaticBody3D"]
+script = ExtResource("1_0smv5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractionIcon" parent="CanvasLayer" instance=ExtResource("2_cjm2c")]
+visible = false

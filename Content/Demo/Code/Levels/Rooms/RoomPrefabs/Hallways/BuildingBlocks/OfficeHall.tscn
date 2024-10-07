@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://5nmwy0m4aw57"]
+
+[ext_resource type="Material" uid="uid://c73ohs5pjl3fh" path="res://Content/Demo/Code/Levels/Rooms/FloorMaterial/OfficeFloorMaterial.tres" id="1_b5tt7"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="1_pofnx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ry7r1"]
+size = Vector3(6, 0, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fejni"]
+material = ExtResource("1_b5tt7")
+size = Vector3(6, 0, 6)
+
+[node name="OfficeHall" type="Node3D"]
+
+[node name="OfficeWall3" parent="." instance=ExtResource("1_pofnx")]
+transform = Transform3D(4.52987e-07, 0, -1, 0, 1, 0, 6, 0, 7.54979e-08, -3, 0, 0)
+
+[node name="OfficeWall4" parent="." instance=ExtResource("1_pofnx")]
+transform = Transform3D(7.15492e-08, 0, 1, 0, 1, 0, -6, 0, 1.19249e-08, 3, 0, 0)
+
+[node name="Floor1" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor1"]
+shape = SubResource("BoxShape3D_ry7r1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor1"]
+mesh = SubResource("BoxMesh_fejni")

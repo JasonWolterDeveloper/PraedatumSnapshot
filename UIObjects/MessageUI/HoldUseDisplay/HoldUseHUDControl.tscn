@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwi8ddsnsdbuk"]
+
+[ext_resource type="Script" path="res://UIObjects/MessageUI/HoldUseDisplay/HoldUseHUDControl.gd" id="1_6b3ot"]
+[ext_resource type="Theme" uid="uid://q8fchd6stpns" path="res://UIObjects/Themes/CyberTheme.tres" id="1_wtaej"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gw5l"]
+bg_color = Color(0.1, 0.1, 0.1, 0.737)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 1
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4i8gx"]
+bg_color = Color(0.89059, 0.89059, 0.89059, 1)
+
+[node name="HoldUseHUDControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6b3ot")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 400
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_wtaej")
+theme_override_constants/separation = 10
+
+[node name="UseLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Using..."
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_8gw5l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4i8gx")
+value = 50.0
+show_percentage = false

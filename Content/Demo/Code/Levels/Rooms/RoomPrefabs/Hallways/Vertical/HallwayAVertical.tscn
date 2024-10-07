@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp37uyh44pbjo"]
+
+[ext_resource type="PackedScene" uid="uid://cpxssvp5sjse7" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Hallways/Horizontal/HallwayAHorizontal.tscn" id="1_bm6nk"]
+
+[node name="HallwayAHorizontal" instance=ExtResource("1_bm6nk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)

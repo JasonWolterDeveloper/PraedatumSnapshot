@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://u4pfc7d47yu8"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/StatusEffects/StunnedStatusEffect.gd" id="1_35iek"]
+
+[node name="StunnedStatusEffect" type="Node3D"]
+script = ExtResource("1_35iek")
+id = "stunned_status_effect"
+added_text = "[color=87d4f5]Stunned!"
+show_added_text_for_refresh = true

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4heyg60p850"]
+
+[ext_resource type="Script" path="res://UIObjects/2DUIObjectIn3D.gd" id="1_3ll72"]
+[ext_resource type="PackedScene" uid="uid://b5ny6grjeidov" path="res://UIObjects/InteractionUI/InteractionIcon.tscn" id="2_np4f8"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vwlsb"]
+viewport_path = NodePath("SubViewport")
+
+[node name="UIObject3D" type="Sprite3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+billboard = 1
+fixed_size = true
+texture = SubResource("ViewportTexture_vwlsb")
+script = ExtResource("1_3ll72")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(100, 100)
+
+[node name="InteractionIcon" parent="SubViewport" instance=ExtResource("2_np4f8")]

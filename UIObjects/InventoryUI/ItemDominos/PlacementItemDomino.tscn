@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxbh6720cv1om"]
+
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDominos/PlacementItemDomino.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c85xbk2ufhwoh" path="res://UIObjects/InventoryUI/ItemDominos/ItemDominoGrid.tscn" id="2_5m7bs"]
+
+[node name="PlacementItemDomino" type="Container"]
+script = ExtResource("1")
+
+[node name="ItemDominoGrid" parent="." instance=ExtResource("2_5m7bs")]
+layout_mode = 2

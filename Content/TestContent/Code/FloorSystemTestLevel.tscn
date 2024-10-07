@@ -1,0 +1,153 @@
+[gd_scene load_steps=25 format=3 uid="uid://dgsomhx05g87y"]
+
+[ext_resource type="PackedScene" uid="uid://bgj3h4qtwgwkk" path="res://BaseGameObjects/Level.tscn" id="1_61vmf"]
+[ext_resource type="PackedScene" uid="uid://dt6t3wrrcsds1" path="res://Content/Default/Code/InteractableObjects/GroundItem.tscn" id="2_lfy32"]
+[ext_resource type="PackedScene" uid="uid://broj86uh4bw0d" path="res://Content/Demo/Code/Items/Weapons/BurstPistol.tscn" id="3_fppp3"]
+[ext_resource type="PackedScene" uid="uid://bvud2rdqx7bhg" path="res://Content/Demo/Code/Items/Aid/Health/Instant/HealthPotion.tscn" id="4_xdca7"]
+[ext_resource type="PackedScene" uid="uid://d8vcljbj8r00" path="res://Content/Default/Code/InteractableObjects/ExtractionPortal.tscn" id="7_gbb5s"]
+[ext_resource type="PackedScene" uid="uid://cfcg4n5b4ptpt" path="res://UIObjects/InventoryUI/ShopMenuUI/ShopMenu.tscn" id="8_h0xxo"]
+[ext_resource type="PackedScene" uid="uid://da7rupv1bdghc" path="res://Content/Demo/Code/Levels/Rooms/MedicalFoyer.tscn" id="10_iyg2o"]
+[ext_resource type="PackedScene" uid="uid://bqygu4gs6nvck" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/NormalRooms/Warehouse/WarehouseBaseRoom.tscn" id="11_ev340"]
+[ext_resource type="PackedScene" uid="uid://bl176wggn7k33" path="res://BaseGameObjects/Player.tscn" id="13_xdrs7"]
+[ext_resource type="PackedScene" uid="uid://b3k3yerviij1e" path="res://Content/TestContent/Code/InteractableObjects/TestLootObject.tscn" id="14_dgv3l"]
+[ext_resource type="PackedScene" uid="uid://f6hgb2xt586e" path="res://Content/Default/Code/Items/Scrip.tscn" id="15_7nc1w"]
+[ext_resource type="PackedScene" uid="uid://c1iyt48pjsr43" path="res://Content/TestContent/Code/UtilityItems/Combat/TestExplosiveCharge.tscn" id="16_pqnf3"]
+[ext_resource type="PackedScene" uid="uid://4d3osy1662sk" path="res://Content/Demo/Code/Items/Ammo/SmallCaliberPistolAmmo.tscn" id="17_wowp6"]
+[ext_resource type="PackedScene" uid="uid://bwjgf52uj5d3q" path="res://Content/Demo/Code/Items/Weapons/StunGrenade/StunGrenadeItem.tscn" id="18_dx8pl"]
+[ext_resource type="PackedScene" uid="uid://d08nydivn6fq8" path="res://Content/Demo/Code/Items/Weapons/FragGrenade/FragGrenadeItem.tscn" id="19_psaas"]
+[ext_resource type="PackedScene" uid="uid://b8oeydt3qmek6" path="res://Content/Demo/Code/Items/Tools/BlueKey.tscn" id="20_xdikm"]
+[ext_resource type="PackedScene" uid="uid://bervt8as74v6n" path="res://Content/Demo/Code/Items/Weapons/OlReliable.tscn" id="21_mb1en"]
+[ext_resource type="PackedScene" uid="uid://bfpdm51gp77sq" path="res://BaseGameObjects/Inventory/Shops/Shop.tscn" id="24_2hftt"]
+[ext_resource type="PackedScene" uid="uid://cq5j8ahjwhnoe" path="res://BaseGameObjects/Inventory/Shops/ShopItemEntry.tscn" id="25_nw6h5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wxhnn"]
+sky_top_color = Color(0.14902, 0.188235, 0.239216, 1)
+sky_horizon_color = Color(0.588235, 0.588235, 0.592157, 1)
+sky_curve = 0.52233
+sky_energy_multiplier = 0.7
+ground_horizon_color = Color(0.587255, 0.589309, 0.593054, 1)
+ground_energy_multiplier = 0.0
+sun_angle_max = 0.0
+sun_curve = 51.638
+
+[sub_resource type="Sky" id="Sky_r4hy3"]
+sky_material = SubResource("ProceduralSkyMaterial_wxhnn")
+
+[sub_resource type="Environment" id="Environment_qw622"]
+background_mode = 2
+background_energy_multiplier = 1.5
+sky = SubResource("Sky_r4hy3")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 10.0
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xq0t0"]
+size = Vector2(5000, 5000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gj1h4"]
+render_priority = -100
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+
+[node name="FloorSystemTestLevel" instance=ExtResource("1_61vmf")]
+
+[node name="GroundItem" parent="." index="0" instance=ExtResource("2_lfy32")]
+transform = Transform3D(0.492515, 0, -0.870304, 0, 1, 0, 0.870304, 0, 0.492515, 0.5, 0.719024, 3.01021)
+
+[node name="BurstPistol" parent="GroundItem" index="4" instance=ExtResource("3_fppp3")]
+
+[node name="GroundItem2" parent="." index="1" instance=ExtResource("2_lfy32")]
+transform = Transform3D(0.492515, 0, -0.870304, 0, 1, 0, 0.870304, 0, 0.492515, 1.74323, 0.0138314, 1.72692)
+
+[node name="HealthPotion" parent="GroundItem2" index="4" instance=ExtResource("4_xdca7")]
+
+[node name="TestLevelTransitionInteractable" parent="." index="2" instance=ExtResource("7_gbb5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -22)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="3"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
+light_color = Color(0.356863, 0.356863, 0.356863, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="4"]
+environment = SubResource("Environment_qw622")
+
+[node name="PlayerHUD" parent="UILayer" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ShopMenu" parent="UILayer" index="2" instance=ExtResource("8_h0xxo")]
+visible = false
+
+[node name="SuperSecretHitDetector" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53964, 0)
+
+[node name="MedicalFoyer" parent="RoomMaster" index="0" instance=ExtResource("10_iyg2o")]
+difficulty_level = 0
+starting_room = true
+increase_difficulty_level = false
+
+[node name="WarehouseBaseRoom" parent="RoomMaster" index="1" instance=ExtResource("11_ev340")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -13)
+
+[node name="Player" parent="." index="10" instance=ExtResource("13_xdrs7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67058, 1.21938, -0.6074)
+
+[node name="Void" type="MeshInstance3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+mesh = SubResource("PlaneMesh_xq0t0")
+surface_material_override/0 = SubResource("StandardMaterial3D_gj1h4")
+
+[node name="TestLootObject" parent="." index="12" instance=ExtResource("14_dgv3l")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, -1)
+auto_spawn_loot = false
+
+[node name="Scrip" parent="TestLootObject" index="0" instance=ExtResource("15_7nc1w")]
+
+[node name="TestExplosiveCharge" parent="TestLootObject" index="1" instance=ExtResource("16_pqnf3")]
+
+[node name="SmallCaliberPistolAmmo" parent="TestLootObject" index="7" instance=ExtResource("17_wowp6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 3)
+
+[node name="StunGrenadeItem" parent="TestLootObject" index="8" instance=ExtResource("18_dx8pl")]
+
+[node name="FragGrenadeItem" parent="TestLootObject" index="9" instance=ExtResource("19_psaas")]
+
+[node name="FragGrenadeItem3" parent="TestLootObject" index="10" instance=ExtResource("19_psaas")]
+
+[node name="FragGrenadeItem2" parent="TestLootObject" index="11" instance=ExtResource("19_psaas")]
+
+[node name="BlueKey" parent="TestLootObject" index="12" instance=ExtResource("20_xdikm")]
+
+[node name="OlReliable" parent="TestLootObject" index="13" instance=ExtResource("21_mb1en")]
+
+[node name="BurstPistol" parent="TestLootObject" index="14" instance=ExtResource("3_fppp3")]
+
+[node name="Shop" parent="." index="14" instance=ExtResource("24_2hftt")]
+
+[node name="ShopItemEntry" parent="Shop" index="1" instance=ExtResource("25_nw6h5")]
+stock_quantity = 30
+originial_stock_quantity = 30
+
+[node name="SmallCaliberPistolAmmo" parent="Shop/ShopItemEntry" index="0" instance=ExtResource("17_wowp6")]
+
+[node name="ShopItemEntry2" parent="Shop" index="2" instance=ExtResource("25_nw6h5")]
+stock_quantity = 2
+originial_stock_quantity = 2
+
+[node name="HealthPotion" parent="Shop/ShopItemEntry2" index="0" instance=ExtResource("4_xdca7")]
+
+[node name="ShopItemEntry3" parent="Shop" index="3" instance=ExtResource("25_nw6h5")]
+stock_quantity = 2
+originial_stock_quantity = 2
+
+[node name="FragGrenadeItem" parent="Shop/ShopItemEntry3" index="0" instance=ExtResource("19_psaas")]
+
+[node name="ShopItemEntry4" parent="Shop" index="4" instance=ExtResource("25_nw6h5")]
+
+[node name="BurstPistol" parent="Shop/ShopItemEntry4" index="0" instance=ExtResource("3_fppp3")]
+
+[node name="ShopItemEntry5" parent="Shop" index="5" instance=ExtResource("25_nw6h5")]
+
+[node name="OlReliable" parent="Shop/ShopItemEntry5" index="0" instance=ExtResource("21_mb1en")]

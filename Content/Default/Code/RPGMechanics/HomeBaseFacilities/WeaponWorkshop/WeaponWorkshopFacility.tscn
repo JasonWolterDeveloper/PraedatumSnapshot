@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhllymjyv2trr"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/WeaponWorkshop/WeaponWorkshopFacility.gd" id="1_4dgfi"]
+[ext_resource type="PackedScene" uid="uid://djwxhbudveff7" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingCategory.tscn" id="2_dlkol"]
+[ext_resource type="PackedScene" uid="uid://b84coq5n7mtbx" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingRecipe.tscn" id="3_4pwqh"]
+[ext_resource type="PackedScene" uid="uid://c4k44oc2nxt4i" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/BaseUpgradeRecipe.tscn" id="3_e7bmp"]
+[ext_resource type="PackedScene" uid="uid://broj86uh4bw0d" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackup.tscn" id="4_hgl1a"]
+[ext_resource type="PackedScene" uid="uid://b77bxtfmg87tc" path="res://Content/Demo/Code/Items/ResourceItems/ScrapMetal.tscn" id="4_phtxh"]
+[ext_resource type="PackedScene" uid="uid://bpuhxp0ioa7rq" path="res://Content/Demo/Code/Items/ResourceItems/BasicWeaponParts.tscn" id="5_2l61u"]
+[ext_resource type="PackedScene" uid="uid://d2v0yvts8ob6f" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackup+1.tscn" id="6_r0c3k"]
+[ext_resource type="PackedScene" uid="uid://ducxre6wep103" path="res://Content/Demo/Code/Items/Weapons/TheBackup/TheBackup+2.tscn" id="7_srcgk"]
+[ext_resource type="PackedScene" uid="uid://ddn87piv0ke4m" path="res://Content/Demo/Code/Items/Weapons/TrenchMace/TrenchMace.tscn" id="8_00eao"]
+
+[node name="WeaponWorkshopFacility" type="Node" node_paths=PackedStringArray("top_level_crafting_category")]
+script = ExtResource("1_4dgfi")
+max_upgrade_level = 1
+base_facility_id = "weapon_workshop"
+display_name = "Weapon Workshop"
+description = "Dismantle weapons into parts or upgrade weapons using parts"
+top_level_crafting_category = NodePath("TopLevelCategory")
+
+[node name="TopLevelCategory" parent="." instance=ExtResource("2_dlkol")]
+
+[node name="UpgradeCategory" parent="TopLevelCategory" instance=ExtResource("2_dlkol")]
+display_name = "Upgrade"
+category_id = "upgrade"
+
+[node name="CraftTheBackup+1" parent="TopLevelCategory/UpgradeCategory" instance=ExtResource("3_4pwqh")]
+item_cost_dictionary = {
+NodePath("TheBackup"): 1,
+NodePath("BasicWeaponParts"): 10
+}
+crafted_item_dictionary = {
+NodePath("TheBackup+1"): 1
+}
+
+[node name="TheBackup" parent="TopLevelCategory/UpgradeCategory/CraftTheBackup+1" instance=ExtResource("4_hgl1a")]
+
+[node name="BasicWeaponParts" parent="TopLevelCategory/UpgradeCategory/CraftTheBackup+1" instance=ExtResource("5_2l61u")]
+
+[node name="TheBackup+1" parent="TopLevelCategory/UpgradeCategory/CraftTheBackup+1" instance=ExtResource("6_r0c3k")]
+
+[node name="CraftTheBackup+2" parent="TopLevelCategory/UpgradeCategory" instance=ExtResource("3_4pwqh")]
+item_cost_dictionary = {
+NodePath("TheBackup+1"): 1,
+NodePath("BasicWeaponParts"): 15
+}
+crafted_item_dictionary = {
+NodePath("TheBackup+2"): 1
+}
+base_facility_level_required = 1
+
+[node name="TheBackup+1" parent="TopLevelCategory/UpgradeCategory/CraftTheBackup+2" instance=ExtResource("6_r0c3k")]
+
+[node name="BasicWeaponParts" parent="TopLevelCategory/UpgradeCategory/CraftTheBackup+2" instance=ExtResource("5_2l61u")]
+
+[node name="TheBackup+2" parent="TopLevelCategory/UpgradeCategory/CraftTheBackup+2" instance=ExtResource("7_srcgk")]
+
+[node name="CraftTrenchMace" parent="TopLevelCategory" instance=ExtResource("3_4pwqh")]
+power_cost = 1
+crafted_item_dictionary = {
+NodePath("TrenchMace"): 1
+}
+
+[node name="TrenchMace" parent="TopLevelCategory/CraftTrenchMace" instance=ExtResource("8_00eao")]
+
+[node name="UpgradeRecipes" type="Node" parent="."]
+
+[node name="BaseUpgradeRecipe" parent="UpgradeRecipes" instance=ExtResource("3_e7bmp")]
+item_cost_dictionary = {
+NodePath("ScrapMetal"): 2
+}
+power_cost = 1
+
+[node name="ScrapMetal" parent="UpgradeRecipes/BaseUpgradeRecipe" instance=ExtResource("4_phtxh")]

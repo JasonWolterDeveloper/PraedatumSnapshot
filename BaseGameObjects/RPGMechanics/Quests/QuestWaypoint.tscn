@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl5cn5y4l205d"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Quests/QuestWaypoint.gd" id="1_qg8gj"]
+
+[node name="QuestWaypoint" type="Node3D"]
+script = ExtResource("1_qg8gj")

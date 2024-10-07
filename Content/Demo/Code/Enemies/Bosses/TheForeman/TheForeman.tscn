@@ -1,0 +1,373 @@
+[gd_scene load_steps=38 format=3 uid="uid://baxtpgybwbkqw"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Bosses/TheForeman/TheForeman.gd" id="1_ak11b"]
+[ext_resource type="PackedScene" uid="uid://dlnqn30c5sl0" path="res://Content/Demo/Code/Items/QuestItems/Keys/ForemanSkullKey.tscn" id="2_lcnlq"]
+[ext_resource type="PackedScene" uid="uid://1glgcwi0vwqm" path="res://Content/Default/Code/RPGMechanics/StatusEffects/SlowStatusEffect.tscn" id="3_u0y15"]
+[ext_resource type="PackedScene" uid="uid://bvkbnjyrpuks2" path="res://Content/Demo/Code/Enemies/WageCage/WageCageDOTEffet.tscn" id="4_gh2vj"]
+[ext_resource type="PackedScene" uid="uid://cmi0g7wqmeswm" path="res://BaseGameObjects/Behaviour/AIMemory.tscn" id="5_bv3nm"]
+[ext_resource type="PackedScene" uid="uid://bas0ijajloe07" path="res://Content/Demo/Code/Enemies/Bosses/TheForeman/ForemanGibs.tscn" id="5_rj3mt"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGMechanicsMaster.gd" id="6_bnoq8"]
+[ext_resource type="PackedScene" uid="uid://yhpbb7jbww4d" path="res://UIObjects/CombatUI/EnemyInfoDisplay.tscn" id="6_jrsvd"]
+[ext_resource type="PackedScene" uid="uid://crivall5lsmid" path="res://BaseGameObjects/Aesthetics/StatusEffectVFX/StunParticleEffect.tscn" id="6_uptpi"]
+[ext_resource type="PackedScene" uid="uid://8mvrt28j4q68" path="res://BaseGameObjects/RPGMechanics/Stats/MeleeRateStat.tscn" id="7_58ott"]
+[ext_resource type="PackedScene" uid="uid://bwxcjb4ifiqo6" path="res://BaseGameObjects/RPGMechanics/Stats/MaxHealthStat.tscn" id="7_j30yy"]
+[ext_resource type="PackedScene" uid="uid://boq3yitw8a5td" path="res://BaseGameObjects/RPGMechanics/Stats/MeleeDamageStat.tscn" id="8_hdoxq"]
+[ext_resource type="PackedScene" uid="uid://cc2jty7a6a6vg" path="res://BaseGameObjects/RPGMechanics/Stats/HealthStat.tscn" id="8_n81sk"]
+[ext_resource type="PackedScene" uid="uid://d10f0k62alknb" path="res://Content/Demo/Assets/Aesthetics/ElectricShock/ElectrickShockModel.tscn" id="9_if7dq"]
+[ext_resource type="PackedScene" uid="uid://bfrof6tgmg7ik" path="res://Content/Default/Code/RPGMechanics/Stats/MovementSpeedStat.tscn" id="11_60i3q"]
+[ext_resource type="PackedScene" uid="uid://c6pri36ik1gse" path="res://BaseGameObjects/PathfindingMaster.tscn" id="11_u8sci"]
+[ext_resource type="PackedScene" uid="uid://ctrs6m3mk7gbn" path="res://BaseGameObjects/Behaviour/Link.tscn" id="12_48n3w"]
+[ext_resource type="PackedScene" uid="uid://br3xiyr41w1ms" path="res://BaseGameObjects/MovementMaster.tscn" id="12_ianqn"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/hitbox.gd" id="13_ojwr4"]
+[ext_resource type="PackedScene" uid="uid://cdrxk3st3uk3u" path="res://Content/Demo/Code/Enemies/WageCage/Barks/WageCagePlayerDetectedBark.tscn" id="15_208vy"]
+[ext_resource type="PackedScene" uid="uid://d380hkk655x51" path="res://BaseGameObjects/AimingMaster.tscn" id="15_xen6j"]
+[ext_resource type="PackedScene" uid="uid://bkgywbqnk57tp" path="res://Content/Demo/Assets/Characters/Enemies/Foreman/Foreman.glb" id="17_1c4q8"]
+[ext_resource type="PackedScene" uid="uid://inefk4b4y7yt" path="res://Content/Demo/Code/Enemies/Bosses/TheForeman/ForemanFSM.tscn" id="22_tn8fp"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Level1/LootTables/BasicLoadingDockGroundLootTable.gd" id="24_38tbw"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Level1/LootTables/LoadingDockLockerLootTable.gd" id="25_cep1c"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_idf6u"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5q1br"]
+radius = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qygfp"]
+size = Vector3(0.738405, 2.64966, 0.66983)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_svb8m"]
+size = Vector3(1.63528, 2.64966, 0.665565)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r5wcg"]
+radius = 0.783065
+height = 3.70351
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2jq8"]
+albedo_color = Color(0.486275, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="Animation" id="Animation_kkx8q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Foreman/Antenna/OmniLight3D:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Foreman/Antenna:surface_material_override/1:emission_energy_multiplier")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Foreman/Arm_001:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.14159, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Foreman/Arm:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mbncx"]
+resource_name = "call_in_friends"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreman/Antenna/OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.2, 1.5, 1.8, 3, 3.3, 3.6, 4.5, 4.8, 5.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 8.0, 0.0, 0.0, 8.0, 0.0, 0.0, 8.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foreman/Antenna:surface_material_override/1:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2, 1.5, 1.8, 3, 3.3, 3.6, 4.5, 4.8, 5.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Foreman/Arm_001:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.9, 5.4, 5.9),
+"transitions": PackedFloat32Array(1, 1.6245, 1, 1),
+"update": 0,
+"values": [Vector3(-3.14159, 0, 0), Vector3(-2.0944, 0, 0), Vector3(-2.0944, 0, 0), Vector3(-3.14159, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Foreman/Arm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 0.9, 5.4, 5.9),
+"transitions": PackedFloat32Array(1, 1.62451, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.0472, 0, 0), Vector3(1.0472, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger_call_ins"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0rxqm"]
+resource_name = "tilting"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.25, 1, -0.19194, 0, 0, 0.981407)
+
+[sub_resource type="Animation" id="Animation_lbpad"]
+resource_name = "walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.3, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tall8"]
+_data = {
+"RESET": SubResource("Animation_kkx8q"),
+"call_in_friends": SubResource("Animation_mbncx"),
+"tilting": SubResource("Animation_0rxqm"),
+"walking": SubResource("Animation_lbpad")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_e2o6s"]
+radius = 3.56506
+
+[node name="Foreman" type="CharacterBody3D" node_paths=PackedStringArray("loot_tables", "stun_aesthetic_effect")]
+script = ExtResource("1_ak11b")
+skull_key_scene = ExtResource("2_lcnlq")
+slow_status_effect_scene = ExtResource("3_u0y15")
+dot_status_effect_scene = ExtResource("4_gh2vj")
+wage_cage_gibs_scene = ExtResource("5_rj3mt")
+behaviour_debug_mode = true
+initial_state_name = &"ZombieFSM"
+loot_tables = [NodePath("LootTables/LootTable"), NodePath("LootTables/LootTable2")]
+display_name = "The Foreman"
+stun_aesthetic_effect = NodePath("StunParticleEffect")
+
+[node name="StunParticleEffect" parent="." instance=ExtResource("6_uptpi")]
+visible = false
+
+[node name="AIMemory" parent="." instance=ExtResource("5_bv3nm")]
+
+[node name="EnemyHealthBar3D" parent="." instance=ExtResource("6_jrsvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79345, 0)
+visible = false
+texture = SubResource("ViewportTexture_idf6u")
+
+[node name="RPGMechanicsMaster" type="Node" parent="."]
+script = ExtResource("6_bnoq8")
+
+[node name="MaxHealthStat" parent="RPGMechanicsMaster" instance=ExtResource("7_j30yy")]
+value = 20.0
+
+[node name="HealthStat" parent="RPGMechanicsMaster" instance=ExtResource("8_n81sk")]
+base_number_of_segments = 8
+base_value_per_segment = 45.0
+value = 360.0
+
+[node name="MeleeRateStat" parent="RPGMechanicsMaster" instance=ExtResource("7_58ott")]
+base_value = 1.0
+value = 1.0
+
+[node name="MeleeDamageStat" parent="RPGMechanicsMaster" instance=ExtResource("8_hdoxq")]
+base_value = 5.0
+value = 5.0
+
+[node name="MovementSpeedStat" parent="RPGMechanicsMaster" instance=ExtResource("11_60i3q")]
+base_value = 3.0
+value = 3.0
+
+[node name="MovementMaster" parent="." instance=ExtResource("12_ianqn")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_5q1br")
+
+[node name="LookStuff" type="Node3D" parent="."]
+
+[node name="WeakpointHitbox" type="CharacterBody3D" parent="LookStuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.22171)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("13_ojwr4")
+damage_multiplier = 1.3
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="LookStuff/WeakpointHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0139466, 0.406226, 0.352917)
+shape = SubResource("BoxShape3D_qygfp")
+
+[node name="StrongpointHitbox" type="CharacterBody3D" parent="LookStuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.971016)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("13_ojwr4")
+damage_multiplier = 0.5
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="LookStuff/StrongpointHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51694e-05, 0.406226, 0.263747)
+shape = SubResource("BoxShape3D_svb8m")
+
+[node name="ProjectileHitbox" type="CharacterBody3D" parent="LookStuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.113779)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("13_ojwr4")
+damage_multiplier = 0.75
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LookStuff/ProjectileHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.607739, 0)
+shape = SubResource("CapsuleShape3D_r5wcg")
+
+[node name="ElectrickShockModel" parent="LookStuff" instance=ExtResource("9_if7dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05857, 0, -1.70107)
+
+[node name="ElectrickShockModel2" parent="LookStuff" instance=ExtResource("9_if7dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.813574, 0, -1.71253)
+
+[node name="Foreman" parent="LookStuff" instance=ExtResource("17_1c4q8")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, -0.787, 0)
+
+[node name="Arm_001" parent="LookStuff/Foreman" index="3"]
+transform = Transform3D(-0.216167, 0, 0, 0, 0.162294, -4.11445e-07, 0, 4.11445e-07, 0.162294, 0.209135, 0.360111, 0.0181897)
+
+[node name="Antenna" parent="LookStuff/Foreman" index="9"]
+surface_material_override/1 = SubResource("StandardMaterial3D_p2jq8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LookStuff/Foreman/Antenna" index="0"]
+transform = Transform3D(10.4538, 0, 0, 0, 8.32488, 0, 0, 0, 10.4538, 0, 12.9486, 0)
+light_color = Color(0.760784, 0, 0, 1)
+light_energy = 0.0
+
+[node name="Arm" parent="LookStuff/Foreman" index="10"]
+transform = Transform3D(0.216167, 0, 0, 0, 0.162294, 0, 0, 0, 0.162294, -0.20968, 0.360111, 0.0181897)
+
+[node name="AimingMaster" parent="LookStuff" node_paths=PackedStringArray("look_stuff") instance=ExtResource("15_xen6j")]
+should_look_in_movement_direction = true
+look_stuff = NodePath("..")
+
+[node name="RayCast3D" type="RayCast3D" parent="LookStuff"]
+target_position = Vector3(0, 0, -2000)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LookStuff"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LookStuff"]
+libraries = {
+"": SubResource("AnimationLibrary_tall8")
+}
+
+[node name="PathfindingMaster" parent="." instance=ExtResource("11_u8sci")]
+
+[node name="MeleeArea" type="Area3D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeArea"]
+shape = SubResource("CylinderShape3D_e2o6s")
+
+[node name="Link" parent="." instance=ExtResource("12_48n3w")]
+
+[node name="ForemanFSM" parent="." instance=ExtResource("22_tn8fp")]
+
+[node name="WageCagePlayerDetectedBarkType" parent="." instance=ExtResource("15_208vy")]
+
+[node name="LootTables" type="Node" parent="."]
+
+[node name="LootTable" type="Node" parent="LootTables"]
+script = ExtResource("24_38tbw")
+number_of_rolls = 5
+
+[node name="LootTable2" type="Node" parent="LootTables"]
+script = ExtResource("25_cep1c")
+number_of_rolls = 3
+
+[editable path="LookStuff/Foreman"]

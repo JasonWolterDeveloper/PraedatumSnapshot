@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://cly0no7g6i04q"]
+
+[ext_resource type="Script" path="res://UIObjects/PlayerHUD/Hotbar/HotbarSlot/HotbarSlotControl.gd" id="1_ar1u8"]
+[ext_resource type="Texture2D" uid="uid://c1lcmtds3namj" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/TrenchSweeperInventoryImage.png" id="1_gqlsm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n83jp"]
+bg_color = Color(0.794121, 0.794121, 0.79412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcscy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[node name="HotbarSlotControl" type="PanelContainer"]
+custom_minimum_size = Vector2(75, 75)
+offset_right = 20.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_ar1u8")
+
+[node name="SelectedAesthetics" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n83jp")
+
+[node name="HighlightAesthetics" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fcscy")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ItemImage" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_gqlsm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="SlotIndexLabel" type="Label" parent="Panel"]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

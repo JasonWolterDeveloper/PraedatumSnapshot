@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://WARPrototypes/InventoryUI/StandardLootingInventoryScreen.gd" type="Script" id=1]
+[ext_resource path="res://WARPrototypes/InventoryUI/HolderContainers/ItemHolderInventoryContainer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://WARPrototypes/InventoryUI/HolderContainers/LoadoutSlotInventoryContainer.tscn" type="PackedScene" id=3]
+
+[node name="StandardLootingInventoryScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.29956
+margin_top = -1.25995
+margin_right = 6.29956
+margin_bottom = -1.25995
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainInventory" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.311
+anchor_bottom = 1.0
+margin_top = 0.222725
+margin_right = 0.0
+margin_bottom = 0.222717
+
+[node name="LootInventory" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.648
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="PrimaryWeaponSlot" parent="." instance=ExtResource( 3 )]
+margin_left = 655.698
+margin_top = 87.3597
+margin_right = 1103.7
+margin_bottom = 279.36
+
+[node name="SecondaryWeaponSlot" parent="." instance=ExtResource( 3 )]
+margin_left = 659.473
+margin_top = 310.114
+margin_right = 1107.47
+margin_bottom = 502.114

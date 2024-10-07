@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dglhoxl4dc6f6"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_ycbjg"]
+[ext_resource type="PackedScene" uid="uid://dis0syrx0r6nv" path="res://Content/Demo/Assets/Interactables/LootInteractables/Locker/UnlootableLockerModel.tscn" id="2_3rbm1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w4adg"]
+size = Vector3(1.47656, 3.22778, 1.41223)
+
+[node name="UnlootableLockerObstacle" type="StaticBody3D"]
+script = ExtResource("1_ycbjg")
+
+[node name="UnlootableLockerModel" parent="." instance=ExtResource("2_3rbm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119, 1.7, 0.004)
+shape = SubResource("BoxShape3D_w4adg")

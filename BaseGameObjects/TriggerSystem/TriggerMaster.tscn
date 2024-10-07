@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5xr000flgrxq"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/TriggerSystem/TriggerMaster.gd" id="1_d0vwq"]
+
+[node name="TriggerMaster" type="Node"]
+script = ExtResource("1_d0vwq")

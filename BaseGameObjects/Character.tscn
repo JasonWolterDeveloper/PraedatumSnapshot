@@ -1,0 +1,48 @@
+[gd_scene load_steps=13 format=3 uid="uid://bguuekuitrudm"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Character.gd" id="1_u6wpb"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGTags.gd" id="2_dl4v4"]
+[ext_resource type="PackedScene" uid="uid://d380hkk655x51" path="res://BaseGameObjects/AimingMaster.tscn" id="2_ndn48"]
+[ext_resource type="PackedScene" uid="uid://br3xiyr41w1ms" path="res://BaseGameObjects/MovementMaster.tscn" id="2_vpbjo"]
+[ext_resource type="PackedScene" uid="uid://bwxcjb4ifiqo6" path="res://BaseGameObjects/RPGMechanics/Stats/MaxHealthStat.tscn" id="3_l8hc2"]
+[ext_resource type="PackedScene" uid="uid://2327nkwxqmib" path="res://UIObjects/CombatUI/StatusEffectUI/StatusEffectDisplay.tscn" id="3_u404h"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGMechanicsMaster.gd" id="4_j814v"]
+[ext_resource type="PackedScene" uid="uid://cc2jty7a6a6vg" path="res://BaseGameObjects/RPGMechanics/Stats/HealthStat.tscn" id="4_pss0a"]
+[ext_resource type="PackedScene" uid="uid://bfrof6tgmg7ik" path="res://Content/Default/Code/RPGMechanics/Stats/MovementSpeedStat.tscn" id="5_0i1dl"]
+[ext_resource type="PackedScene" uid="uid://cmi0g7wqmeswm" path="res://BaseGameObjects/Behaviour/AIMemory.tscn" id="8_eotjb"]
+
+[sub_resource type="Resource" id="Resource_5c5ux"]
+script = ExtResource("2_dl4v4")
+tags = Array[String]([])
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ii7ra"]
+
+[node name="Character" type="CharacterBody3D"]
+script = ExtResource("1_u6wpb")
+rpg_tags = SubResource("Resource_5c5ux")
+status_effect_text_scene = ExtResource("3_u404h")
+
+[node name="RPGMechanicsMaster" type="Node" parent="."]
+script = ExtResource("4_j814v")
+
+[node name="MaxHealthStat" parent="RPGMechanicsMaster" instance=ExtResource("3_l8hc2")]
+value = 20.0
+
+[node name="HealthStat" parent="RPGMechanicsMaster" instance=ExtResource("4_pss0a")]
+value = 20.0
+
+[node name="MovementSpeedStat" parent="RPGMechanicsMaster" instance=ExtResource("5_0i1dl")]
+value = 5.0
+
+[node name="MovementMaster" parent="." instance=ExtResource("2_vpbjo")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ii7ra")
+
+[node name="LookStuff" type="Node3D" parent="."]
+
+[node name="AimingMaster" parent="LookStuff" instance=ExtResource("2_ndn48")]
+
+[node name="AIMemory" parent="." instance=ExtResource("8_eotjb")]
+
+[node name="StatusEffectTextMarker" type="Marker3D" parent="."]

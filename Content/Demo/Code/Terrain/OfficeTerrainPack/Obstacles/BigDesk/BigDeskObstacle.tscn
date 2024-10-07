@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp5x78hcfsdiv"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_1udt6"]
+[ext_resource type="PackedScene" uid="uid://bmcb1ux4dchky" path="res://Content/Demo/Assets/Terrain/OfficeTerrainPack/Obstacles/BigDesk/BigDesk.glb" id="2_ktovo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxmgy"]
+size = Vector3(0.937988, 1.22021, 4.19055)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lovfp"]
+size = Vector3(1.11279, 1.22021, 3.43732)
+
+[node name="BigDeskObstacle" type="StaticBody3D"]
+script = ExtResource("1_1udt6")
+
+[node name="BigDesk" parent="." instance=ExtResource("2_ktovo")]
+transform = Transform3D(1.9, 0, 0, 0, 1.75, 0, 0, 0, 1.9, -1.03351, 0, -1.86887)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.600415, 0.605713, 0.0975952)
+shape = SubResource("BoxShape3D_kxmgy")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.639178, 0.605713, -1.44128)
+shape = SubResource("BoxShape3D_lovfp")

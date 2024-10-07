@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://1hpaxthojfob"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_fpect"]
+[ext_resource type="Texture2D" uid="uid://jgomle0m7gfq" path="res://Content/Demo/Assets/Items/ResourceItems/Ingredients/IngredientsInventoryImage.png" id="2_ha0ly"]
+[ext_resource type="PackedScene" uid="uid://dqy7vwxygxwp" path="res://Content/Demo/Assets/Items/ResourceItems/Ingredients/IngredientsModel.glb" id="3_hdpr4"]
+
+[node name="IngredientsItem" type="Node3D"]
+script = ExtResource("1_fpect")
+inventory_image = ExtResource("2_ha0ly")
+ground_3d_model_scene = ExtResource("3_hdpr4")
+display_name = "Ingredients"
+item_id = "ingredients"
+description = "A basket of delicious food stuffs that will be helpful with any recipe you can find. Good appetite, as they say.
+
+Can be used for crafting, or sold."
+show_quantity_in_ui = true
+default_price = 6
+max_quantity = 10
+grid_square_width = 1
+grid_square_height = 1

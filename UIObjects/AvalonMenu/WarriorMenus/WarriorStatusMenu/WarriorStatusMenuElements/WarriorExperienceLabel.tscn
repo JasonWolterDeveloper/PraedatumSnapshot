@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://bemfpoqnf7jho"]
+
+[ext_resource type="Script" path="res://UIObjects/AvalonMenu/WarriorMenus/WarriorStatusMenu/WarriorStatusMenuElements/WarriorExperienceLabel.gd" id="1_3xy5c"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_li2uh"]
+
+[node name="WarriorExperienceLabel" type="Control"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3xy5c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WarriorTitleLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_li2uh")
+theme_override_font_sizes/font_size = 24
+text = "Experience:"
+
+[node name="WarriorCurrentXPLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_li2uh")
+theme_override_font_sizes/font_size = 24
+text = "5
+"
+
+[node name="WarriorXPSeparator" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_li2uh")
+theme_override_font_sizes/font_size = 24
+text = "/
+"
+
+[node name="WarriorRequiredXPLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_li2uh")
+theme_override_font_sizes/font_size = 24
+text = "5
+"

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://roxs5xdxdjym"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/AreaOfEffect/AreaOfEffect.gd" id="1_gkt1i"]
+
+[node name="AreaOfEffect" type="Area3D"]
+script = ExtResource("1_gkt1i")

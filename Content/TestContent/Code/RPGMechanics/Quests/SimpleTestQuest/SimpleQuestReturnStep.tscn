@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://kx7sgobsm588"]
+
+[ext_resource type="PackedScene" uid="uid://b1yl8ra0b0yva" path="res://BaseGameObjects/RPGMechanics/Quests/QuestStep.tscn" id="1_a7gpf"]
+
+[node name="SimpleQuestReturnStep" instance=ExtResource("1_a7gpf")]
+should_complete_quest = true
+quest_step_id = "return"

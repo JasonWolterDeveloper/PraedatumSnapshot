@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bca0diwtn1mwc"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretEngageState.gd" id="1_4vhqh"]
+
+[node name="TurretEngageState" type="Node3D"]
+script = ExtResource("1_4vhqh")
+bullet_speed = 30.0
+lead_dampening = 1.2

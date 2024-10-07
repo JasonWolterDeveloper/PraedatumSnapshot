@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://xfneuv3uming"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_r8ryb"]
+[ext_resource type="Texture2D" uid="uid://coc6jgdj61qco" path="res://Content/Demo/Assets/Items/ResourceItems/Gunpowder/GunpowderInventoryImage.png" id="2_mxm1i"]
+[ext_resource type="PackedScene" uid="uid://ch4mauf6o38yg" path="res://Content/Demo/Assets/Items/ResourceItems/Gunpowder/GunpowderGroundModel.tscn" id="3_e1nb4"]
+
+[node name="GunpowderItem" type="Node3D"]
+script = ExtResource("1_r8ryb")
+inventory_image = ExtResource("2_mxm1i")
+ground_3d_model_scene = ExtResource("3_e1nb4")
+display_name = "Gunpowder"
+item_id = "gunpowder"
+description = "A jar of gunpowder, or, as I like to call it, funpower. Store in a cool dry place, and be careful with matches.
+
+Can be used for crafting, or sold."
+show_quantity_in_ui = true
+default_price = 6
+max_quantity = 100
+grid_square_width = 1
+grid_square_height = 1

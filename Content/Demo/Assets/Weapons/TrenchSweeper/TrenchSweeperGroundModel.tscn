@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxbnkcijpfq6y"]
+
+[ext_resource type="PackedScene" uid="uid://cueif6ienbyx3" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/PraedatumTrenchSweeper.glb" id="1_a5qwg"]
+
+[node name="TrenchSweeperGroundModel" type="Node3D"]
+
+[node name="PraedatumTrenchSweeper" parent="." instance=ExtResource("1_a5qwg")]
+transform = Transform3D(-1.96701e-08, -1.96701e-08, 0.45, -0.45, -1.96701e-08, -1.96701e-08, 1.96701e-08, -0.45, -1.96701e-08, 0, 0, 0)
+
+[node name="MuzzleFlashTop1" parent="PraedatumTrenchSweeper" index="19"]
+visible = false
+
+[node name="MuzzleFlashBottom1" parent="PraedatumTrenchSweeper" index="20"]
+visible = false
+
+[node name="MuzzleFlashBoth1" parent="PraedatumTrenchSweeper" index="21"]
+visible = false
+
+[editable path="PraedatumTrenchSweeper"]

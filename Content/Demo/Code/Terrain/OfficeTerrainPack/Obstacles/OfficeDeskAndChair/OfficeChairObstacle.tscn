@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0ujnjpgqxkp5"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_xjwab"]
+[ext_resource type="PackedScene" uid="uid://bb867gtm3x8a7" path="res://Content/Demo/Assets/Terrain/Obstacles/Chair/PraedatumChair.glb" id="3_4l2ou"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l7v6u"]
+size = Vector3(1, 1.04156, 0.817627)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qspnm"]
+size = Vector3(0.247925, 1.32368, 0.667236)
+
+[node name="OfficeChairObstacle" type="StaticBody3D"]
+script = ExtResource("1_xjwab")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.520782, 0.0115967)
+shape = SubResource("BoxShape3D_l7v6u")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.376038, 1.53451, 0.00012207)
+shape = SubResource("BoxShape3D_qspnm")
+
+[node name="PraedatumChair" parent="." instance=ExtResource("3_4l2ou")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)

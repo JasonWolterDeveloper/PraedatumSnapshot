@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://3bufypfxng3m"]
+
+[ext_resource type="PackedScene" uid="uid://np25pglkk6iv" path="res://Content/Demo/Assets/Items/Consumables/Bandage/BandageModel.glb" id="1_q7vcd"]
+
+[node name="BandageGroundModel" type="Node3D"]
+
+[node name="BandageModel" parent="." instance=ExtResource("1_q7vcd")]
+transform = Transform3D(-1.09278e-07, 2.5, -1.09278e-07, 0, -1.09278e-07, -2.5, -2.5, -1.09278e-07, 4.77671e-15, 0, 0.068, 0)

@@ -1,0 +1,236 @@
+[gd_scene load_steps=36 format=3 uid="uid://6nbp0fc46tak"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/Room.gd" id="1_ayycx"]
+[ext_resource type="PackedScene" uid="uid://cb78sar46vq83" path="res://BaseGameObjects/Terrain/Floor.tscn" id="2_6u4kh"]
+[ext_resource type="Script" path="res://BaseGameObjects/TriggerSystem/Trigger.gd" id="2_eo3ja"]
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/Effects/Quests/CompleteQuestStepEffect.gd" id="3_0o2hr"]
+[ext_resource type="Material" uid="uid://c73ohs5pjl3fh" path="res://Content/Demo/Code/Levels/Rooms/FloorMaterial/OfficeFloorMaterial.tres" id="3_3qe30"]
+[ext_resource type="PackedScene" uid="uid://dp5x78hcfsdiv" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/BigDesk/BigDeskObstacle.tscn" id="4_5mxo3"]
+[ext_resource type="PackedScene" uid="uid://d0ujnjpgqxkp5" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/OfficeDeskAndChair/OfficeChairObstacle.tscn" id="5_6je88"]
+[ext_resource type="PackedScene" uid="uid://bl5l7d4t111a4" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/TrashBin/TrashBinObstacle.tscn" id="6_40dgg"]
+[ext_resource type="PackedScene" uid="uid://dsq3ip43hb8p6" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/FilingCabinet/FilingCabinet.tscn" id="7_a3s6u"]
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="8_nexc5"]
+[ext_resource type="PackedScene" uid="uid://df7ktsbtxjy8b" path="res://Content/Demo/Code/InteractableObjects/TriggerInteractableObjects/Computer/InteractableComputer.tscn" id="9_6s08d"]
+[ext_resource type="PackedScene" uid="uid://cj0rbbpox5yvr" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabDivot.tscn" id="10_at035"]
+[ext_resource type="PackedScene" uid="uid://bafdbdjpmgphd" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabBasic.tscn" id="11_1b46e"]
+[ext_resource type="PackedScene" uid="uid://d2b2flwvvf4mu" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabExtinguisher.tscn" id="11_p4xor"]
+[ext_resource type="Script" path="res://BaseGameObjects/TriggerSystem/ConditionEvaluator.gd" id="12_5yie7"]
+[ext_resource type="PackedScene" uid="uid://j05xyrb1vwni" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabVent.tscn" id="12_cu1wf"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Level1/Rooms/LoadingDock/LoadingDockTreasureLootTable.gd" id="13_46u37"]
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/ConditionEvaluators/QuestStatusConditionEvaluator.gd" id="13_601q3"]
+[ext_resource type="PackedScene" uid="uid://bw6v0do2vtt0p" path="res://BaseGameObjects/Levels/SpawnSystems/TicketsBasedSpawnSystem.tscn" id="14_pcu5r"]
+[ext_resource type="PackedScene" uid="uid://dl5cn5y4l205d" path="res://BaseGameObjects/RPGMechanics/Quests/QuestWaypoint.tscn" id="14_s5hlg"]
+[ext_resource type="PackedScene" uid="uid://dt6t3wrrcsds1" path="res://Content/Default/Code/InteractableObjects/GroundItem.tscn" id="15_5daj2"]
+[ext_resource type="PackedScene" uid="uid://bkhagmsliovx1" path="res://Content/Demo/Code/Levels/Rooms/RoomConnectors/NLIBasicRoomConnector.tscn" id="16_pmq56"]
+[ext_resource type="PackedScene" uid="uid://cfl4v3aexofgf" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/NLIDoor.tscn" id="17_hffwk"]
+[ext_resource type="PackedScene" uid="uid://cuuxlc3voq8cl" path="res://BaseGameObjects/Terrain/Rooms/Spawners/ExitSpawnPoint.tscn" id="18_sqc0k"]
+[ext_resource type="PackedScene" uid="uid://po6lvcfyga46" path="res://Content/Demo/Code/Terrain/Greebles/HolosignWallGreeble.tscn" id="19_t31th"]
+[ext_resource type="FontFile" uid="uid://cos8mriiu7hwd" path="res://UIObjects/Assets/Fonts/unispace.ttf" id="20_t4jje"]
+[ext_resource type="Shader" path="res://Content/Demo/Code/Terrain/Greebles/HolosignWallGreeble.gdshader" id="21_evhpn"]
+[ext_resource type="PackedScene" uid="uid://cpfdrepfjikkg" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Greebles/PraedatumComputerScreenGreeble.tscn" id="23_8vgoh"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w21od"]
+material = ExtResource("3_3qe30")
+size = Vector2(1, 1)
+
+[sub_resource type="Resource" id="Resource_05y2f"]
+script = ExtResource("13_601q3")
+quest_id = "foreman_part_2"
+quest_step_id = ""
+is_started = true
+is_completed = false
+inverted = false
+
+[sub_resource type="Resource" id="Resource_a522u"]
+script = ExtResource("13_601q3")
+quest_id = "foreman_part_2"
+quest_step_id = "download_data"
+is_started = false
+is_completed = true
+inverted = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u3pwg"]
+size = Vector3(24, 5, 24)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nch5x"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("21_evhpn")
+shader_parameter/shine_color = Color(7.70092e-07, 0.732587, 0.830645, 1)
+shader_parameter/cycle_interval = 1.0
+shader_parameter/shine_speed = 4.0
+shader_parameter/shine_width = 15.0
+shader_parameter/invert_direction = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_soori"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_nch5x")
+transparency = 1
+albedo_color = Color(0.145, 1, 1, 0.123)
+emission_enabled = true
+emission = Color(0, 0.521569, 0.521569, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="TextMesh" id="TextMesh_ha5yo"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_soori")
+text = "SUPERVISOR"
+font = ExtResource("20_t4jje")
+font_size = 24
+
+[node name="SupervisorOfficeRoom" type="Node3D" node_paths=PackedStringArray("exit_spawn_point")]
+script = ExtResource("1_ayycx")
+display_name = "SupervisorOffice"
+exit_spawn_point = NodePath("ExitSpawnPoint")
+
+[node name="ForemanPartTwoQuestTrigger" type="Node" parent="."]
+script = ExtResource("2_eo3ja")
+trigger_id = "foreman_part_2_quest_trigger"
+trigger_persists = true
+trigger_save_key = "foreman_part_2_quest_trigger"
+
+[node name="CompleteQuestStepEffect" type="Node" parent="ForemanPartTwoQuestTrigger"]
+script = ExtResource("3_0o2hr")
+quest_id = "foreman_part_2"
+quest_step_id = "download_data"
+
+[node name="Terrain" type="NavigationRegion3D" parent="."]
+
+[node name="Floor" parent="Terrain" instance=ExtResource("2_6u4kh")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor"]
+mesh = SubResource("PlaneMesh_w21od")
+
+[node name="DesksAnd Such" type="Node3D" parent="Terrain"]
+
+[node name="BigDeskObstacle" parent="Terrain/DesksAnd Such" instance=ExtResource("4_5mxo3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0, -3.5)
+
+[node name="OfficeChairObstacle2" parent="Terrain/DesksAnd Such" instance=ExtResource("5_6je88")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74227e-08, 0, -1, 3.14818, 0, -2.54961)
+
+[node name="TrashBinObstacle" parent="Terrain/DesksAnd Such" instance=ExtResource("6_40dgg")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -4.5, 0, 3.5)
+
+[node name="FilingCabinet" parent="Terrain/DesksAnd Such" instance=ExtResource("7_a3s6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4681, 0, 1.12655)
+
+[node name="FilingCabinet2" parent="Terrain/DesksAnd Such" instance=ExtResource("7_a3s6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4681, 0, 0.12655)
+
+[node name="Endcaps" type="Node3D" parent="Terrain"]
+
+[node name="OfficeWallEndcap3" parent="Terrain/Endcaps" instance=ExtResource("8_nexc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="OfficeWallEndcap4" parent="Terrain/Endcaps" instance=ExtResource("8_nexc5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0, 5)
+
+[node name="OfficeWallEndcap5" parent="Terrain/Endcaps" instance=ExtResource("8_nexc5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 0, 5)
+
+[node name="OfficeWallEndcap6" parent="Terrain/Endcaps" instance=ExtResource("8_nexc5")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5, 0, -5)
+
+[node name="InteractableComputer" parent="Terrain" instance=ExtResource("9_6s08d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.33394, 1.21414, -3.95823)
+trigger_id_to_activate = "foreman_part_2_quest_trigger"
+interaction_prompt_text = "Download Data"
+activation_conditions = Array[ExtResource("12_5yie7")]([SubResource("Resource_05y2f"), SubResource("Resource_a522u")])
+
+[node name="QuestWaypoint" parent="Terrain/InteractableComputer" instance=ExtResource("14_s5hlg")]
+transform = Transform3D(0.934211, 0, -0.356722, 0, 1, 0, 0.356722, 0, 0.934211, 8.29315, 1.12581, 19.046)
+id = "foreman_data_waypoint"
+
+[node name="Walls" type="Node3D" parent="Terrain"]
+
+[node name="OfficeWallPrefabDivot" parent="Terrain/Walls" instance=ExtResource("10_at035")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, 2.5)
+
+[node name="OfficeWallPrefabExtinguisher" parent="Terrain/Walls" instance=ExtResource("11_p4xor")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 5, 0, 2.5)
+
+[node name="OfficeWallPrefabBasic8" parent="Terrain/Walls" instance=ExtResource("11_1b46e")]
+transform = Transform3D(0.4, 0, -1.74846e-07, 0, 1, 0, 6.99384e-08, 0, 1, -3, 0, 5)
+
+[node name="OfficeWallPrefabBasic12" parent="Terrain/Walls" instance=ExtResource("11_1b46e")]
+transform = Transform3D(0.4, 0, -1.74846e-07, 0, 1, 0, 6.99384e-08, 0, 1, 3, 0, 5)
+
+[node name="OfficeWallPrefabBasic5" parent="Terrain/Walls" instance=ExtResource("11_1b46e")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 5, 0, -2.5)
+
+[node name="OfficeWallPrefabBasic6" parent="Terrain/Walls" instance=ExtResource("11_1b46e")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.5, 0, -5)
+
+[node name="OfficeWallPrefabBasic7" parent="Terrain/Walls" instance=ExtResource("11_1b46e")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.5, 0, -5)
+
+[node name="OfficeWallPrefabVent2" parent="Terrain/Walls" instance=ExtResource("12_cu1wf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, -2.5)
+
+[node name="Area" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area"]
+shape = SubResource("BoxShape3D_u3pwg")
+
+[node name="EnemySpawners" type="Node3D" parent="."]
+
+[node name="LootSpawners" type="Node3D" parent="."]
+
+[node name="TreasureLootTable" type="Node" parent="LootSpawners"]
+script = ExtResource("13_46u37")
+
+[node name="TicketBasedSpawnSystem" parent="LootSpawners" instance=ExtResource("14_pcu5r")]
+max_total_spawn_tickets = 2
+min_total_spawn_tickets = 0
+
+[node name="GroundItem" parent="LootSpawners/TicketBasedSpawnSystem" node_paths=PackedStringArray("loot_table") instance=ExtResource("15_5daj2")]
+transform = Transform3D(0.968865, 0, -0.247591, 0, 1, 0, 0.247591, 0, 0.968865, 3.73719, 1.27618, -1.55703)
+loot_table = NodePath("../../TreasureLootTable")
+
+[node name="RoomConnectors" type="Node3D" parent="."]
+
+[node name="NLIBasicRoomConnector3" parent="RoomConnectors" instance=ExtResource("16_pmq56")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 5)
+
+[node name="SecurityLockdownDoor" parent="RoomConnectors/NLIBasicRoomConnector3" instance=ExtResource("17_hffwk")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 8.74229e-08, 0, 0.5)
+destroyable = false
+
+[node name="ExitSpawnPoint" parent="." instance=ExtResource("18_sqc0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Greebles" type="Node3D" parent="."]
+
+[node name="HolosignWallGreeble" parent="Greebles" instance=ExtResource("19_t31th")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3177, 5.87704)
+
+[node name="TextMesh" parent="Greebles/HolosignWallGreeble" index="1"]
+mesh = SubResource("TextMesh_ha5yo")
+
+[node name="PraedatumComputerScreen" parent="Greebles" instance=ExtResource("23_8vgoh")]
+transform = Transform3D(-0.6, 0, -2.62268e-08, 0, 0.3, 0, 5.24537e-08, 0, -0.3, 4.87746, 3.08099, -3.58535)
+
+[node name="PraedatumComputerScreen2" parent="Greebles" instance=ExtResource("23_8vgoh")]
+transform = Transform3D(-0.6, 0, -2.62268e-08, 0, 0.3, 0, 5.24537e-08, 0, -0.3, 4.87746, 3.08099, -2.00333)
+
+[node name="PraedatumComputerScreen3" parent="Greebles" instance=ExtResource("23_8vgoh")]
+transform = Transform3D(-0.6, 0, -2.62268e-08, 0, 0.3, 0, 5.24537e-08, 0, -0.3, 4.87746, 3.08099, -0.440006)
+
+[node name="PraedatumComputerScreen4" parent="Greebles" instance=ExtResource("23_8vgoh")]
+transform = Transform3D(-0.6, 0, -2.62268e-08, 0, 0.3, 0, 5.24537e-08, 0, -0.3, 4.87746, 2.03416, -0.440006)
+
+[node name="PraedatumComputerScreen5" parent="Greebles" instance=ExtResource("23_8vgoh")]
+transform = Transform3D(-0.6, 0, -2.62268e-08, 0, 0.3, 0, 5.24537e-08, 0, -0.3, 4.87746, 2.03416, -2.00802)
+
+[node name="PraedatumComputerScreen6" parent="Greebles" instance=ExtResource("23_8vgoh")]
+transform = Transform3D(-0.6, 0, -2.62268e-08, 0, 0.3, 0, 5.24537e-08, 0, -0.3, 4.87746, 2.03416, -3.57939)
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]
+
+[editable path="Greebles/HolosignWallGreeble"]
+[editable path="Greebles/HolosignWallGreeble/HolosignWallGreeble"]

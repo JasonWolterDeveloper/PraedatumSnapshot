@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfiqi10jy7gax"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/MoraleBuffs/MoraleBuff.gd" id="1_8owqu"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="2_wd038"]
+[ext_resource type="Texture2D" uid="uid://dtxailrmt4rd1" path="res://Content/Demo/Assets/Items/Consumables/Morale/CupOfJoe/FancyCoffee/FancyCoffeeInventoryImage.png" id="3_7insg"]
+
+[sub_resource type="Resource" id="Resource_7bsj4"]
+script = ExtResource("2_wd038")
+stat_id = "health"
+value = 5.0
+is_multiplicative = false
+is_number_of_segments = false
+is_value_per_segment = true
+
+[sub_resource type="Resource" id="Resource_igi60"]
+script = ExtResource("2_wd038")
+stat_id = "mana"
+value = 15.0
+is_multiplicative = false
+is_number_of_segments = false
+is_value_per_segment = true
+
+[node name="FancyCoffeeBuff" type="Node"]
+script = ExtResource("1_8owqu")
+rpg_stat_modifiers = Array[ExtResource("2_wd038")]([SubResource("Resource_7bsj4"), SubResource("Resource_igi60")])
+base_duration = 600.0
+id = "FancyCoffee"
+ui_image = ExtResource("3_7insg")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtfi5ag3jes8b"]
+
+[ext_resource type="Material" uid="uid://c73ohs5pjl3fh" path="res://Content/Demo/Code/Levels/Rooms/FloorMaterial/OfficeFloorMaterial.tres" id="1_6mgfb"]
+[ext_resource type="PackedScene" uid="uid://btr7u4ovc2xw" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallOuterCorner.tscn" id="2_wnhhm"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="3_0uk2d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a033w"]
+size = Vector3(6, 0, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xrvsi"]
+material = ExtResource("1_6mgfb")
+size = Vector3(6, 0, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mi5j1"]
+size = Vector3(1, 0, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3htua"]
+material = ExtResource("1_6mgfb")
+size = Vector3(1, 0, 6)
+
+[node name="OfficeTJunction" type="Node3D"]
+
+[node name="Floor1" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor1"]
+shape = SubResource("BoxShape3D_a033w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor1"]
+mesh = SubResource("BoxMesh_xrvsi")
+
+[node name="Floor2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2"]
+shape = SubResource("BoxShape3D_mi5j1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor2"]
+mesh = SubResource("BoxMesh_3htua")
+
+[node name="OfficeWallOuterCorner" parent="." instance=ExtResource("2_wnhhm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+
+[node name="OfficeWallOuterCorner2" parent="." instance=ExtResource("2_wnhhm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 3)
+
+[node name="NLIWall" parent="." instance=ExtResource("3_0uk2d")]
+transform = Transform3D(-3.49691e-07, 0, 1, 0, 1, 0, -8, 0, -4.37114e-08, 3, 0, 0)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://brdme5wno58os"]
+
+[ext_resource type="PackedScene" uid="uid://d2v3h4rl7qcl2" path="res://Content/Demo/Assets/Items/Ammo/SmallCaliberPistolAmmo/SmallCaliberAmmoBox.glb" id="1_xp6id"]
+
+[node name="SmallCaliberAmmoBoxGroundModel" type="Node3D"]
+
+[node name="SmallCaliberAmmoBox" parent="." instance=ExtResource("1_xp6id")]
+transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, 0, 0, 0)

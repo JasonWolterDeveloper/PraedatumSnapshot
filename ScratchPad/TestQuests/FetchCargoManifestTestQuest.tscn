@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1g0yivmrpraj"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/Quests/FetchQuest.gd" id="1_kh8ao"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Quests/QuestStep.gd" id="2_8tksq"]
+[ext_resource type="Script" path="res://BaseGameObjects/TriggerSystem/ConditionEvaluator.gd" id="3_vvemq"]
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/ConditionEvaluators/HasItemConditionEvaluator.gd" id="4_vkqri"]
+[ext_resource type="PackedScene" uid="uid://bbywr7sy1uqut" path="res://Content/Demo/Code/Items/Aid/Experience/TomeOfExperience.tscn" id="5_wtm86"]
+[ext_resource type="PackedScene" uid="uid://f6hgb2xt586e" path="res://Content/Default/Code/Items/Scrip.tscn" id="6_cvpbv"]
+[ext_resource type="PackedScene" uid="uid://4d3osy1662sk" path="res://Content/Demo/Code/Items/Ammo/SmallCaliberPistolAmmo.tscn" id="7_wa31s"]
+
+[sub_resource type="Resource" id="Resource_tt1tw"]
+script = ExtResource("4_vkqri")
+item_id = "cargo_manifest"
+item_quantity = 1
+include_inventory = true
+include_stash = true
+inverted = false
+
+[sub_resource type="Resource" id="Resource_a6tll"]
+script = ExtResource("4_vkqri")
+item_id = "cargo_manifest"
+item_quantity = 1
+include_inventory = true
+include_stash = true
+inverted = false
+
+[node name="FetchCargoManifestTestQuest" type="Node"]
+script = ExtResource("1_kh8ao")
+quest_cost = {
+"cargo_manifest": 1
+}
+completion_condition_evaluators = Array[ExtResource("3_vvemq")]([SubResource("Resource_tt1tw")])
+display_name = "Shoplifting P. 1"
+quest_id = "shoplifting_part_1"
+quest_description = "There are a number of items that I have been hoping to... acquire from Ninth Level Industries, but, I need to know where they are located within the facility
+
+The latest shipment to NLI's loading dock included a cargo manifest that should help me find what I, erm \"need\". Would you go pick it up for me and bring it back here?
+
+Thanks! You're a gem!"
+should_award_experience = false
+
+[node name="QuestStep" type="Node" parent="."]
+script = ExtResource("2_8tksq")
+success_conditions = Array[ExtResource("3_vvemq")]([SubResource("Resource_a6tll")])
+should_uncomplete_if_conditions_not_met = true
+quest_step_id = "retrieve_cargo_manifest"
+display_name = "Acquire the Cargo Manifest"
+
+[node name="QuestReward" type="Node3D" parent="."]
+
+[node name="TomeOfExperience" parent="QuestReward" instance=ExtResource("5_wtm86")]
+
+[node name="Scrip" parent="QuestReward" instance=ExtResource("6_cvpbv")]
+current_quantity = 500
+
+[node name="SmallCaliberPistolAmmo" parent="QuestReward" instance=ExtResource("7_wa31s")]

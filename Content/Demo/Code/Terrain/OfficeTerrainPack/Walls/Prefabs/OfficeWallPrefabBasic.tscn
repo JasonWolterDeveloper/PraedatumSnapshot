@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bafdbdjpmgphd"]
+
+[ext_resource type="PackedScene" uid="uid://c14yeba554ow1" path="res://BaseGameObjects/Terrain/Walls/Wall.tscn" id="1_xusvx"]
+[ext_resource type="PackedScene" uid="uid://bufpahsb7jek6" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallSegment.tscn" id="2_yyq1i"]
+[ext_resource type="Material" uid="uid://fp3hdtajq0n6" path="res://Content/Default/Code/Levels/VoidTexture.tres" id="3_8yer6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_thkjs"]
+material = ExtResource("3_8yer6")
+size = Vector3(1, 4.05, 0.2)
+
+[node name="OfficeWallPrefabBasic" type="Node3D"]
+
+[node name="Wall" parent="." instance=ExtResource("1_xusvx")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="OfficeWallSegment" parent="Wall" instance=ExtResource("2_yyq1i")]
+
+[node name="VoidPart" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_thkjs")

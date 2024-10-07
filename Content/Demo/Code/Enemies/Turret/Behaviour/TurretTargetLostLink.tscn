@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb6bxenonnowd"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretTargetLostLink.gd" id="1_vyglj"]
+
+[node name="TurretTargetLostLink" type="Node3D"]
+script = ExtResource("1_vyglj")

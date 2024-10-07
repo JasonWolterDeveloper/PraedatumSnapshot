@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1iyt48pjsr43"]
+
+[ext_resource type="PackedScene" uid="uid://v4a4upg7bu6x" path="res://BaseGameObjects/Inventory/CombatItems/UtilityItems/ExplosiveCharge/ExplosiveChargeUtilityItem.tscn" id="1_cqut5"]
+[ext_resource type="Texture2D" uid="uid://bm476wl6qeudb" path="res://Content/TestContent/Assets/Sprites/Items/Utilities/ExplosiveCharge/BasicExplosiveCharge.png" id="2_wx7u0"]
+[ext_resource type="Texture2D" uid="uid://tlleshagymd1" path="res://Content/TestContent/Assets/Sprites/Items/Utilities/ExplosiveCharge/BasicExplosiveDetonator.png" id="3_qpvfv"]
+[ext_resource type="PackedScene" uid="uid://bf3j1skxccd8s" path="res://Content/TestContent/Code/UtilityItems/Combat/TestExplosiveChargePlaced.tscn" id="4_3gy8e"]
+
+[node name="TestExplosiveCharge" instance=ExtResource("1_cqut5")]
+charge_inventory_image = ExtResource("2_wx7u0")
+detonator_inventory_image = ExtResource("3_qpvfv")
+placed_explosive_charge_scene = ExtResource("4_3gy8e")
+delete_at_zero_quantity = true
+inventory_image = ExtResource("2_wx7u0")
+show_quantity_in_ui = false
+grid_square_width = 2
+grid_square_height = 2

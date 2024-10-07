@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://3uir4aes2tbw"]
+
+[ext_resource type="PackedScene" uid="uid://ot0fyd2ci6gu" path="res://Content/Demo/Assets/Items/Consumables/Morale/Donut/PremiumDonut/PremiumDonut.glb" id="1_wh7od"]
+
+[node name="MoralePremiumDonutGroundModel" type="Node3D"]
+
+[node name="PremiumDonut" parent="." instance=ExtResource("1_wh7od")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)

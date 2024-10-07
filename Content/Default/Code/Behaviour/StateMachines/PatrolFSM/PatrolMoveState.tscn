@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://birl0lyo8obkq"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/Behaviour/StateMachines/PatrolFSM/PatrolMoveState.gd" id="1_s41m3"]
+
+[node name="PatrolMoveState" type="Node3D"]
+script = ExtResource("1_s41m3")

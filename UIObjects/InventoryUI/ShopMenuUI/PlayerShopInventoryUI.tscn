@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8mho4n2nyho0"]
+
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ShopMenuUI/PlayerShopInventoryUI.gd" id="1_lb1tv"]
+[ext_resource type="PackedScene" uid="uid://q2wdjasf2aqw" path="res://UIObjects/InventoryUI/InventoryGrid.tscn" id="2_is23y"]
+[ext_resource type="Texture2D" uid="uid://bfbashmb6nx1f" path="res://Content/Default/Assets/UI/Inventory/InventoryBaseSquare.png" id="3_eyy2d"]
+[ext_resource type="PackedScene" uid="uid://do6624cqw3t3q" path="res://UIObjects/InventoryUI/ItemDescription/ItemPopupLabel.tscn" id="4_y3ej7"]
+
+[node name="PlayerShopInventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lb1tv")
+
+[node name="InventoryGrid" parent="." instance=ExtResource("2_is23y")]
+layout_mode = 1
+texture = ExtResource("3_eyy2d")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="ItemPopupLabel" parent="." instance=ExtResource("4_y3ej7")]
+visible = false
+top_level = true
+z_index = 10

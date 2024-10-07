@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv3npnhtjtj3q"]
+
+[ext_resource type="PackedScene" uid="uid://dv7tdhty4a8qp" path="res://Content/Demo/Assets/Terrain/Obstacles/Crate/Crate.glb" id="1_tigyi"]
+
+[node name="Crate" instance=ExtResource("1_tigyi")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

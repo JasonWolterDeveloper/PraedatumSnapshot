@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl7dyi6mdlhvp"]
+
+[ext_resource type="Texture2D" uid="uid://btmfd01hoijtt" path="res://UIObjects/Assets/HUD/VectorGraphics/ArmourUI/ArmourPipEmpty.png" id="1_2i3gt"]
+[ext_resource type="Script" path="res://UIObjects/BaseFacilityMenu/Components/BaseFacilityLevelUI/BaseFacilityLevelPip.gd" id="1_cr8n0"]
+[ext_resource type="Texture2D" uid="uid://2vtups6xn3vh" path="res://UIObjects/Assets/HUD/VectorGraphics/ArmourUI/ArmourPipFull.png" id="2_7813o"]
+
+[node name="BaseFacilityLevelPip" type="BoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cr8n0")
+
+[node name="Empty" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_2i3gt")
+stretch_mode = 2
+
+[node name="Filled" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_7813o")
+stretch_mode = 2

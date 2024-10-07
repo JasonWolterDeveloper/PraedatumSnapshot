@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://qjgqu8m6jh41"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/StatusEffects/Restoration/RestoreManaOverTime.gd" id="1_uplvu"]
+
+[node name="GreaterManaPotionStatusEffect" type="Node3D"]
+script = ExtResource("1_uplvu")
+restoration_per_second = 10.0
+periodic_effect = true
+period_length = 0.1
+duration = 7.5

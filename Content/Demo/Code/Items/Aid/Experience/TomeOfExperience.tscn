@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbywr7sy1uqut"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Aid/Experience/TomeOfExperience.gd" id="1_mpg6p"]
+[ext_resource type="Texture2D" uid="uid://cvufiwjceeqlh" path="res://Content/Demo/Assets/Items/Consumables/TomeOfExperience/TomeOfExperienceInventoryImage.png" id="2_d3wnw"]
+[ext_resource type="PackedScene" uid="uid://b20nhunma35u6" path="res://Content/Demo/Assets/Items/Consumables/TomeOfExperience/TomeOfExperienceGroundModel.tscn" id="3_kieep"]
+
+[node name="TomeOfExperience" type="Node3D"]
+script = ExtResource("1_mpg6p")
+utility_item_use_message = "Gained Experience from Book"
+inventory_image = ExtResource("2_d3wnw")
+ground_3d_model_scene = ExtResource("3_kieep")
+display_name = "Tome Of Experience"
+item_id = "tome_of_experience"
+usable_from_inventory = true
+default_price = 2500
+item_type = 3
+grid_square_width = 1
+grid_square_height = 1

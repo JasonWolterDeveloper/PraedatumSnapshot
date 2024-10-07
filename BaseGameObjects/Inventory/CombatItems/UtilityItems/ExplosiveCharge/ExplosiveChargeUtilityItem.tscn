@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://v4a4upg7bu6x"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/UtilityItems/ExplosiveCharge/ExplosiveChargeUtilityItem.gd" id="2_f2de4"]
+
+[node name="ExplosiveChargeUtilityItem" type="Node3D"]
+script = ExtResource("2_f2de4")
+item_type = 3

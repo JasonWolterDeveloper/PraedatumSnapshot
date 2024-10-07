@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://7pvswhu15xc7"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/RoomConnector.gd" id="1_b48po"]
+
+[node name="RoomConnector" type="Node3D"]
+script = ExtResource("1_b48po")
+
+[node name="DoorPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+gizmo_extents = 1.0

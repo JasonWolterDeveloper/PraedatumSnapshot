@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://tudcep01so6d"]
+
+[node name="ModularWallSegment" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]

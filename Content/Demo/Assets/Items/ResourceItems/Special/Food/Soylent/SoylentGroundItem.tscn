@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqw6u6tmp4dy3"]
+
+[ext_resource type="PackedScene" uid="uid://cklvmhrk3ekpr" path="res://Content/Demo/Assets/Items/ResourceItems/Special/Food/Soylent/Soylent.glb" id="1_4t4un"]
+
+[node name="SoylentGroundItem" type="Node3D"]
+
+[node name="Soylent" parent="." instance=ExtResource("1_4t4un")]
+transform = Transform3D(-6.55671e-09, 0.15, 0, -0.15, -6.55671e-09, 0, 0, 0, 0.15, -0.0550747, 0.255012, 0)

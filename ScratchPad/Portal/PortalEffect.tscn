@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgoly5dmtdqvc"]
+
+[ext_resource type="Shader" uid="uid://mgan3540xooy" path="res://ScratchPad/Portal/PortalEffect.tres" id="1_wnfxj"]
+[ext_resource type="Shader" uid="uid://jsa31s3jlg1s" path="res://ScratchPad/Portal/PortalEffectOutline.tres" id="2_76c5s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oojct"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_wnfxj")
+shader_parameter/main_colour = Color(0.3, 0.7, 3, 1)
+shader_parameter/cull_height = 1.25
+shader_parameter/noise_scale = 0.3
+shader_parameter/inverse_wobble_time = 4.0
+shader_parameter/emissivity = Color(0.3, 0.7, 3, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m5ksh"]
+material = SubResource("ShaderMaterial_oojct")
+rings = 0
+cap_bottom = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x4bsw"]
+render_priority = 0
+shader = ExtResource("2_76c5s")
+shader_parameter/main_colour = Color(0.89664, 0.991443, 0.998806, 1)
+shader_parameter/cull_height = 1.25
+shader_parameter/noise_scale = 0.3
+shader_parameter/inverse_wobble_time = 4.0
+shader_parameter/outline_height = 0.1
+shader_parameter/emissivity = Color(0.733, 0.733, 2, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hf5ng"]
+material = SubResource("ShaderMaterial_x4bsw")
+rings = 0
+cap_bottom = false
+
+[node name="PortalEffect" type="Node3D"]
+
+[node name="Cylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0149, 0)
+mesh = SubResource("CylinderMesh_m5ksh")
+
+[node name="Cylinder2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0149, 0)
+mesh = SubResource("CylinderMesh_hf5ng")

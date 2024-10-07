@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkr1d2gxli76a"]
+
+[ext_resource type="PackedScene" uid="uid://c47uwnoohytgh" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/SecurityBolt.glb" id="1_s11ee"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ds58b"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.733002, 2.75549e-06, 6.73831e-07, 1)
+emission_energy_multiplier = 5.0
+
+[node name="SecurityBolt" instance=ExtResource("1_s11ee")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ds58b")

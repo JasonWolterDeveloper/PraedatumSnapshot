@@ -1,0 +1,1204 @@
+[gd_scene load_steps=94 format=3 uid="uid://c5ann12jnvmg"]
+
+[ext_resource type="PackedScene" uid="uid://bgj3h4qtwgwkk" path="res://BaseGameObjects/Level.tscn" id="1_lvrho"]
+[ext_resource type="PackedScene" uid="uid://bl176wggn7k33" path="res://BaseGameObjects/Player.tscn" id="2_1sywc"]
+[ext_resource type="PackedScene" uid="uid://d20g8emqbllwu" path="res://Content/Default/Code/Levels/Void.tscn" id="2_5b2oy"]
+[ext_resource type="PackedScene" uid="uid://po6lvcfyga46" path="res://Content/Demo/Code/Terrain/Greebles/HolosignWallGreeble.tscn" id="2_8ff53"]
+[ext_resource type="PackedScene" uid="uid://bnideqtfbn8ib" path="res://BaseGameObjects/TriggerSystem/Trigger.tscn" id="2_68vcp"]
+[ext_resource type="PackedScene" uid="uid://dt6t3wrrcsds1" path="res://Content/Default/Code/InteractableObjects/GroundItem.tscn" id="2_jlx0t"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Level1/LootTables/WeaponLootTable.gd" id="2_kgn8u"]
+[ext_resource type="PackedScene" uid="uid://d8vcljbj8r00" path="res://Content/Default/Code/InteractableObjects/ExtractionPortal.tscn" id="2_uecu5"]
+[ext_resource type="PackedScene" uid="uid://bnrbfeusfsh5" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Foyer.tscn" id="3_j1nit"]
+[ext_resource type="FontFile" uid="uid://dj6pnll8rn3sy" path="res://UIObjects/Assets/Fonts/unispace.ttf" id="3_ml4cw"]
+[ext_resource type="PackedScene" uid="uid://cd4suwqxhekxn" path="res://Content/Default/Code/TriggerSystem/Effects/UnlockDoorEffect.tscn" id="3_rbnxd"]
+[ext_resource type="PackedScene" uid="uid://cfcg4n5b4ptpt" path="res://UIObjects/InventoryUI/ShopMenuUI/ShopMenu.tscn" id="4_mctt3"]
+[ext_resource type="Shader" path="res://Content/Demo/Code/Terrain/Greebles/HolosignWallGreeble.gdshader" id="4_qapgw"]
+[ext_resource type="PackedScene" uid="uid://qem8a8r3pv07" path="res://Content/Default/Code/TriggerSystem/Effects/SetActivatedInteractableObjectEffect.tscn" id="4_ueiwe"]
+[ext_resource type="AudioStream" uid="uid://bouqwy2481u4d" path="res://Content/Demo/Assets/Music/MainMenu/Karl Casey - White Bat I - 01 Elysium.ogg" id="8_4ed5n"]
+[ext_resource type="PackedScene" uid="uid://8arkf12rc2n" path="res://Content/Demo/Code/Levels/Rooms/CustomerService/CustomerServiceRoom.tscn" id="9_vgtpm"]
+[ext_resource type="PackedScene" uid="uid://bnb7cbsaksj6d" path="res://BaseGameObjects/Terrain/Rooms/Room.tscn" id="10_imdgo"]
+[ext_resource type="PackedScene" uid="uid://cxpqbqtumxem0" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Hallways/BuildingBlocks/OfficeHallEnd.tscn" id="11_sren8"]
+[ext_resource type="PackedScene" uid="uid://br80hhtrgwnw4" path="res://Content/Demo/Code/Levels/Rooms/CustomerService/CustomerServiceRoom2.tscn" id="11_xneq7"]
+[ext_resource type="PackedScene" uid="uid://bp8y8be8drit5" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Hallways/BuildingBlocks/OfficeTurn.tscn" id="11_yd5yq"]
+[ext_resource type="PackedScene" uid="uid://5nmwy0m4aw57" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Hallways/BuildingBlocks/OfficeHall.tscn" id="13_oxgqf"]
+[ext_resource type="PackedScene" uid="uid://dtfi5ag3jes8b" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/Hallways/BuildingBlocks/OfficeTJunction.tscn" id="14_cykkp"]
+[ext_resource type="PackedScene" uid="uid://c5mhwyp2ft3fk" path="res://Content/Default/Code/TriggerSystem/Effects/LevelTransitionTriggerEffect.tscn" id="18_khmun"]
+[ext_resource type="PackedScene" uid="uid://b2wiip7fcwn23" path="res://Content/Default/Code/TriggerSystem/Effects/Messages/DisplayHintEffect.tscn" id="21_8cax5"]
+[ext_resource type="PackedScene" uid="uid://btl8xj2xo6ahl" path="res://Content/Default/Code/TriggerSystem/Effects/ActivateMonsterClosetTriggerEffect.tscn" id="21_438vn"]
+[ext_resource type="Texture2D" uid="uid://d3vx1ej6qcmr7" path="res://Content/Demo/Assets/RPGMechanics/ConversationCharacters/Legionnaire/DefaultPortrait.png" id="22_axd46"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationCharacter.gd" id="22_ep3e3"]
+[ext_resource type="PackedScene" uid="uid://cfl4v3aexofgf" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/NLIDoor.tscn" id="25_5ghy6"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="25_e4y17"]
+[ext_resource type="Material" uid="uid://c73ohs5pjl3fh" path="res://Content/Demo/Code/Levels/Rooms/FloorMaterial/OfficeFloorMaterial.tres" id="26_5xrhv"]
+[ext_resource type="PackedScene" uid="uid://cruk2ufv2t61k" path="res://Content/Demo/Code/InteractableObjects/TriggerInteractableObjects/TriggerInteractableNLIButtonWall.tscn" id="28_5d6vo"]
+[ext_resource type="PackedScene" uid="uid://cn4md1ex3y74l" path="res://Content/Demo/Code/Items/Aid/Morale/MachoMunch/MachoMunch.tscn" id="31_220hi"]
+[ext_resource type="PackedScene" uid="uid://d0aup5lm658mt" path="res://Content/Demo/Code/Levels/Level1/Rooms/LoadingDock/LoadingDockCommissary.tscn" id="32_00gao"]
+[ext_resource type="PackedScene" uid="uid://dkcbcw5ug3af4" path="res://Content/Demo/Code/Items/Aid/Mana/Instant/ManaPotion/GreaterManaPotion.tscn" id="32_3lt30"]
+[ext_resource type="PackedScene" uid="uid://dckx87yok3eou" path="res://UIObjects/PlayerHUD/TabStatusMenu/TabStatusPanel.tscn" id="32_pm1ts"]
+[ext_resource type="PackedScene" uid="uid://dkfd8n7t7nis1" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/Crate/DoubleCrateObstacle.tscn" id="41_7wsk7"]
+[ext_resource type="PackedScene" uid="uid://dkqcr854w5h5r" path="res://BaseGameObjects/SoundMaster.tscn" id="41_x8jwj"]
+[ext_resource type="AudioStream" uid="uid://c6b8xuibo35ba" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - Gore - 04 Replicant Hunter.ogg" id="42_e5556"]
+[ext_resource type="PackedScene" uid="uid://c4fabl4lbphv0" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/Crate/CrateObstacleSmall.tscn" id="42_ms31c"]
+[ext_resource type="PackedScene" uid="uid://d0ujnjpgqxkp5" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/OfficeDeskAndChair/OfficeChairObstacle.tscn" id="43_08e3w"]
+[ext_resource type="AudioStream" uid="uid://bmns83ixnseqd" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - Technoir - 04 Covenant.ogg" id="43_m5m1i"]
+[ext_resource type="PackedScene" uid="uid://dcuts0et3frht" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/OfficeDeskAndChair/DeskObstacle.tscn" id="44_3cxbk"]
+[ext_resource type="AudioStream" uid="uid://bqk16b1a8jbwp" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat XVI - 01 Upgrade.ogg" id="44_6x63i"]
+[ext_resource type="PackedScene" uid="uid://ce7kbssgu33di" path="res://Content/Demo/Code/Levels/Level1/Rooms/LoadingDock/NewLoadingDockRoom.tscn" id="45_6a2hb"]
+[ext_resource type="PackedScene" uid="uid://c0y5xg7rr5udg" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/Crate/CrateObstacle.tscn" id="45_7syfj"]
+[ext_resource type="PackedScene" uid="uid://2gu85cg3m1r4" path="res://Content/Demo/Code/Levels/Rooms/EmployeeLockerRoom.tscn" id="45_grmgv"]
+[ext_resource type="AudioStream" uid="uid://2yocm1u2b7q5" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat XXII - 02 White Tiger.ogg" id="45_va43u"]
+[ext_resource type="AudioStream" uid="uid://bjfppxwvxtv8a" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat XXIX - 03 White Gold.ogg" id="46_lrpnp"]
+[ext_resource type="AudioStream" uid="uid://cycmbnafi3sty" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat XXX - 04 Diamond Eye.ogg" id="47_vbsni"]
+[ext_resource type="AudioStream" uid="uid://b7r13se5x6sxu" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - Technoir - 07 Cursed.ogg" id="48_qwmnn"]
+[ext_resource type="AudioStream" uid="uid://by6f13xhaddpr" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat II - 24 Lost in Space.ogg" id="50_7c8f8"]
+[ext_resource type="PackedScene" uid="uid://cb78sar46vq83" path="res://BaseGameObjects/Terrain/Floor.tscn" id="51_45nde"]
+[ext_resource type="AudioStream" uid="uid://daplb64ao5rg6" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat IV - 03 Sycophant.ogg" id="51_pmr3x"]
+[ext_resource type="PackedScene" uid="uid://dpf7tbun3blnd" path="res://Content/Demo/Code/Levels/Level1/Rooms/LoadingDock/CustomerServiceDesk2.tscn" id="52_gpmq6"]
+[ext_resource type="PackedScene" uid="uid://bw3txp86gapre" path="res://Content/Demo/Code/Levels/Level1/Rooms/LoadingDock/CustomerServiceDesk.tscn" id="52_k5ayg"]
+[ext_resource type="AudioStream" uid="uid://dl8cqfv665o68" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat VI - 08 Dangerous.ogg" id="52_s1s2q"]
+[ext_resource type="AudioStream" uid="uid://uhoctj2aaq5h" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat XI - 06 Redux.ogg" id="53_f2rui"]
+[ext_resource type="AudioStream" uid="uid://cs3rsdlbh82l" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat XII - 09 Galaxy.ogg" id="54_n2wdc"]
+[ext_resource type="AudioStream" uid="uid://bopyilj4ealbe" path="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat XIII - 01 Space Dust.ogg" id="55_jw7l3"]
+[ext_resource type="PackedScene" uid="uid://bafdbdjpmgphd" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabBasic.tscn" id="57_00s37"]
+[ext_resource type="PackedScene" uid="uid://ckbhwvpowiykp" path="res://Content/Default/Code/TriggerSystem/Activators/TriggerActivationArea.tscn" id="61_fqtsq"]
+[ext_resource type="Script" path="res://BaseGameObjects/Levels/SpawnSystems/TicketsBasedSpawnSystem.gd" id="62_tfb05"]
+[ext_resource type="PackedScene" uid="uid://dlkt24rw4n47w" path="res://Content/Demo/Code/Enemies/WageCage/Zombie.tscn" id="63_nowly"]
+[ext_resource type="PackedScene" uid="uid://rdbil6eeu05e" path="res://Content/Demo/Code/Enemies/GunDrone/GunDroneEnemy.tscn" id="64_d7y84"]
+[ext_resource type="PackedScene" uid="uid://bk8wso3tg1vs4" path="res://BaseGameObjects/Behaviour/Patrol/Patrol.tscn" id="64_timmf"]
+[ext_resource type="PackedScene" uid="uid://b2nq2it3xhtxa" path="res://Content/Demo/Code/Enemies/NanomachineHive/NanomachineHiveEnemy.tscn" id="65_u2dgg"]
+[ext_resource type="PackedScene" uid="uid://by0du1leu31pl" path="res://BaseGameObjects/Behaviour/Patrol/PatrolWaypoint.tscn" id="65_w3hf3"]
+[ext_resource type="PackedScene" uid="uid://dg2ua1q4u6vj0" path="res://Content/Demo/Code/Levels/Level1/Rooms/LoadingDock/EmployeeBreakRoom.tscn" id="68_lc0fl"]
+[ext_resource type="PackedScene" uid="uid://c1qsd5opmv0u6" path="res://Content/Demo/Code/InteractableObjects/LootObjects/Military/WeaponLootCrate.tscn" id="69_bi0a8"]
+
+[sub_resource type="Resource" id="Resource_pqr2w"]
+script = ExtResource("22_ep3e3")
+unique_id = "legionnaire"
+display_name = "Legionnaire"
+display_name_colour = Color(0.172268, 0.495041, 0.747829, 1)
+portraits = {
+"default": ExtResource("22_axd46")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y7tgh"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_qapgw")
+shader_parameter/shine_color = Color(7.70092e-07, 0.732587, 0.830645, 1)
+shader_parameter/cycle_interval = 1.0
+shader_parameter/shine_speed = 4.0
+shader_parameter/shine_width = 15.0
+shader_parameter/invert_direction = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqw54"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_y7tgh")
+transparency = 1
+albedo_color = Color(0.145, 1, 1, 0.123)
+emission_enabled = true
+emission = Color(0, 0.521569, 0.521569, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="TextMesh" id="TextMesh_t4guy"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_qqw54")
+text = "EMPLOYEE PROCESSING -->"
+font = ExtResource("3_ml4cw")
+font_size = 24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qn1r7"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_qapgw")
+shader_parameter/shine_color = Color(7.70092e-07, 0.732587, 0.830645, 1)
+shader_parameter/cycle_interval = 1.0
+shader_parameter/shine_speed = 4.0
+shader_parameter/shine_width = 15.0
+shader_parameter/invert_direction = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbltr"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_qn1r7")
+transparency = 1
+albedo_color = Color(0.145, 1, 1, 0.123)
+emission_enabled = true
+emission = Color(0, 0.521569, 0.521569, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="TextMesh" id="TextMesh_ppm7o"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_cbltr")
+text = "LOADING DOCK -->"
+font = ExtResource("3_ml4cw")
+font_size = 24
+
+[sub_resource type="TextMesh" id="TextMesh_wlcgn"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_cbltr")
+text = "LOADING DOCK"
+font = ExtResource("3_ml4cw")
+font_size = 24
+
+[sub_resource type="TextMesh" id="TextMesh_qnp6h"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_cbltr")
+text = "COMMISSARY -->"
+font = ExtResource("3_ml4cw")
+font_size = 24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6kmpc"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_qapgw")
+shader_parameter/shine_color = Color(7.70092e-07, 0.732587, 0.830645, 1)
+shader_parameter/cycle_interval = 1.0
+shader_parameter/shine_speed = 4.0
+shader_parameter/shine_width = 15.0
+shader_parameter/invert_direction = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2k332"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_6kmpc")
+transparency = 1
+albedo_color = Color(0.145, 1, 1, 0.123)
+emission_enabled = true
+emission = Color(0, 0.521569, 0.521569, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="TextMesh" id="TextMesh_pxcot"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_2k332")
+text = "<-- CUSTOMER SERVICE"
+font = ExtResource("3_ml4cw")
+font_size = 24
+
+[sub_resource type="TextMesh" id="TextMesh_w5asp"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_2k332")
+text = "<-- 9-MART"
+font = ExtResource("3_ml4cw")
+font_size = 24
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3jopm"]
+streams_count = 14
+stream_0/stream = ExtResource("42_e5556")
+stream_1/stream = ExtResource("43_m5m1i")
+stream_2/stream = ExtResource("48_qwmnn")
+stream_3/stream = ExtResource("50_7c8f8")
+stream_4/stream = ExtResource("51_pmr3x")
+stream_5/stream = ExtResource("52_s1s2q")
+stream_6/stream = ExtResource("53_f2rui")
+stream_7/stream = ExtResource("54_n2wdc")
+stream_8/stream = ExtResource("55_jw7l3")
+stream_9/stream = ExtResource("44_6x63i")
+stream_10/stream = ExtResource("45_va43u")
+stream_11/stream = ExtResource("46_lrpnp")
+stream_12/stream = ExtResource("47_vbsni")
+stream_13/stream = ExtResource("8_4ed5n")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_26fbr"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_vbijl"]
+sky_material = SubResource("ProceduralSkyMaterial_26fbr")
+
+[sub_resource type="Environment" id="Environment_skj76"]
+background_mode = 2
+background_energy_multiplier = 1.5
+sky = SubResource("Sky_vbijl")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shg5f"]
+resource_local_to_scene = true
+render_priority = -100
+transparency = 1
+depth_draw_mode = 1
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jerb3"]
+size = Vector3(6, 0, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ljypd"]
+material = ExtResource("26_5xrhv")
+size = Vector3(6, 0, 6)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k3had"]
+material = ExtResource("26_5xrhv")
+size = Vector2(1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a033w"]
+size = Vector3(6, 0, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xrvsi"]
+material = ExtResource("26_5xrhv")
+size = Vector3(6, 0, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5y0yb"]
+size = Vector3(20.5, 4, 5.5)
+
+[node name="LevelTestFloor1" instance=ExtResource("1_lvrho")]
+
+[node name="LootTables" type="Node" parent="." index="0"]
+
+[node name="WeaponLootTable" type="Node" parent="LootTables" index="0"]
+script = ExtResource("2_kgn8u")
+
+[node name="Triggers" type="Node" parent="." index="1"]
+
+[node name="AnotherHintTrigger" parent="Triggers" index="0" instance=ExtResource("2_68vcp")]
+trigger_id = "another_hint"
+
+[node name="DisplayHintEffect2" parent="Triggers/AnotherHintTrigger" index="0" instance=ExtResource("21_8cax5")]
+text = "Well This is another Hint"
+hint_character = SubResource("Resource_pqr2w")
+
+[node name="HintTestTrigger" parent="Triggers" index="1" instance=ExtResource("2_68vcp")]
+trigger_id = "hint_test_trigger"
+
+[node name="DisplayHintEffect" parent="Triggers/HintTestTrigger" index="0" instance=ExtResource("21_8cax5")]
+text = "This is a Test Hint. Pretty cool huh?"
+hint_character = SubResource("Resource_pqr2w")
+
+[node name="ExitToFloor2Trigger" parent="Triggers" index="2" instance=ExtResource("2_68vcp")]
+trigger_id = "go_to_level_2"
+
+[node name="LevelTransitionTriggerEffect" parent="Triggers/ExitToFloor2Trigger" index="0" instance=ExtResource("18_khmun")]
+destination_level = "res://Content/Demo/Code/Levels/RoomSystemTestLevel.tscn"
+
+[node name="SecurityLockdownTrigger" parent="Triggers" index="3" instance=ExtResource("2_68vcp")]
+trigger_id = "lift_security_lockdown"
+trigger_persists = true
+trigger_save_key = "floor1_security_lockdown"
+
+[node name="UnlockDoorEffect2" parent="Triggers/SecurityLockdownTrigger" index="0" instance=ExtResource("3_rbnxd")]
+
+[node name="UnlockDoorEffect" parent="Triggers/SecurityLockdownTrigger" index="1" instance=ExtResource("3_rbnxd")]
+
+[node name="EastWingShortcut" parent="Triggers" index="4" instance=ExtResource("2_68vcp")]
+trigger_id = "floor_1_east_wing_shortcut"
+trigger_persists = true
+trigger_save_key = "floor_1_east_wing_shortcut_unlocked"
+
+[node name="UnlockDoorEffect" parent="Triggers/EastWingShortcut" index="0" node_paths=PackedStringArray("door") instance=ExtResource("3_rbnxd")]
+door = NodePath("../../../RoomMaster/EastWingShortCutHallway/Terrain/BuildingBlocks/OfficeHallEnd7/NLIBasicRoomConnector/EastwingShorcutDoor")
+
+[node name="SetActivatedInteractableObjectEffect" parent="Triggers/EastWingShortcut" index="1" node_paths=PackedStringArray("interactable_object") instance=ExtResource("4_ueiwe")]
+interactable_object = NodePath("../../../RoomMaster/EastWingShortCutHallway/EastWingShortcutButton")
+
+[node name="MonsterClosetTestTrigger" parent="Triggers" index="5" instance=ExtResource("2_68vcp")]
+trigger_id = "monster_closet_test"
+
+[node name="ActivateMonsterClosetTriggerEffect" parent="Triggers/MonsterClosetTestTrigger" index="0" instance=ExtResource("21_438vn")]
+
+[node name="Greebles" type="Node3D" parent="." index="2"]
+
+[node name="Holosigns" type="Node3D" parent="Greebles" index="0"]
+
+[node name="HolosignWallGreeble" parent="Greebles/Holosigns" index="0" instance=ExtResource("2_8ff53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.725, 3, -22.8104)
+invert_direction = true
+
+[node name="TextMesh" parent="Greebles/Holosigns/HolosignWallGreeble" index="1"]
+mesh = SubResource("TextMesh_t4guy")
+
+[node name="HolosignWallGreeble4" parent="Greebles/Holosigns" index="1" instance=ExtResource("2_8ff53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.725, 2, -22.8104)
+invert_direction = true
+
+[node name="TextMesh" parent="Greebles/Holosigns/HolosignWallGreeble4" index="1"]
+mesh = SubResource("TextMesh_ppm7o")
+
+[node name="HolosignWallGreeble6" parent="Greebles/Holosigns" index="2" instance=ExtResource("2_8ff53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, 3.313, -25.176)
+invert_direction = true
+
+[node name="Cube_080" parent="Greebles/Holosigns/HolosignWallGreeble6/HolosignWallGreeble" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.474, -0.029)
+
+[node name="TextMesh" parent="Greebles/Holosigns/HolosignWallGreeble6" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.301, 0.501)
+mesh = SubResource("TextMesh_wlcgn")
+
+[node name="HolosignWallGreeble5" parent="Greebles/Holosigns" index="3" instance=ExtResource("2_8ff53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.725, 1, -22.8104)
+invert_direction = true
+
+[node name="TextMesh" parent="Greebles/Holosigns/HolosignWallGreeble5" index="1"]
+mesh = SubResource("TextMesh_qnp6h")
+
+[node name="HolosignWallGreeble2" parent="Greebles/Holosigns" index="4" instance=ExtResource("2_8ff53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.225, 3, -22.8104)
+
+[node name="TextMesh" parent="Greebles/Holosigns/HolosignWallGreeble2" index="1"]
+mesh = SubResource("TextMesh_pxcot")
+
+[node name="HolosignWallGreeble3" parent="Greebles/Holosigns" index="5" instance=ExtResource("2_8ff53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.225, 2, -22.8104)
+
+[node name="TextMesh" parent="Greebles/Holosigns/HolosignWallGreeble3" index="1"]
+mesh = SubResource("TextMesh_w5asp")
+
+[node name="TestLevelTransitionInteractable" parent="." index="3" instance=ExtResource("2_uecu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.821, 0, 5.591)
+
+[node name="TestLevelTransitionInteractable3" parent="." index="4" instance=ExtResource("2_uecu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.821, 0, -105.5)
+
+[node name="TestLevelTransitionInteractable2" parent="." index="5" instance=ExtResource("2_uecu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.679, 0, -19.5)
+
+[node name="SoundMaster" parent="." index="6" instance=ExtResource("41_x8jwj")]
+continuous_play = true
+
+[node name="AmbientMusic" type="AudioStreamPlayer" parent="SoundMaster" index="0"]
+stream = SubResource("AudioStreamRandomizer_3jopm")
+bus = &"Music"
+
+[node name="GroundItem2" parent="." index="7" instance=ExtResource("2_jlx0t")]
+transform = Transform3D(0.652813, 0, -0.75752, 0, 1, 0, 0.75752, 0, 0.652813, 5.3203, 1.24157, -2.73929)
+auto_spawn_loot = false
+
+[node name="MachoMunch" parent="GroundItem2" index="4" instance=ExtResource("31_220hi")]
+current_quantity = 3
+
+[node name="GroundItem3" parent="." index="8" instance=ExtResource("2_jlx0t")]
+transform = Transform3D(0.999988, 0, 0.00500868, 0, 1, 0, -0.00500868, 0, 0.999988, 2.76867, 1.24157, -2.72874)
+
+[node name="GreaterManaPotion" parent="GroundItem3" index="4" instance=ExtResource("32_3lt30")]
+
+[node name="Player" parent="." index="9" instance=ExtResource("2_1sywc")]
+transform = Transform3D(1, -0.000156461, -5.88228e-05, 0.000156435, 1, -0.000496205, 5.88903e-05, 0.000496197, 1, 8.5, 0.094, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="10"]
+environment = SubResource("Environment_skj76")
+
+[node name="Void" parent="." index="11" instance=ExtResource("2_5b2oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -3.5, -0.5)
+surface_material_override/0 = SubResource("StandardMaterial3D_shg5f")
+
+[node name="TabStatusPanel" parent="UILayer" index="0" instance=ExtResource("32_pm1ts")]
+visible = false
+
+[node name="ShopMenu" parent="UILayer" index="3" instance=ExtResource("4_mctt3")]
+visible = false
+
+[node name="SuperSecretHitDetector" parent="." index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="LoadingDockCommissary" parent="RoomMaster" index="0" instance=ExtResource("32_00gao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.5, 0, -22)
+
+[node name="NewLoadingDockRoom" parent="RoomMaster" index="1" instance=ExtResource("45_6a2hb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, 0, -80)
+
+[node name="CustomerServiceRoom1" parent="RoomMaster" index="2" instance=ExtResource("9_vgtpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 0, -62)
+
+[node name="CustomerServiceRoom2" parent="RoomMaster" index="3" instance=ExtResource("11_xneq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 0, -112.5)
+
+[node name="Foyer" parent="RoomMaster" index="4" instance=ExtResource("3_j1nit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="MainHallway" parent="RoomMaster" index="5" instance=ExtResource("10_imdgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="BuildingBlocks" type="Node3D" parent="RoomMaster/MainHallway/Terrain" index="1"]
+
+[node name="OfficeHall16" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="0" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 44.5, 0, -8)
+
+[node name="OfficeHall13" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="1" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.5, 0, -8)
+
+[node name="OfficeHall14" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="2" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20.5, 0, -8)
+
+[node name="OfficeHall15" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="3" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29.5, 0, -8)
+
+[node name="OfficeHallEnd" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="4" instance=ExtResource("11_sren8")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14, 0, 2.5)
+
+[node name="OfficeHallEnd3" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="5" instance=ExtResource("11_sren8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, 0, -12.5)
+
+[node name="OfficeHall" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="6" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -1)
+
+[node name="OfficeHall2" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="7" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, -8)
+
+[node name="OfficeHall11" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="8" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, -8)
+
+[node name="OfficeHall12" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="9" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 0, -8)
+
+[node name="OfficeHall10" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="10" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -8)
+
+[node name="OfficeTJunction" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="11" instance=ExtResource("14_cykkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14, 0, -8)
+
+[node name="OfficeTJunction2" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="12" instance=ExtResource("14_cykkp")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 37.5, 0, -8)
+
+[node name="OfficeHallEnd5" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="13" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.5, 0, -8)
+
+[node name="OfficeHallEnd7" parent="RoomMaster/MainHallway/Terrain/BuildingBlocks" index="14" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 48, 0, -8)
+
+[node name="DoubleCrateObstacle" parent="RoomMaster/MainHallway/Terrain" index="2" instance=ExtResource("41_7wsk7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, -7)
+
+[node name="CrateObstacleSmall" parent="RoomMaster/MainHallway/Terrain" index="3" instance=ExtResource("42_ms31c")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.9489, 1.32301, -8.56769)
+
+[node name="CrateObstacleSmall4" parent="RoomMaster/MainHallway/Terrain" index="4" instance=ExtResource("42_ms31c")]
+transform = Transform3D(0.42178, 0, 0.906698, 0, 1, 0, -0.906698, 0, 0.42178, -7.7595, 1.32301, -9.00278)
+
+[node name="CrateObstacleSmall2" parent="RoomMaster/MainHallway/Terrain" index="5" instance=ExtResource("42_ms31c")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.4571, 2.62725, -8.56769)
+
+[node name="CrateObstacleSmall3" parent="RoomMaster/MainHallway/Terrain" index="6" instance=ExtResource("42_ms31c")]
+transform = Transform3D(0.597373, 0, 0.801963, 0, 1, 0, -0.801963, 0, 0.597373, -10.5885, 2.62725, -7.69543)
+
+[node name="DoubleCrateObstacle2" parent="RoomMaster/MainHallway/Terrain" index="7" instance=ExtResource("41_7wsk7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, -9)
+
+[node name="OfficeChairObstacle" parent="RoomMaster/MainHallway/Terrain" index="8" instance=ExtResource("43_08e3w")]
+transform = Transform3D(0.544358, -0.768256, 0.336832, 0.815936, 0.578143, 3.56657e-08, -0.194737, 0.274834, 0.941565, -8.6538, 1.31817, -7.47476)
+
+[node name="DoubleCrateObstacle4" parent="RoomMaster/MainHallway/Terrain" index="9" instance=ExtResource("41_7wsk7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.6538, 0, -7.90383)
+
+[node name="DeskObstacle" parent="RoomMaster/MainHallway/Terrain" index="10" instance=ExtResource("44_3cxbk")]
+transform = Transform3D(0.446139, 0.772736, -0.451485, -0.866025, 0.5, 0, 0.225742, 0.390997, 0.892279, -8.0546, 0.301517, -7.13408)
+
+[node name="CrateObstacle" parent="RoomMaster/MainHallway/Terrain" index="11" instance=ExtResource("45_7syfj")]
+transform = Transform3D(0.874831, 0, 0.484428, 0, 1, 0, -0.484428, 0, 0.874831, -10.3771, 1.33385, -6.87572)
+
+[node name="CrateObstacle2" parent="RoomMaster/MainHallway/Terrain" index="12" instance=ExtResource("45_7syfj")]
+transform = Transform3D(0.970959, 0, 0.239245, 0, 1, 0, -0.239245, 0, 0.970959, -7.3006, -0.0286287, -9.26004)
+
+[node name="DoubleCrateObstacle3" parent="RoomMaster/MainHallway/Terrain" index="13" instance=ExtResource("41_7wsk7")]
+transform = Transform3D(0.243175, 0, 0.969982, 0, 1, 0, -0.969982, 0, 0.243175, -10, 1.28668, -8.95628)
+
+[node name="OfficeHall15" parent="RoomMaster/MainHallway/Terrain" index="14" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 31, 0, -8)
+
+[node name="EastWingShortcutButton2" parent="RoomMaster/MainHallway" index="5" instance=ExtResource("28_5d6vo")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 13.9375, 1.78604, -10.8558)
+trigger_id_to_activate = "hint_test_trigger"
+display_name = ""
+allow_if_activated = false
+display_text_on_activation = false
+text_to_display = ""
+text_display_time = 5.0
+interaction_prompt_text = "Test Hints"
+interaction_prompt_subtext = ""
+spawn_ticket_cost = 1
+
+[node name="EastWingShortCutHallway" parent="RoomMaster" index="6" instance=ExtResource("10_imdgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="BuildingBlocks" type="Node3D" parent="RoomMaster/EastWingShortCutHallway/Terrain" index="1"]
+
+[node name="OfficeHallEnd" parent="RoomMaster/EastWingShortCutHallway/Terrain/BuildingBlocks" index="0" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 74, 0, -8)
+
+[node name="OfficeHall13" parent="RoomMaster/EastWingShortCutHallway/Terrain/BuildingBlocks" index="1" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 53.5, 0, -8)
+
+[node name="OfficeHall17" parent="RoomMaster/EastWingShortCutHallway/Terrain/BuildingBlocks" index="2" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 59.5, 0, -8)
+
+[node name="OfficeHall18" parent="RoomMaster/EastWingShortCutHallway/Terrain/BuildingBlocks" index="3" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 65.5, 0, -8)
+
+[node name="OfficeHall19" parent="RoomMaster/EastWingShortCutHallway/Terrain/BuildingBlocks" index="4" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 71.5, 0, -8)
+
+[node name="OfficeHallEnd6" parent="RoomMaster/EastWingShortCutHallway/Terrain/BuildingBlocks" index="5" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50, 0, -8)
+
+[node name="OfficeHallEnd7" parent="RoomMaster/EastWingShortCutHallway/Terrain/BuildingBlocks" index="6" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50, 0, -8)
+
+[node name="EastwingShorcutDoor" parent="RoomMaster/EastWingShortCutHallway/Terrain/BuildingBlocks/OfficeHallEnd7/NLIBasicRoomConnector" index="1" node_paths=PackedStringArray("open_nav_region") instance=ExtResource("25_5ghy6")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0.5)
+destroyable = false
+open_nav_region = NodePath("../../../../../../WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd6/NLIBasicRoomConnector/WestWingShortcutDoor/NavigationRegion3D")
+locked = true
+lock_level = -1
+
+[node name="EastWingShortcutButton" parent="RoomMaster/EastWingShortCutHallway" index="5" instance=ExtResource("28_5d6vo")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 51.4375, 1.78604, -10.8558)
+trigger_id_to_activate = "floor_1_east_wing_shortcut"
+display_name = ""
+allow_if_activated = false
+display_text_on_activation = true
+text_to_display = "East Wing Shortcut Unlocked"
+text_display_time = 5.0
+interaction_prompt_text = "Unlock Shortcut"
+interaction_prompt_subtext = ""
+spawn_ticket_cost = 1
+
+[node name="WestwingHallway" parent="RoomMaster" index="7" instance=ExtResource("10_imdgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="BuildingBlocks" type="Node3D" parent="RoomMaster/WestwingHallway/Terrain" index="1"]
+
+[node name="OfficeHall11" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks" index="0" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -8)
+
+[node name="OfficeHall12" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks" index="1" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 0, -8)
+
+[node name="OfficeHall13" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks" index="2" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -24.5, 0, -8)
+
+[node name="OfficeHallEnd6" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks" index="3" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -30.5, 0, -8)
+
+[node name="OfficeWallEndcap" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -18.5)
+
+[node name="OfficeWallEndcap2" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd6" index="1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, -18.5)
+
+[node name="NLIBasicRoomConnector" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd6" index="2"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3.8147e-06, 0, -18.5)
+
+[node name="WestWingShortcutDoor" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd6/NLIBasicRoomConnector" index="1" instance=ExtResource("25_5ghy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+destroyable = false
+locked = true
+lock_level = -1
+
+[node name="CollisionShape3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd6/Floor1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 0, -18)
+
+[node name="MeshInstance3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd6/Floor1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 0, -18)
+
+[node name="OfficeHallEnd7" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks" index="4" instance=ExtResource("11_sren8")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -49.5, 0, -15)
+
+[node name="OfficeWallEndcap" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd7" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -0.5)
+
+[node name="OfficeWallEndcap2" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd7" index="1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0, -0.5)
+
+[node name="NLIBasicRoomConnector" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd7" index="2"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 18, 0, -0.5)
+
+[node name="CollisionShape3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd7/Floor1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+
+[node name="MeshInstance3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd7/Floor1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+
+[node name="OfficeWall3" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks" index="5" instance=ExtResource("25_e4y17")]
+transform = Transform3D(2.26494e-07, 0, -1, 0, 1, 0, 3, 0, 7.54979e-08, -34.5, 0, -13.5)
+
+[node name="OfficeWall4" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks" index="6" instance=ExtResource("25_e4y17")]
+transform = Transform3D(-1.31134e-07, 0, 1, 0, 1, 0, -3, 0, -4.37114e-08, -28.5, 0, -13.5)
+
+[node name="OfficeTurn" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks" index="7" instance=ExtResource("11_yd5yq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -49.5, 0, -8)
+
+[node name="OfficeWall" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn" index="0"]
+transform = Transform3D(-6, 0, -8.74228e-08, 0, 1, 0, 5.24537e-07, 0, -1, 1, 0, 15)
+
+[node name="OfficeWall2" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn" index="1"]
+transform = Transform3D(-2.62268e-07, 0, -1, 0, 1, 0, 6, 0, -4.37114e-08, -3, 0, 19)
+
+[node name="OfficeWallEndcap" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 15)
+
+[node name="CollisionShape3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn/Floor1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+
+[node name="MeshInstance3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn/Floor1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+
+[node name="Floor4" type="StaticBody3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn/Floor4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+shape = SubResource("BoxShape3D_jerb3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn/Floor4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+mesh = SubResource("BoxMesh_ljypd")
+
+[node name="CollisionShape3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn/Floor2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+
+[node name="MeshInstance3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn/Floor2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+
+[node name="CollisionShape3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn/Floor3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+
+[node name="MeshInstance3D" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn/Floor3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+
+[node name="OfficeWallOuterCorner" parent="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn" index="7"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 21)
+
+[node name="Area" parent="RoomMaster/WestwingHallway" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -10)
+
+[node name="EnemySpawners" parent="RoomMaster/WestwingHallway" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -10)
+
+[node name="LootSpawners" parent="RoomMaster/WestwingHallway" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -10)
+
+[node name="RoomConnectors" parent="RoomMaster/WestwingHallway" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -10)
+
+[node name="WestwingHallway2" parent="RoomMaster" index="8" instance=ExtResource("10_imdgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5, 0, -49.5)
+
+[node name="BuildingBlocks" type="Node3D" parent="RoomMaster/WestwingHallway2/Terrain" index="1"]
+
+[node name="OfficeTurn" parent="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks" index="0" instance=ExtResource("11_yd5yq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -21.5)
+
+[node name="OfficeTJunction" parent="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks" index="1" instance=ExtResource("14_cykkp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -14)
+
+[node name="OfficeHall" parent="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks" index="2" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="OfficeHall2" parent="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks" index="3" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="OfficeHall3" parent="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks" index="4" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="OfficeHallEnd3" parent="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks" index="5" instance=ExtResource("11_sren8")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.00463104, 0, 4.49676)
+
+[node name="OfficeHallEnd" parent="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks" index="6" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5, 0, -21.5)
+
+[node name="OfficeHallEnd2" parent="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks" index="7" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0, -14)
+
+[node name="VoidPart2" parent="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks/OfficeHallEnd2/OfficeWallEndcap" index="3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.199997, 2, 0.17053)
+
+[node name="VoidPart3" parent="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks/OfficeHallEnd2/OfficeWallEndcap2" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0878124, 2, -0.200001)
+
+[node name="WestwingHallway4" parent="RoomMaster" index="9" instance=ExtResource("10_imdgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5, 0, -103)
+
+[node name="BuildingBlocks" type="Node3D" parent="RoomMaster/WestwingHallway4/Terrain" index="1"]
+
+[node name="OfficeHall2" parent="RoomMaster/WestwingHallway4/Terrain/BuildingBlocks" index="0" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, -0.5)
+
+[node name="OfficeHall3" parent="RoomMaster/WestwingHallway4/Terrain/BuildingBlocks" index="1" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, -0.5)
+
+[node name="OfficeHallEnd3" parent="RoomMaster/WestwingHallway4/Terrain/BuildingBlocks" index="2" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0, -0.5)
+
+[node name="OfficeHallEnd" parent="RoomMaster/WestwingHallway4/Terrain/BuildingBlocks" index="3" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5, 0, -0.5)
+
+[node name="WestwingHallway3" parent="RoomMaster" index="10" instance=ExtResource("10_imdgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 0, -80)
+
+[node name="BuildingBlocks" type="Node3D" parent="RoomMaster/WestwingHallway3/Terrain" index="1"]
+
+[node name="OfficeWall" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="0" instance=ExtResource("25_e4y17")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -18)
+
+[node name="OfficeWall2" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="1" instance=ExtResource("25_e4y17")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -3, 0, -18)
+
+[node name="OfficeTJunction" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="2" instance=ExtResource("14_cykkp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="OfficeTJunction2" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="3" instance=ExtResource("14_cykkp")]
+transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, -2.13163e-14, 0, 1, 0, 0, -14)
+
+[node name="OfficeHall" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="4" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="OfficeHall4" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="5" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0, -14)
+
+[node name="OfficeHall6" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="6" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13, 0, -14)
+
+[node name="OfficeHall3" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="7" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, 0)
+
+[node name="OfficeHall5" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="8" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.5, 0, 0)
+
+[node name="OfficeHallEnd3" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="9" instance=ExtResource("11_sren8")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 4.5)
+
+[node name="OfficeHallEnd5" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="10" instance=ExtResource("11_sren8")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -16.5, 0, -14)
+
+[node name="OfficeHallEnd4" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="11" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.5, 0, 0)
+
+[node name="OfficeHallEnd" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="12" instance=ExtResource("11_sren8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
+
+[node name="Floor" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks" index="13" instance=ExtResource("51_45nde")]
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomMaster/WestwingHallway3/Terrain/BuildingBlocks/Floor" index="0"]
+mesh = SubResource("PlaneMesh_k3had")
+
+[node name="Eastwing" type="Node3D" parent="RoomMaster" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
+
+[node name="EastwingHallway1" parent="RoomMaster/Eastwing" index="0" instance=ExtResource("10_imdgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.5, 0, -41.5)
+
+[node name="Floor1" type="StaticBody3D" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain" index="0"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, -14.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/Floor1" index="0"]
+shape = SubResource("BoxShape3D_a033w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/Floor1" index="1"]
+mesh = SubResource("BoxMesh_xrvsi")
+
+[node name="BuildingBlocks" type="Node3D" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain" index="2"]
+
+[node name="OfficeWallPrefabBasic" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="0" instance=ExtResource("57_00s37")]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -11.5)
+
+[node name="OfficeWallPrefabBasic2" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="1" instance=ExtResource("57_00s37")]
+transform = Transform3D(-0.4, 0, -8.74228e-08, 0, 1, 0, 3.49691e-08, 0, -1, -4.5, 0, -17.5)
+
+[node name="OfficeTJunction" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="2" instance=ExtResource("14_cykkp")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, -14.5)
+
+[node name="OfficeHall" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="3" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
+
+[node name="OfficeHall2" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="4" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+
+[node name="OfficeHall4" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="5" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.5)
+
+[node name="OfficeHall5" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="6" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.5)
+
+[node name="OfficeHall6" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="7" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -33.5)
+
+[node name="OfficeHall7" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="8" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -38)
+
+[node name="OfficeHall3" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="9" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="OfficeHallEnd3" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="10" instance=ExtResource("11_sren8")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 4.5)
+
+[node name="OfficeHallEnd" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="11" instance=ExtResource("11_sren8")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 0, -41.5)
+
+[node name="OfficeHallEnd2" parent="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks" index="12" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, -14.5)
+
+[node name="EastwingHallway3" parent="RoomMaster/Eastwing" index="1" instance=ExtResource("10_imdgo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 79.5, 0, -121)
+
+[node name="Floor1" type="StaticBody3D" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 6.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/Floor1" index="0"]
+shape = SubResource("BoxShape3D_a033w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/Floor1" index="1"]
+mesh = SubResource("BoxMesh_xrvsi")
+
+[node name="BuildingBlocks" type="Node3D" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain" index="2"]
+
+[node name="OfficeWallPrefabBasic" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/BuildingBlocks" index="0" instance=ExtResource("57_00s37")]
+transform = Transform3D(-1.0034e-08, 0, -1, 0, 1, 0, 0.4, 0, -1.39091e-08, -4.00005, 0, 9)
+
+[node name="OfficeWallPrefabBasic2" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/BuildingBlocks" index="1" instance=ExtResource("57_00s37")]
+transform = Transform3D(-1.74846e-08, 0, 1, 0, 1, 0, -0.4, 0, -4.37114e-08, 2, 0, 9.5)
+
+[node name="OfficeTJunction" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/BuildingBlocks" index="2" instance=ExtResource("14_cykkp")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1.00002, 0, 4.75)
+
+[node name="OfficeHall" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/BuildingBlocks" index="3" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -10)
+
+[node name="OfficeHall2" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/BuildingBlocks" index="4" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+
+[node name="OfficeHall5" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/BuildingBlocks" index="5" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.00001, 0, 4.75)
+
+[node name="OfficeHall6" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/BuildingBlocks" index="6" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.5, 0, 4.75)
+
+[node name="OfficeHall8" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/BuildingBlocks" index="7" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.5, 0, 4.75)
+
+[node name="OfficeHall3" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/BuildingBlocks" index="8" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6.5)
+
+[node name="OfficeHallEnd3" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/BuildingBlocks" index="9" instance=ExtResource("11_sren8")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0, 10.5)
+
+[node name="OfficeHallEnd" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/BuildingBlocks" index="10" instance=ExtResource("11_sren8")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -1, 0, -13.5)
+
+[node name="OfficeHallEnd2" parent="RoomMaster/Eastwing/EastwingHallway3/Terrain/BuildingBlocks" index="11" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18, 0, 4.75)
+
+[node name="EastwingHallway2" parent="RoomMaster/Eastwing" index="2" instance=ExtResource("10_imdgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.5, 0, -10.5)
+
+[node name="BuildingBlocks" type="Node3D" parent="RoomMaster/Eastwing/EastwingHallway2/Terrain" index="1"]
+
+[node name="OfficeHall3" parent="RoomMaster/Eastwing/EastwingHallway2/Terrain/BuildingBlocks" index="0" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, 0.5)
+
+[node name="OfficeHall4" parent="RoomMaster/Eastwing/EastwingHallway2/Terrain/BuildingBlocks" index="1" instance=ExtResource("13_oxgqf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.5)
+
+[node name="OfficeHallEnd3" parent="RoomMaster/Eastwing/EastwingHallway2/Terrain/BuildingBlocks" index="2" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0, 0.5)
+
+[node name="OfficeHallEnd2" parent="RoomMaster/Eastwing/EastwingHallway2/Terrain/BuildingBlocks" index="3" instance=ExtResource("11_sren8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5, 0, 0.5)
+
+[node name="EmployeeLockerRoom" parent="RoomMaster/Eastwing" index="3" instance=ExtResource("45_grmgv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 115.5, 0, -98.5)
+
+[node name="EmployeeBreakRoom" parent="RoomMaster/Eastwing" index="4" instance=ExtResource("68_lc0fl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.5, 0, -19)
+
+[node name="CustomerServiceDesk2" parent="RoomMaster" index="12" instance=ExtResource("52_gpmq6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -80, 0, -98.5)
+
+[node name="CustomerServiceDesk" parent="RoomMaster" index="13" instance=ExtResource("52_k5ayg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -36)
+
+[node name="TriggerActivationArea" parent="." index="17" instance=ExtResource("61_fqtsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0, -20)
+trigger_id = "another_hint"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerActivationArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.5, 0.25)
+shape = SubResource("BoxShape3D_5y0yb")
+
+[node name="AdditionalEnemySpawns" type="Node3D" parent="." index="18"]
+
+[node name="Groups" type="Node3D" parent="AdditionalEnemySpawns" index="0"]
+script = ExtResource("62_tfb05")
+max_total_spawn_tickets = 2
+min_total_spawn_tickets = 1
+
+[node name="FivePointGroup2" type="Node3D" parent="AdditionalEnemySpawns/Groups" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.097, 0, -37.5347)
+script = ExtResource("62_tfb05")
+max_total_spawn_tickets = 6
+min_total_spawn_tickets = 4
+
+[node name="NanomachineHiveEnemy2" parent="AdditionalEnemySpawns/Groups/FivePointGroup2" index="0" instance=ExtResource("65_u2dgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14102, 0, -2.62695)
+
+[node name="NanomachineHiveEnemy" parent="AdditionalEnemySpawns/Groups/FivePointGroup2" index="1" instance=ExtResource("65_u2dgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10924, 0, 5.3307)
+
+[node name="GunDroneEnemy" parent="AdditionalEnemySpawns/Groups/FivePointGroup2" index="2" instance=ExtResource("64_d7y84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01834, 0, -2)
+
+[node name="GunDroneEnemy2" parent="AdditionalEnemySpawns/Groups/FivePointGroup2" index="3" instance=ExtResource("64_d7y84")]
+transform = Transform3D(0.0249207, 0, 0.999689, 0, 1, 0, -0.999689, 0, 0.0249207, -10.0325, 0, 4.18968)
+
+[node name="WageCage" parent="AdditionalEnemySpawns/Groups/FivePointGroup2" index="4" instance=ExtResource("63_nowly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322104, 0.929822, 2.89055)
+
+[node name="FivePointGroup3" type="Node3D" parent="AdditionalEnemySpawns/Groups" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.097, 0, -65.0347)
+script = ExtResource("62_tfb05")
+max_total_spawn_tickets = 6
+min_total_spawn_tickets = 4
+
+[node name="NanomachineHiveEnemy2" parent="AdditionalEnemySpawns/Groups/FivePointGroup3" index="0" instance=ExtResource("65_u2dgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141022, 0, -2.62695)
+
+[node name="NanomachineHiveEnemy" parent="AdditionalEnemySpawns/Groups/FivePointGroup3" index="1" instance=ExtResource("65_u2dgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.10924, 0, 5.8307)
+
+[node name="GunDroneEnemy" parent="AdditionalEnemySpawns/Groups/FivePointGroup3" index="2" instance=ExtResource("64_d7y84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.48166, 0, -3.5)
+
+[node name="GunDroneEnemy2" parent="AdditionalEnemySpawns/Groups/FivePointGroup3" index="3" instance=ExtResource("64_d7y84")]
+transform = Transform3D(0.0249207, 0, 0.999689, 0, 1, 0, -0.999689, 0, 0.0249207, 6.9675, 0, 6.18968)
+
+[node name="WageCage" parent="AdditionalEnemySpawns/Groups/FivePointGroup3" index="4" instance=ExtResource("63_nowly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177895, 0.929822, 4.39055)
+
+[node name="FivePointGroup4" type="Node3D" parent="AdditionalEnemySpawns/Groups" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.097, 0, -112.035)
+script = ExtResource("62_tfb05")
+max_total_spawn_tickets = 6
+min_total_spawn_tickets = 4
+
+[node name="NanomachineHiveEnemy2" parent="AdditionalEnemySpawns/Groups/FivePointGroup4" index="0" instance=ExtResource("65_u2dgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141022, 0, -0.626953)
+
+[node name="NanomachineHiveEnemy" parent="AdditionalEnemySpawns/Groups/FivePointGroup4" index="1" instance=ExtResource("65_u2dgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39076, 0, 5.8307)
+
+[node name="GunDroneEnemy" parent="AdditionalEnemySpawns/Groups/FivePointGroup4" index="2" instance=ExtResource("64_d7y84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48166, 0, -5.5)
+
+[node name="GunDroneEnemy2" parent="AdditionalEnemySpawns/Groups/FivePointGroup4" index="3" instance=ExtResource("64_d7y84")]
+transform = Transform3D(0.0249207, 0, 0.999689, 0, 1, 0, -0.999689, 0, 0.0249207, 8.4675, 0, -0.810318)
+
+[node name="WageCage" parent="AdditionalEnemySpawns/Groups/FivePointGroup4" index="4" instance=ExtResource("63_nowly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177895, 0.929822, 6.39055)
+
+[node name="FivePointGroup5" type="Node3D" parent="AdditionalEnemySpawns/Groups" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.597, 0, -99.0347)
+script = ExtResource("62_tfb05")
+max_total_spawn_tickets = 6
+min_total_spawn_tickets = 4
+
+[node name="NanomachineHiveEnemy2" parent="AdditionalEnemySpawns/Groups/FivePointGroup5" index="0" instance=ExtResource("65_u2dgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.35898, 0, -2.12695)
+
+[node name="NanomachineHiveEnemy" parent="AdditionalEnemySpawns/Groups/FivePointGroup5" index="1" instance=ExtResource("65_u2dgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.60924, 0, 1.8307)
+
+[node name="GunDroneEnemy" parent="AdditionalEnemySpawns/Groups/FivePointGroup5" index="2" instance=ExtResource("64_d7y84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98166, 0, -2.5)
+
+[node name="GunDroneEnemy2" parent="AdditionalEnemySpawns/Groups/FivePointGroup5" index="3" instance=ExtResource("64_d7y84")]
+transform = Transform3D(0.0249207, 0, 0.999689, 0, 1, 0, -0.999689, 0, 0.0249207, -1.5325, 0, 4.68968)
+
+[node name="WageCage" parent="AdditionalEnemySpawns/Groups/FivePointGroup5" index="4" instance=ExtResource("63_nowly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.17789, 0.929822, 4.39055)
+
+[node name="Patrols" type="Node3D" parent="AdditionalEnemySpawns" index="1"]
+
+[node name="Spawns" type="Node3D" parent="AdditionalEnemySpawns/Patrols" index="0"]
+script = ExtResource("62_tfb05")
+min_total_spawn_tickets = 3
+
+[node name="Zombie" parent="AdditionalEnemySpawns/Patrols/Spawns" index="0" instance=ExtResource("63_nowly")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -51, 1, -55)
+initial_state_name = &"GuardState"
+spawn_ticket_cost = 1
+
+[node name="Zombie3" parent="AdditionalEnemySpawns/Patrols/Spawns" index="1" instance=ExtResource("63_nowly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 1, -120.5)
+initial_state_name = &"GuardState"
+spawn_ticket_cost = 1
+
+[node name="Zombie4" parent="AdditionalEnemySpawns/Patrols/Spawns" index="2" instance=ExtResource("63_nowly")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -44, 1, -117.5)
+initial_state_name = &"GuardState"
+spawn_ticket_cost = 1
+
+[node name="GunDroneEnemy" parent="AdditionalEnemySpawns/Patrols/Spawns" index="3" node_paths=PackedStringArray("patrol") instance=ExtResource("64_d7y84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.5, 1, -64)
+patrol = NodePath("../../EastSide/Patrol2")
+
+[node name="GunDroneEnemy2" parent="AdditionalEnemySpawns/Patrols/Spawns" index="4" node_paths=PackedStringArray("patrol") instance=ExtResource("64_d7y84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5, 1, -63.5)
+patrol = NodePath("../../WestSide/Patrol6")
+
+[node name="GunDroneEnemy3" parent="AdditionalEnemySpawns/Patrols/Spawns" index="5" node_paths=PackedStringArray("patrol") instance=ExtResource("64_d7y84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 1, -80.5)
+patrol = NodePath("../../WestSide/Patrol7")
+
+[node name="NanomachineHiveEnemy" parent="AdditionalEnemySpawns/Patrols/Spawns" index="6" node_paths=PackedStringArray("patrol") instance=ExtResource("65_u2dgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.5, 1, -69)
+patrol = NodePath("../../EastSide/Patrol3")
+
+[node name="NanomachineHiveEnemy2" parent="AdditionalEnemySpawns/Patrols/Spawns" index="7" node_paths=PackedStringArray("patrol") instance=ExtResource("65_u2dgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.5, 1, -20)
+patrol = NodePath("../../EastSide/Patrol")
+
+[node name="NanomachineHiveEnemy3" parent="AdditionalEnemySpawns/Patrols/Spawns" index="8" node_paths=PackedStringArray("patrol") instance=ExtResource("65_u2dgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 1, -20)
+patrol = NodePath("../../WestSide/Patrol5")
+
+[node name="NanomachineHiveEnemy4" parent="AdditionalEnemySpawns/Patrols/Spawns" index="9" node_paths=PackedStringArray("patrol") instance=ExtResource("65_u2dgg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.5, 1, -94)
+patrol = NodePath("../../WestSide/Patrol8")
+
+[node name="Zombie2" parent="AdditionalEnemySpawns/Patrols/Spawns" index="10" node_paths=PackedStringArray("patrol") instance=ExtResource("63_nowly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.5, 1, -130)
+patrol = NodePath("../../EastSide/Patrol4")
+spawn_ticket_cost = 1
+
+[node name="EastSide" type="Node3D" parent="AdditionalEnemySpawns/Patrols" index="1"]
+
+[node name="Patrol" parent="AdditionalEnemySpawns/Patrols/EastSide" index="0" instance=ExtResource("64_timmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.5, 0, -20)
+
+[node name="PatrolWaypoint" parent="AdditionalEnemySpawns/Patrols/EastSide/Patrol" index="0" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="PatrolWaypoint2" parent="AdditionalEnemySpawns/Patrols/EastSide/Patrol" index="1" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="Patrol2" parent="AdditionalEnemySpawns/Patrols/EastSide" index="1" instance=ExtResource("64_timmf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 125.5, 0, -57.5)
+
+[node name="PatrolWaypoint" parent="AdditionalEnemySpawns/Patrols/EastSide/Patrol2" index="0" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="PatrolWaypoint2" parent="AdditionalEnemySpawns/Patrols/EastSide/Patrol2" index="1" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="Patrol3" parent="AdditionalEnemySpawns/Patrols/EastSide" index="2" instance=ExtResource("64_timmf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 125.5, 0, -81.5)
+
+[node name="PatrolWaypoint" parent="AdditionalEnemySpawns/Patrols/EastSide/Patrol3" index="0" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="PatrolWaypoint2" parent="AdditionalEnemySpawns/Patrols/EastSide/Patrol3" index="1" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="Patrol4" parent="AdditionalEnemySpawns/Patrols/EastSide" index="3" instance=ExtResource("64_timmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, -130.5)
+patrol_type = 1
+
+[node name="PatrolWaypoint" parent="AdditionalEnemySpawns/Patrols/EastSide/Patrol4" index="0" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 0)
+
+[node name="PatrolWaypoint2" parent="AdditionalEnemySpawns/Patrols/EastSide/Patrol4" index="1" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 0)
+
+[node name="PatrolWaypoint3" parent="AdditionalEnemySpawns/Patrols/EastSide/Patrol4" index="2" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 14)
+
+[node name="WestSide" type="Node3D" parent="AdditionalEnemySpawns/Patrols" index="2"]
+
+[node name="Patrol5" parent="AdditionalEnemySpawns/Patrols/WestSide" index="0" instance=ExtResource("64_timmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -20)
+
+[node name="PatrolWaypoint" parent="AdditionalEnemySpawns/Patrols/WestSide/Patrol5" index="0" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="PatrolWaypoint2" parent="AdditionalEnemySpawns/Patrols/WestSide/Patrol5" index="1" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Patrol6" parent="AdditionalEnemySpawns/Patrols/WestSide" index="1" instance=ExtResource("64_timmf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -31.5, 0, -59)
+
+[node name="PatrolWaypoint" parent="AdditionalEnemySpawns/Patrols/WestSide/Patrol6" index="0" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="PatrolWaypoint2" parent="AdditionalEnemySpawns/Patrols/WestSide/Patrol6" index="1" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Patrol8" parent="AdditionalEnemySpawns/Patrols/WestSide" index="2" instance=ExtResource("64_timmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 0, -94)
+
+[node name="PatrolWaypoint" parent="AdditionalEnemySpawns/Patrols/WestSide/Patrol8" index="0" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="PatrolWaypoint2" parent="AdditionalEnemySpawns/Patrols/WestSide/Patrol8" index="1" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Patrol7" parent="AdditionalEnemySpawns/Patrols/WestSide" index="3" instance=ExtResource("64_timmf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -49.5, 0, -83.5)
+patrol_type = 1
+
+[node name="PatrolWaypoint" parent="AdditionalEnemySpawns/Patrols/WestSide/Patrol7" index="0" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0)
+
+[node name="PatrolWaypoint2" parent="AdditionalEnemySpawns/Patrols/WestSide/Patrol7" index="1" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0)
+
+[node name="PatrolWaypoint3" parent="AdditionalEnemySpawns/Patrols/WestSide/Patrol7" index="2" instance=ExtResource("65_w3hf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -9)
+
+[node name="AdditionalLootSpawns" type="Node3D" parent="." index="19"]
+
+[node name="WeaponBoxSpawns" type="Node3D" parent="AdditionalLootSpawns" index="0"]
+script = ExtResource("62_tfb05")
+max_total_spawn_tickets = 4
+min_total_spawn_tickets = 2
+
+[node name="WeaponLootCrate" parent="AdditionalLootSpawns/WeaponBoxSpawns" index="0" node_paths=PackedStringArray("loot_table") instance=ExtResource("69_bi0a8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -17.5, 0, -22.5)
+loot_table = NodePath("../../../LootTables/WeaponLootTable")
+spawn_ticket_cost = 2
+
+[node name="WeaponLootCrate4" parent="AdditionalLootSpawns/WeaponBoxSpawns" index="1" node_paths=PackedStringArray("loot_table") instance=ExtResource("69_bi0a8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 103.539, 0, -110.824)
+loot_table = NodePath("../../../LootTables/WeaponLootTable")
+spawn_ticket_cost = 2
+
+[node name="WeaponLootCrate5" parent="AdditionalLootSpawns/WeaponBoxSpawns" index="2" node_paths=PackedStringArray("loot_table") instance=ExtResource("69_bi0a8")]
+transform = Transform3D(-0.988665, 0, 0.150139, 0, 1, 0, -0.150139, 0, -0.988665, 114.55, 1.00808, -130.058)
+loot_table = NodePath("../../../LootTables/WeaponLootTable")
+spawn_ticket_cost = 2
+
+[node name="WeaponLootCrate3" parent="AdditionalLootSpawns/WeaponBoxSpawns" index="3" node_paths=PackedStringArray("loot_table") instance=ExtResource("69_bi0a8")]
+transform = Transform3D(-0.359736, 0, 0.933054, 0, 1, 0, -0.933054, 0, -0.359736, 20.9127, 1.3367, -64.1597)
+loot_table = NodePath("../../../LootTables/WeaponLootTable")
+spawn_ticket_cost = 2
+
+[node name="WeaponLootCrate2" parent="AdditionalLootSpawns/WeaponBoxSpawns" index="4" node_paths=PackedStringArray("loot_table") instance=ExtResource("69_bi0a8")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -69.5, 1, -96.7853)
+loot_table = NodePath("../../../LootTables/WeaponLootTable")
+spawn_ticket_cost = 2
+
+[editable path="Greebles/Holosigns/HolosignWallGreeble"]
+[editable path="Greebles/Holosigns/HolosignWallGreeble/HolosignWallGreeble"]
+[editable path="Greebles/Holosigns/HolosignWallGreeble4"]
+[editable path="Greebles/Holosigns/HolosignWallGreeble4/HolosignWallGreeble"]
+[editable path="Greebles/Holosigns/HolosignWallGreeble6"]
+[editable path="Greebles/Holosigns/HolosignWallGreeble6/HolosignWallGreeble"]
+[editable path="Greebles/Holosigns/HolosignWallGreeble5"]
+[editable path="Greebles/Holosigns/HolosignWallGreeble5/HolosignWallGreeble"]
+[editable path="Greebles/Holosigns/HolosignWallGreeble2"]
+[editable path="Greebles/Holosigns/HolosignWallGreeble2/HolosignWallGreeble"]
+[editable path="Greebles/Holosigns/HolosignWallGreeble3"]
+[editable path="Greebles/Holosigns/HolosignWallGreeble3/HolosignWallGreeble"]
+[editable path="RoomMaster/MainHallway"]
+[editable path="RoomMaster/EastWingShortCutHallway"]
+[editable path="RoomMaster/EastWingShortCutHallway/Terrain/BuildingBlocks/OfficeHallEnd6"]
+[editable path="RoomMaster/EastWingShortCutHallway/Terrain/BuildingBlocks/OfficeHallEnd7"]
+[editable path="RoomMaster/WestwingHallway"]
+[editable path="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd6"]
+[editable path="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeHallEnd7"]
+[editable path="RoomMaster/WestwingHallway/Terrain/BuildingBlocks/OfficeTurn"]
+[editable path="RoomMaster/WestwingHallway2"]
+[editable path="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks/OfficeHallEnd2"]
+[editable path="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks/OfficeHallEnd2/OfficeWallEndcap"]
+[editable path="RoomMaster/WestwingHallway2/Terrain/BuildingBlocks/OfficeHallEnd2/OfficeWallEndcap2"]
+[editable path="RoomMaster/WestwingHallway4"]
+[editable path="RoomMaster/WestwingHallway3"]
+[editable path="RoomMaster/Eastwing/EastwingHallway1"]
+[editable path="RoomMaster/Eastwing/EastwingHallway1/Terrain/BuildingBlocks/OfficeTJunction"]
+[editable path="RoomMaster/Eastwing/EastwingHallway3"]
+[editable path="RoomMaster/Eastwing/EastwingHallway2"]

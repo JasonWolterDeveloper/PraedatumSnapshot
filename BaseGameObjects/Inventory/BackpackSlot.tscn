@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://btha885i6m8lm"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/LoadoutSlot.gd" id="1_dau2e"]
+
+[node name="BackpackSlot" type="Node3D"]
+script = ExtResource("1_dau2e")
+item_type = 5

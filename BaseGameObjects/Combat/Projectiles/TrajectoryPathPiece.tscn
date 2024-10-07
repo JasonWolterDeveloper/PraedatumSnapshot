@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0xly6dcly663"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxq8m"]
+shading_mode = 0
+disable_receive_shadows = true
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_cxu8k"]
+material = SubResource("StandardMaterial3D_wxq8m")
+size = Vector2(0.1, 0.1)
+
+[node name="TrajectoryPathPiece" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_cxu8k")

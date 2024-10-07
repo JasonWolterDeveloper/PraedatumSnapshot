@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bahjuu5cct3pq"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/RPGMechanics/SpawnTables/LootTables/BasicMilitaryLootTable.gd" id="1_bst6p"]
+
+[node name="BasicMilitaryLootTable" type="Node"]
+script = ExtResource("1_bst6p")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2roiyc00qyqh"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/RPGAbilities/ActiveAbilities/AreaOfEffectAbility.gd" id="1_cxgcc"]
+[ext_resource type="PackedScene" uid="uid://bkkiyheasuukq" path="res://Content/Default/Code/RPGMechanics/AreaOfEffect/DamageAreaOfEffect.tscn" id="2_lepqc"]
+
+[node name="ShockwaveAbility" type="Node"]
+script = ExtResource("1_cxgcc")
+area_of_effect_scene = ExtResource("2_lepqc")
+cast_on_pressed = true
+is_active = true
+mana_cost = 25.0
+ability_id = "shockwave"
+display_name = "Shockwave"

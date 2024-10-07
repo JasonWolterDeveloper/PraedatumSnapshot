@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxurhtighowws"]
+
+[ext_resource type="PackedScene" uid="uid://dfpgui17nup0r" path="res://BaseGameObjects/InteractableObjects/InteractableObject.tscn" id="1_i4l87"]
+[ext_resource type="Script" path="res://BaseGameObjects/InteractableObjects/LevelTransitionInteractable.gd" id="2_gt0ix"]
+
+[node name="LevelTransitionInteractable" instance=ExtResource("1_i4l87")]
+script = ExtResource("2_gt0ix")
+destination_level = "res://Content/Default/Code/Levels/HubLevel.tscn"
+is_extraction_point = false
+allow_if_activated = true

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dld233roohjas"]
+
+[ext_resource type="PackedScene" uid="uid://c14yeba554ow1" path="res://BaseGameObjects/Terrain/Walls/Wall.tscn" id="1_gctso"]
+[ext_resource type="PackedScene" uid="uid://bufpahsb7jek6" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallSegment.tscn" id="2_rbh4d"]
+[ext_resource type="Material" uid="uid://fp3hdtajq0n6" path="res://Content/Default/Code/Levels/VoidTexture.tres" id="3_110nh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tvh2b"]
+resource_local_to_scene = true
+size = Vector3(1, 1, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_npne3"]
+material = ExtResource("3_110nh")
+size = Vector3(1, 4, 0.2)
+
+[node name="OfficeWall" instance=ExtResource("1_gctso")]
+
+[node name="OfficeWallSegment" parent="." index="0" instance=ExtResource("2_rbh4d")]
+
+[node name="CollisionShape3D" parent="." index="1"]
+shape = SubResource("BoxShape3D_tvh2b")
+
+[node name="VoidPart" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_npne3")

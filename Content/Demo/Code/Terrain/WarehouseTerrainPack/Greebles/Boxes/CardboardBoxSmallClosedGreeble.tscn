@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://wvm7312f7xyt"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_0uvkd"]
+[ext_resource type="PackedScene" uid="uid://72e36toy6mtp" path="res://Content/Demo/Assets/Terrain/Greebles/CardboardBoxes/SmallBox/SmallCardboardBoxClosed.glb" id="2_jyx1v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0r71u"]
+size = Vector3(0.768359, 0.132227, 0.682959)
+
+[node name="CardboardBoxSmallClosedGreeble" type="Node3D"]
+
+[node name="Obstacle" type="StaticBody3D" parent="."]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_0uvkd")
+
+[node name="SmallCardboardBoxClosed" parent="Obstacle" instance=ExtResource("2_jyx1v")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -0.19, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113043, 0.0653864, 0.0907105)
+shape = SubResource("BoxShape3D_0r71u")

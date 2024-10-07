@@ -1,0 +1,111 @@
+[gd_resource type="VisualShader" load_steps=11 format=3 uid="uid://by23absjdvkmu"]
+
+[ext_resource type="Texture2D" uid="uid://ismk02ywnr7e" path="res://Content/Demo/Assets/Aesthetics/ElectricShock/ThunderTextureFinal.png" id="1_06amd"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_icute"]
+expanded_output_ports = [0]
+texture = ExtResource("1_06amd")
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_rtvft"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ys4p0"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, -0.8)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_cj2rf"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeSmoothStep" id="VisualShaderNodeSmoothStep_o6b3k"]
+default_input_values = [0, 0.2, 1, 0.6, 2, 0.5]
+
+[sub_resource type="Gradient" id="Gradient_akh8g"]
+offsets = PackedFloat32Array(0.038961, 0.783333)
+colors = PackedColorArray(0.1, 0, 4, 1, 1, 2, 10, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_20cmw"]
+gradient = SubResource("Gradient_akh8g")
+use_hdr = true
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_geuej"]
+texture = SubResource("GradientTexture1D_20cmw")
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_edsfw"]
+size = Vector2(250, 150)
+expression = "void vertex() {
+	MODELVIEW_MATRIX = INV_CAMERA_MATRIX * mat4(CAMERA_MATRIX[0],WORLD_MATRIX[1],vec4(normalize(cross(CAMERA_MATRIX[0].xyz,WORLD_MATRIX[1].xyz)), 0.0),WORLD_MATRIX[3]);
+	MODELVIEW_MATRIX = MODELVIEW_MATRIX * mat4(vec4(1.0, 0.0, 0.0, 0.0),vec4(0.0, 1.0/length(WORLD_MATRIX[1].xyz), 0.0, 0.0), vec4(0.0, 0.0, 1.0, 0.0),vec4(0.0, 0.0, 0.0 ,1.0));
+}"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded;
+
+uniform sampler2D tex_frg_2;
+uniform sampler2D tex_frg_7;
+
+
+
+void fragment() {
+// Input:5
+	float n_out5p0 = TIME;
+
+
+// VectorOp:4
+	vec2 n_in4p1 = vec2(0.00000, -0.80000);
+	vec2 n_out4p0 = vec2(n_out5p0) * n_in4p1;
+
+
+// UVFunc:3
+	vec2 n_in3p1 = vec2(1.00000, 1.00000);
+	vec2 n_out3p0 = n_out4p0 * n_in3p1 + UV;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out3p0);
+	float n_out2p1 = n_out2p0.r;
+
+
+// SmoothStep:6
+	float n_in6p0 = 0.20000;
+	float n_in6p1 = 0.60000;
+	float n_out6p0 = smoothstep(n_in6p0, n_in6p1, n_out2p1);
+
+
+// Texture2D:7
+	vec4 n_out7p0 = texture(tex_frg_7, vec2(n_out6p0));
+
+
+// Output:0
+	ALBEDO = vec3(n_out7p0.xyz);
+	ALPHA = n_out6p0;
+	EMISSION = vec3(n_out7p0.xyz);
+
+
+}
+"
+modes/cull = 2
+flags/unshaded = true
+nodes/fragment/0/position = Vector2(880, 140)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_icute")
+nodes/fragment/2/position = Vector2(100, 280)
+nodes/fragment/3/node = SubResource("VisualShaderNodeUVFunc_rtvft")
+nodes/fragment/3/position = Vector2(-160, 360)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorOp_ys4p0")
+nodes/fragment/4/position = Vector2(-520, 320)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_cj2rf")
+nodes/fragment/5/position = Vector2(-800, 200)
+nodes/fragment/6/node = SubResource("VisualShaderNodeSmoothStep_o6b3k")
+nodes/fragment/6/position = Vector2(460, 160)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture_geuej")
+nodes/fragment/7/position = Vector2(680, -20)
+nodes/fragment/8/node = SubResource("VisualShaderNodeExpression_edsfw")
+nodes/fragment/8/position = Vector2(560, 380)
+nodes/fragment/8/size = Vector2(250, 150)
+nodes/fragment/8/input_ports = ""
+nodes/fragment/8/output_ports = ""
+nodes/fragment/8/expression = "void vertex() {
+	MODELVIEW_MATRIX = INV_CAMERA_MATRIX * mat4(CAMERA_MATRIX[0],WORLD_MATRIX[1],vec4(normalize(cross(CAMERA_MATRIX[0].xyz,WORLD_MATRIX[1].xyz)), 0.0),WORLD_MATRIX[3]);
+	MODELVIEW_MATRIX = MODELVIEW_MATRIX * mat4(vec4(1.0, 0.0, 0.0, 0.0),vec4(0.0, 1.0/length(WORLD_MATRIX[1].xyz), 0.0, 0.0), vec4(0.0, 0.0, 1.0, 0.0),vec4(0.0, 0.0, 0.0 ,1.0));
+}"
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 5, 0, 4, 0, 4, 0, 3, 2, 2, 1, 6, 2, 6, 0, 0, 1, 6, 0, 7, 0, 7, 0, 0, 0, 7, 0, 0, 5)

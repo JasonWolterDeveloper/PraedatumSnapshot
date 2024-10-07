@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfrof6tgmg7ik"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/Stats/MovementSpeedStat.gd" id="1_punfh"]
+
+[node name="MovementSpeedStat" type="Node"]
+script = ExtResource("1_punfh")
+stat_id = "movement_speed"

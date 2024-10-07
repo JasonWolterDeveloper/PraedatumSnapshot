@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://efvkdrd8x8tj"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/StatusEffects/Restoration/RestoreHealthOverTime.gd" id="1_skonl"]
+
+[node name="HealthPotionStatusEffect" type="Node3D"]
+script = ExtResource("1_skonl")
+restoration_per_second = 5.0
+periodic_effect = true
+period_length = 0.1
+duration = 5.0

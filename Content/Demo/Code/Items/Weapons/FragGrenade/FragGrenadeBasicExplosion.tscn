@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c78rutv1otbal"]
+
+[ext_resource type="PackedScene" uid="uid://di0b3ojaf0pis" path="res://BaseGameObjects/Combat/Explosion.tscn" id="1_5wjl6"]
+[ext_resource type="PackedScene" uid="uid://coeean42e5elt" path="res://BaseGameObjects/Aesthetics/ExplosionVFX/ExplosionVFX.tscn" id="2_xbtw5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ut2xe"]
+radius = 3.0
+
+[node name="FragGrenadeBasicExplosion" node_paths=PackedStringArray("explosion_vfx") instance=ExtResource("1_5wjl6")]
+radius = 3.0
+explosion_vfx = NodePath("ExplosionVFX")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_ut2xe")
+
+[node name="ExplosionVFX" parent="." index="1" instance=ExtResource("2_xbtw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+explosion_length_scale = 1.5

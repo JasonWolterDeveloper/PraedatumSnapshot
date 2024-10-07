@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl80chetak7uh"]
+
+[ext_resource type="PackedScene" uid="uid://dr16jxjonuil6" path="res://Content/Demo/Assets/Interactables/LootInteractables/Locker/OpenLocker.glb" id="1_l81vt"]
+
+[node name="OpenLockerModel" type="Node3D"]
+
+[node name="OpenLocker" parent="." instance=ExtResource("1_l81vt")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

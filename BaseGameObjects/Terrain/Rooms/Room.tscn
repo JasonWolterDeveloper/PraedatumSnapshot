@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnb7cbsaksj6d"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/Room.gd" id="1_0l6vr"]
+
+[node name="Room" type="Node3D"]
+script = ExtResource("1_0l6vr")
+
+[node name="Terrain" type="NavigationRegion3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Terrain"]
+
+[node name="Area" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="EnemySpawners" type="Node3D" parent="."]
+
+[node name="LootSpawners" type="Node3D" parent="."]
+
+[node name="RoomConnectors" type="Node3D" parent="."]
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

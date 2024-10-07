@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://7m530xflw870"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/Quests/FetchQuest.gd" id="1_rboh2"]
+[ext_resource type="Script" path="res://BaseGameObjects/TriggerSystem/ConditionEvaluator.gd" id="2_bg8yy"]
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/ConditionEvaluators/HasItemConditionEvaluator.gd" id="3_qqkim"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Quests/QuestStep.gd" id="4_7nkal"]
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/ConditionEvaluators/QuestStatusConditionEvaluator.gd" id="4_novb1"]
+[ext_resource type="PackedScene" uid="uid://rfc60m7m2mxb" path="res://Content/Demo/Code/Items/ResourceItems/Special/Toolkit/Toolkit.tscn" id="6_m4jwy"]
+[ext_resource type="PackedScene" uid="uid://f6hgb2xt586e" path="res://Content/Default/Code/Items/Scrip.tscn" id="7_kmc31"]
+
+[sub_resource type="Resource" id="Resource_dmd6v"]
+script = ExtResource("3_qqkim")
+item_id = "novelty_mug_a"
+item_quantity = 1
+include_inventory = true
+include_stash = true
+inverted = false
+
+[sub_resource type="Resource" id="Resource_vsbxw"]
+script = ExtResource("3_qqkim")
+item_id = "novelty_mug_b"
+item_quantity = 1
+include_inventory = true
+include_stash = true
+inverted = false
+
+[sub_resource type="Resource" id="Resource_xw0sa"]
+script = ExtResource("3_qqkim")
+item_id = "novelty_mug_c"
+item_quantity = 1
+include_inventory = true
+include_stash = true
+inverted = false
+
+[sub_resource type="Resource" id="Resource_qg1ah"]
+script = ExtResource("4_novb1")
+quest_id = "shoplifting_part_1"
+quest_step_id = ""
+is_started = false
+is_completed = true
+inverted = false
+
+[node name="CollectorPart1" type="Node"]
+script = ExtResource("1_rboh2")
+quest_cost = {
+"novelty_mug_a": 1,
+"novelty_mug_b": 1,
+"novelty_mug_c": 1
+}
+completion_condition_evaluators = Array[ExtResource("2_bg8yy")]([SubResource("Resource_dmd6v"), SubResource("Resource_vsbxw"), SubResource("Resource_xw0sa")])
+availability_conditions = Array[ExtResource("2_bg8yy")]([SubResource("Resource_qg1ah")])
+display_name = "Collector P. 1"
+quest_id = "collector_p_1"
+quest_description = "Do you know those mugs NLI gives out to their employees? I've been looking to get a full set. Could you go and fetch them for me pretty please?"
+should_award_experience = false
+
+[node name="QuestStep" type="Node" parent="."]
+script = ExtResource("4_7nkal")
+success_conditions = Array[ExtResource("2_bg8yy")]([SubResource("Resource_dmd6v")])
+should_uncomplete_if_conditions_not_met = true
+quest_step_id = "mug_a"
+display_name = "Acquire Novelty Mug A"
+
+[node name="QuestStep2" type="Node" parent="."]
+script = ExtResource("4_7nkal")
+success_conditions = Array[ExtResource("2_bg8yy")]([SubResource("Resource_vsbxw")])
+should_uncomplete_if_conditions_not_met = true
+quest_step_id = "mug_b"
+display_name = "Acquire Novelty Mug B"
+
+[node name="QuestStep3" type="Node" parent="."]
+script = ExtResource("4_7nkal")
+success_conditions = Array[ExtResource("2_bg8yy")]([SubResource("Resource_xw0sa")])
+should_uncomplete_if_conditions_not_met = true
+quest_step_id = "mug_c"
+display_name = "Acquire Novelty Mug C"
+
+[node name="QuestReward" type="Node3D" parent="."]
+
+[node name="Toolkit" parent="QuestReward" instance=ExtResource("6_m4jwy")]
+
+[node name="Scrip" parent="QuestReward" instance=ExtResource("7_kmc31")]
+current_quantity = 500

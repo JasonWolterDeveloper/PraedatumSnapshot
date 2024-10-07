@@ -1,0 +1,125 @@
+[gd_scene load_steps=18 format=3 uid="uid://da7rupv1bdghc"]
+
+[ext_resource type="PackedScene" uid="uid://bnb7cbsaksj6d" path="res://BaseGameObjects/Terrain/Rooms/Room.tscn" id="1_8hg1e"]
+[ext_resource type="PackedScene" uid="uid://wlnvcub5m280" path="res://Content/Demo/Code/Levels/Rooms/MedicalFacilityEnemySpawnTable.tscn" id="2_4u6vq"]
+[ext_resource type="PackedScene" uid="uid://c6qtv46bvrohs" path="res://Content/Demo/Code/Levels/Rooms/WarehouseRoomConnector.tscn" id="4_isbul"]
+[ext_resource type="PackedScene" uid="uid://d3t8m7tkfvwxc" path="res://Content/Demo/Code/Levels/Rooms/MedicalFacilityLootSpawnTable.tscn" id="4_tdod1"]
+[ext_resource type="PackedScene" uid="uid://ca4m4ter54205" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/RobotArm/RobotArmObstacle.tscn" id="6_78v8v"]
+[ext_resource type="Texture2D" uid="uid://1wfxuq4bu48k" path="res://Content/Demo/Assets/Terrain/Floors/Textures/Daskonkreetbaby.png" id="6_cabkl"]
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="7_25ti0"]
+[ext_resource type="PackedScene" uid="uid://yujtjf1sytmb" path="res://Content/Demo/Code/Levels/Rooms/MedicalFacilityLootSpawnPoint.tscn" id="7_jrpcy"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="7_qxttd"]
+[ext_resource type="PackedScene" uid="uid://cdv4gvnqvyw7v" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/ConveyorBelt/ConveyorBelt.tscn" id="8_fm1xl"]
+[ext_resource type="PackedScene" uid="uid://dsqjkuec1v3s1" path="res://Content/Demo/Code/Levels/Rooms/MedicalFacilityEnemySpawnPoint.tscn" id="10_ub6ke"]
+[ext_resource type="PackedScene" uid="uid://dkfd8n7t7nis1" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/Crate/DoubleCrateObstacle.tscn" id="14_31vdc"]
+[ext_resource type="PackedScene" uid="uid://c0y5xg7rr5udg" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/Crate/CrateObstacle.tscn" id="14_u8oia"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3hrqd"]
+size = Vector3(12, 0, 12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx4yl"]
+albedo_color = Color(0.901961, 0.901961, 0.901961, 1)
+albedo_texture = ExtResource("6_cabkl")
+albedo_texture_force_srgb = true
+metallic = 1.0
+metallic_specular = 0.3
+metallic_texture = ExtResource("6_cabkl")
+roughness_texture = ExtResource("6_cabkl")
+uv1_scale = Vector3(2, 2, 2)
+uv2_scale = Vector3(5, 5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q0nyf"]
+size = Vector3(12, 0, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ew8ws"]
+size = Vector3(12, 10, 12)
+
+[node name="MedicalFoyer" node_paths=PackedStringArray("enemy_spawn_table", "loot_spawn_table") instance=ExtResource("1_8hg1e")]
+display_name = "Foyer"
+enemy_spawn_table = NodePath("MedicalFacilityEnemySpawnTable")
+loot_spawn_table = NodePath("MedicalFacilityLootSpawnTable")
+
+[node name="MedicalFacilityLootSpawnTable" parent="." index="0" instance=ExtResource("4_tdod1")]
+
+[node name="MedicalFacilityEnemySpawnTable" parent="." index="1" instance=ExtResource("2_4u6vq")]
+
+[node name="RobotArmObstacle" parent="Terrain" index="0" instance=ExtResource("6_78v8v")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 4.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor" index="0"]
+mesh = SubResource("BoxMesh_3hrqd")
+surface_material_override/0 = SubResource("StandardMaterial3D_vx4yl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Floor" index="1"]
+shape = SubResource("BoxShape3D_q0nyf")
+
+[node name="Walls" type="Node3D" parent="Terrain" index="2"]
+
+[node name="OfficeWall8" parent="Terrain/Walls" index="0" instance=ExtResource("7_qxttd")]
+transform = Transform3D(11, 0, -1.74846e-07, 0, 1, 0, 1.92331e-06, 0, 1, 0, 0, 6)
+
+[node name="OfficeWall9" parent="Terrain/Walls" index="1" instance=ExtResource("7_qxttd")]
+transform = Transform3D(-4.88762e-07, 0, -1, 0, 1, 0, 3, 0, -1.62921e-07, -6, 0, 3.5)
+
+[node name="OfficeWall10" parent="Terrain/Walls" index="2" instance=ExtResource("7_qxttd")]
+transform = Transform3D(-4.88762e-07, 0, -1, 0, 1, 0, 3, 0, -1.62921e-07, -6, 0, -3.5)
+
+[node name="OfficeWall11" parent="Terrain/Walls" index="3" instance=ExtResource("7_qxttd")]
+transform = Transform3D(-3, 0, 2.06632e-07, 0, 1, 0, -6.19896e-07, 0, -1, -3.5, 0, -6)
+
+[node name="OfficeWall12" parent="Terrain/Walls" index="4" instance=ExtResource("7_qxttd")]
+transform = Transform3D(-3, 0, 2.06632e-07, 0, 1, 0, -6.19896e-07, 0, -1, 3.5, 0, -6)
+
+[node name="OfficeWall13" parent="Terrain/Walls" index="5" instance=ExtResource("7_qxttd")]
+transform = Transform3D(7.5103e-07, 0, 1, 0, 1, 0, -3, 0, 2.50343e-07, 6, 0, -3.5)
+
+[node name="OfficeWall14" parent="Terrain/Walls" index="6" instance=ExtResource("7_qxttd")]
+transform = Transform3D(7.5103e-07, 0, 1, 0, 1, 0, -3, 0, 2.50343e-07, 6, 0, 3.5)
+
+[node name="OfficeWallEndcap" parent="Terrain/Walls" index="7" instance=ExtResource("7_25ti0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0, 6)
+
+[node name="OfficeWallEndcap2" parent="Terrain/Walls" index="8" instance=ExtResource("7_25ti0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, 6)
+
+[node name="OfficeWallEndcap3" parent="Terrain/Walls" index="9" instance=ExtResource("7_25ti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
+
+[node name="OfficeWallEndcap4" parent="Terrain/Walls" index="10" instance=ExtResource("7_25ti0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, -6)
+
+[node name="ConveyorBeltMk2" parent="Terrain/Walls" index="11" instance=ExtResource("8_fm1xl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area" index="0"]
+shape = SubResource("BoxShape3D_ew8ws")
+
+[node name="MedicalFacilityRoomConnector" parent="." index="4" instance=ExtResource("4_isbul")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, 0)
+
+[node name="MedicalFacilityRoomConnector2" parent="." index="5" instance=ExtResource("4_isbul")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -6)
+
+[node name="MedicalFacilityRoomConnector3" parent="." index="6" instance=ExtResource("4_isbul")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -6, 0, 0)
+
+[node name="MedicalFacilityEnemySpawnPoint" parent="EnemySpawners" index="0" instance=ExtResource("10_ub6ke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 3.5)
+
+[node name="MedicalFacilityEnemySpawnPoint2" parent="EnemySpawners" index="1" instance=ExtResource("10_ub6ke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5, -1.72724)
+
+[node name="MedicalFacilityEnemySpawnPoint3" parent="EnemySpawners" index="2" instance=ExtResource("10_ub6ke")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -3.9316, 2, -2)
+
+[node name="MedicalFacilityLootSpawnPoint" parent="LootSpawners" index="0" instance=ExtResource("7_jrpcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9556, 0.857909, 3.04783)
+
+[node name="MedicalFacilityLootSpawnPoint2" parent="LootSpawners" index="1" instance=ExtResource("7_jrpcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.78074, 0, -3.97268)
+
+[node name="DoubleCrateObstacle" parent="." index="9" instance=ExtResource("14_31vdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.084514, 0.626577, -3.5458)
+
+[node name="CrateObstacle" parent="." index="10" instance=ExtResource("14_u8oia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311886, 2.02235, -3.5458)

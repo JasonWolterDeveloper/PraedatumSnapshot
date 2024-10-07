@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1vscg7evjqm5"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/PersistentAttackStates/PersistentPursuitState.gd" id="1_8skks"]
+
+[node name="PersistentPursuitState" type="Node3D"]
+script = ExtResource("1_8skks")

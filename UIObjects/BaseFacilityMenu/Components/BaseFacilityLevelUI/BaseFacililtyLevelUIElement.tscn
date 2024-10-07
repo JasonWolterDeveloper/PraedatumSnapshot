@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://daaquri1r4oqu"]
+
+[ext_resource type="PackedScene" uid="uid://bl7dyi6mdlhvp" path="res://UIObjects/BaseFacilityMenu/Components/BaseFacilityLevelUI/BaseFacilityLevelPip.tscn" id="1_u07sy"]
+[ext_resource type="Script" path="res://UIObjects/BaseFacilityMenu/Components/BaseFacilityLevelUI/BaseFacililtyLevelUIElement.gd" id="1_wmmrm"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="1_xqb3l"]
+
+[node name="BaseFacililtyLevelUIElement" type="HBoxContainer"]
+offset_right = 262.0
+offset_bottom = 30.0
+theme_override_constants/separation = 10
+script = ExtResource("1_wmmrm")
+pip_scene = ExtResource("1_u07sy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_xqb3l")
+theme_override_font_sizes/font_size = 28
+text = "Facility Upgrade Level: "
+vertical_alignment = 1
+
+[node name="BaseFacilityLevelPip" parent="." instance=ExtResource("1_u07sy")]
+layout_mode = 2
+
+[node name="BaseFacilityLevelPip2" parent="." instance=ExtResource("1_u07sy")]
+layout_mode = 2
+
+[node name="BaseFacilityLevelPip3" parent="." instance=ExtResource("1_u07sy")]
+layout_mode = 2

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dis0syrx0r6nv"]
+
+[ext_resource type="PackedScene" uid="uid://ddm5skkchgfuj" path="res://Content/Demo/Assets/Interactables/LootInteractables/Locker/UnlootableLocker.glb" id="1_qbgra"]
+
+[node name="UnlootableLockerModel" type="Node3D"]
+
+[node name="UnlootableLocker" parent="." instance=ExtResource("1_qbgra")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

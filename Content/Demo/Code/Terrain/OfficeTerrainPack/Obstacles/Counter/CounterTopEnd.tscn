@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cddhdmtpql8cc"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_k1joh"]
+[ext_resource type="PackedScene" uid="uid://xk4dksx3m2ed" path="res://Content/Demo/Assets/Terrain/OfficeTerrainPack/Obstacles/Counter/CounterEnd.glb" id="2_pik8g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vyny0"]
+size = Vector3(3.18593, 1.13501, 1.81647)
+
+[node name="CounterTopEnd" type="StaticBody3D"]
+script = ExtResource("1_k1joh")
+
+[node name="CounterEnd" parent="." instance=ExtResource("2_pik8g")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.087822, 0.546265, 0.0039978)
+shape = SubResource("BoxShape3D_vyny0")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4koxd5frjemv"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/HotbarSlots/HotbarSlot.gd" id="1_lt4sc"]
+
+[node name="HotbarSlot" type="Node"]
+script = ExtResource("1_lt4sc")

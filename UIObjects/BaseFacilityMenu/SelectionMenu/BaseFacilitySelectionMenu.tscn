@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://da1kluq7m63h4"]
+
+[ext_resource type="Script" path="res://UIObjects/BaseFacilityMenu/SelectionMenu/BaseFacilitySelectionMenu.gd" id="1_tay6g"]
+[ext_resource type="PackedScene" uid="uid://q7jkepdp3m2w" path="res://UIObjects/BaseFacilityMenu/SelectionMenu/BaseFacilitySelectionButton.tscn" id="2_vmkro"]
+[ext_resource type="PackedScene" uid="uid://d1jqo2c8ws4ek" path="res://UIObjects/BaseFacilityMenu/BaseFacilityMenu.tscn" id="3_lgsb7"]
+[ext_resource type="PackedScene" uid="uid://bq5gg7p8jie3n" path="res://UIObjects/BaseFacilityMenu/PowerPips/BaseSolarPowerUI.tscn" id="4_3rnay"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skxbc"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 6
+border_width_right = 6
+border_width_bottom = 6
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="BaseFacilitySelectionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tay6g")
+selection_button = ExtResource("2_vmkro")
+base_facility_menu_scene = ExtResource("3_lgsb7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="BaseFacilitySelectionButtonVbox" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 2
+
+[node name="BaseFacilitySelectionButton4" parent="MarginContainer/BaseFacilitySelectionButtonVbox" instance=ExtResource("2_vmkro")]
+layout_mode = 2
+
+[node name="BaseFacilitySelectionButton3" parent="MarginContainer/BaseFacilitySelectionButtonVbox" instance=ExtResource("2_vmkro")]
+layout_mode = 2
+
+[node name="BaseFacilitySelectionButton" parent="MarginContainer/BaseFacilitySelectionButtonVbox" instance=ExtResource("2_vmkro")]
+layout_mode = 2
+
+[node name="BaseFacilitySelectionButton2" parent="MarginContainer/BaseFacilitySelectionButtonVbox" instance=ExtResource("2_vmkro")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.075
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_skxbc")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BaseSolarPowerUI" parent="PanelContainer/MarginContainer" instance=ExtResource("4_3rnay")]
+layout_mode = 2

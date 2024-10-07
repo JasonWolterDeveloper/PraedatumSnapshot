@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3gjp4gda6op0"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_7p7jy"]
+[ext_resource type="Texture2D" uid="uid://cfrgw65b50ni5" path="res://Content/Demo/Assets/Items/ResourceItems/NutsNBolts/NutsNBoltsInventoryImage.png" id="2_3dk7k"]
+[ext_resource type="PackedScene" uid="uid://3767qq3ejdyk" path="res://Content/Demo/Assets/Items/ResourceItems/NutsNBolts/NutsNBoltsGroundModel.tscn" id="3_01jxa"]
+
+[node name="NutsNBolts" type="Node3D"]
+script = ExtResource("1_7p7jy")
+inventory_image = ExtResource("2_3dk7k")
+ground_3d_model_scene = ExtResource("3_01jxa")
+display_name = "Nuts n' Bolts"
+item_id = "nuts_n_bolts"
+description = "An assortment of fasteners to keep things attached to other things. Optionally add to shotgun shells to detach things from other things.
+
+Can be used for crafting, or sold."
+show_quantity_in_ui = true
+default_price = 12
+max_quantity = 20
+grid_square_width = 1
+grid_square_height = 1

@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://ovqq5ehv3poq"]
+
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ShopMenuUI/ShopItemEntryButton.gd" id="1_ijfnx"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_hymrm"]
+[ext_resource type="Texture2D" uid="uid://f6u08hs6gmiw" path="res://Content/Demo/Assets/Items/Ammo/SmallCaliberPistolAmmo/SmallCaliberAmmoBox.png" id="3_nb4mo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5wvy"]
+bg_color = Color(0.0768361, 0.0768358, 0.0768356, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5woi"]
+bg_color = Color(0.489623, 0.489622, 0.489621, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc2p3"]
+bg_color = Color(0.847475, 0.847474, 0.847474, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[node name="ShopItemEntryButton" type="Control"]
+custom_minimum_size = Vector2(275, 150)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ijfnx")
+
+[node name="TextureButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_y5wvy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e5woi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mc2p3")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="QuantityText" type="Label" parent="TextureButton/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_hymrm")
+theme_override_font_sizes/font_size = 16
+text = "Stock: 400"
+
+[node name="PriceText" type="Label" parent="TextureButton/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_hymrm")
+theme_override_font_sizes/font_size = 16
+text = "Price: 20"
+
+[node name="DisplayNameText" type="Label" parent="TextureButton/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_hymrm")
+theme_override_font_sizes/font_size = 22
+text = "Item Name	"
+horizontal_alignment = 1
+
+[node name="ItemImage" type="TextureRect" parent="TextureButton/MarginContainer"]
+custom_minimum_size = Vector2(125, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_nb4mo")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="TextureButton" to="." method="on_press"]

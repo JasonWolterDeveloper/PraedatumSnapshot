@@ -1,0 +1,148 @@
+[gd_scene load_steps=11 format=3 uid="uid://bkkiyheasuukq"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/AreaOfEffect/DamageAreaOfEffect.gd" id="1_epipi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uxi6i"]
+radius = 7.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_un6ty"]
+radius = 6.0
+height = 6.0
+is_hemisphere = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vd1ho"]
+transparency = 1
+albedo_color = Color(0.811765, 0, 0.145098, 0.792157)
+emission_enabled = true
+emission = Color(1, 0.152941, 0.121569, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ln5hl"]
+direction = Vector3(1, 0.1, 0)
+spread = 180.0
+flatness = 0.9
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hq71s"]
+shading_mode = 0
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_nr04g"]
+material = SubResource("StandardMaterial3D_hq71s")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Animation" id="Animation_hw0tb"]
+resource_name = "ParticleEffect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.811765, 0, 0.145098, 0.513726), Color(0.811765, 0, 0.145098, 0.933333), Color(0.811765, 0, 0.145098, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:surface_material_override/0:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.152941, 0.121569, 1), Color(1, 0.658491, 0.60744, 1), Color(1, 0.152941, 0.121569, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4kjpx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.811765, 0, 0.145098, 0.792157)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:surface_material_override/0:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.152941, 0.121569, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kh31i"]
+_data = {
+"ParticleEffect": SubResource("Animation_hw0tb"),
+"RESET": SubResource("Animation_4kjpx")
+}
+
+[node name="DamageAreaOfEffect" type="Area3D"]
+script = ExtResource("1_epipi")
+affects_player = null
+affects_enemies = null
+periodic = null
+period_time = null
+instant = null
+duration = null
+track_origin_character_position = null
+damage = 25.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_uxi6i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_un6ty")
+surface_material_override/0 = SubResource("StandardMaterial3D_vd1ho")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+amount = 48
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ln5hl")
+draw_pass_1 = SubResource("QuadMesh_nr04g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kh31i")
+}

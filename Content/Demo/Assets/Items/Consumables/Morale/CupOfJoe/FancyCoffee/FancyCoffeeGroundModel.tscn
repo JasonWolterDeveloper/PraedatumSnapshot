@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0a4iqp0p2nna"]
+
+[ext_resource type="PackedScene" uid="uid://blk0j2frfjkhf" path="res://Content/Demo/Assets/Items/Consumables/Morale/CupOfJoe/FancyCoffee/FancyCoffee.glb" id="1_tbkem"]
+
+[node name="FancyCoffeeGroundModel" type="Node3D"]
+
+[node name="FancyCoffee" parent="." instance=ExtResource("1_tbkem")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.245915, 0)

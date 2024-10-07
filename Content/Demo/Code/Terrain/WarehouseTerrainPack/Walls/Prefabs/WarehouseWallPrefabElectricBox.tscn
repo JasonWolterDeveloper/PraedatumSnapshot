@@ -1,0 +1,114 @@
+[gd_scene load_steps=16 format=4 uid="uid://1j48iw0tsvgg"]
+
+[ext_resource type="PackedScene" uid="uid://b5wpkwly53u6t" path="res://Content/Demo/Assets/Terrain/Greebles/Gubbins/Warehouse/SeparatorPipe.glb" id="1_2vole"]
+[ext_resource type="PackedScene" uid="uid://c14yeba554ow1" path="res://BaseGameObjects/Terrain/Walls/Wall.tscn" id="2_23svk"]
+[ext_resource type="Material" uid="uid://fp3hdtajq0n6" path="res://Content/Default/Code/Levels/VoidTexture.tres" id="3_0thk8"]
+[ext_resource type="PackedScene" uid="uid://bo7ddx5ye2eib" path="res://Content/Demo/Assets/Terrain/Greebles/Wall/WallGreebleElectricBox2.glb" id="4_aatc4"]
+[ext_resource type="Material" uid="uid://bwdj2n8nunxds" path="res://Content/Demo/Assets/Terrain/WarehouseTerrainPack/WarehouseRustMaterials.tres" id="4_q461i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnpxo"]
+resource_name = "Metal1"
+cull_mode = 2
+albedo_color = Color(0.211466, 0.213065, 0.197076, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_iokwy"]
+_surfaces = [{
+"aabb": AABB(-0.0577073, -0.00930694, -0.060677, 0.115415, 4.00681, 0.109766),
+"format": 34359742465,
+"index_count": 78,
+"index_data": PackedByteArray("BAAIAAkABAADAAgAAgAGAAcAAgABAAYAAAAJAAUAAAAEAAkAAwAHAAgAAwACAAcAAQAFAAYAAQAAAAUAAgAAAAEAAAADAAQAAAACAAMABgAMAAcABgANAAwABQANAAYABQAOAA0ACAAKAAkACAALAAoADgAMAA0ADAAKAAsADAAOAAoABwALAAgABwAMAAsACQAOAAUACQAKAA4A"),
+"name": "Metal1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("Rv4gMiB8GLxciHi9cF5svSB8GLzrmZm8fhUSvSB8GLxWEUk9gxUSPSB8GLxWEUk9cF5sPSB8GLzrmZm8Rv4gMsGuOUBqiHi9cF5svcGuOUAHmpm8fhUSvcGuOUBIEUk9gxUSPcGuOUBIEUk9cF5sPcGuOUAHmpm8YV9sPR3Xf0ADmpm8dBYSPR3Xf0BKEUk9jRQSvR3Xf0BKEUk9f11svR3Xf0ADmpm8gUFzNR3Xf0BoiHi9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_31xsn"]
+resource_name = "SeparatorPipe_Circle_010"
+_surfaces = [{
+"aabb": AABB(-0.0577073, -0.00930694, -0.060677, 0.115415, 4.00681, 0.109766),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8="),
+"format": 34359742487,
+"index_count": 78,
+"index_data": PackedByteArray("DgAWABgADgALABYACAASABQACAAFABIAAQAXAA8AAQANABcACQATABUACQAGABMABAAQABEABAACABAABwAAAAMAAAAKAAwAAAAHAAoAEgAhABQAEgAkACEAEAAjABEAEAAnACMAFgAbABgAFgAeABsAJQAgACIAIAAZAB0AIAAlABkAEwAcABUAEwAfABwAFwAmAA8AFwAaACYA"),
+"material": SubResource("StandardMaterial3D_dnpxo"),
+"name": "Metal1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("Rv4gMiB8GLxciHi9Rv4gMiB8GLxciHi9Rv4gMiB8GLxciHi9cF5svSB8GLzrmZm8cF5svSB8GLzrmZm8cF5svSB8GLzrmZm8fhUSvSB8GLxWEUk9fhUSvSB8GLxWEUk9fhUSvSB8GLxWEUk9gxUSPSB8GLxWEUk9gxUSPSB8GLxWEUk9gxUSPSB8GLxWEUk9cF5sPSB8GLzrmZm8cF5sPSB8GLzrmZm8cF5sPSB8GLzrmZm8Rv4gMsGuOUBqiHi9Rv4gMsGuOUBqiHi9cF5svcGuOUAHmpm8cF5svcGuOUAHmpm8fhUSvcGuOUBIEUk9fhUSvcGuOUBIEUk9gxUSPcGuOUBIEUk9gxUSPcGuOUBIEUk9cF5sPcGuOUAHmpm8cF5sPcGuOUAHmpm8YV9sPR3Xf0ADmpm8YV9sPR3Xf0ADmpm8YV9sPR3Xf0ADmpm8dBYSPR3Xf0BKEUk9dBYSPR3Xf0BKEUk9dBYSPR3Xf0BKEUk9jRQSvR3Xf0BKEUk9jRQSvR3Xf0BKEUk9jRQSvR3Xf0BKEUk9f11svR3Xf0ADmpm8f11svR3Xf0ADmpm8f11svR3Xf0ADmpm8gUFzNR3Xf0BoiHi9gUFzNR3Xf0BoiHi9gUFzNR3Xf0BoiHi9/38AAP///7///yHK////vwAAIcr///+//38AAP///78AACHK////v2Mf/3////8//3//f////z//fwAA////v2Mf/3////8//3//f////z//fwAA////v5vg/3////8//38AAP///7///yHK////v5vg/3////8///8hyv///78AACHK////vwAAIcr///+/Yx//f////z//f/9/////P2Mf/3////8//3//f////z+b4P9/////P///Icr///+/m+D/f////z//f///////v///Icr///+/m+D/f////z//f/9/////P/9///////+/m+D/f////z//f/9/////P/9///////+/Yx//f////z//f///////vwAAIcr///+/Yx//f////z//f///////v///Icr///+/AAAhyv///78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_iokwy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7fyr"]
+albedo_color = Color(0.439049, 0.439049, 0.439049, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jerqa"]
+material = ExtResource("4_q461i")
+size = Vector3(1, 3, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yuexc"]
+albedo_color = Color(0.316167, 0.316167, 0.316167, 1)
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_5dgkk"]
+material = SubResource("StandardMaterial3D_yuexc")
+size = Vector3(1, 0.5, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ly2fr"]
+material = ExtResource("3_0thk8")
+size = Vector3(1.05, 4.05, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7r0nq"]
+albedo_color = Color(0.64, 0.394667, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ovuq"]
+material = SubResource("StandardMaterial3D_7r0nq")
+size = Vector3(1, 0.5, 0.2)
+
+[node name="WarehouseWallPrefab" type="Node3D"]
+
+[node name="SeparatorPipeRight" parent="." instance=ExtResource("1_2vole")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 1, 0, 2, 0, -8.74228e-08, -2.5, 0, -0.2)
+
+[node name="SeparatorPipeTop" parent="." instance=ExtResource("1_2vole")]
+transform = Transform3D(-8.74228e-08, -1.25, 0, 2, -5.46392e-08, 0, 0, 0, 2, 2.5, 3, -0.2)
+
+[node name="SeparatorPipeLeft" parent="." instance=ExtResource("1_2vole")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 1, 0, 2, 0, -8.74228e-08, 2.5, 0, -0.2)
+
+[node name="ElectricPipe" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.53, 0, 1, 0, -4.37114e-08, 0, 1.88109, -0.142613)
+
+[node name="SeparatorPipe" type="MeshInstance3D" parent="ElectricPipe"]
+mesh = SubResource("ArrayMesh_31xsn")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_t7fyr")
+
+[node name="WallGreebleElectricBox2" parent="." instance=ExtResource("4_aatc4")]
+transform = Transform3D(-0.75, 0, -1.13247e-07, 0, 0.75, 0, 1.13247e-07, 0, -0.75, 0, 1.61595, -0.18)
+
+[node name="Wall" parent="." instance=ExtResource("2_23svk")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RustWall" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_jerqa")
+
+[node name="MetalWall" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
+mesh = SubResource("BoxMesh_5dgkk")
+
+[node name="VoidPart" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_ly2fr")
+
+[node name="Highlight" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.84217e-14, 0, 1, 0, 3.25, 0)
+mesh = SubResource("BoxMesh_4ovuq")

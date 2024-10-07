@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy3lxn5ag4n30"]
+
+[ext_resource type="PackedScene" uid="uid://ducru0v11pnkh" path="res://Content/Demo/Assets/Weapons/Barracuda/BarracudaModel.glb" id="1_hjm87"]
+
+[node name="BarracudaGroundModel" type="Node3D"]
+
+[node name="BarracudaModel" parent="." instance=ExtResource("1_hjm87")]
+transform = Transform3D(4.77671e-16, -1.09278e-08, 0.25, -0.25, -1.09278e-08, 0, 1.09278e-08, -0.25, -1.09278e-08, 0, 0, 0)
+
+[node name="MuzzleFlash" parent="BarracudaModel" index="12"]
+visible = false
+
+[editable path="BarracudaModel"]

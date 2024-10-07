@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://by66eqqrqibgh"]
+
+[ext_resource type="PackedScene" uid="uid://di0b3ojaf0pis" path="res://BaseGameObjects/Combat/Explosion.tscn" id="1_w75cc"]
+[ext_resource type="PackedScene" uid="uid://coeean42e5elt" path="res://BaseGameObjects/Aesthetics/ExplosionVFX/ExplosionVFX.tscn" id="2_mhqi8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cw5sq"]
+radius = 5.0
+
+[node name="TestExplosiveChargeExplosion" node_paths=PackedStringArray("explosion_vfx") instance=ExtResource("1_w75cc")]
+collision_mask = 1031
+explosion_vfx = NodePath("ExplosionVFX")
+door_damage_strength = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_cw5sq")
+
+[node name="ExplosionVFX" parent="." index="1" instance=ExtResource("2_mhqi8")]

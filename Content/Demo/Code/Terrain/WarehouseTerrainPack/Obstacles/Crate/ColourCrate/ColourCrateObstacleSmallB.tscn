@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://blswx7c76xbr4"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_w705v"]
+[ext_resource type="PackedScene" uid="uid://dcaq4v3agpisd" path="res://Content/Demo/Assets/Terrain/Obstacles/Crate/ColourCrate/ColourCrate.glb" id="2_nsxwj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ewv0d"]
+size = Vector3(0.705535, 0.687301, 0.710343)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xkay2"]
+albedo_color = Color(0.17, 0.119, 0.13515, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijopb"]
+albedo_color = Color(0.281187, 0.281187, 0.281187, 1)
+
+[node name="ColourCrateObstacleSmallB" type="StaticBody3D"]
+script = ExtResource("1_w705v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00688118, 0.344313, 0.00198169)
+shape = SubResource("BoxShape3D_ewv0d")
+
+[node name="ColourCrate" parent="." instance=ExtResource("2_nsxwj")]
+transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0, 0.346528, 0)
+
+[node name="Box_Cube_001" parent="ColourCrate" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xkay2")
+surface_material_override/1 = SubResource("StandardMaterial3D_ijopb")
+
+[editable path="ColourCrate"]

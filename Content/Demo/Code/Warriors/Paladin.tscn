@@ -1,0 +1,104 @@
+[gd_scene load_steps=16 format=3 uid="uid://bbiw224ei74og"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Warriors/Warrior.gd" id="1_xiuph"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGMechanicsMaster.gd" id="2_bxrks"]
+[ext_resource type="PackedScene" uid="uid://cc2jty7a6a6vg" path="res://BaseGameObjects/RPGMechanics/Stats/HealthStat.tscn" id="5_0ti07"]
+[ext_resource type="PackedScene" uid="uid://bfrof6tgmg7ik" path="res://Content/Default/Code/RPGMechanics/Stats/MovementSpeedStat.tscn" id="8_2vkkw"]
+[ext_resource type="PackedScene" uid="uid://cra3x5g141pur" path="res://BaseGameObjects/RPGMechanics/Stats/SegmentedStats/ManaStat.tscn" id="8_u48d6"]
+[ext_resource type="PackedScene" uid="uid://nqja5a752e84" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/TestActiveAbility1.tscn" id="9_slmw6"]
+[ext_resource type="PackedScene" uid="uid://b0a4d3pnc1rws" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/TestActiveAbility2.tscn" id="10_7r0p3"]
+[ext_resource type="PackedScene" uid="uid://yb0soc7owaff" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/DivineProtection/DivineProtectionAbility.tscn" id="11_hlrdc"]
+[ext_resource type="PackedScene" uid="uid://c2roiyc00qyqh" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/ShockwaveAbility/ShockwaveAbility.tscn" id="12_qpskh"]
+[ext_resource type="PackedScene" uid="uid://b0epq7p6tnkpe" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/MagicBurstFire/MagicBurstFireAbility.tscn" id="13_req6q"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGAbilities/RPGAbility.gd" id="14_knua6"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="15_lnlng"]
+
+[sub_resource type="Resource" id="Resource_sbl1y"]
+script = ExtResource("15_lnlng")
+stat_id = "health"
+value = 1.0
+is_multiplicative = false
+is_number_of_segments = true
+is_value_per_segment = false
+
+[sub_resource type="Resource" id="Resource_x4wtf"]
+script = ExtResource("15_lnlng")
+stat_id = "mana"
+value = 1.0
+is_multiplicative = false
+is_number_of_segments = true
+is_value_per_segment = false
+
+[sub_resource type="Resource" id="Resource_onmhh"]
+script = ExtResource("15_lnlng")
+stat_id = "movement_speed"
+value = 0.5
+is_multiplicative = true
+is_number_of_segments = false
+is_value_per_segment = false
+
+[node name="Paladin" type="Node" node_paths=PackedStringArray("rpg_mechanics_master")]
+script = ExtResource("1_xiuph")
+warrior_id = "paladin"
+display_name = "Paladin"
+rpg_mechanics_master = NodePath("RPGMechanicsMaster")
+
+[node name="RPGMechanicsMaster" type="Node" parent="."]
+script = ExtResource("2_bxrks")
+is_player_mechanics_master = true
+
+[node name="HealthStat" parent="RPGMechanicsMaster" instance=ExtResource("5_0ti07")]
+base_number_of_segments = 3
+base_value_per_segment = 25.0
+value = 100.0
+
+[node name="MovementSpeedStat" parent="RPGMechanicsMaster" instance=ExtResource("8_2vkkw")]
+base_value = 4.0
+
+[node name="ManaStat" parent="RPGMechanicsMaster" instance=ExtResource("8_u48d6")]
+base_number_of_segments = 2
+base_value_per_segment = 25.0
+base_value = 50.0
+value = 50.0
+
+[node name="Abilities" type="Node" parent="."]
+
+[node name="Active" type="Node" parent="Abilities"]
+
+[node name="TestActiveAbility1" parent="Abilities/Active" instance=ExtResource("9_slmw6")]
+
+[node name="TestActiveAbility2" parent="Abilities/Active" instance=ExtResource("10_7r0p3")]
+
+[node name="DivineProtectionAbility" parent="Abilities/Active" instance=ExtResource("11_hlrdc")]
+description = "Protects the User from all damage for a short period of time"
+
+[node name="ShockwaveAbility" parent="Abilities/Active" instance=ExtResource("12_qpskh")]
+
+[node name="MagicBurstFireAbility" parent="Abilities/Active" instance=ExtResource("13_req6q")]
+mana_cost = 25.0
+
+[node name="Stat" type="Node" parent="Abilities"]
+
+[node name="RPGFortitudeAbility" type="Node" parent="Abilities/Stat"]
+script = ExtResource("14_knua6")
+is_passive = true
+rpg_stat_modifiers = Array[ExtResource("15_lnlng")]([SubResource("Resource_sbl1y")])
+ability_id = "fortitude"
+display_name = "Fortitude"
+description = "Increases Health"
+
+[node name="RPGIntellectAbility" type="Node" parent="Abilities/Stat"]
+script = ExtResource("14_knua6")
+is_passive = true
+rpg_stat_modifiers = Array[ExtResource("15_lnlng")]([SubResource("Resource_x4wtf")])
+ability_id = "intellect"
+display_name = "Intellect"
+description = "Increases Mana"
+
+[node name="RPGAlacrityAbility" type="Node" parent="Abilities/Stat"]
+script = ExtResource("14_knua6")
+is_passive = true
+rpg_stat_modifiers = Array[ExtResource("15_lnlng")]([SubResource("Resource_onmhh")])
+ability_id = "alacrity"
+display_name = "Alacrity"
+description = "Increases Movement Speed"

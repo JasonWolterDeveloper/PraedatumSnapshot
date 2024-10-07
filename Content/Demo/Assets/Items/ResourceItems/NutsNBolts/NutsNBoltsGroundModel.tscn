@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://3767qq3ejdyk"]
+
+[ext_resource type="PackedScene" uid="uid://p31tmtsm2g15" path="res://Content/Demo/Assets/Items/ResourceItems/NutsNBolts/NutsNBolts.glb" id="1_ifaas"]
+
+[node name="NutsNBoltsGroundModel" type="Node3D"]
+
+[node name="NutsNBolts" parent="." instance=ExtResource("1_ifaas")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

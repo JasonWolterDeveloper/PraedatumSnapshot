@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dck4l4wyspg5e"]
+
+[ext_resource type="PackedScene" uid="uid://bm1782qnuiwwn" path="res://BaseGameObjects/Bullet.tscn" id="1_7eqcv"]
+
+[node name="Bullet" instance=ExtResource("1_7eqcv")]
+damage = 0
+speed = 0

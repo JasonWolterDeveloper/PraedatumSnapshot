@@ -1,0 +1,26 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtmqr72b4yp4f"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/PersistentAttackStates/PersistentRangedFSM.gd" id="1_cvnq1"]
+[ext_resource type="PackedScene" uid="uid://c1vscg7evjqm5" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/PersistentAttackStates/PersistentPursuitState.tscn" id="4_u0rfx"]
+[ext_resource type="PackedScene" uid="uid://dvb8481bp8168" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/RangedStates/RangedAttackState.tscn" id="5_f3rak"]
+[ext_resource type="PackedScene" uid="uid://unh1e80vji04" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/RangedStates/SuppressionState.tscn" id="6_spbma"]
+[ext_resource type="PackedScene" uid="uid://js8wwnnd2jmn" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/TargetSeenLink.tscn" id="11_vymkc"]
+[ext_resource type="PackedScene" uid="uid://dtrohyw5kg0wg" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/NoTargetLOSLink.tscn" id="14_ux1lu"]
+[ext_resource type="PackedScene" uid="uid://bb5uym7ms6op7" path="res://Content/Default/Code/Behaviour/Links/TimeoutLink.tscn" id="16_8bdqe"]
+
+[node name="PersistentRangedFSM" type="Node3D"]
+script = ExtResource("1_cvnq1")
+
+[node name="RangedAttackState" parent="." instance=ExtResource("5_f3rak")]
+bullet_speed = 15.0
+
+[node name="SuppressionState" parent="." instance=ExtResource("6_spbma")]
+
+[node name="PersistentPursuitState" parent="." instance=ExtResource("4_u0rfx")]
+
+[node name="NoTargetLOSLink" parent="." instance=ExtResource("14_ux1lu")]
+
+[node name="SuppressionTimeoutLink" parent="." instance=ExtResource("16_8bdqe")]
+duration = 7.0
+
+[node name="TargetSeenLink2" parent="." instance=ExtResource("11_vymkc")]

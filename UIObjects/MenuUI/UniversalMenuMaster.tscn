@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://bufpbcwowvjuj"]
+
+[ext_resource type="Script" path="res://UIObjects/MenuUI/UniversalMenuMaster.gd" id="1_trlji"]
+[ext_resource type="PackedScene" uid="uid://d26n88tqnd15h" path="res://UIObjects/InventoryUI/InventoryUIMaster.tscn" id="2_vbiav"]
+[ext_resource type="PackedScene" uid="uid://bmv01civ8ufdg" path="res://UIObjects/MenuUI/Shops/ShopMenuMaster.tscn" id="3_m50n2"]
+[ext_resource type="PackedScene" uid="uid://bgfpoojsb71m1" path="res://UIObjects/MenuUI/GameOverMenuMaster.tscn" id="4_0qsja"]
+[ext_resource type="PackedScene" uid="uid://ca2c5bxp7w325" path="res://UIObjects/MenuUI/Quests/QuestUIMenuMaster.tscn" id="4_kmcx1"]
+
+[node name="UniversalMenuMaster" type="Node"]
+script = ExtResource("1_trlji")
+
+[node name="InventoryUIMaster" parent="." instance=ExtResource("2_vbiav")]
+
+[node name="ShopMenuMaster" parent="." instance=ExtResource("3_m50n2")]
+
+[node name="QuestUIMenuMaster" parent="." instance=ExtResource("4_kmcx1")]
+
+[node name="GameOverMenuMaster" parent="." instance=ExtResource("4_0qsja")]

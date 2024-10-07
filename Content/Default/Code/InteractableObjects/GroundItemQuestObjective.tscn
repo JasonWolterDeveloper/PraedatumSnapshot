@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu6qowluj47dw"]
+
+[ext_resource type="PackedScene" uid="uid://dt6t3wrrcsds1" path="res://Content/Default/Code/InteractableObjects/GroundItem.tscn" id="1_50es6"]
+[ext_resource type="Script" path="res://Content/Default/Code/InteractableObjects/GroundItemQuestObjective.gd" id="2_mvmw0"]
+
+[node name="GroundItemQuestObjective" instance=ExtResource("1_50es6")]
+script = ExtResource("2_mvmw0")
+quest_id = ""
+quest_step_id = ""
+allow_if_activated = false
+interaction_prompt_text = ""

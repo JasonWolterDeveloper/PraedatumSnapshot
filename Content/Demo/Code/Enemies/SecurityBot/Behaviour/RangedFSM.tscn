@@ -1,0 +1,80 @@
+[gd_scene load_steps=18 format=3 uid="uid://c75fxotvsst8s"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/SecurityBot/Behaviour/SecurityBotFSM.gd" id="1_jcydj"]
+[ext_resource type="PackedScene" uid="uid://b153i424xgox6" path="res://Content/Default/Code/Behaviour/StateMachines/PatrolFSM/PatrolFSM.tscn" id="2_octy4"]
+[ext_resource type="PackedScene" uid="uid://dtmqr72b4yp4f" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/PersistentAttackStates/PersistentRangedFSM.tscn" id="2_r2mq7"]
+[ext_resource type="PackedScene" uid="uid://b7jw58tx8mlvx" path="res://Content/Default/Code/Behaviour/States/IdleStates/GuardState.tscn" id="3_l0etx"]
+[ext_resource type="PackedScene" uid="uid://cfvr8h561gjft" path="res://Content/Demo/Code/Behaviour/States/WanderState.tscn" id="4_js8il"]
+[ext_resource type="PackedScene" uid="uid://dvb8481bp8168" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/RangedStates/RangedAttackState.tscn" id="5_dglfi"]
+[ext_resource type="PackedScene" uid="uid://unh1e80vji04" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/RangedStates/SuppressionState.tscn" id="6_fxw3l"]
+[ext_resource type="PackedScene" uid="uid://cas1v5jkm1ijr" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/PursuitState.tscn" id="7_u8k4k"]
+[ext_resource type="PackedScene" uid="uid://lcpw3l8d56n8" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/TargetJustLostState.tscn" id="8_4x5u2"]
+[ext_resource type="PackedScene" uid="uid://b7fqoqynq2k5f" path="res://Content/Default/Code/Behaviour/States/MoveState.tscn" id="9_j3avt"]
+[ext_resource type="PackedScene" uid="uid://xbrrtb7vsjpn" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/TargetHeardLink.tscn" id="10_bihic"]
+[ext_resource type="PackedScene" uid="uid://js8wwnnd2jmn" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/TargetSeenLink.tscn" id="11_wer66"]
+[ext_resource type="PackedScene" uid="uid://cnegwbqp3akle" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/SixthSenseLink.tscn" id="12_qgpyi"]
+[ext_resource type="PackedScene" uid="uid://dc4viavry3njr" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/DamagedByPlayerLink.tscn" id="13_kqygn"]
+[ext_resource type="PackedScene" uid="uid://dtrohyw5kg0wg" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/NoTargetLOSLink.tscn" id="14_2ot46"]
+[ext_resource type="PackedScene" uid="uid://bl2yji2yd5ds" path="res://Content/Default/Code/Behaviour/Links/DestinationReachedLink.tscn" id="15_ne2ga"]
+[ext_resource type="PackedScene" uid="uid://bb5uym7ms6op7" path="res://Content/Default/Code/Behaviour/Links/TimeoutLink.tscn" id="16_nkchq"]
+
+[node name="RangedFSM" type="Node3D"]
+script = ExtResource("1_jcydj")
+
+[node name="PersistentRangedFSM" parent="." instance=ExtResource("2_r2mq7")]
+
+[node name="PatrolFSM" parent="." instance=ExtResource("2_octy4")]
+
+[node name="GuardState" parent="." instance=ExtResource("3_l0etx")]
+
+[node name="WanderState" parent="." instance=ExtResource("4_js8il")]
+
+[node name="RangedAttackState" parent="." instance=ExtResource("5_dglfi")]
+bullet_speed = 15.0
+
+[node name="SuppressionState" parent="." instance=ExtResource("6_fxw3l")]
+
+[node name="PursuitState" parent="." instance=ExtResource("7_u8k4k")]
+
+[node name="TargetJustLostState" parent="." instance=ExtResource("8_4x5u2")]
+
+[node name="MoveState" parent="." instance=ExtResource("9_j3avt")]
+
+[node name="TargetHeardLink" parent="." instance=ExtResource("10_bihic")]
+triggered_bark_name = &"target_detected_bark"
+use_attack_state_delay = true
+
+[node name="TargetSeenLink" parent="." instance=ExtResource("11_wer66")]
+triggered_bark_name = &"target_detected_bark"
+use_attack_state_delay = true
+
+[node name="SixthSenseLink" parent="." instance=ExtResource("12_qgpyi")]
+triggered_bark_name = &"target_detected_bark"
+use_attack_state_delay = true
+
+[node name="DamagedByPlayerLink" parent="." instance=ExtResource("13_kqygn")]
+triggered_bark_name = &"target_detected_bark"
+use_attack_state_delay = true
+
+[node name="NoTargetLOSLink" parent="." instance=ExtResource("14_2ot46")]
+
+[node name="DestinationReachedLink" parent="." instance=ExtResource("15_ne2ga")]
+
+[node name="PursuitTimeoutLink" parent="." instance=ExtResource("16_nkchq")]
+duration = 10.0
+
+[node name="SuppressionTimeoutLink" parent="." instance=ExtResource("16_nkchq")]
+duration = 7.0
+
+[node name="TargetJustLostTimeoutLink" parent="." instance=ExtResource("16_nkchq")]
+duration = 2.0
+
+[node name="DestinationReachedLink2" parent="." instance=ExtResource("15_ne2ga")]
+
+[node name="TargetHeardLink2" parent="." instance=ExtResource("10_bihic")]
+
+[node name="TargetSeenLink2" parent="." instance=ExtResource("11_wer66")]
+
+[node name="SixthSenseLink2" parent="." instance=ExtResource("12_qgpyi")]
+
+[node name="DamagedByPlayerLink2" parent="." instance=ExtResource("13_kqygn")]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1yl8ra0b0yva"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Quests/QuestStep.gd" id="1_1y3ix"]
+
+[node name="QuestStep" type="Node"]
+script = ExtResource("1_1y3ix")

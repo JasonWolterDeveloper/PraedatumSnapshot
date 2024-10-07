@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn0bn8m3lu4cd"]
+
+[ext_resource type="PackedScene" uid="uid://c6qtv46bvrohs" path="res://Content/Demo/Code/Levels/Rooms/WarehouseRoomConnector.tscn" id="1_f5yoc"]
+[ext_resource type="PackedScene" uid="uid://dpslxjakvvryg" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/NLIDoorLock1.tscn" id="2_6jvjb"]
+
+[node name="LL1WarehouseRoomConnector" instance=ExtResource("1_f5yoc")]
+door_scene_override = ExtResource("2_6jvjb")
+door_scene_priority = 1

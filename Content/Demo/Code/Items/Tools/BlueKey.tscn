@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8oeydt3qmek6"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ToolItems/DoorKeyItem.gd" id="1_jhys6"]
+[ext_resource type="Texture2D" uid="uid://dsikhsmwv71cp" path="res://Content/Demo/Assets/Items/Tools/Keys/BlueKeyInventoryImage.png" id="2_gh0dm"]
+[ext_resource type="PackedScene" uid="uid://cyqxk7ymgup7o" path="res://Content/Demo/Assets/Items/Tools/Keys/BlueKeycardGroundModel.tscn" id="3_eyihx"]
+
+[node name="BlueKey" type="Node3D"]
+script = ExtResource("1_jhys6")
+key_level = 2
+key_code = "blue"
+consume_on_use = true
+inventory_image = ExtResource("2_gh0dm")
+ground_3d_model_scene = ExtResource("3_eyihx")
+display_name = "Blue Keycard"
+grid_square_width = 1
+grid_square_height = 1

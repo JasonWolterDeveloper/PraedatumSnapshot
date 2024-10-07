@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4gvkwfl3kdie"]
+
+[ext_resource type="PackedScene" uid="uid://bg8b63mksiiyh" path="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/PraedatumSecurityGuard.glb" id="1_kgt33"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4c5f"]
+albedo_color = Color(0.513726, 0.462745, 0, 1)
+emission_enabled = true
+emission = Color(0.513726, 0.462745, 0, 1)
+emission_energy_multiplier = 5.0
+
+[node name="PraedatumSecurityGuard" instance=ExtResource("1_kgt33")]
+
+[node name="Body" parent="." index="1"]
+surface_material_override/4 = SubResource("StandardMaterial3D_l4c5f")

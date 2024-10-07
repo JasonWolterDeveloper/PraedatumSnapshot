@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtdpmwt4jofne"]
+
+[ext_resource type="PackedScene" uid="uid://olp28uqesxwi" path="res://BaseGameObjects/InteractableObjects/LootObject.tscn" id="1_37g1t"]
+[ext_resource type="PackedScene" uid="uid://dvj7w6veilmpn" path="res://Content/Demo/Code/RPGMechanics/BasicMedicalLootTable.tscn" id="2_4c85h"]
+[ext_resource type="PackedScene" uid="uid://bpryq34tbjf37" path="res://BaseGameObjects/Inventory/Storage.tscn" id="2_ww5t8"]
+[ext_resource type="PackedScene" uid="uid://ivs30d86x3it" path="res://Content/Demo/Assets/Interactables/LootInteractables/SmallLootCrate/SmallLootCrateModel.tscn" id="4_h5qsj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jaqck"]
+size = Vector3(0.620178, 3, 0.513916)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2kmiq"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="BasicMedicalLootObject" node_paths=PackedStringArray("storage", "loot_table") instance=ExtResource("1_37g1t")]
+storage = NodePath("Storage")
+loot_table = NodePath("BasicMedicalLootTable")
+
+[node name="ActivationArea#CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0210876, 1, 0.00354004)
+shape = SubResource("BoxShape3D_jaqck")
+
+[node name="BasicMedicalLootTable" parent="." index="1" instance=ExtResource("2_4c85h")]
+
+[node name="Storage" parent="." index="2" instance=ExtResource("2_ww5t8")]
+grid_square_width = 5
+grid_square_height = 5
+
+[node name="SmallLootCrateModel" parent="StaticBody3D" index="0" instance=ExtResource("4_h5qsj")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+shape = SubResource("BoxShape3D_2kmiq")

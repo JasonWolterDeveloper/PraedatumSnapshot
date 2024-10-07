@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cas1v5jkm1ijr"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/Behaviour/States/OffensiveStates/PursuitState.gd" id="1_4tkej"]
+
+[node name="PursuitState" type="Node3D"]
+script = ExtResource("1_4tkej")
+visiting_point_tolerance = 1.0

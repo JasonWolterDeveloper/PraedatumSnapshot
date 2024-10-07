@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4jre5cv1mt63"]
+
+[ext_resource type="Script" path="res://Content/TestContent/Code/Behaviour/DebugLink.gd" id="1_bra08"]
+
+[node name="DebugLink" type="Node3D"]
+script = ExtResource("1_bra08")

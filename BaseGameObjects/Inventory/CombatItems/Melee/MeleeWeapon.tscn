@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1jxy1uge7yjg"]
+
+[ext_resource type="PackedScene" uid="uid://dujd22vbjhnni" path="res://BaseGameObjects/Weapon.tscn" id="1_f52qm"]
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/Melee/MeleeWeapon.gd" id="2_m6hdx"]
+
+[node name="MeleeWeapon" instance=ExtResource("1_f52qm")]
+script = ExtResource("2_m6hdx")
+melee_arc = 1.5708
+melee_damage = 7.0
+melee_recovery_time = 0.5
+time_from_start_melee_attack_to_damage = 0.1
+successful_impact_particle_scene = null
+item_type = 0
+
+[node name="MeleeRange" type="Area3D" parent="." index="0"]
+collision_layer = 0
+collision_mask = 4

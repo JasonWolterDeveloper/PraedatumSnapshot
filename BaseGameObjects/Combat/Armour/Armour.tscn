@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://8wxm2e1ajeik"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Armour/Armour.gd" id="1_p7gdi"]
+
+[node name="Armour" type="Node3D"]
+script = ExtResource("1_p7gdi")
+item_type = 4
+grid_square_width = 3
+grid_square_height = 3

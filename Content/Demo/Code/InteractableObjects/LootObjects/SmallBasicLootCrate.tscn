@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnu4ao6scsmvl"]
+
+[ext_resource type="PackedScene" uid="uid://olp28uqesxwi" path="res://BaseGameObjects/InteractableObjects/LootObject.tscn" id="1_v0isc"]
+[ext_resource type="PackedScene" uid="uid://bpryq34tbjf37" path="res://BaseGameObjects/Inventory/Storage.tscn" id="3_g1i72"]
+[ext_resource type="PackedScene" uid="uid://ivs30d86x3it" path="res://Content/Demo/Assets/Interactables/LootInteractables/SmallLootCrate/SmallLootCrateModel.tscn" id="3_gbd53"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jaqck"]
+size = Vector3(0.833038, 4, 0.916565)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2kmiq"]
+size = Vector3(0.646484, 0.576721, 0.643555)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtbrb"]
+albedo_color = Color(0.109341, 0.109341, 0.109341, 1)
+
+[node name="SmallBasicLootCrate" node_paths=PackedStringArray("storage", "empty_aesthetics", "not_empty_aesthetics") instance=ExtResource("1_v0isc")]
+storage = NodePath("Storage")
+empty_aesthetics = NodePath("SmallLootCrateEmpty")
+not_empty_aesthetics = NodePath("SmallLootCrate")
+
+[node name="ActivationArea#CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0182038, 0.5, -0.0309143)
+shape = SubResource("BoxShape3D_jaqck")
+
+[node name="Storage" parent="." index="1" instance=ExtResource("3_g1i72")]
+grid_square_width = 3
+grid_square_height = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00585938, 0.294699, -0.00244141)
+shape = SubResource("BoxShape3D_2kmiq")
+
+[node name="SmallLootCrate" parent="." index="4" instance=ExtResource("3_gbd53")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, -0.0637423, 0)
+
+[node name="SmallLootCrateEmpty" parent="." index="5" instance=ExtResource("3_gbd53")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, -0.0637423, 0)
+
+[node name="KeyPad" parent="SmallLootCrateEmpty" index="1"]
+surface_material_override/2 = SubResource("StandardMaterial3D_dtbrb")
+
+[node name="OmniLight3D" parent="SmallLootCrateEmpty" index="2"]
+visible = false
+
+[editable path="SmallLootCrate"]
+[editable path="SmallLootCrateEmpty"]

@@ -1,0 +1,461 @@
+[gd_scene load_steps=38 format=3 uid="uid://bcsrtvav0j6rf"]
+
+[ext_resource type="Script" path="res://Content/TestContent/Code/Levels/LOSTestLevel.gd" id="1_ufuhq"]
+[ext_resource type="PackedScene" uid="uid://dv3dvjvren7ys" path="res://UIObjects/Crosshair.tscn" id="2_ojjue"]
+[ext_resource type="PackedScene" uid="uid://bl176wggn7k33" path="res://BaseGameObjects/Player.tscn" id="2_uq3kd"]
+[ext_resource type="PackedScene" uid="uid://bo7h77wma3mob" path="res://UIObjects/PlayerHUD.tscn" id="3_tjfmj"]
+[ext_resource type="PackedScene" uid="uid://bufpbcwowvjuj" path="res://UIObjects/MenuUI/UniversalMenuMaster.tscn" id="4_n3kuh"]
+[ext_resource type="PackedScene" uid="uid://upsffmh3ud63" path="res://BaseGameObjects/Behaviour/AISound/AISoundGenerator.tscn" id="4_wu5lo"]
+[ext_resource type="PackedScene" uid="uid://bgkxg7oc7ivvm" path="res://BaseGameObjects/Terrain/Rooms/RoomMaster.tscn" id="5_2iu1r"]
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/Room.gd" id="7_jd48p"]
+[ext_resource type="PackedScene" uid="uid://cfl4v3aexofgf" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/NLIDoor.tscn" id="8_wtnpm"]
+[ext_resource type="PackedScene" uid="uid://djtf4a3eev6et" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/NormalRooms/Warehouse/NLIWarehouseSpawnTable.tscn" id="9_ilgn8"]
+[ext_resource type="PackedScene" uid="uid://cb78sar46vq83" path="res://BaseGameObjects/Terrain/Floor.tscn" id="10_t4ljk"]
+[ext_resource type="Material" uid="uid://cev4bf0o2ghrq" path="res://Content/Demo/Assets/Terrain/Floors/Materials/ConcreteFloorMaterial.tres" id="11_fwc7g"]
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="12_y4hkd"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="13_8nlg2"]
+[ext_resource type="PackedScene" uid="uid://c0y5xg7rr5udg" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/Crate/CrateObstacle.tscn" id="14_t4xjv"]
+[ext_resource type="PackedScene" uid="uid://m6ay3jdiqqkk" path="res://Content/Demo/Code/InteractableObjects/LootObjects/Military/LargeLootCrate.tscn" id="14_xj1qp"]
+[ext_resource type="PackedScene" uid="uid://183uukpvhubk" path="res://Content/Demo/Code/Items/Weapons/TrenchSweeper.tscn" id="15_8yy2k"]
+[ext_resource type="PackedScene" uid="uid://dkfd8n7t7nis1" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/Crate/DoubleCrateObstacle.tscn" id="15_a228g"]
+[ext_resource type="PackedScene" uid="uid://broj86uh4bw0d" path="res://Content/Demo/Code/Items/Weapons/BurstPistol.tscn" id="16_lebfa"]
+[ext_resource type="PackedScene" uid="uid://c4fabl4lbphv0" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/Crate/CrateObstacleSmall.tscn" id="16_t07oa"]
+[ext_resource type="PackedScene" uid="uid://3eka5872opal" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/SupportPiller/SupportPillar.tscn" id="17_il6im"]
+[ext_resource type="PackedScene" uid="uid://bervt8as74v6n" path="res://Content/Demo/Code/Items/Weapons/OlReliable.tscn" id="17_je6qu"]
+[ext_resource type="PackedScene" uid="uid://c6qtv46bvrohs" path="res://Content/Demo/Code/Levels/Rooms/WarehouseRoomConnector.tscn" id="18_0twvk"]
+[ext_resource type="PackedScene" uid="uid://4d3osy1662sk" path="res://Content/Demo/Code/Items/Ammo/SmallCaliberPistolAmmo.tscn" id="18_serr8"]
+[ext_resource type="PackedScene" uid="uid://73xg4xe6aohn" path="res://Content/Demo/Code/Items/Ammo/ShotgunShellAmmo.tscn" id="19_gpu1r"]
+[ext_resource type="PackedScene" uid="uid://bvlc6s3lx8dhd" path="res://Content/Demo/Code/Items/Aid/Mana/Instant/ManaPotion/ManaPotion.tscn" id="20_t7m15"]
+[ext_resource type="PackedScene" uid="uid://dlkt24rw4n47w" path="res://Content/Demo/Code/Enemies/WageCage/Zombie.tscn" id="26_eftfp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cj0mk"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_k8pfq"]
+sky_material = SubResource("ProceduralSkyMaterial_cj0mk")
+
+[sub_resource type="Environment" id="Environment_oxl5o"]
+background_mode = 2
+sky = SubResource("Sky_k8pfq")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yjsyl"]
+size = Vector3(500, 0, 500)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_127ha"]
+vertices = PackedVector3Array(-11.3502, 0.375, -10.3502, -6.10017, 0.375, -10.3502, -5.85017, 0.375, -11.6002, -11.3502, 0.375, -23.3502, -4.10017, 0.375, -11.6002, -3.85017, 0.375, -10.6002, 3.39983, 0.375, -10.6002, -4.10017, 0.375, -11.6002, 3.39983, 0.375, -10.6002, 3.64983, 0.375, -11.6002, 4.89983, 0.375, -23.3502, -11.3502, 0.375, -23.3502, 3.64983, 0.375, -11.6002, 5.14983, 0.375, -11.6002, 4.89983, 0.375, -23.3502, -11.3502, 0.375, -23.3502, -5.85017, 0.375, -11.6002, -4.10017, 0.375, -11.6002, 5.64983, 0.375, -11.3502, 5.64983, 0.375, -10.3502, 11.3998, 0.375, -10.3502, 5.14983, 0.375, -11.6002, 5.64983, 0.375, -11.3502, 11.3998, 0.375, -10.3502, 11.3998, 0.375, -23.3502, 4.89983, 0.375, -23.3502, -4.85017, 0.375, -4.60017, 4.39983, 0.375, -4.60017, 4.39983, 0.375, -9.35017, 3.39983, 0.375, -9.60017, -3.85017, 0.375, -9.60017, -4.85017, 0.375, -9.35017, 3.39983, 0.375, -9.60017, 3.39983, 0.375, -10.6002, -3.85017, 0.375, -10.6002, -3.85017, 0.375, -9.60017, -4.85017, 0.375, -4.60017, -4.85017, 0.375, -9.35017, -5.85017, 0.375, -9.35017, -6.35017, 0.375, -4.60017, -11.3502, 0.375, -3.85017, -6.60017, 0.375, -3.85017, -6.35017, 0.375, -4.60017, -5.85017, 0.375, -9.35017, -6.10017, 0.375, -10.3502, -11.3502, 0.375, -10.3502, 5.39983, 0.375, -9.35017, 4.39983, 0.375, -9.35017, 4.39983, 0.375, -4.60017, 6.39983, 0.375, -4.60017, 6.39983, 0.375, -4.60017, 6.64983, 0.375, -3.85017, 11.3998, 0.375, -3.85017, 11.3998, 0.375, -10.3502, 5.64983, 0.375, -10.3502, 5.39983, 0.375, -9.35017, -3.10017, 0.375, -1.10017, -0.850167, 0.375, -1.35017, -0.850167, 0.375, -3.35017, -6.35017, 0.375, -3.35017, -5.85017, 0.375, 9.39983, -4.35017, 0.375, 9.39983, -3.10017, 0.375, 1.14983, -6.35017, 0.375, -3.35017, -6.60017, 0.375, -3.85017, -11.3502, 0.375, -3.85017, -3.10017, 0.375, 1.14983, -3.10017, 0.375, -1.10017, -6.35017, 0.375, -3.35017, -11.3502, 0.375, -3.85017, -11.3502, 0.375, 10.3998, -5.85017, 0.375, 9.39983, -11.3502, 0.375, 10.3998, -6.10017, 0.375, 10.3998, -5.85017, 0.375, 9.39983, 4.89983, 0.375, 8.14983, 3.64983, 0.375, 8.89983, 3.89983, 0.375, 9.39983, 5.39983, 0.375, 9.39983, 6.39983, 0.375, -3.35017, 3.39983, 0.375, -0.600168, 3.14983, 0.375, 0.899832, 4.89983, 0.375, 7.39983, 4.89983, 0.375, 8.14983, 5.39983, 0.375, 9.39983, 11.3998, 0.375, 10.3998, 1.14983, 0.375, -1.35017, 1.39983, 0.375, -0.850168, 3.39983, 0.375, -0.600168, -0.850167, 0.375, -3.35017, -0.850167, 0.375, -1.35017, 1.14983, 0.375, -1.35017, 3.14983, 0.375, 0.899832, 1.64983, 0.375, 0.899832, 2.89983, 0.375, 5.89983, 3.64983, 0.375, 5.89983, 3.14983, 0.375, 0.899832, 3.64983, 0.375, 5.89983, 4.89983, 0.375, 7.39983, 11.3998, 0.375, 10.3998, 11.3998, 0.375, -3.85017, 6.39983, 0.375, -3.35017, 11.3998, 0.375, -3.85017, 6.64983, 0.375, -3.85017, 6.39983, 0.375, -3.35017, -0.850167, 0.375, -3.35017, 1.14983, 0.375, -1.35017, 3.39983, 0.375, -0.600168, 6.39983, 0.375, -3.35017, 5.39983, 0.375, 9.39983, 5.64983, 0.375, 10.3998, 11.3998, 0.375, 10.3998, 3.39983, 0.375, 9.64983, 3.89983, 0.375, 9.39983, 3.64983, 0.375, 8.89983, 3.14983, 0.375, 8.89983, 0.399833, 0.375, 10.3998, 1.89983, 0.375, 7.39983, 1.89983, 0.375, 6.64983, 3.39983, 0.375, 10.6498, 3.39983, 0.375, 9.64983, 3.14983, 0.375, 8.89983, 1.89983, 0.375, 7.39983, 0.399833, 0.375, 10.3998, 0.649833, 0.375, 10.8998, -3.85017, 0.375, 9.64983, -3.85017, 0.375, 10.3998, 0.399833, 0.375, 10.3998, 2.89983, 0.375, 5.89983, 1.64983, 0.375, 0.899832, 1.14983, 0.375, 1.39983, 1.89983, 0.375, 6.64983, -4.35017, 0.375, 9.39983, -3.85017, 0.375, 9.64983, 0.399833, 0.375, 10.3998, 1.89983, 0.375, 6.64983, 1.14983, 0.375, 1.39983, -3.10017, 0.375, 1.14983, 11.3998, 0.375, 10.3998, 5.64983, 0.375, 10.3998, 5.64983, 0.375, 11.3998, 11.3998, 0.375, 10.3998, 5.64983, 0.375, 11.3998, 5.14983, 0.375, 11.6498, 4.89983, 0.375, 23.3998, 11.3998, 0.375, 23.3998, 3.64983, 0.375, 11.6498, 3.39983, 0.375, 10.6498, 0.649833, 0.375, 10.8998, 0.399833, 0.375, 11.6498, -1.85017, 0.375, 23.3998, 4.89983, 0.375, 23.3998, 0.399833, 0.375, 11.6498, -1.60017, 0.375, 11.6498, -1.85017, 0.375, 23.3998, 4.89983, 0.375, 23.3998, 5.14983, 0.375, 11.6498, 3.64983, 0.375, 11.6498, -1.85017, 0.375, 23.3998, -1.60017, 0.375, 11.6498, -11.6002, 0.375, 11.6498, -11.3502, 0.375, 23.3998)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(10, 7, 11), PackedInt32Array(14, 13, 12), PackedInt32Array(17, 16, 15), PackedInt32Array(20, 19, 18), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 25), PackedInt32Array(23, 25, 24), PackedInt32Array(31, 30, 26), PackedInt32Array(26, 30, 29), PackedInt32Array(26, 29, 28), PackedInt32Array(26, 28, 27), PackedInt32Array(35, 34, 32), PackedInt32Array(32, 34, 33), PackedInt32Array(37, 36, 38), PackedInt32Array(38, 36, 39), PackedInt32Array(41, 40, 42), PackedInt32Array(42, 40, 43), PackedInt32Array(43, 40, 44), PackedInt32Array(44, 40, 45), PackedInt32Array(47, 46, 48), PackedInt32Array(48, 46, 49), PackedInt32Array(51, 50, 52), PackedInt32Array(52, 50, 55), PackedInt32Array(52, 55, 54), PackedInt32Array(52, 54, 53), PackedInt32Array(57, 56, 58), PackedInt32Array(58, 56, 59), PackedInt32Array(62, 61, 60), PackedInt32Array(65, 64, 63), PackedInt32Array(67, 66, 68), PackedInt32Array(68, 66, 69), PackedInt32Array(69, 66, 71), PackedInt32Array(69, 71, 70), PackedInt32Array(72, 74, 73), PackedInt32Array(76, 75, 77), PackedInt32Array(77, 75, 78), PackedInt32Array(81, 80, 79), PackedInt32Array(83, 82, 84), PackedInt32Array(84, 82, 85), PackedInt32Array(86, 88, 87), PackedInt32Array(91, 90, 89), PackedInt32Array(95, 94, 92), PackedInt32Array(92, 94, 93), PackedInt32Array(97, 96, 98), PackedInt32Array(98, 96, 101), PackedInt32Array(98, 101, 100), PackedInt32Array(98, 100, 99), PackedInt32Array(104, 103, 102), PackedInt32Array(106, 105, 107), PackedInt32Array(107, 105, 108), PackedInt32Array(111, 110, 109), PackedInt32Array(113, 112, 114), PackedInt32Array(114, 112, 115), PackedInt32Array(118, 117, 116), PackedInt32Array(120, 119, 121), PackedInt32Array(121, 119, 122), PackedInt32Array(122, 119, 123), PackedInt32Array(123, 119, 124), PackedInt32Array(127, 126, 125), PackedInt32Array(129, 128, 130), PackedInt32Array(130, 128, 131), PackedInt32Array(133, 132, 134), PackedInt32Array(134, 132, 135), PackedInt32Array(135, 132, 136), PackedInt32Array(136, 132, 137), PackedInt32Array(140, 139, 138), PackedInt32Array(142, 141, 143), PackedInt32Array(143, 141, 144), PackedInt32Array(144, 141, 145), PackedInt32Array(148, 147, 149), PackedInt32Array(149, 147, 146), PackedInt32Array(149, 146, 151), PackedInt32Array(149, 151, 150), PackedInt32Array(154, 153, 152), PackedInt32Array(157, 156, 155), PackedInt32Array(161, 160, 158), PackedInt32Array(158, 160, 159)]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nhgys"]
+material = ExtResource("11_fwc7g")
+size = Vector3(1, 0, 1)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_l7hue"]
+vertices = PackedVector3Array(-11.3502, 0.375, -10.3502, -6.10017, 0.375, -10.3502, -5.85017, 0.375, -11.6002, -11.3502, 0.375, -23.3502, -4.10017, 0.375, -11.6002, -3.85017, 0.375, -10.6002, 3.39983, 0.375, -10.6002, -4.10017, 0.375, -11.6002, 3.39983, 0.375, -10.6002, 3.64983, 0.375, -11.6002, 4.89983, 0.375, -23.3502, -11.3502, 0.375, -23.3502, 3.64983, 0.375, -11.6002, 5.14983, 0.375, -11.6002, 4.89983, 0.375, -23.3502, -11.3502, 0.375, -23.3502, -5.85017, 0.375, -11.6002, -4.10017, 0.375, -11.6002, 5.64983, 0.375, -11.3502, 5.64983, 0.375, -10.3502, 11.3998, 0.375, -10.3502, 5.14983, 0.375, -11.6002, 5.64983, 0.375, -11.3502, 11.3998, 0.375, -10.3502, 11.3998, 0.375, -23.3502, 4.89983, 0.375, -23.3502, -4.85017, 0.375, -4.60017, 4.39983, 0.375, -4.60017, 4.39983, 0.375, -9.35017, 3.39983, 0.375, -9.60017, -3.85017, 0.375, -9.60017, -4.85017, 0.375, -9.35017, 3.39983, 0.375, -9.60017, 3.39983, 0.375, -10.6002, -3.85017, 0.375, -10.6002, -3.85017, 0.375, -9.60017, -4.85017, 0.375, -4.60017, -4.85017, 0.375, -9.35017, -5.85017, 0.375, -9.35017, -6.35017, 0.375, -4.60017, -11.3502, 0.375, -3.85017, -6.60017, 0.375, -3.85017, -6.35017, 0.375, -4.60017, -5.85017, 0.375, -9.35017, -6.10017, 0.375, -10.3502, -11.3502, 0.375, -10.3502, 5.39983, 0.375, -9.35017, 4.39983, 0.375, -9.35017, 4.39983, 0.375, -4.60017, 6.39983, 0.375, -4.60017, 6.39983, 0.375, -4.60017, 6.64983, 0.375, -3.85017, 11.3998, 0.375, -3.85017, 11.3998, 0.375, -10.3502, 5.64983, 0.375, -10.3502, 5.39983, 0.375, -9.35017, -3.10017, 0.375, -1.10017, -0.850169, 0.375, -1.35017, -0.850169, 0.375, -3.35017, -6.35017, 0.375, -3.35017, -5.85017, 0.375, 9.39983, -4.35017, 0.375, 9.39983, -3.10017, 0.375, 1.14983, -6.35017, 0.375, -3.35017, -6.60017, 0.375, -3.85017, -11.3502, 0.375, -3.85017, -3.10017, 0.375, 1.14983, -3.10017, 0.375, -1.10017, -6.35017, 0.375, -3.35017, -11.3502, 0.375, -3.85017, -11.3502, 0.375, 10.3998, -5.85017, 0.375, 9.39983, -11.3502, 0.375, 10.3998, -6.10017, 0.375, 10.3998, -5.85017, 0.375, 9.39983, 4.89983, 0.375, 8.64983, 3.89983, 0.375, 9.39983, 5.39983, 0.375, 9.39983, 4.89983, 0.375, 7.89983, 4.89983, 0.375, 8.64983, 5.39983, 0.375, 9.39983, 11.3998, 0.375, 10.3998, 1.14983, 0.375, -1.35017, 1.39983, 0.375, -0.850168, 3.39983, 0.375, -0.600168, -0.850169, 0.375, -3.35017, -0.850169, 0.375, -1.35017, 1.14983, 0.375, -1.35017, 11.3998, 0.375, -3.85017, 6.64983, 0.375, -3.85017, 6.39983, 0.375, -3.35017, -0.850169, 0.375, -3.35017, 1.14983, 0.375, -1.35017, 3.39983, 0.375, -0.600168, 6.39983, 0.375, -3.35017, 5.39983, 0.375, 9.39983, 5.64983, 0.375, 10.3998, 11.3998, 0.375, 10.3998, 6.39983, 0.375, -3.35017, 3.39983, 0.375, -0.600168, 3.14983, 0.375, 0.899832, 3.14983, 0.375, 0.899832, 1.64983, 0.375, 0.899832, 2.89983, 0.375, 6.39983, 3.64983, 0.375, 6.39983, 3.14983, 0.375, 0.899832, 3.64983, 0.375, 6.39983, 4.89983, 0.375, 7.89983, 11.3998, 0.375, 10.3998, 11.3998, 0.375, -3.85017, 6.39983, 0.375, -3.35017, 3.39983, 0.375, 10.3998, 3.64983, 0.375, 9.39983, 3.14983, 0.375, 9.39983, 0.649831, 0.375, 10.8998, 3.39983, 0.375, 10.3998, 3.14983, 0.375, 9.39983, 1.89983, 0.375, 7.89983, 0.399831, 0.375, 10.3998, -4.35017, 0.375, 9.39983, -3.85017, 0.375, 9.64983, 0.399831, 0.375, 10.3998, 1.89983, 0.375, 7.14983, 1.14983, 0.375, 1.39983, -3.10017, 0.375, 1.14983, 2.89983, 0.375, 6.39983, 1.64983, 0.375, 0.899832, 1.14983, 0.375, 1.39983, 1.89983, 0.375, 7.14983, 0.399831, 0.375, 10.3998, 1.89983, 0.375, 7.89983, 1.89983, 0.375, 7.14983, -3.85017, 0.375, 9.64983, -3.85017, 0.375, 10.3998, 0.399831, 0.375, 10.3998, 3.64983, 0.375, 11.6498, 3.39983, 0.375, 10.3998, 0.649831, 0.375, 10.8998, 0.399831, 0.375, 11.6498, -1.85017, 0.375, 23.3998, 4.89983, 0.375, 23.3998, 0.399831, 0.375, 11.6498, -1.60017, 0.375, 11.6498, -1.85017, 0.375, 23.3998, 4.89983, 0.375, 23.3998, 5.14983, 0.375, 11.6498, 3.64983, 0.375, 11.6498, 11.3998, 0.375, 10.3998, 5.64983, 0.375, 10.3998, 5.64983, 0.375, 11.3998, 11.3998, 0.375, 10.3998, 5.64983, 0.375, 11.3998, 5.14983, 0.375, 11.6498, 4.89983, 0.375, 23.3998, 11.3998, 0.375, 23.3998, -1.85017, 0.375, 23.3998, -1.60017, 0.375, 11.6498, -11.6002, 0.375, 11.6498, -11.3502, 0.375, 23.3998)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(10, 7, 11), PackedInt32Array(14, 13, 12), PackedInt32Array(17, 16, 15), PackedInt32Array(20, 19, 18), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 25), PackedInt32Array(23, 25, 24), PackedInt32Array(31, 30, 26), PackedInt32Array(26, 30, 29), PackedInt32Array(26, 29, 28), PackedInt32Array(26, 28, 27), PackedInt32Array(35, 34, 32), PackedInt32Array(32, 34, 33), PackedInt32Array(37, 36, 38), PackedInt32Array(38, 36, 39), PackedInt32Array(41, 40, 42), PackedInt32Array(42, 40, 43), PackedInt32Array(43, 40, 44), PackedInt32Array(44, 40, 45), PackedInt32Array(47, 46, 48), PackedInt32Array(48, 46, 49), PackedInt32Array(51, 50, 52), PackedInt32Array(52, 50, 55), PackedInt32Array(52, 55, 54), PackedInt32Array(52, 54, 53), PackedInt32Array(57, 56, 58), PackedInt32Array(58, 56, 59), PackedInt32Array(62, 61, 60), PackedInt32Array(65, 64, 63), PackedInt32Array(67, 66, 68), PackedInt32Array(68, 66, 69), PackedInt32Array(69, 66, 71), PackedInt32Array(69, 71, 70), PackedInt32Array(72, 74, 73), PackedInt32Array(77, 76, 75), PackedInt32Array(79, 78, 80), PackedInt32Array(80, 78, 81), PackedInt32Array(82, 84, 83), PackedInt32Array(87, 86, 85), PackedInt32Array(90, 89, 88), PackedInt32Array(92, 91, 93), PackedInt32Array(93, 91, 94), PackedInt32Array(97, 96, 95), PackedInt32Array(100, 99, 98), PackedInt32Array(104, 103, 101), PackedInt32Array(101, 103, 102), PackedInt32Array(106, 105, 107), PackedInt32Array(107, 105, 110), PackedInt32Array(107, 110, 109), PackedInt32Array(107, 109, 108), PackedInt32Array(113, 112, 111), PackedInt32Array(116, 115, 117), PackedInt32Array(117, 115, 118), PackedInt32Array(118, 115, 114), PackedInt32Array(120, 119, 121), PackedInt32Array(121, 119, 122), PackedInt32Array(122, 119, 123), PackedInt32Array(123, 119, 124), PackedInt32Array(126, 125, 127), PackedInt32Array(127, 125, 128), PackedInt32Array(131, 130, 129), PackedInt32Array(134, 133, 132), PackedInt32Array(137, 136, 138), PackedInt32Array(138, 136, 135), PackedInt32Array(138, 135, 140), PackedInt32Array(138, 140, 139), PackedInt32Array(143, 142, 141), PackedInt32Array(146, 145, 144), PackedInt32Array(149, 148, 147), PackedInt32Array(151, 150, 152), PackedInt32Array(152, 150, 153), PackedInt32Array(153, 150, 154), PackedInt32Array(158, 157, 155), PackedInt32Array(155, 157, 156)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rig6o"]
+size = Vector3(24, 10, 48)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tmrue"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 0.0862745)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0441k"]
+material = SubResource("StandardMaterial3D_tmrue")
+size = Vector2(100, 100)
+
+[node name="LOSTestLevel" type="Node3D"]
+script = ExtResource("1_ufuhq")
+
+[node name="TestPiller" parent="." instance=ExtResource("17_il6im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -11.5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oxl5o")
+
+[node name="Player" parent="." instance=ExtResource("2_uq3kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1.5, 16)
+rpg_tags = null
+
+[node name="AISoundGenerator" parent="Player" instance=ExtResource("4_wu5lo")]
+
+[node name="Crosshair3D" parent="." instance=ExtResource("2_ojjue")]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerHUD" parent="UILayer" instance=ExtResource("3_tjfmj")]
+metadata/_edit_use_anchors_ = true
+
+[node name="UniversalMenuMaster" parent="UILayer" instance=ExtResource("4_n3kuh")]
+
+[node name="SuperSecretHitDetector" type="StaticBody3D" parent="."]
+collision_layer = 524288
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SuperSecretHitDetector"]
+shape = SubResource("BoxShape3D_yjsyl")
+
+[node name="RoomMaster" parent="." instance=ExtResource("5_2iu1r")]
+
+[node name="WarehouseBaseRoom" type="Node3D" parent="RoomMaster" node_paths=PackedStringArray("enemy_spawn_table")]
+script = ExtResource("7_jd48p")
+display_name = "Warehouse"
+door_scene = ExtResource("8_wtnpm")
+enemy_spawn_table = NodePath("NLIWarehouseSpawnTable")
+
+[node name="NLIWarehouseSpawnTable" parent="RoomMaster/WarehouseBaseRoom" instance=ExtResource("9_ilgn8")]
+
+[node name="NLIDoorway" parent="RoomMaster/WarehouseBaseRoom" instance=ExtResource("8_wtnpm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.5, 0, 13)
+
+[node name="Terrain" type="NavigationRegion3D" parent="RoomMaster/WarehouseBaseRoom"]
+navigation_mesh = SubResource("NavigationMesh_127ha")
+
+[node name="Floor2" parent="RoomMaster/WarehouseBaseRoom/Terrain" instance=ExtResource("10_t4ljk")]
+transform = Transform3D(24, 0, 0, 0, 1, 0, 0, 0, 48, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomMaster/WarehouseBaseRoom/Terrain/Floor2"]
+mesh = SubResource("BoxMesh_nhgys")
+
+[node name="Floor" type="StaticBody3D" parent="RoomMaster/WarehouseBaseRoom/Terrain"]
+
+[node name="Walls" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain"]
+
+[node name="OfficeWall5" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-12, 0, 1.50996e-07, 0, 1, 0, -1.81195e-06, 0, -1, 0, 0, -4)
+
+[node name="OfficeWall8" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-12, 0, 1.50996e-07, 0, 1, 0, -1.81195e-06, 0, -1, -6, 0, 11)
+
+[node name="EndCaps" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls"]
+
+[node name="OfficeWallEndcap" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/EndCaps" instance=ExtResource("12_y4hkd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12, 0, 24)
+
+[node name="OfficeWallEndcap2" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/EndCaps" instance=ExtResource("12_y4hkd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -24)
+
+[node name="OfficeWallEndcap3" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/EndCaps" instance=ExtResource("12_y4hkd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 0, -24)
+
+[node name="OfficeWallEndcap4" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/EndCaps" instance=ExtResource("12_y4hkd")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12, 0, 24)
+
+[node name="LeftWalls" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0)
+
+[node name="OfficeWall" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/LeftWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.49691e-07, 0, -1, 0, 1, 0, 8, 0, -4.37114e-08, 6, 0, 19)
+
+[node name="OfficeWall4" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/LeftWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.49691e-07, 0, -1, 0, 1, 0, 8, 0, -4.37114e-08, 6, 0, -19)
+
+[node name="OfficeWall2" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/LeftWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 9, 0, -4.37114e-08, 6, 0, 6.5)
+
+[node name="OfficeWall3" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/LeftWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 9, 0, -4.37114e-08, 6, 0, -6.5)
+
+[node name="LeftWalls2" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 18, 0, 0)
+
+[node name="OfficeWall" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/LeftWalls2" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.49691e-07, 0, -1, 0, 1, 0, 8, 0, -4.37114e-08, 6, 0, 19)
+
+[node name="OfficeWall4" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/LeftWalls2" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.49691e-07, 0, -1, 0, 1, 0, 8, 0, -4.37114e-08, 6, 0, -19)
+
+[node name="OfficeWall2" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/LeftWalls2" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 9, 0, -4.37114e-08, 6, 0, 6.5)
+
+[node name="OfficeWall3" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/LeftWalls2" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 9, 0, -4.37114e-08, 6, 0, -6.5)
+
+[node name="FrontWalls" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+
+[node name="OfficeWall3" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/FrontWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 15)
+
+[node name="OfficeWall4" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/FrontWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 15)
+
+[node name="BackWalls" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -9)
+
+[node name="OfficeWall3" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/BackWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 15)
+
+[node name="OfficeWall4" parent="RoomMaster/WarehouseBaseRoom/Terrain/Walls/BackWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 15)
+
+[node name="Obstacles" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain"]
+
+[node name="LargeLootCrate" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles" instance=ExtResource("14_xj1qp")]
+transform = Transform3D(0.611527, 0, -0.791224, 0, 1, 0, 0.791224, 0, 0.611527, 3.40194, 0, 7.38219)
+
+[node name="TrenchSweeper" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles/LargeLootCrate" instance=ExtResource("15_8yy2k")]
+
+[node name="BurstPistol" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles/LargeLootCrate" instance=ExtResource("16_lebfa")]
+
+[node name="OlReliable" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles/LargeLootCrate" instance=ExtResource("17_je6qu")]
+
+[node name="SmallCaliberPistolAmmo" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles/LargeLootCrate" instance=ExtResource("18_serr8")]
+
+[node name="ShotgunShellAmmo" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles/LargeLootCrate" instance=ExtResource("19_gpu1r")]
+
+[node name="ManaPotion2" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles/LargeLootCrate" instance=ExtResource("20_t7m15")]
+transform = Transform3D(0.611527, 0, 0.791224, 0, 1, 0, -0.791224, 0, 0.611527, -8.31695, 0, -2.12848)
+
+[node name="ManaPotion" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles/LargeLootCrate" instance=ExtResource("20_t7m15")]
+
+[node name="CrateObstacle" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles" instance=ExtResource("14_t4xjv")]
+
+[node name="CrateObstacle2" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles" instance=ExtResource("14_t4xjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30987, 0)
+
+[node name="DoubleCrateObstacle" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles" instance=ExtResource("15_a228g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="CrateObstacleSmall" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles" instance=ExtResource("16_t07oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81987, 1.34171, 0)
+
+[node name="CrateObstacleSmall2" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles" instance=ExtResource("16_t07oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65664, -0.00565958, 0)
+
+[node name="CrateObstacleSmall3" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles" instance=ExtResource("16_t07oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65664, 0.648435, 0)
+
+[node name="CrateObstacleSmall4" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles" instance=ExtResource("16_t07oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42191, -0.0257549, 0)
+
+[node name="CrateObstacleSmall5" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles" instance=ExtResource("16_t07oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42191, 0.609529, 0)
+
+[node name="CrateObstacleSmall6" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles" instance=ExtResource("16_t07oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42191, 1.2403, 0)
+
+[node name="Pillars" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles"]
+
+[node name="SupportPiller" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles/Pillars" instance=ExtResource("17_il6im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 10.5)
+
+[node name="SupportPiller4" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles/Pillars" instance=ExtResource("17_il6im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 10.5)
+
+[node name="SupportPiller2" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles/Pillars" instance=ExtResource("17_il6im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -10.5)
+
+[node name="SupportPiller3" parent="RoomMaster/WarehouseBaseRoom/Terrain/Obstacles/Pillars" instance=ExtResource("17_il6im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -10.5)
+
+[node name="Terrain2" type="NavigationRegion3D" parent="RoomMaster/WarehouseBaseRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_l7hue")
+
+[node name="Floor2" parent="RoomMaster/WarehouseBaseRoom/Terrain2" instance=ExtResource("10_t4ljk")]
+transform = Transform3D(24, 0, 0, 0, 1, 0, 0, 0, 48, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Floor2"]
+mesh = SubResource("BoxMesh_nhgys")
+
+[node name="Floor" type="StaticBody3D" parent="RoomMaster/WarehouseBaseRoom/Terrain2"]
+
+[node name="Walls" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain2"]
+
+[node name="OfficeWall5" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-12, 0, 1.50996e-07, 0, 1, 0, -1.81195e-06, 0, -1, 0, 0, -4)
+
+[node name="OfficeWall8" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-12, 0, 1.50996e-07, 0, 1, 0, -1.81195e-06, 0, -1, -6, 0, 11)
+
+[node name="EndCaps" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls"]
+
+[node name="OfficeWallEndcap" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/EndCaps" instance=ExtResource("12_y4hkd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12, 0, 24)
+
+[node name="OfficeWallEndcap2" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/EndCaps" instance=ExtResource("12_y4hkd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -24)
+
+[node name="OfficeWallEndcap3" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/EndCaps" instance=ExtResource("12_y4hkd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 0, -24)
+
+[node name="OfficeWallEndcap4" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/EndCaps" instance=ExtResource("12_y4hkd")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12, 0, 24)
+
+[node name="LeftWalls" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0)
+
+[node name="OfficeWall" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/LeftWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.49691e-07, 0, -1, 0, 1, 0, 8, 0, -4.37114e-08, 6, 0, 19)
+
+[node name="OfficeWall4" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/LeftWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.49691e-07, 0, -1, 0, 1, 0, 8, 0, -4.37114e-08, 6, 0, -19)
+
+[node name="OfficeWall2" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/LeftWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 9, 0, -4.37114e-08, 6, 0, 6.5)
+
+[node name="OfficeWall3" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/LeftWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 9, 0, -4.37114e-08, 6, 0, -6.5)
+
+[node name="LeftWalls2" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 18, 0, 0)
+
+[node name="OfficeWall" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/LeftWalls2" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.49691e-07, 0, -1, 0, 1, 0, 8, 0, -4.37114e-08, 6, 0, 19)
+
+[node name="OfficeWall4" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/LeftWalls2" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.49691e-07, 0, -1, 0, 1, 0, 8, 0, -4.37114e-08, 6, 0, -19)
+
+[node name="OfficeWall2" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/LeftWalls2" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 9, 0, -4.37114e-08, 6, 0, 6.5)
+
+[node name="OfficeWall3" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/LeftWalls2" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 9, 0, -4.37114e-08, 6, 0, -6.5)
+
+[node name="FrontWalls" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+
+[node name="OfficeWall3" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/FrontWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 15)
+
+[node name="OfficeWall4" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/FrontWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 15)
+
+[node name="BackWalls" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -9)
+
+[node name="OfficeWall3" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/BackWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 15)
+
+[node name="OfficeWall4" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Walls/BackWalls" instance=ExtResource("13_8nlg2")]
+transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 15)
+
+[node name="Obstacles" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain2"]
+
+[node name="LargeLootCrate" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles" node_paths=PackedStringArray("storage") instance=ExtResource("14_xj1qp")]
+transform = Transform3D(0.611527, 0, -0.791224, 0, 1, 0, 0.791224, 0, 0.611527, 3.40194, 0, 7.88219)
+storage = NodePath("../../../Terrain/Obstacles/LargeLootCrate/Storage")
+
+[node name="TrenchSweeper" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles/LargeLootCrate" instance=ExtResource("15_8yy2k")]
+
+[node name="BurstPistol" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles/LargeLootCrate" instance=ExtResource("16_lebfa")]
+
+[node name="OlReliable" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles/LargeLootCrate" instance=ExtResource("17_je6qu")]
+
+[node name="SmallCaliberPistolAmmo" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles/LargeLootCrate" instance=ExtResource("18_serr8")]
+
+[node name="ShotgunShellAmmo" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles/LargeLootCrate" instance=ExtResource("19_gpu1r")]
+
+[node name="ManaPotion2" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles/LargeLootCrate" instance=ExtResource("20_t7m15")]
+transform = Transform3D(0.611527, 0, 0.791224, 0, 1, 0, -0.791224, 0, 0.611527, -8.31695, 0, -2.12848)
+
+[node name="ManaPotion" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles/LargeLootCrate" instance=ExtResource("20_t7m15")]
+
+[node name="CrateObstacle" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles" instance=ExtResource("14_t4xjv")]
+
+[node name="CrateObstacle2" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles" instance=ExtResource("14_t4xjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30987, 0)
+
+[node name="DoubleCrateObstacle" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles" instance=ExtResource("15_a228g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="CrateObstacleSmall" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles" instance=ExtResource("16_t07oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81987, 1.34171, 0)
+
+[node name="CrateObstacleSmall2" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles" instance=ExtResource("16_t07oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65664, -0.00565958, 0)
+
+[node name="CrateObstacleSmall3" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles" instance=ExtResource("16_t07oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65664, 0.648435, 0)
+
+[node name="CrateObstacleSmall4" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles" instance=ExtResource("16_t07oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42191, -0.0257549, 0)
+
+[node name="CrateObstacleSmall5" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles" instance=ExtResource("16_t07oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42191, 0.609529, 0)
+
+[node name="CrateObstacleSmall6" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles" instance=ExtResource("16_t07oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42191, 1.2403, 0)
+
+[node name="Pillars" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles"]
+
+[node name="SupportPiller" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles/Pillars" instance=ExtResource("17_il6im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 10.5)
+
+[node name="SupportPiller4" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles/Pillars" instance=ExtResource("17_il6im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 10.5)
+
+[node name="SupportPiller2" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles/Pillars" instance=ExtResource("17_il6im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -10.5)
+
+[node name="SupportPiller3" parent="RoomMaster/WarehouseBaseRoom/Terrain2/Obstacles/Pillars" instance=ExtResource("17_il6im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -10.5)
+
+[node name="Area" type="Area3D" parent="RoomMaster/WarehouseBaseRoom"]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomMaster/WarehouseBaseRoom/Area"]
+shape = SubResource("BoxShape3D_rig6o")
+
+[node name="EnemySpawners" type="Node3D" parent="RoomMaster/WarehouseBaseRoom"]
+
+[node name="LootSpawners" type="Node3D" parent="RoomMaster/WarehouseBaseRoom"]
+
+[node name="RoomConnectors" type="Node3D" parent="RoomMaster/WarehouseBaseRoom"]
+
+[node name="FrontConnector" parent="RoomMaster/WarehouseBaseRoom/RoomConnectors" instance=ExtResource("18_0twvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
+
+[node name="BackConnector" parent="RoomMaster/WarehouseBaseRoom/RoomConnectors" instance=ExtResource("18_0twvk")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -24)
+
+[node name="LeftConnectors" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/RoomConnectors"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="LeftConnector1" parent="RoomMaster/WarehouseBaseRoom/RoomConnectors/LeftConnectors" instance=ExtResource("18_0twvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, 13)
+
+[node name="LeftConnector2" parent="RoomMaster/WarehouseBaseRoom/RoomConnectors/LeftConnectors" instance=ExtResource("18_0twvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, 2.14609e-07)
+
+[node name="LeftConnector3" parent="RoomMaster/WarehouseBaseRoom/RoomConnectors/LeftConnectors" node_paths=PackedStringArray("door") instance=ExtResource("18_0twvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, -13)
+door = NodePath("../../../NLIDoorway")
+
+[node name="RightConnectors" type="Node3D" parent="RoomMaster/WarehouseBaseRoom/RoomConnectors"]
+
+[node name="LeftConnector1" parent="RoomMaster/WarehouseBaseRoom/RoomConnectors/RightConnectors" instance=ExtResource("18_0twvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, 13)
+
+[node name="LeftConnector2" parent="RoomMaster/WarehouseBaseRoom/RoomConnectors/RightConnectors" instance=ExtResource("18_0twvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, 2.14609e-07)
+
+[node name="LeftConnector3" parent="RoomMaster/WarehouseBaseRoom/RoomConnectors/RightConnectors" instance=ExtResource("18_0twvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, -13)
+
+[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="."]
+size = Vector3(1000, 1000, 1000)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+visible = false
+mesh = SubResource("PlaneMesh_0441k")
+
+[node name="Zombie2" parent="." instance=ExtResource("26_eftfp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.5, 1, 6)
+
+[node name="Zombie" parent="." instance=ExtResource("26_eftfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, 1, 14)
+
+[connection signal="body_entered" from="RoomMaster/WarehouseBaseRoom/Area" to="RoomMaster/WarehouseBaseRoom" method="_on_area_body_entered"]
+[connection signal="body_exited" from="RoomMaster/WarehouseBaseRoom/Area" to="RoomMaster/WarehouseBaseRoom" method="_on_area_body_exited"]

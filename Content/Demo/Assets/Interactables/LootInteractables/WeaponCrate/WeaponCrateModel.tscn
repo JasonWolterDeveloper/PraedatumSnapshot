@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpqna42l2lgvh"]
+
+[ext_resource type="PackedScene" uid="uid://b7hlbgf8xhlom" path="res://Content/Demo/Assets/Interactables/LootInteractables/WeaponCrate/WeaponCrate.glb" id="1_whceq"]
+
+[node name="WeaponCrateModel" instance=ExtResource("1_whceq")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.717853, 1.48727)
+light_color = Color(0.177443, 0.771359, 0.216068, 1)
+light_energy = 0.3
+omni_range = 1.0

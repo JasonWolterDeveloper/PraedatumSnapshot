@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dl8cqfv665o68"
+path="res://.godot/imported/Karl Casey - White Bat VI - 08 Dangerous.ogg-48eacc6b2de6b3e8d66171ae8122232e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat VI - 08 Dangerous.ogg"
+dest_files=["res://.godot/imported/Karl Casey - White Bat VI - 08 Dangerous.ogg-48eacc6b2de6b3e8d66171ae8122232e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

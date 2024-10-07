@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://dm2ak3hphd2oe"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/SecurityBot/SecurityBotProjectile.gd" id="1_hkk3w"]
+[ext_resource type="PackedScene" uid="uid://bvwk3se7k747a" path="res://BaseGameObjects/Aesthetics/PlayerDamage/PlayerDamagedAestheticEffect.tscn" id="3_2lg0r"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_slfhl"]
+size = Vector3(0.05, 0.05, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isgnr"]
+albedo_color = Color(0.713118, 0.126331, 0, 1)
+emission_enabled = true
+emission = Color(0.819813, 0.10011, 0, 1)
+emission_energy_multiplier = 4.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_exv65"]
+size = Vector3(0.05, 0.05, 0.284668)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bclaf"]
+direction = Vector3(0, 0, -1)
+spread = 180.0
+initial_velocity_min = 0.05
+initial_velocity_max = 0.1
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6e7oh"]
+shading_mode = 0
+albedo_color = Color(1, 0.542114, 0.503752, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_juhfp"]
+material = SubResource("StandardMaterial3D_6e7oh")
+size = Vector2(0.03, 0.03)
+
+[node name="BumbleDroneProjectile" type="CharacterBody3D" node_paths=PackedStringArray("player_damaged_aesthetic_effect")]
+collision_layer = 32768
+collision_mask = 5
+script = ExtResource("1_hkk3w")
+speed = 10.0
+damage = 8.0
+player_damaged_aesthetic_effect = NodePath("PlayerDamagedAestheticEffect")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_slfhl")
+surface_material_override/0 = SubResource("StandardMaterial3D_isgnr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0532321)
+shape = SubResource("BoxShape3D_exv65")
+
+[node name="PlayerDamagedAestheticEffect" parent="." instance=ExtResource("3_2lg0r")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.0918277)
+visible = false
+emitting = false
+amount = 1
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_bclaf")
+draw_pass_1 = SubResource("QuadMesh_juhfp")

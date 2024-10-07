@@ -1,0 +1,610 @@
+[gd_scene load_steps=40 format=3 uid="uid://dg2ua1q4u6vj0"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/Room.gd" id="1_3embc"]
+[ext_resource type="PackedScene" uid="uid://cb78sar46vq83" path="res://BaseGameObjects/Terrain/Floor.tscn" id="2_4ibeg"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Level1/LootTables/EmployeeBreakRoomLootTable.gd" id="2_unav4"]
+[ext_resource type="Material" uid="uid://c73ohs5pjl3fh" path="res://Content/Demo/Code/Levels/Rooms/FloorMaterial/OfficeFloorMaterial.tres" id="3_a0cpp"]
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="4_mw0uw"]
+[ext_resource type="PackedScene" uid="uid://c14yeba554ow1" path="res://BaseGameObjects/Terrain/Walls/Wall.tscn" id="5_iwsdh"]
+[ext_resource type="PackedScene" uid="uid://cp8lultr6q0ct" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeTwoSidedWallSegment.tscn" id="7_gwll7"]
+[ext_resource type="PackedScene" uid="uid://3eka5872opal" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/SupportPiller/SupportPillar.tscn" id="8_11w0g"]
+[ext_resource type="PackedScene" uid="uid://bafdbdjpmgphd" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabBasic.tscn" id="8_dwcby"]
+[ext_resource type="PackedScene" uid="uid://btr7u4ovc2xw" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallOuterCorner.tscn" id="9_ossxc"]
+[ext_resource type="PackedScene" uid="uid://bqlcifivlyduo" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Obstacles/Shelf/ShelfObstacle.tscn" id="9_y7j51"]
+[ext_resource type="PackedScene" uid="uid://j05xyrb1vwni" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabVent.tscn" id="10_gb7le"]
+[ext_resource type="PackedScene" uid="uid://f57fj6ee0cjl" path="res://Content/Demo/Code/Terrain/Obstacles/BoothSeat/BoothSeat.tscn" id="11_cx47i"]
+[ext_resource type="PackedScene" uid="uid://cj0rbbpox5yvr" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabDivot.tscn" id="11_e466j"]
+[ext_resource type="PackedScene" uid="uid://d2b2flwvvf4mu" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabExtinguisher.tscn" id="12_7erlx"]
+[ext_resource type="PackedScene" uid="uid://6882myc7ylay" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/Counter/CounterTop.tscn" id="12_bgvnl"]
+[ext_resource type="PackedScene" uid="uid://cip814dc615ll" path="res://Content/Demo/Code/Terrain/Obstacles/RestaurantTable/RestaurantTableObstacle.tscn" id="12_ovmdt"]
+[ext_resource type="Script" path="res://BaseGameObjects/Levels/SpawnSystems/TicketsBasedSpawnSystem.gd" id="13_4k6an"]
+[ext_resource type="PackedScene" uid="uid://cddhdmtpql8cc" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/Counter/CounterTopEnd.tscn" id="13_rn27u"]
+[ext_resource type="PackedScene" uid="uid://rrcavhg3keji" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabACUnit.tscn" id="13_v5g2d"]
+[ext_resource type="PackedScene" uid="uid://dlkt24rw4n47w" path="res://Content/Demo/Code/Enemies/WageCage/Zombie.tscn" id="14_eolcc"]
+[ext_resource type="PackedScene" uid="uid://b2nq2it3xhtxa" path="res://Content/Demo/Code/Enemies/NanomachineHive/NanomachineHiveEnemy.tscn" id="15_1odle"]
+[ext_resource type="PackedScene" uid="uid://daek1siqyrgpo" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/VendingMachine/DestroyedShop.tscn" id="16_4jy7e"]
+[ext_resource type="PackedScene" uid="uid://rdbil6eeu05e" path="res://Content/Demo/Code/Enemies/GunDrone/GunDroneEnemy.tscn" id="16_pcokj"]
+[ext_resource type="PackedScene" uid="uid://bk8wso3tg1vs4" path="res://BaseGameObjects/Behaviour/Patrol/Patrol.tscn" id="17_avu8p"]
+[ext_resource type="PackedScene" uid="uid://by0du1leu31pl" path="res://BaseGameObjects/Behaviour/Patrol/PatrolWaypoint.tscn" id="18_f3y11"]
+[ext_resource type="PackedScene" uid="uid://dl5cn5y4l205d" path="res://BaseGameObjects/RPGMechanics/Quests/QuestWaypoint.tscn" id="19_vp3a7"]
+[ext_resource type="PackedScene" uid="uid://bu6qowluj47dw" path="res://Content/Default/Code/InteractableObjects/GroundItemQuestObjective.tscn" id="20_3mc5g"]
+[ext_resource type="PackedScene" uid="uid://bl5l7d4t111a4" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/TrashBin/TrashBinObstacle.tscn" id="20_5n3ab"]
+[ext_resource type="PackedScene" uid="uid://dpfjsxtuh1vv" path="res://Content/Demo/Code/Items/QuestItems/Keys/ForemanOfficeBossRoomKey.tscn" id="21_fgnwy"]
+[ext_resource type="PackedScene" uid="uid://bw6v0do2vtt0p" path="res://BaseGameObjects/Levels/SpawnSystems/TicketsBasedSpawnSystem.tscn" id="22_v8ius"]
+[ext_resource type="PackedScene" uid="uid://dt6t3wrrcsds1" path="res://Content/Default/Code/InteractableObjects/GroundItem.tscn" id="23_ehi8e"]
+[ext_resource type="PackedScene" uid="uid://7pvswhu15xc7" path="res://BaseGameObjects/Terrain/Rooms/RoomConnector.tscn" id="25_gbqn3"]
+[ext_resource type="PackedScene" uid="uid://cfl4v3aexofgf" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/NLIDoor.tscn" id="26_1urtt"]
+[ext_resource type="PackedScene" uid="uid://b7ujwpq8wprj8" path="res://Content/Demo/Assets/Terrain/Greebles/Trash/WarehouseTrashPile/WarehouseTrash4.glb" id="35_1042v"]
+[ext_resource type="PackedScene" uid="uid://cfrv6j66nug76" path="res://Content/Demo/Assets/Terrain/Greebles/Trash/WarehouseTrashPile/WarehouseTrash7.glb" id="36_ipn3e"]
+[ext_resource type="PackedScene" uid="uid://cr2ucgicdqhfr" path="res://Content/Demo/Assets/Terrain/Greebles/Trash/WarehouseTrashPile/WarehouseTrash8.glb" id="37_xy81u"]
+[ext_resource type="PackedScene" uid="uid://bjvnk2w2u0t01" path="res://Content/Demo/Assets/Terrain/Greebles/Trash/WarehouseTrashPile/WarehouseTrash1.glb" id="38_kalw2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_70h48"]
+size = Vector3(1, 0, 1)
+
+[node name="EmployeeBreakRoom" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, -19)
+script = ExtResource("1_3embc")
+
+[node name="LootTables" type="Node" parent="."]
+
+[node name="EmployeeBreakRoomLootTable" type="Node" parent="LootTables"]
+script = ExtResource("2_unav4")
+
+[node name="Terrain" type="NavigationRegion3D" parent="."]
+
+[node name="Floor" parent="Terrain" instance=ExtResource("2_4ibeg")]
+transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 13, 7, 0, -10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor"]
+mesh = SubResource("BoxMesh_70h48")
+surface_material_override/0 = ExtResource("3_a0cpp")
+
+[node name="Floor3" parent="Terrain" instance=ExtResource("2_4ibeg")]
+transform = Transform3D(44, 0, 0, 0, 1, 0, 0, 0, 30, -1, 0, 11.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor3"]
+mesh = SubResource("BoxMesh_70h48")
+surface_material_override/0 = ExtResource("3_a0cpp")
+
+[node name="Floor2" parent="Terrain" instance=ExtResource("2_4ibeg")]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 3, 11, 0, -18)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor2"]
+mesh = SubResource("BoxMesh_70h48")
+surface_material_override/0 = ExtResource("3_a0cpp")
+
+[node name="Walls" type="Node3D" parent="Terrain"]
+
+[node name="OfficeWallEndcap" parent="Terrain/Walls" instance=ExtResource("4_mw0uw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -3.5)
+
+[node name="OfficeWallEndcap2" parent="Terrain/Walls" instance=ExtResource("4_mw0uw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -16.5)
+
+[node name="OfficeWallEndcap3" parent="Terrain/Walls" instance=ExtResource("4_mw0uw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -19.5)
+
+[node name="OfficeWallEndcap4" parent="Terrain/Walls" instance=ExtResource("4_mw0uw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0, -19.5)
+
+[node name="OfficeWallEndcap5" parent="Terrain/Walls" instance=ExtResource("4_mw0uw")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 21, 0, 26.5)
+
+[node name="OfficeWallEndcap6" parent="Terrain/Walls" instance=ExtResource("4_mw0uw")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -23, 0, 26.5)
+
+[node name="Wall" parent="Terrain/Walls" instance=ExtResource("5_iwsdh")]
+transform = Transform3D(42, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 26.5)
+
+[node name="Wall2" parent="Terrain/Walls" instance=ExtResource("5_iwsdh")]
+transform = Transform3D(-1.9233e-06, 0, 1, 0, 1, 0, -44, 0, -4.37114e-08, 21, 0, 3.5)
+
+[node name="Wall3" parent="Terrain/Walls" instance=ExtResource("5_iwsdh")]
+transform = Transform3D(-18, 0, -1.50996e-07, 0, 1, 0, 2.71792e-06, 0, -1, 11, 0, -19.5)
+
+[node name="Wall5" parent="Terrain/Walls" instance=ExtResource("5_iwsdh")]
+transform = Transform3D(-14, 0, -1.50996e-07, 0, 1, 0, 2.11394e-06, 0, -1, -15, 0, -3.5)
+
+[node name="Wall8" parent="Terrain/Walls" instance=ExtResource("5_iwsdh")]
+transform = Transform3D(1.36295e-06, 0, -1, 0, 1, 0, 7, 0, 1.94707e-07, -7, 0, -8)
+
+[node name="Wall6" parent="Terrain/Walls" instance=ExtResource("5_iwsdh")]
+transform = Transform3D(2.92061e-06, 0, -1, 0, 1, 0, 15, 0, 1.94707e-07, -23, 0, 18.5)
+
+[node name="Wall7" parent="Terrain/Walls" instance=ExtResource("5_iwsdh")]
+transform = Transform3D(1.94707e-06, 0, -1, 0, 1, 0, 10, 0, 1.94707e-07, -23, 0, 2)
+
+[node name="Wall9" parent="Terrain/Walls" instance=ExtResource("5_iwsdh")]
+transform = Transform3D(1.94707e-07, 0, -1, 0, 1, 0, 1, 0, 1.94707e-07, 1, 0, -18)
+
+[node name="Wall10" parent="Terrain/Walls" instance=ExtResource("5_iwsdh")]
+transform = Transform3D(-18, 0, -1.50996e-07, 0, 1, 0, 2.71792e-06, 0, -1, -1.5, 0, 13)
+
+[node name="OfficeTwosidedWallSegment" parent="Terrain/Walls/Wall10" instance=ExtResource("7_gwll7")]
+
+[node name="SupportPillar" parent="Terrain/Walls" instance=ExtResource("8_11w0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 13)
+
+[node name="SupportPillar2" parent="Terrain/Walls" instance=ExtResource("8_11w0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 13)
+
+[node name="OfficeWallPrefabBasic" parent="Terrain/Walls" instance=ExtResource("8_dwcby")]
+transform = Transform3D(-1.09278e-07, 0, -1, 0, 1, 0, 2.5, 0, -4.37114e-08, -7, 0, -10.25)
+
+[node name="OfficeWallPrefabBasic2" parent="Terrain/Walls" instance=ExtResource("8_dwcby")]
+transform = Transform3D(-0.5, 0, 1.50996e-07, 0, 1, 0, -7.54979e-08, 0, -1, -0.75, 0, -16.5)
+
+[node name="OfficeWallPrefabBasic4" parent="Terrain/Walls" instance=ExtResource("8_dwcby")]
+transform = Transform3D(-4, 0, 1.50996e-07, 0, 1, 0, -6.03983e-07, 0, -1, 11, 0, -19.5)
+
+[node name="OfficeWallPrefabBasic5" parent="Terrain/Walls" instance=ExtResource("8_dwcby")]
+transform = Transform3D(1.75236e-06, 0, 1, 0, 1, 0, -9, 0, 1.94707e-07, 21, 0, 3.5)
+
+[node name="OfficeWallPrefabBasic6" parent="Terrain/Walls" instance=ExtResource("8_dwcby")]
+transform = Transform3D(8.5, 0, -2.38419e-07, 0, 1, 0, 2.02656e-06, 0, 1, -1, 0, 26.5)
+
+[node name="OfficeWallPrefabBasic7" parent="Terrain/Walls" instance=ExtResource("8_dwcby")]
+transform = Transform3D(-8.4639e-07, 0, -1, 0, 1, 0, 3, 0, -2.8213e-07, -23, 0, 18.5)
+
+[node name="OfficeWallPrefabBasic8" parent="Terrain/Walls" instance=ExtResource("8_dwcby")]
+transform = Transform3D(-5.6426e-07, 0, -1, 0, 1, 0, 2, 0, -2.8213e-07, -23, 0, 2)
+
+[node name="OfficeWallPrefabBasic9" parent="Terrain/Walls" instance=ExtResource("8_dwcby")]
+transform = Transform3D(-3, 0, 3.89414e-07, 0, 1, 0, -1.16824e-06, 0, -1, -15.5, 0, -3.5)
+
+[node name="OfficeWallPrefabBasic3" parent="Terrain/Walls" instance=ExtResource("8_dwcby")]
+transform = Transform3D(-5.36422e-08, 0, -1, 0, 1, 0, 0.5, 0, -1.07284e-07, 1, 0, -18)
+
+[node name="OfficeWallOuterCorner" parent="Terrain/Walls" instance=ExtResource("9_ossxc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -3.5)
+
+[node name="OfficeWallOuterCorner2" parent="Terrain/Walls" instance=ExtResource("9_ossxc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -16.5)
+
+[node name="OfficeWallPrefabVent" parent="Terrain/Walls" instance=ExtResource("10_gb7le")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0, -5.5)
+
+[node name="OfficeWallPrefabVent2" parent="Terrain/Walls" instance=ExtResource("10_gb7le")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0, 12.5)
+
+[node name="OfficeWallPrefabVent3" parent="Terrain/Walls" instance=ExtResource("10_gb7le")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -23, 0, 18)
+
+[node name="OfficeWallPrefabVent4" parent="Terrain/Walls" instance=ExtResource("10_gb7le")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -23, 0, -0.5)
+
+[node name="OfficeWallPrefabDivot" parent="Terrain/Walls" instance=ExtResource("11_e466j")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18, 0, -3.5)
+
+[node name="OfficeWallPrefabExtinguisher" parent="Terrain/Walls" instance=ExtResource("12_7erlx")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.5, 0, 13)
+
+[node name="VoidPart" parent="Terrain/Walls/OfficeWallPrefabExtinguisher/Wall" index="2"]
+visible = false
+
+[node name="OfficeWallPrefabAC" parent="Terrain/Walls" instance=ExtResource("13_v5g2d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -10)
+
+[node name="Obstacles" type="Node3D" parent="Terrain"]
+
+[node name="ShelfObstacle" parent="Terrain/Obstacles" instance=ExtResource("9_y7j51")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -2.5)
+
+[node name="ShelfObstacle2" parent="Terrain/Obstacles" instance=ExtResource("9_y7j51")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -2.5)
+
+[node name="ShelfObstacle3" parent="Terrain/Obstacles" instance=ExtResource("9_y7j51")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -2.5)
+
+[node name="CounterTop1" type="Node3D" parent="Terrain/Obstacles"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.08437, 0.75, -18.5)
+
+[node name="CounterTop" parent="Terrain/Obstacles/CounterTop1" instance=ExtResource("12_bgvnl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.75, 2.58437)
+
+[node name="CounterTop6" parent="Terrain/Obstacles/CounterTop1" instance=ExtResource("12_bgvnl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.75, -11.1218)
+
+[node name="CounterTop2" parent="Terrain/Obstacles/CounterTop1" instance=ExtResource("12_bgvnl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.75, 0.0843697)
+
+[node name="CounterTop3" parent="Terrain/Obstacles/CounterTop1" instance=ExtResource("12_bgvnl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.75, -2.41563)
+
+[node name="CounterTop5" parent="Terrain/Obstacles/CounterTop1" instance=ExtResource("12_bgvnl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.75, -3.71051)
+
+[node name="CounterTopEnd" parent="Terrain/Obstacles/CounterTop1" instance=ExtResource("13_rn27u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.75, 4.58437)
+
+[node name="CounterTopEnd2" parent="Terrain/Obstacles/CounterTop1" instance=ExtResource("13_rn27u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.00699997, -0.75, -12.7027)
+
+[node name="CounterTop2" type="Node3D" parent="Terrain/Obstacles"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.9262, 0.75, 2.98526)
+
+[node name="CounterTop" parent="Terrain/Obstacles/CounterTop2" instance=ExtResource("12_bgvnl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.75, 2.58437)
+
+[node name="CounterTop2" parent="Terrain/Obstacles/CounterTop2" instance=ExtResource("12_bgvnl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.75, 0.0843697)
+
+[node name="CounterTop3" parent="Terrain/Obstacles/CounterTop2" instance=ExtResource("12_bgvnl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.75, -2.41563)
+
+[node name="CounterTop4" parent="Terrain/Obstacles/CounterTop2" instance=ExtResource("12_bgvnl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.75, -3.41563)
+
+[node name="CounterTop5" parent="Terrain/Obstacles/CounterTop2" instance=ExtResource("12_bgvnl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.75, -4.41563)
+
+[node name="CounterTopEnd" parent="Terrain/Obstacles/CounterTop2" instance=ExtResource("13_rn27u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.75, 4.58437)
+
+[node name="BoothSet" type="Node3D" parent="Terrain/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.841, 0, 10.5)
+
+[node name="BoothSeat" parent="Terrain/Obstacles/BoothSet" instance=ExtResource("11_cx47i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10433, 0, 0.33)
+
+[node name="BoothSeat2" parent="Terrain/Obstacles/BoothSet" instance=ExtResource("11_cx47i")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.05656, 0, 0.33)
+
+[node name="RestaurantTableObstacle" parent="Terrain/Obstacles/BoothSet" instance=ExtResource("12_ovmdt")]
+
+[node name="BoothSet7" type="Node3D" parent="Terrain/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.659, 0, 10.5)
+
+[node name="BoothSeat" parent="Terrain/Obstacles/BoothSet7" instance=ExtResource("11_cx47i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10433, 0, 0.33)
+
+[node name="BoothSeat2" parent="Terrain/Obstacles/BoothSet7" instance=ExtResource("11_cx47i")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.05656, 0, 0.33)
+
+[node name="RestaurantTableObstacle" parent="Terrain/Obstacles/BoothSet7" instance=ExtResource("12_ovmdt")]
+
+[node name="BoothSet8" type="Node3D" parent="Terrain/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.841, 0, 20)
+
+[node name="BoothSeat" parent="Terrain/Obstacles/BoothSet8" instance=ExtResource("11_cx47i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10433, 0, 0.33)
+
+[node name="BoothSeat2" parent="Terrain/Obstacles/BoothSet8" instance=ExtResource("11_cx47i")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.05656, 0, 0.33)
+
+[node name="RestaurantTableObstacle" parent="Terrain/Obstacles/BoothSet8" instance=ExtResource("12_ovmdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.325096)
+
+[node name="BoothSet9" type="Node3D" parent="Terrain/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.159, 0, 20)
+
+[node name="BoothSeat" parent="Terrain/Obstacles/BoothSet9" instance=ExtResource("11_cx47i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10433, 0, 0.33)
+
+[node name="BoothSeat2" parent="Terrain/Obstacles/BoothSet9" instance=ExtResource("11_cx47i")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.05656, 0, 0.33)
+
+[node name="RestaurantTableObstacle" parent="Terrain/Obstacles/BoothSet9" instance=ExtResource("12_ovmdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.325096)
+
+[node name="BoothSet10" type="Node3D" parent="Terrain/Obstacles"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.841, 0, -4)
+
+[node name="BoothSeat" parent="Terrain/Obstacles/BoothSet10" instance=ExtResource("11_cx47i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10433, 0, 0.33)
+
+[node name="BoothSeat2" parent="Terrain/Obstacles/BoothSet10" instance=ExtResource("11_cx47i")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.05656, 0, 0.33)
+
+[node name="RestaurantTableObstacle" parent="Terrain/Obstacles/BoothSet10" instance=ExtResource("12_ovmdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.325096)
+
+[node name="BoothSet11" type="Node3D" parent="Terrain/Obstacles"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.3735, 0, -4)
+
+[node name="BoothSeat" parent="Terrain/Obstacles/BoothSet11" instance=ExtResource("11_cx47i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10433, 0, 0.33)
+
+[node name="BoothSeat2" parent="Terrain/Obstacles/BoothSet11" instance=ExtResource("11_cx47i")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.05656, 0, 0.33)
+
+[node name="RestaurantTableObstacle" parent="Terrain/Obstacles/BoothSet11" instance=ExtResource("12_ovmdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.325096)
+
+[node name="DestroyedShop" parent="Terrain/Obstacles" instance=ExtResource("16_4jy7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4657, 0, -18.4178)
+
+[node name="DestroyedShop3" parent="Terrain/Obstacles" instance=ExtResource("16_4jy7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8722, 0, -2.69118)
+
+[node name="DestroyedShop2" parent="Terrain/Obstacles" instance=ExtResource("16_4jy7e")]
+transform = Transform3D(0.988162, -0.153414, -0.000926458, 0, 0.00603882, -0.999982, 0.153417, 0.988144, 0.00596733, 15.5727, 0.594233, -19.0643)
+
+[node name="TrashBinObstacle" parent="Terrain/Obstacles" instance=ExtResource("20_5n3ab")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -22, 0, -3)
+
+[node name="TrashBinObstacle4" parent="Terrain/Obstacles" instance=ExtResource("20_5n3ab")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -1.49838, 0, -16.0473)
+
+[node name="TrashBinObstacle5" parent="Terrain/Obstacles" instance=ExtResource("20_5n3ab")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -1.49838, 0, 12.3181)
+
+[node name="TrashBinObstacle2" parent="Terrain/Obstacles" instance=ExtResource("20_5n3ab")]
+transform = Transform3D(-3.92679e-08, 0.898344, 0.939669, -1.3, -5.68248e-08, 0, 4.10742e-08, -0.939669, 0.898344, -22.1069, 0.285727, 25.8244)
+
+[node name="TrashBinObstacle3" parent="Terrain/Obstacles" instance=ExtResource("20_5n3ab")]
+transform = Transform3D(3.97178e-08, -0.908638, 0.929719, -1.3, -5.68248e-08, 0, 4.06393e-08, -0.929719, -0.908638, 20.4818, 0.285727, 26.0021)
+
+[node name="Area" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="EnemySpawners" type="Node3D" parent="."]
+
+[node name="TicketBasedSpawnSystem" type="Node3D" parent="EnemySpawners"]
+script = ExtResource("13_4k6an")
+max_total_spawn_tickets = 6
+min_total_spawn_tickets = 6
+
+[node name="Zombie" parent="EnemySpawners/TicketBasedSpawnSystem" node_paths=PackedStringArray("patrol") instance=ExtResource("14_eolcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1.35858, 7)
+patrol = NodePath("../../MiddleHorizontalPatrol")
+
+[node name="Zombie5" parent="EnemySpawners/TicketBasedSpawnSystem" node_paths=PackedStringArray("patrol") instance=ExtResource("14_eolcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.08472, 9)
+patrol = NodePath("../../RightVerticalPatrol")
+
+[node name="Zombie7" parent="EnemySpawners/TicketBasedSpawnSystem" instance=ExtResource("14_eolcc")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -17.5, 1.51894, 0.5)
+sentry = true
+
+[node name="TicketBasedSpawnSystem2" type="Node3D" parent="EnemySpawners"]
+script = ExtResource("13_4k6an")
+max_total_spawn_tickets = 9
+min_total_spawn_tickets = 9
+
+[node name="Zombie4" parent="EnemySpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("patrol") instance=ExtResource("14_eolcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.94444, -2.5)
+patrol = NodePath("../../MiddleVerticalPatrol")
+
+[node name="Zombie6" parent="EnemySpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("patrol") instance=ExtResource("14_eolcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5282, 1.8345, -12)
+patrol = NodePath("../../UpperHorizontalPatrol")
+
+[node name="Zombie2" parent="EnemySpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("patrol") instance=ExtResource("14_eolcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.79195, 16)
+patrol = NodePath("../../LowerHorizontalPatrolShort")
+
+[node name="Zombie3" parent="EnemySpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("patrol") instance=ExtResource("14_eolcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.51831, 25)
+patrol = NodePath("../../LowerHorizontalPatrolLong")
+
+[node name="NanomachineHiveEnemy" parent="EnemySpawners/TicketBasedSpawnSystem2" instance=ExtResource("15_1odle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.98862, 4)
+
+[node name="GunDroneEnemy" parent="EnemySpawners/TicketBasedSpawnSystem2" instance=ExtResource("16_pcokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.72917, 1)
+
+[node name="GunDroneEnemy2" parent="EnemySpawners/TicketBasedSpawnSystem2" instance=ExtResource("16_pcokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.46123, 7.5)
+
+[node name="GunDroneEnemy3" parent="EnemySpawners/TicketBasedSpawnSystem2" instance=ExtResource("16_pcokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.49472, 18)
+
+[node name="NanomachineHiveEnemy2" parent="EnemySpawners/TicketBasedSpawnSystem2" instance=ExtResource("15_1odle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.72348, 5)
+
+[node name="NanomachineHiveEnemy3" parent="EnemySpawners/TicketBasedSpawnSystem2" instance=ExtResource("15_1odle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0037, 1.80399, 16.0008)
+
+[node name="GunDroneEnemy4" parent="EnemySpawners/TicketBasedSpawnSystem2" instance=ExtResource("16_pcokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.60569, 16.5)
+
+[node name="GunDroneEnemy5" parent="EnemySpawners/TicketBasedSpawnSystem2" instance=ExtResource("16_pcokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.32654, 21)
+
+[node name="GunDroneEnemy6" parent="EnemySpawners/TicketBasedSpawnSystem2" instance=ExtResource("16_pcokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0.785329, 19.5)
+
+[node name="NanomachineHiveEnemy4" parent="EnemySpawners/TicketBasedSpawnSystem2" instance=ExtResource("15_1odle")]
+transform = Transform3D(1, 0, 0, 0, 0.999882, -0.0153932, 0, 0.0153932, 0.999882, -3.5, 1.27466, 20.0196)
+
+[node name="NanomachineHiveEnemy5" parent="EnemySpawners/TicketBasedSpawnSystem2" instance=ExtResource("15_1odle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.59784, 20)
+
+[node name="MiddleHorizontalPatrol" parent="EnemySpawners" instance=ExtResource("17_avu8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="PatrolWaypoint" parent="EnemySpawners/MiddleHorizontalPatrol" instance=ExtResource("18_f3y11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0)
+
+[node name="PatrolWaypoint2" parent="EnemySpawners/MiddleHorizontalPatrol" instance=ExtResource("18_f3y11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, 0, 0)
+
+[node name="LowerHorizontalPatrolLong" parent="EnemySpawners" instance=ExtResource("17_avu8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.5)
+
+[node name="PatrolWaypoint" parent="EnemySpawners/LowerHorizontalPatrolLong" instance=ExtResource("18_f3y11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0)
+
+[node name="PatrolWaypoint2" parent="EnemySpawners/LowerHorizontalPatrolLong" instance=ExtResource("18_f3y11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, 0, 0)
+
+[node name="RightVerticalPatrol" parent="EnemySpawners" instance=ExtResource("17_avu8p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.5, 0, 12)
+
+[node name="PatrolWaypoint" parent="EnemySpawners/RightVerticalPatrol" instance=ExtResource("18_f3y11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0)
+
+[node name="PatrolWaypoint2" parent="EnemySpawners/RightVerticalPatrol" instance=ExtResource("18_f3y11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, 0, 0)
+
+[node name="LowerHorizontalPatrolShort" parent="EnemySpawners" instance=ExtResource("17_avu8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+
+[node name="PatrolWaypoint" parent="EnemySpawners/LowerHorizontalPatrolShort" instance=ExtResource("18_f3y11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="PatrolWaypoint2" parent="EnemySpawners/LowerHorizontalPatrolShort" instance=ExtResource("18_f3y11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, 0)
+
+[node name="MiddleVerticalPatrol" parent="EnemySpawners" instance=ExtResource("17_avu8p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.5, 0, -0.5)
+
+[node name="PatrolWaypoint" parent="EnemySpawners/MiddleVerticalPatrol" instance=ExtResource("18_f3y11")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 4, 0, 0)
+
+[node name="PatrolWaypoint2" parent="EnemySpawners/MiddleVerticalPatrol" instance=ExtResource("18_f3y11")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, -7, 0, 0)
+
+[node name="UpperHorizontalPatrol" parent="EnemySpawners" instance=ExtResource("17_avu8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, -13.5)
+
+[node name="PatrolWaypoint" parent="EnemySpawners/UpperHorizontalPatrol" instance=ExtResource("18_f3y11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="PatrolWaypoint2" parent="EnemySpawners/UpperHorizontalPatrol" instance=ExtResource("18_f3y11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, 0)
+
+[node name="LootSpawners" type="Node3D" parent="."]
+
+[node name="QuestWaypoint" parent="LootSpawners" instance=ExtResource("19_vp3a7")]
+transform = Transform3D(0.934211, 0, -0.356722, 0, 1, 0, 0.356722, 0, 0.934211, 8.29315, 1.12581, 19.046)
+id = "foreman_keycard_waypoint"
+
+[node name="GroundItemQuestObjective" parent="LootSpawners" instance=ExtResource("20_3mc5g")]
+transform = Transform3D(0.934211, 0, -0.356722, 0, 1, 0, 0.356722, 0, 0.934211, 8.29315, 1.12581, 19.046)
+quest_id = "kill_foreman"
+quest_step_id = "acquire_foreman_key"
+
+[node name="ForemanOfficeBossKey" parent="LootSpawners/GroundItemQuestObjective" instance=ExtResource("21_fgnwy")]
+
+[node name="TicketBasedSpawnSystem3" parent="LootSpawners" instance=ExtResource("22_v8ius")]
+max_total_spawn_tickets = 2
+min_total_spawn_tickets = 4
+
+[node name="GroundItem2" parent="LootSpawners/TicketBasedSpawnSystem3" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.999221, 0, 0.0394691, 0, 1, 0, -0.0394691, 0, 0.999221, -11.2124, 1.12581, 19.0336)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem7" parent="LootSpawners/TicketBasedSpawnSystem3" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.471674, 0, 0.881773, 0, 1, 0, -0.881773, 0, 0.471674, -7.28117, 1.12044, 9.41675)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem8" parent="LootSpawners/TicketBasedSpawnSystem3" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.999549, 0, -0.0300327, 0, 1, 0, 0.0300327, 0, 0.999549, 4.16039, 1.18947, 9.41675)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem3" parent="LootSpawners/TicketBasedSpawnSystem3" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.926804, 0, -0.375545, 0, 1, 0, 0.375545, 0, 0.926804, -10.7607, 1.12581, 21.5467)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem4" parent="LootSpawners/TicketBasedSpawnSystem3" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.990726, 0, 0.135871, 0, 1, 0, -0.135871, 0, 0.990726, -11.768, 1.1312, 3.02462)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem5" parent="LootSpawners/TicketBasedSpawnSystem3" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.970863, 0, -0.239635, 0, 1, 0, 0.239635, 0, 0.970863, -14.7437, 1.1312, 3.02462)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="TicketBasedSpawnSystem" parent="LootSpawners" instance=ExtResource("22_v8ius")]
+max_total_spawn_tickets = 6
+min_total_spawn_tickets = 3
+
+[node name="GroundItem7" parent="LootSpawners/TicketBasedSpawnSystem" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.999611, 0, 0.0278869, 0, 1, 0, -0.0278869, 0, 0.999611, -16.3886, 0.860066, -2.35347)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem8" parent="LootSpawners/TicketBasedSpawnSystem" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.877665, 0, -0.479274, 0, 1, 0, 0.479274, 0, 0.877665, -15.5528, 1.85771, -2.38806)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem9" parent="LootSpawners/TicketBasedSpawnSystem" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.978821, 0, 0.204718, 0, 1, 0, -0.204718, 0, 0.978821, -14.3493, 1.85771, -2.38806)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem10" parent="LootSpawners/TicketBasedSpawnSystem" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.999706, 0, -0.0242402, 0, 1, 0, 0.0242402, 0, 0.999706, -13.8455, 0.954739, -2.38806)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem11" parent="LootSpawners/TicketBasedSpawnSystem" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.999706, 0, -0.0242402, 0, 1, 0, 0.0242402, 0, 0.999706, -12.474, 1.81843, -2.38806)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem12" parent="LootSpawners/TicketBasedSpawnSystem" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.0370796, 0, 0.999312, 0, 1, 0, -0.999312, 0, 0.0370796, -11.1452, 1.84762, -2.45897)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem13" parent="LootSpawners/TicketBasedSpawnSystem" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.925996, 0, 0.377534, 0, 1, 0, -0.377534, 0, 0.925996, -11.7116, 0.83009, -2.45897)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="TicketBasedSpawnSystem2" parent="LootSpawners" instance=ExtResource("22_v8ius")]
+min_total_spawn_tickets = 2
+
+[node name="GroundItem9" parent="LootSpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.971192, 0, 0.238296, 0, 1, 0, -0.238296, 0, 0.971192, 0.583138, 1.14367, -3.94874)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem13" parent="LootSpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.971192, 0, 0.238296, 0, 1, 0, -0.238296, 0, 0.971192, 2.75174, 1.1283, -18.1695)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem14" parent="LootSpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.915578, 0, -0.40214, 0, 1, 0, 0.40214, 0, 0.915578, 5.61187, 1.1283, -18.1695)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem15" parent="LootSpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.966488, 0, 0.256711, 0, 1, 0, -0.256711, 0, 0.966488, 8.6951, 1.1283, -18.6655)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem16" parent="LootSpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.966488, 0, 0.256711, 0, 1, 0, -0.256711, 0, 0.966488, 12.1268, 1.1283, -17.8058)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem17" parent="LootSpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.782369, 0, -0.622815, 0, 1, 0, 0.622815, 0, 0.782369, 18.0032, 1.12908, -18.204)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem10" parent="LootSpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.0792768, 0, -0.996853, 0, 1, 0, 0.996853, 0, 0.0792768, 2.49014, 1.14367, -3.94874)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem11" parent="LootSpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.949453, 0, -0.31391, 0, 1, 0, 0.31391, 0, 0.949453, 11.013, 1.14367, -3.65017)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="GroundItem12" parent="LootSpawners/TicketBasedSpawnSystem2" node_paths=PackedStringArray("loot_table") instance=ExtResource("23_ehi8e")]
+transform = Transform3D(0.861257, 0, 0.50817, 0, 1, 0, -0.50817, 0, 0.861257, 13.0919, 1.14367, -4.30432)
+loot_table = NodePath("../../../LootTables/EmployeeBreakRoomLootTable")
+
+[node name="RoomConnectors" type="Node3D" parent="."]
+
+[node name="RoomConnector" parent="RoomConnectors" instance=ExtResource("25_gbqn3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -23, 0, 9)
+
+[node name="NLIDoorway" parent="RoomConnectors/RoomConnector" instance=ExtResource("26_1urtt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="RoomConnector2" parent="RoomConnectors" instance=ExtResource("25_gbqn3")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4, 0, -16.5)
+
+[node name="NLIDoorway" parent="RoomConnectors/RoomConnector2" instance=ExtResource("26_1urtt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="Greebles" type="Node3D" parent="."]
+
+[node name="WarehouseTrash4" parent="Greebles" instance=ExtResource("35_1042v")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -9.75738, 0.05, 1.44057)
+
+[node name="WarehouseTrash7" parent="Greebles" instance=ExtResource("36_ipn3e")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.3358, 0.05, -3.8766)
+
+[node name="WarehouseTrash8" parent="Greebles" instance=ExtResource("37_xy81u")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.566, 0.05, 24.554)
+
+[node name="WarehouseTrash1" parent="Greebles" instance=ExtResource("38_kalw2")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 18.7258, 0.01, 24.3111)
+
+[editable path="Terrain/Walls/OfficeWallPrefabExtinguisher"]

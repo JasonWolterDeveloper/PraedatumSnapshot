@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8anhdft4fl0w"]
+
+[ext_resource type="PackedScene" uid="uid://i31eiobgfo2y" path="res://Content/Demo/Assets/Characters/Enemies/WageCage/Gibs/WageCageSkull.glb" id="1_k53jh"]
+
+[node name="ForemanSkullKeyGroundModel" type="Node3D"]
+
+[node name="WageCageSkull" parent="." instance=ExtResource("1_k53jh")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)

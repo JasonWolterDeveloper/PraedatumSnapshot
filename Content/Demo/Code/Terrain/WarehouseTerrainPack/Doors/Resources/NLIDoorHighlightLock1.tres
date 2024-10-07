@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://l1awwsoc52xc"]
+
+[resource]
+resource_name = "DoorHighlightColour"
+cull_mode = 2
+albedo_color = Color(0.185497, 0.416209, 1, 1)
+roughness = 0.5

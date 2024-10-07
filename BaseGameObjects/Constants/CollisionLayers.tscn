@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crt55oho0rxqn"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Constants/CollisionLayers.gd" id="1_xdql2"]
+
+[node name="CollisionLayers" type="Node"]
+script = ExtResource("1_xdql2")

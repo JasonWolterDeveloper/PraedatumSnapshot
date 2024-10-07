@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://wlnvcub5m280"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Rooms/MedicalFacilityEnemySpawnTable.gd" id="1_prsw7"]
+[ext_resource type="PackedScene" uid="uid://iry75ltpexrd" path="res://Content/Demo/Code/Levels/Rooms/MedicalFacilityEnemySpawnStringMapper.tscn" id="2_q23ml"]
+
+[node name="MedicalFacilityEnemySpawnTable" type="Node"]
+script = ExtResource("1_prsw7")
+
+[node name="SpawnStringMapper" parent="." instance=ExtResource("2_q23ml")]

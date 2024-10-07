@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://nqja5a752e84"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/TestActiveAbility1.gd" id="1_byem0"]
+
+[node name="TestActiveAbility1" type="Node"]
+script = ExtResource("1_byem0")
+mana_cost = 25.0
+ability_id = "test_ability_1"
+ability_point_cost = 2
+display_name = "Test Ability 1"
+description = "This is my description of the ability. Wohoo"

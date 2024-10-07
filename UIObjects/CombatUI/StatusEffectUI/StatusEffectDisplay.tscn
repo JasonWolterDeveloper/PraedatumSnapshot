@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://2327nkwxqmib"]
+
+[ext_resource type="Script" path="res://UIObjects/CombatUI/StatusEffectUI/StatusEffectDisplay.gd" id="1_tfxke"]
+[ext_resource type="FontFile" uid="uid://jjpdtk4jb6ea" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_rmknt"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xa4xi"]
+viewport_path = NodePath("SubViewport")
+
+[node name="StatusEffectDisplay" type="Sprite3D"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+billboard = 1
+fixed_size = true
+render_priority = 3
+texture = SubResource("ViewportTexture_xa4xi")
+script = ExtResource("1_tfxke")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(256, 64)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport"]
+offset_top = 23.0
+offset_right = 256.0
+offset_bottom = 64.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/normal_font = ExtResource("2_rmknt")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[center]StatusEffectText[/center]"
+autowrap_mode = 0

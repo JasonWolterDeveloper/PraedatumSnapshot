@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cff2mqi3y2eup"]
+
+[ext_resource type="PackedScene" uid="uid://cc0hefu3kuy44" path="res://Content/Demo/Assets/Characters/Enemies/Turret/TurretGun.glb" id="1_s6m2f"]
+[ext_resource type="Script" path="res://Content/Demo/Assets/Characters/Enemies/Turret/TurretGunModel.gd" id="2_suir0"]
+
+[node name="TurretGunModel" type="Node3D"]
+script = ExtResource("2_suir0")
+
+[node name="LaserStartPos" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38545, 0.829126)
+
+[node name="TurretGun" parent="." instance=ExtResource("1_s6m2f")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)

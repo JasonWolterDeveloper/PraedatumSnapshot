@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://la5swv6g83xj"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Bullets/SpentRound.gd" id="1_nc84j"]
+
+[node name="SpentRound" type="RigidBody3D"]
+collision_layer = 0
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_nc84j")
+expiration_time = 4.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

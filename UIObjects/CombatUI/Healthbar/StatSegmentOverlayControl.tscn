@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddq8llq7yhetp"]
+
+[ext_resource type="Script" path="res://UIObjects/CombatUI/Healthbar/StatSegmentOverlayControl.gd" id="1_52808"]
+[ext_resource type="PackedScene" uid="uid://bn8xbm2gwj4e7" path="res://UIObjects/CombatUI/Healthbar/StatSegmentSeparatorControl.tscn" id="2_44ysa"]
+
+[node name="StatSegmentOverlayControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_52808")
+segment_separator_control_scene = ExtResource("2_44ysa")
+
+[node name="SeparatorContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="SeparatorContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="StatSegmentSeparatorControl" parent="SeparatorContainer" instance=ExtResource("2_44ysa")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="SeparatorContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="StatSegmentSeparatorControl2" parent="SeparatorContainer" instance=ExtResource("2_44ysa")]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="SeparatorContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="StatSegmentSeparatorControl3" parent="SeparatorContainer" instance=ExtResource("2_44ysa")]
+layout_mode = 2

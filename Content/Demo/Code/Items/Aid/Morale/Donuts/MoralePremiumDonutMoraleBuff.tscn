@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://get0ly60p0fc"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Aid/Morale/Donuts/MoralePremiumDonutMoraleBuff.gd" id="1_rqqss"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="2_uul5q"]
+[ext_resource type="Texture2D" uid="uid://dre53irv6spqp" path="res://Content/Demo/Assets/Items/Consumables/Morale/Donut/PremiumDonut/InventoryImage.png" id="3_mvcaj"]
+
+[sub_resource type="Resource" id="Resource_5wtjh"]
+script = ExtResource("2_uul5q")
+stat_id = "mana"
+value = 1.0
+is_multiplicative = false
+is_number_of_segments = true
+is_value_per_segment = false
+
+[node name="MoralePremiumDonutMoraleBuff" type="Node"]
+script = ExtResource("1_rqqss")
+rpg_stat_modifiers = Array[ExtResource("2_uul5q")]([SubResource("Resource_5wtjh")])
+base_duration = 10.0
+id = "premium_donut"
+ui_image = ExtResource("3_mvcaj")

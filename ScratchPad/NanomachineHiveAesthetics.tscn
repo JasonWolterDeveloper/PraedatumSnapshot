@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=3 uid="uid://b6jpo77es7i4c"]
+
+[ext_resource type="Texture2D" uid="uid://b7kxpmmcquqwm" path="res://ScratchPad/Assets/Nanomachines/NanomachineParticle.png" id="1_0rd3f"]
+[ext_resource type="Shader" uid="uid://8wtn525fn4eh" path="res://ScratchPad/Assets/AttackNanosphereShader.tres" id="1_cnvw2"]
+[ext_resource type="Script" path="res://ScratchPad/NanomachineHiveAesthetics.gd" id="1_usawt"]
+[ext_resource type="PackedScene" uid="uid://do2p70jff6ybk" path="res://Content/Demo/Assets/Characters/Enemies/NanomachineHive/NanomachineHive.glb" id="3_vxxac"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bgv4g"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_cnvw2")
+shader_parameter/FadeIn = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_fkwvq"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_bgv4g")
+radius = 1.0
+height = 2.0
+
+[sub_resource type="Curve" id="Curve_pjrqs"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lsyou"]
+curve = SubResource("Curve_pjrqs")
+
+[sub_resource type="Curve" id="Curve_eleym"]
+max_value = 2.0
+_data = [Vector2(0.51676, 2), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_updvg"]
+curve = SubResource("Curve_eleym")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jt31u"]
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.3
+orbit_velocity_curve = SubResource("CurveTexture_lsyou")
+radial_velocity_min = 0.4
+radial_velocity_max = 0.8
+velocity_limit_curve = SubResource("CurveTexture_updvg")
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iw12l"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.577009, 0.577008, 0.577008, 1)
+albedo_texture = ExtResource("1_0rd3f")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_g7kwf"]
+material = SubResource("StandardMaterial3D_iw12l")
+size = Vector2(0.07, 0.07)
+
+[node name="NanomachineHiveAesthetics" type="Node3D"]
+script = ExtResource("1_usawt")
+
+[node name="NaniteSwarm" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_fkwvq")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1.50082, 0, 0, 0, 1.50082, 0, 0, 0, 1.50082, 0, 0, 0)
+visible = false
+amount = 100
+lifetime = 2.0
+randomness = 0.25
+visibility_aabb = AABB(-2.06389, -1.54258, -2.23278, 4.12779, 3.08517, 4.46556)
+local_coords = true
+trail_lifetime = 2.48
+process_material = SubResource("ParticleProcessMaterial_jt31u")
+draw_pass_1 = SubResource("QuadMesh_g7kwf")
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+transform = Transform3D(1.19763, 0, 0, 0, 1.19763, 0, 0, 0, 1.19763, 0, 0, 0)
+strength = 16.05
+attenuation = 0.318639
+
+[node name="NanomachineHive" parent="." instance=ExtResource("3_vxxac")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://5sddv0an0scr"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Constants/RPGEventConstants.gd" id="1_m4a71"]
+
+[node name="RPGEventConstants" type="Node"]
+script = ExtResource("1_m4a71")

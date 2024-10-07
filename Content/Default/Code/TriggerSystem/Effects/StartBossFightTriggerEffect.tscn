@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2loh3gx3tpu1"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/Effects/StartBossFightTriggerEffect.gd" id="1_7lgot"]
+
+[node name="StartBossFightTriggerEffect" type="Node"]
+script = ExtResource("1_7lgot")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck0osbtnpqip7"]
+
+[ext_resource type="PackedScene" uid="uid://cpod2prgijimk" path="res://Content/Demo/Assets/Items/ResourceItems/Special/Food/CoffeeMaker/CoffeeMaker.glb" id="1_6hsbb"]
+
+[node name="CoffeeMakerGroundModel" type="Node3D"]
+
+[node name="CoffeeMaker2" parent="." instance=ExtResource("1_6hsbb")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)

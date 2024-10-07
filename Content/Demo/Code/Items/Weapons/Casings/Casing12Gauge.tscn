@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtaf2s13w2nke"]
+
+[ext_resource type="PackedScene" uid="uid://la5swv6g83xj" path="res://BaseGameObjects/Combat/Bullets/SpentRound.tscn" id="1_3ppv7"]
+[ext_resource type="PackedScene" uid="uid://bdkeu1bs2xua" path="res://Content/Demo/Assets/Weapons/Casings/ShotgunShellModel.tscn" id="2_mykt3"]
+[ext_resource type="AudioStream" uid="uid://by6dopgc70whu" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_casing-002.wav" id="4_hhcts"]
+[ext_resource type="AudioStream" uid="uid://bju5gk2ys0mok" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_casing-001.wav" id="5_t6bek"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mxb7w"]
+height = 0.225949
+radius = 0.0798884
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fm45e"]
+random_pitch = 1.1
+streams_count = 2
+stream_0/stream = ExtResource("4_hhcts")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_t6bek")
+stream_1/weight = 1.0
+
+[node name="Casing12Gauge" instance=ExtResource("1_3ppv7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_mxb7w")
+
+[node name="ShotgunShellModel" parent="." index="2" instance=ExtResource("2_mykt3")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Casing" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = SubResource("AudioStreamRandomizer_fm45e")
+volume_db = -8.0
+bus = &"Gun Other"
+doppler_tracking = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

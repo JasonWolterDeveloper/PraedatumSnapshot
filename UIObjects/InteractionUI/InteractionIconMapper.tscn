@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://djthuqnghc388"]
+
+[ext_resource type="Script" path="res://UIObjects/InteractionUI/InteractionIconMapper.gd" id="1_ljt8d"]
+
+[node name="InteractionIconMapper" type="Node"]
+script = ExtResource("1_ljt8d")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c6b8xuibo35ba"
+path="res://.godot/imported/Karl Casey - Gore - 04 Replicant Hunter.ogg-12fb91908a9fee5a5ac61accf973993d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Music/Ambient/Karl Casey - Gore - 04 Replicant Hunter.ogg"
+dest_files=["res://.godot/imported/Karl Casey - Gore - 04 Replicant Hunter.ogg-12fb91908a9fee5a5ac61accf973993d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

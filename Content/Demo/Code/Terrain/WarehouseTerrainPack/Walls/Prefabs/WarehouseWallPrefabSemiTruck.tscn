@@ -1,0 +1,175 @@
+[gd_scene load_steps=23 format=3 uid="uid://dua8k0s6njaln"]
+
+[ext_resource type="PackedScene" uid="uid://b5wpkwly53u6t" path="res://Content/Demo/Assets/Terrain/Greebles/Gubbins/Warehouse/SeparatorPipe.glb" id="1_dnj4t"]
+[ext_resource type="PackedScene" uid="uid://c14yeba554ow1" path="res://BaseGameObjects/Terrain/Walls/Wall.tscn" id="2_gt2n5"]
+[ext_resource type="Material" uid="uid://de5miaqk0brif" path="res://Content/Demo/Assets/Terrain/WarehouseTerrainPack/WarehouseWallMaterial.tres" id="3_yye1n"]
+[ext_resource type="Material" uid="uid://fp3hdtajq0n6" path="res://Content/Default/Code/Levels/VoidTexture.tres" id="4_xgs44"]
+[ext_resource type="Material" uid="uid://c0qt56a034fmx" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Walls/Prefabs/WarehouseHighlightMaterial.tres" id="5_p6duk"]
+[ext_resource type="PackedScene" uid="uid://xalmi3mb4ori" path="res://Content/Demo/Assets/Terrain/Obstacles/TruckBack/SemitruckBack.glb" id="6_70cfu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_16is1"]
+material = ExtResource("3_yye1n")
+size = Vector3(1, 3, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qg2iw"]
+albedo_color = Color(0.316167, 0.316167, 0.316167, 1)
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_vtdgk"]
+material = SubResource("StandardMaterial3D_qg2iw")
+size = Vector3(1, 0.5, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dlbgb"]
+material = ExtResource("4_xgs44")
+size = Vector3(1.05, 4.05, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4j4vn"]
+material = ExtResource("5_p6duk")
+size = Vector3(1, 0.5, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_geedv"]
+material = SubResource("StandardMaterial3D_qg2iw")
+size = Vector3(1, 0.25, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xfdde"]
+material = ExtResource("4_xgs44")
+size = Vector3(10, 0.3, 7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5kbbf"]
+material = ExtResource("4_xgs44")
+size = Vector3(10, 0.3, 7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecprs"]
+albedo_color = Color(0.40642, 0.40642, 0.40642, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m0x83"]
+material = SubResource("StandardMaterial3D_ecprs")
+size = Vector3(2.8, 1.05, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r0n50"]
+material = SubResource("StandardMaterial3D_ecprs")
+size = Vector3(3.6, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1utlw"]
+material = SubResource("StandardMaterial3D_ecprs")
+size = Vector3(2.8, 0.31, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dm18d"]
+size = Vector3(0.12, 2.436, 5.74508)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tmckl"]
+size = Vector3(0.247375, 2.43579, 5.65405)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxi6t"]
+size = Vector3(0.247375, 2.43579, 3.35913)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vsnhf"]
+size = Vector3(0.247375, 3.00854, 2.16876)
+
+[node name="WarehouseWallPrefabCross" type="Node3D"]
+
+[node name="SeparatorPipeRight" parent="." instance=ExtResource("1_dnj4t")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 1, 0, 2, 0, -8.74228e-08, -2.5, 0, -0.2)
+
+[node name="SeparatorPipeTop" parent="." instance=ExtResource("1_dnj4t")]
+transform = Transform3D(-8.74228e-08, -0.3, 0, 2, -1.31134e-08, 0, 0, 0, 2, 2.5, 3, -0.2)
+
+[node name="SeparatorPipeTop2" parent="." instance=ExtResource("1_dnj4t")]
+transform = Transform3D(-8.74228e-08, -0.3, 0, 2, -1.31134e-08, 0, 0, 0, 2, -1.32824, 3, -0.2)
+
+[node name="SeparatorPipeLeft" parent="." instance=ExtResource("1_dnj4t")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 1, 0, 2, 0, -8.74228e-08, 2.5, 0, -0.2)
+
+[node name="Wall" parent="." instance=ExtResource("2_gt2n5")]
+transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1, 1.939, 0, 0)
+
+[node name="RustWall" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_16is1")
+
+[node name="MetalWall" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
+mesh = SubResource("BoxMesh_vtdgk")
+
+[node name="VoidPart" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_dlbgb")
+
+[node name="Highlight" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.84217e-14, 0, 1, 0, 3.25, 0)
+mesh = SubResource("BoxMesh_4j4vn")
+
+[node name="Wall2" parent="." instance=ExtResource("2_gt2n5")]
+transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="RustWall" type="MeshInstance3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_16is1")
+
+[node name="MetalWall" type="MeshInstance3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
+mesh = SubResource("BoxMesh_vtdgk")
+
+[node name="VoidPart" type="MeshInstance3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_dlbgb")
+
+[node name="Highlight" type="MeshInstance3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.84217e-14, 0, 1, 0, 3.25, 0)
+mesh = SubResource("BoxMesh_4j4vn")
+
+[node name="MetalWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.875, 0)
+mesh = SubResource("BoxMesh_geedv")
+skeleton = NodePath("")
+
+[node name="SemitruckBack" parent="." instance=ExtResource("6_70cfu")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0.892859, 0.766544)
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="SemitruckBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.93219e-08, 2.9108, 2.77184)
+mesh = SubResource("BoxMesh_xfdde")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="SemitruckBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.93219e-08, 2.9108, 2.77184)
+mesh = SubResource("BoxMesh_5kbbf")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="SemitruckBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95307e-09, -0.276664, -1.01689)
+mesh = SubResource("BoxMesh_m0x83")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SemitruckBack"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.31428, 1.22531, -0.998131)
+mesh = SubResource("BoxMesh_r0n50")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="SemitruckBack"]
+transform = Transform3D(-1, -8.74228e-08, -1.74846e-07, 8.74228e-08, -1, -1.74846e-07, -1.74846e-07, -1.74846e-07, 1, 0.00458404, 2.87118, -1.01398)
+mesh = SubResource("BoxMesh_1utlw")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SemitruckBack"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1.31075, 1.22531, -1.01491)
+mesh = SubResource("BoxMesh_r0n50")
+
+[node name="Truckbody" type="StaticBody3D" parent="SemitruckBack"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SemitruckBack/Truckbody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19376, 1.49094, 0.35572)
+shape = SubResource("BoxShape3D_dm18d")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="SemitruckBack/Truckbody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.193, 1.491, 0.356)
+shape = SubResource("BoxShape3D_dm18d")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="SemitruckBack/Truckbody"]
+transform = Transform3D(-4.37114e-08, -1, -1.74846e-07, 1, -4.37114e-08, 1.74846e-07, -1.74846e-07, -1.74846e-07, 1, -0.00764554, 0.258955, 0.307559)
+shape = SubResource("BoxShape3D_tmckl")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="SemitruckBack/Truckbody"]
+transform = Transform3D(-2.18557e-07, -1, -3.71391e-14, 1.31134e-07, 0, -1, 1, -2.18557e-07, 1.31134e-07, -0.00764602, 1.20361, 3.03872)
+shape = SubResource("BoxShape3D_fxi6t")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="SemitruckBack/Truckbody"]
+transform = Transform3D(-2.18557e-07, -1, -4.02649e-14, 1.49012e-07, 1.42109e-14, -1, 1, -2.18557e-07, 1.49012e-07, -0.0860145, -0.804541, -0.846671)
+shape = SubResource("BoxShape3D_vsnhf")

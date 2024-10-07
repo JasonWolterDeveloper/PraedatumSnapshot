@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bshq7ydn0liip"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGEvent.gd" id="1_etitd"]
+
+[node name="RPGEvent" type="Node"]
+script = ExtResource("1_etitd")

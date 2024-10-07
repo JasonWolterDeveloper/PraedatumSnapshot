@@ -1,0 +1,180 @@
+[gd_scene load_steps=19 format=3 uid="uid://bl176wggn7k33"]
+
+[ext_resource type="PackedScene" uid="uid://bguuekuitrudm" path="res://BaseGameObjects/Character.tscn" id="1_32tes"]
+[ext_resource type="Script" path="res://BaseGameObjects/Player.gd" id="2_kj4nb"]
+[ext_resource type="PackedScene" uid="uid://d1u8rrxxknwwf" path="res://BaseGameObjects/Inventory/Inventory.tscn" id="3_g3bfg"]
+[ext_resource type="PackedScene" uid="uid://docpo468f8eu8" path="res://BaseGameObjects/Aesthetics/Quests/QuestCompass.tscn" id="3_wqipe"]
+[ext_resource type="PackedScene" uid="uid://cyk4aku4rw3ju" path="res://BaseGameObjects/Combat/Charges/ExplosiveChargePredictionMaster.tscn" id="7_hohx5"]
+[ext_resource type="PackedScene" uid="uid://cw7m3lgm01wov" path="res://BaseGameObjects/RPGMechanics/MoraleBuffs/MoraleBuffSlotStat.tscn" id="7_n12bi"]
+[ext_resource type="PackedScene" uid="uid://cyya84jvaah1e" path="res://BaseGameObjects/PlayerController.tscn" id="7_pbj2r"]
+[ext_resource type="PackedScene" uid="uid://cra3x5g141pur" path="res://BaseGameObjects/RPGMechanics/Stats/SegmentedStats/ManaStat.tscn" id="8_2fteq"]
+[ext_resource type="PackedScene" uid="uid://dhyskmsfngv38" path="res://BaseGameObjects/Aesthetics/AimingLaser/AimingLaser.tscn" id="8_ipwum"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/hitbox.gd" id="8_vo5ph"]
+[ext_resource type="PackedScene" uid="uid://jgqciw4ur46r" path="res://BaseGameObjects/RPGMechanics/MoraleBuffs/MoraleBuffMaster.tscn" id="9_xrhue"]
+[ext_resource type="PackedScene" uid="uid://dg16wmncd5bjp" path="res://Content/Demo/Assets/Characters/MainCharacter/Legionnaire/LegionnairePlayerModel.tscn" id="10_5xvf5"]
+[ext_resource type="Script" path="res://BaseGameObjects/Camera/CameraDolly.gd" id="13_m7tqx"]
+[ext_resource type="Script" path="res://BaseGameObjects/Camera3D.gd" id="14_k8gi0"]
+[ext_resource type="PackedScene" uid="uid://upsffmh3ud63" path="res://BaseGameObjects/Behaviour/AISound/AISoundGenerator.tscn" id="15_44tyx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7c01v"]
+radius = 0.6
+height = 2.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lyedv"]
+radius = 5.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_riuqs"]
+radius = 5.0
+
+[node name="Player" instance=ExtResource("1_32tes")]
+collision_layer = 2
+collision_mask = 19
+script = ExtResource("2_kj4nb")
+disable_control = false
+delete_on_death = false
+display_name = "Player"
+
+[node name="QuestCompass" parent="." index="0" instance=ExtResource("3_wqipe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116454, 0)
+
+[node name="Inventory" parent="." index="1" instance=ExtResource("3_g3bfg")]
+
+[node name="PlayerController" parent="." index="2" instance=ExtResource("7_pbj2r")]
+
+[node name="ExplosiveChargePredictionMaster" parent="." index="3" instance=ExtResource("7_hohx5")]
+
+[node name="RPGMechanicsMaster" parent="." index="4"]
+is_player_mechanics_master = true
+
+[node name="MoraleBuffSlotStat" parent="RPGMechanicsMaster" index="0" instance=ExtResource("7_n12bi")]
+base_value = 2.0
+
+[node name="ManaStat" parent="RPGMechanicsMaster" index="1" instance=ExtResource("8_2fteq")]
+base_value = 50.0
+value = 50.0
+
+[node name="MoraleBuffMaster" parent="RPGMechanicsMaster" index="2" instance=ExtResource("9_xrhue")]
+
+[node name="MaxHealthStat" parent="RPGMechanicsMaster" index="3"]
+value = 100.0
+
+[node name="HealthStat" parent="RPGMechanicsMaster" index="4"]
+base_value = 50.0
+value = 50.0
+
+[node name="MovementMaster" parent="." index="5"]
+should_use_directional_movement = true
+
+[node name="CollisionShape3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1134, 0)
+
+[node name="PlayerModel" parent="LookStuff" index="0" instance=ExtResource("10_5xvf5")]
+transform = Transform3D(-0.55, 0, 8.30477e-08, 0, 0.55, 0, -8.30477e-08, 0, -0.55, 0, 0, 0)
+
+[node name="AimingMaster" parent="LookStuff" index="1" node_paths=PackedStringArray("look_stuff")]
+look_stuff = NodePath("..")
+aim_speed = 12
+
+[node name="AimingLaser" parent="LookStuff" index="2" instance=ExtResource("8_ipwum")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.1134, 0)
+
+[node name="ShouldTurnOffLaserRaycast" type="RayCast3D" parent="LookStuff" index="3"]
+transform = Transform3D(0.980823, 0.194902, 0, -0.194902, 0.980823, 0, 0, 0, 1, 0, 1.42172, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="LookStuff" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.980813, 0.194953, 0, -0.194953, 0.980813, -0.174843, 1.96368, -0.392205)
+light_energy = 7.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+spot_range = 30.0
+spot_angle = 33.4053
+
+[node name="InteractionRaycast" type="RayCast3D" parent="LookStuff" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5134, 0)
+target_position = Vector3(0, 0, -2)
+collision_mask = 1025
+
+[node name="BulletOrigin" type="Marker3D" parent="LookStuff" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44658, 0)
+
+[node name="NonHitscanProjectileSpawnMarker" type="Marker3D" parent="LookStuff" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4345, -1.49063)
+
+[node name="ProjectileHitbox" type="CharacterBody3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1134, 0)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("8_vo5ph")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ProjectileHitbox" index="0"]
+shape = SubResource("CapsuleShape3D_7c01v")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.927231, 0)
+omni_range = 4.22526
+
+[node name="CameraDolly" type="Node3D" parent="." index="10"]
+script = ExtResource("13_m7tqx")
+
+[node name="CameraGimbal" type="Node3D" parent="CameraDolly" index="0"]
+
+[node name="InnerGimbal" type="Node3D" parent="CameraDolly/CameraGimbal" index="0"]
+
+[node name="Camera3D" type="Camera3D" parent="CameraDolly/CameraGimbal/InnerGimbal" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.33652, 0.941676, 0, -0.941676, 0.33652, -0.00355339, 10.8342, 3.68099)
+script = ExtResource("14_k8gi0")
+
+[node name="CameraBasePosition" type="Node3D" parent="CameraDolly/CameraGimbal/InnerGimbal" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00355339, 10.8342, 3.68099)
+
+[node name="InteractionGhostArea" type="Area3D" parent="." index="12"]
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionGhostArea" index="0"]
+shape = SubResource("SphereShape3D_lyedv")
+
+[node name="AISoundGenerator" parent="." index="13" instance=ExtResource("15_44tyx")]
+
+[node name="EnemyInfoDisplayArea" type="Area3D" parent="." index="14"]
+top_level = true
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyInfoDisplayArea" index="0"]
+shape = SubResource("SphereShape3D_riuqs")
+
+[node name="StatusEffectTextMarker" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49663, 0)
+
+[connection signal="attemptInteraction" from="PlayerController" to="." method="attempt_interaction"]
+[connection signal="equip_hotbar_slot" from="PlayerController" to="." method="attempt_equip_hotbar_slot_by_index"]
+[connection signal="move_down" from="PlayerController" to="." method="move_down"]
+[connection signal="move_left" from="PlayerController" to="." method="move_left"]
+[connection signal="move_right" from="PlayerController" to="." method="move_right"]
+[connection signal="move_up" from="PlayerController" to="." method="move_up"]
+[connection signal="press_alt_use_item" from="PlayerController" to="." method="press_alt_use_item"]
+[connection signal="press_buff_ability_button" from="PlayerController" to="." method="on_press_buff_ability_button"]
+[connection signal="press_crowd_control_ability_button" from="PlayerController" to="." method="on_press_crowd_control_ability_button"]
+[connection signal="press_damage_ability_button" from="PlayerController" to="." method="on_press_damage_ability_button"]
+[connection signal="press_movement_ability_button" from="PlayerController" to="." method="on_press_movement_ability_button"]
+[connection signal="press_use_item" from="PlayerController" to="." method="press_use_equipped_item"]
+[connection signal="release_alt_use_item" from="PlayerController" to="." method="release_alt_use_item"]
+[connection signal="release_buff_ability_button" from="PlayerController" to="." method="on_release_buff_ability_button"]
+[connection signal="release_crowd_control_ability_button" from="PlayerController" to="." method="on_release_crowd_control_ability_button"]
+[connection signal="release_damage_ability_button" from="PlayerController" to="." method="on_release_damage_ability_button"]
+[connection signal="release_interaction" from="PlayerController" to="." method="release_interaction"]
+[connection signal="release_movement_ability_button" from="PlayerController" to="." method="on_release_movement_ability_button"]
+[connection signal="release_use_item" from="PlayerController" to="." method="release_use_equipped_item"]
+[connection signal="release_utility_item" from="PlayerController" to="." method="release_utility"]
+[connection signal="reload_weapon" from="PlayerController" to="." method="reload_weapon"]
+[connection signal="reset_movement" from="PlayerController" to="." method="reset_directional_movement"]
+[connection signal="set_aim_point" from="PlayerController" to="." method="set_aim_point"]
+[connection signal="swap_ammo_subtype" from="PlayerController" to="." method="swap_ammo_subtype"]
+[connection signal="swap_to_weapon_slot_1" from="PlayerController" to="." method="swap_to_weapon_slot_1"]
+[connection signal="swap_to_weapon_slot_2" from="PlayerController" to="." method="swap_to_weapon_slot_2"]
+[connection signal="swap_utility_item" from="PlayerController" to="." method="swap_utility_item"]
+[connection signal="use_utility_alt" from="PlayerController" to="." method="use_utility_alt"]
+[connection signal="use_utility_item" from="PlayerController" to="." method="use_utility"]
+[connection signal="walk_button" from="PlayerController" to="." method="walk"]

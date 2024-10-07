@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvabsuk1sxeu2"]
+
+[ext_resource type="PackedScene" uid="uid://d0rkk07rrw0a1" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Magazine.tscn" id="1_2y87c"]
+[ext_resource type="PackedScene" uid="uid://bsg6c8rmgj6ue" path="res://Content/Demo/Code/Items/Weapons/TheIron/TheIronBullet.tscn" id="2_mx27b"]
+
+[node name="RevolverRoundBox" instance=ExtResource("1_2y87c")]
+ammo_type = "fortyfive"
+bullet_scene = ExtResource("2_mx27b")
+current_quantity = 10
+max_quantity = 10
+item_type = 2
+grid_square_width = 2
+grid_square_height = 1

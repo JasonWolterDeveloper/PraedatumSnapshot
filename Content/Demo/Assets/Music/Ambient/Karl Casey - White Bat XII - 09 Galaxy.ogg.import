@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cs3rsdlbh82l"
+path="res://.godot/imported/Karl Casey - White Bat XII - 09 Galaxy.ogg-c1faee8a6799fa69447b0bfb3afb969c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat XII - 09 Galaxy.ogg"
+dest_files=["res://.godot/imported/Karl Casey - White Bat XII - 09 Galaxy.ogg-c1faee8a6799fa69447b0bfb3afb969c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl5l7d4t111a4"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_t8ime"]
+[ext_resource type="PackedScene" uid="uid://bha7iopme27ye" path="res://Content/Demo/Assets/Terrain/Obstacles/TrashBin/TrashBin.glb" id="2_xjpw6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l0end"]
+size = Vector3(0.529419, 1.11536, 0.538818)
+
+[node name="TrashBinObstacle" type="StaticBody3D"]
+script = ExtResource("1_t8ime")
+
+[node name="TrashBin" parent="." instance=ExtResource("2_xjpw6")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00250244, 0.477479, 0.00231934)
+shape = SubResource("BoxShape3D_l0end")

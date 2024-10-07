@@ -1,0 +1,118 @@
+[gd_scene load_steps=20 format=3 uid="uid://dwv22x5uv2sr4"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Warriors/Warrior.gd" id="1_75iml"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGMechanicsMaster.gd" id="2_cspw2"]
+[ext_resource type="PackedScene" uid="uid://cc2jty7a6a6vg" path="res://BaseGameObjects/RPGMechanics/Stats/HealthStat.tscn" id="5_3krph"]
+[ext_resource type="PackedScene" uid="uid://cra3x5g141pur" path="res://BaseGameObjects/RPGMechanics/Stats/SegmentedStats/ManaStat.tscn" id="5_fu7eb"]
+[ext_resource type="PackedScene" uid="uid://bfrof6tgmg7ik" path="res://Content/Default/Code/RPGMechanics/Stats/MovementSpeedStat.tscn" id="8_br6lu"]
+[ext_resource type="PackedScene" uid="uid://yb0soc7owaff" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/DivineProtection/DivineProtectionAbility.tscn" id="8_lmcrs"]
+[ext_resource type="PackedScene" uid="uid://nqja5a752e84" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/TestActiveAbility1.tscn" id="9_ie1ar"]
+[ext_resource type="PackedScene" uid="uid://b0a4d3pnc1rws" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/TestActiveAbility2.tscn" id="10_6jf2f"]
+[ext_resource type="PackedScene" uid="uid://b0epq7p6tnkpe" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/MagicBurstFire/MagicBurstFireAbility.tscn" id="11_0huww"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGAbilities/RPGAbility.gd" id="11_iu61e"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="12_q32d3"]
+[ext_resource type="PackedScene" uid="uid://dmrmkqynymsr3" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/DashAbility.tscn" id="13_fdvyq"]
+[ext_resource type="PackedScene" uid="uid://vug316ks8onf" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/Dash/DashAbility2.tscn" id="14_4jdvy"]
+[ext_resource type="PackedScene" uid="uid://03k7jcd174px" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/FireballAbility/FireballAbility.tscn" id="14_21okl"]
+[ext_resource type="PackedScene" uid="uid://dpbasqo8mvbjl" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/BurningHands/BurningHandsAbility.tscn" id="14_lffph"]
+[ext_resource type="PackedScene" uid="uid://cexdm31pf4lcp" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/PistolReloadAbility.tscn" id="16_c56r6"]
+
+[sub_resource type="Resource" id="Resource_sbl1y"]
+script = ExtResource("12_q32d3")
+stat_id = "health"
+value = 1.0
+is_multiplicative = false
+is_number_of_segments = true
+is_value_per_segment = false
+
+[sub_resource type="Resource" id="Resource_x4wtf"]
+script = ExtResource("12_q32d3")
+stat_id = "mana"
+value = 1.0
+is_multiplicative = false
+is_number_of_segments = true
+is_value_per_segment = false
+
+[sub_resource type="Resource" id="Resource_onmhh"]
+script = ExtResource("12_q32d3")
+stat_id = "movement_speed"
+value = 0.5
+is_multiplicative = true
+is_number_of_segments = false
+is_value_per_segment = false
+
+[node name="Legionnaire" type="Node" node_paths=PackedStringArray("rpg_mechanics_master")]
+script = ExtResource("1_75iml")
+warrior_id = "legionnaire"
+display_name = "Legionnaire"
+rpg_mechanics_master = NodePath("RPGMechanicsMaster")
+
+[node name="RPGMechanicsMaster" type="Node" parent="."]
+script = ExtResource("2_cspw2")
+is_player_mechanics_master = true
+
+[node name="HealthStat" parent="RPGMechanicsMaster" instance=ExtResource("5_3krph")]
+base_number_of_segments = 3
+base_value_per_segment = 20.0
+base_value = 60.0
+value = 60.0
+
+[node name="ManaStat" parent="RPGMechanicsMaster" instance=ExtResource("5_fu7eb")]
+base_number_of_segments = 2
+base_value_per_segment = 20.0
+base_value = 40.0
+value = 40.0
+
+[node name="MovementSpeedStat" parent="RPGMechanicsMaster" instance=ExtResource("8_br6lu")]
+base_value = 5.0
+
+[node name="Abilities" type="Node" parent="."]
+
+[node name="Active" type="Node" parent="Abilities"]
+
+[node name="DivineProtectionAbility" parent="Abilities/Active" instance=ExtResource("8_lmcrs")]
+
+[node name="TestActiveAbility1" parent="Abilities/Active" instance=ExtResource("9_ie1ar")]
+
+[node name="TestActiveAbility2" parent="Abilities/Active" instance=ExtResource("10_6jf2f")]
+
+[node name="MagicBurstFireAbility" parent="Abilities/Active" instance=ExtResource("11_0huww")]
+mana_cost = 25.0
+
+[node name="BurningHandsAbility" parent="Abilities/Active" instance=ExtResource("14_lffph")]
+
+[node name="FireballAbility" parent="Abilities/Active" instance=ExtResource("14_21okl")]
+
+[node name="DashAbility" parent="Abilities/Active" instance=ExtResource("13_fdvyq")]
+
+[node name="DashAbility2" parent="Abilities/Active" instance=ExtResource("14_4jdvy")]
+
+[node name="Stat" type="Node" parent="Abilities"]
+
+[node name="RPGFortitudeAbility" type="Node" parent="Abilities/Stat"]
+script = ExtResource("11_iu61e")
+is_passive = true
+rpg_stat_modifiers = Array[ExtResource("12_q32d3")]([SubResource("Resource_sbl1y")])
+ability_id = "fortitude"
+display_name = "Fortitude"
+description = "Increases Health"
+
+[node name="RPGIntellectAbility" type="Node" parent="Abilities/Stat"]
+script = ExtResource("11_iu61e")
+is_passive = true
+rpg_stat_modifiers = Array[ExtResource("12_q32d3")]([SubResource("Resource_x4wtf")])
+ability_id = "intellect"
+display_name = "Intellect"
+description = "Increases Mana"
+
+[node name="RPGAlacrityAbility" type="Node" parent="Abilities/Stat"]
+script = ExtResource("11_iu61e")
+is_passive = true
+rpg_stat_modifiers = Array[ExtResource("12_q32d3")]([SubResource("Resource_onmhh")])
+ability_id = "alacrity"
+display_name = "Alacrity"
+description = "Increases Movement Speed"
+
+[node name="Passive" type="Node" parent="Abilities"]
+
+[node name="PistolReloadAbility" parent="Abilities/Passive" instance=ExtResource("16_c56r6")]

@@ -1,0 +1,176 @@
+[gd_scene load_steps=5 format=3 uid="uid://rxqprquwvhru"]
+
+[ext_resource type="Script" path="res://UIObjects/AvalonMenu/WarriorMenus/WarriorAbilityMenu/WarriorAbilityMenu.gd" id="1_mrggy"]
+[ext_resource type="PackedScene" uid="uid://cg5ge3idciyvr" path="res://UIObjects/AvalonMenu/WarriorMenus/WarriorAbilityMenu/WarriorAbilityButton.tscn" id="2_o3cgt"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="3_fhme4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84mwg"]
+bg_color = Color(0.0768361, 0.0768358, 0.0768356, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[node name="WarriorAbilityMenu" type="Control"]
+custom_minimum_size = Vector2(1150, 750)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 750.0
+script = ExtResource("1_mrggy")
+ability_button_scene = ExtResource("2_o3cgt")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_84mwg")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+custom_minimum_size = Vector2(1100, 700)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fhme4")
+theme_override_font_sizes/font_size = 36
+text = "General Abilities
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AbilityButtonContainer" type="GridContainer" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="WarriorAbilityButton2" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/AbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton3" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/AbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/AbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton4" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/AbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="DamageAbilityLabel" type="Label" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fhme4")
+theme_override_font_sizes/font_size = 36
+text = "Damage Abilities
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DamageAbilityButtonContainer" type="GridContainer" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="WarriorAbilityButton2" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/DamageAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton3" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/DamageAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/DamageAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton4" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/DamageAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="CrowdControlAbilityLabel" type="Label" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fhme4")
+theme_override_font_sizes/font_size = 36
+text = "Crowd Control Abilities
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CrowdControlAbilityButtonContainer" type="GridContainer" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="WarriorAbilityButton2" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/CrowdControlAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton3" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/CrowdControlAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/CrowdControlAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton4" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/CrowdControlAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="BuffAbilityLabel" type="Label" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fhme4")
+theme_override_font_sizes/font_size = 36
+text = "Buff Abilities"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BuffAbilityButtonContainer" type="GridContainer" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="WarriorAbilityButton2" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/BuffAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton3" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/BuffAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/BuffAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton4" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/BuffAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="MovementAbilityLabel" type="Label" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fhme4")
+theme_override_font_sizes/font_size = 36
+text = "Movement Abilities
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MovementAbilityButtonContainer" type="GridContainer" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="WarriorAbilityButton2" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/MovementAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton3" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/MovementAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/MovementAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2
+
+[node name="WarriorAbilityButton4" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/MovementAbilityButtonContainer" instance=ExtResource("2_o3cgt")]
+layout_mode = 2

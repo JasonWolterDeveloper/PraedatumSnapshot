@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ble2uv3xhaem7"]
+
+[ext_resource type="PackedScene" uid="uid://ciya3ljm358x2" path="res://BaseGameObjects/Terrain/Rooms/Spawners/SpawnPoint.tscn" id="1_1bhw1"]
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/Spawners/EnemySpawnPoint.gd" id="2_2plps"]
+
+[node name="EnemySpawnPoint" instance=ExtResource("1_1bhw1")]
+script = ExtResource("2_2plps")
+sentry = false
+
+[node name="Facing" type="Marker3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)

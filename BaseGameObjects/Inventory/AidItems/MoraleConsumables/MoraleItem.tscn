@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsvh0h2yxvog6"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/AidItems/MoraleConsumables/MoraleItem.gd" id="1_o0i1d"]
+
+[node name="MoraleItem" type="Node3D"]
+script = ExtResource("1_o0i1d")
+usable_from_inventory = true

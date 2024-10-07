@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://co06vjb4oagua"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/LostAndFound/LostAndFoundStorage.gd" id="1_7cwbh"]
+
+[node name="LostAndFoundStorage" type="Node3D"]
+script = ExtResource("1_7cwbh")
+grid_square_width = 10
+grid_square_height = 100

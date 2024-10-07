@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://2pshw5b85lpp"]
+
+[ext_resource type="Script" path="res://UIObjects/BaseFacilityMenu/Crafting/UIElements/CraftingRecipeUIElement.gd" id="1_barpk"]
+[ext_resource type="PackedScene" uid="uid://d03ia485kq18l" path="res://UIObjects/BaseFacilityMenu/Crafting/UIElements/CraftingRecipeItemCostUIElement.tscn" id="1_pokww"]
+[ext_resource type="PackedScene" uid="uid://bcwroq47ihgms" path="res://UIObjects/BaseFacilityMenu/Crafting/UIElements/CraftingRecipeCreatedItemUIElement.tscn" id="2_4k4gu"]
+[ext_resource type="PackedScene" uid="uid://csdyueu8l7yd0" path="res://UIObjects/BaseFacilityMenu/Crafting/UIElements/CraftingRecipePowerCostUIElement.tscn" id="2_lon3o"]
+[ext_resource type="FontFile" uid="uid://c65lbbnt3io18" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="3_0gbru"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wreid"]
+
+[node name="CraftingRecipeUIElement" type="BoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -427.5
+offset_right = 427.5
+offset_bottom = 100.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+script = ExtResource("1_barpk")
+crafting_item_cost_ui_scene = ExtResource("1_pokww")
+crafting_item_result_ui_scene = ExtResource("2_4k4gu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="RecipeCostContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CraftingItemCostElement" parent="HBoxContainer/RecipeCostContainer" instance=ExtResource("1_pokww")]
+layout_mode = 2
+
+[node name="CraftingItemCostElement2" parent="HBoxContainer/RecipeCostContainer" instance=ExtResource("1_pokww")]
+layout_mode = 2
+
+[node name="RecipePowerCostElement" parent="HBoxContainer" instance=ExtResource("2_lon3o")]
+layout_mode = 2
+
+[node name="Separator" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(10, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wreid")
+
+[node name="RecipeResultContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CraftingRecipeCraftedItemUIElement" parent="HBoxContainer/RecipeResultContainer" instance=ExtResource("2_4k4gu")]
+layout_mode = 2
+
+[node name="CraftingRecipeCraftedItemUIElement2" parent="HBoxContainer/RecipeResultContainer" instance=ExtResource("2_4k4gu")]
+layout_mode = 2
+
+[node name="CraftButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_0gbru")
+theme_override_font_sizes/font_size = 24
+text = "Craft"
+
+[connection signal="pressed" from="HBoxContainer/CraftButton" to="." method="_on_craft_button_pressed"]

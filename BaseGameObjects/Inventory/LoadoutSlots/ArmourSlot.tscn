@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmo3psl8sib77"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/LoadoutSlot.gd" id="1_8imeb"]
+
+[node name="ArmourSlot" type="Node3D"]
+script = ExtResource("1_8imeb")
+item_type = 4

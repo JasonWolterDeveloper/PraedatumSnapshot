@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://ci1my5lr26p85"]
+
+[ext_resource type="PackedScene" uid="uid://ckbopambrhcwq" path="res://Content/Demo/Assets/Interactables/Shops/VendingMachine.glb" id="1_0qbtq"]
+[ext_resource type="Script" path="res://Content/Demo/Assets/Interactables/Shops/ShopModel.gd" id="1_hoocq"]
+[ext_resource type="FontFile" uid="uid://dj6pnll8rn3sy" path="res://UIObjects/Assets/Fonts/unispace.ttf" id="2_gfp0q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sagl2"]
+transparency = 1
+albedo_color = Color(0.145098, 1, 1, 0.235294)
+emission_enabled = true
+emission = Color(0, 0.521569, 0.521569, 1)
+emission_energy_multiplier = 2.5
+
+[sub_resource type="TextMesh" id="TextMesh_mksh4"]
+material = SubResource("StandardMaterial3D_sagl2")
+text = "Shop"
+font = ExtResource("2_gfp0q")
+font_size = 56
+
+[sub_resource type="Animation" id="Animation_mhjcp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShopSign:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.005, 0.93, 0.004)]
+}
+
+[sub_resource type="Animation" id="Animation_hgdkg"]
+resource_name = "ShopBob"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShopSign:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.005, 3.15, 0.004), Vector3(-0.005, 3.5, 0.004)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2dlc1"]
+_data = {
+"RESET": SubResource("Animation_mhjcp"),
+"ShopBob": SubResource("Animation_hgdkg")
+}
+
+[node name="ShopModel" type="Node3D"]
+script = ExtResource("1_hoocq")
+
+[node name="VendingMachine" parent="." instance=ExtResource("1_0qbtq")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)
+
+[node name="ShopSign" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 0.93, 0.004)
+mesh = SubResource("TextMesh_mksh4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2dlc1")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.119284, 1.73751, 1.16983)
+light_color = Color(0.141176, 1, 1, 1)
+light_energy = 2.5
+omni_range = 3.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0129468, 2.99387, 0.0482782)
+light_color = Color(0.141176, 1, 1, 1)
+light_energy = 0.8
+omni_range = 2.0

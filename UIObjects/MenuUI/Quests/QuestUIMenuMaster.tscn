@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca2c5bxp7w325"]
+
+[ext_resource type="Script" path="res://UIObjects/MenuUI/Quests/QuestUIMenuMaster.gd" id="1_sy4hf"]
+[ext_resource type="PackedScene" uid="uid://iwafti1d83h1" path="res://ScratchPad/QuestMenu/quest_menu.tscn" id="2_1oml2"]
+
+[node name="QuestUIMenuMaster" type="Node"]
+script = ExtResource("1_sy4hf")
+
+[node name="QuestMenu" parent="." instance=ExtResource("2_1oml2")]
+visible = false
+build_from_active_quests = true
+allow_quest_completion = false
+allow_quest_acceptance = false
+
+[connection signal="visibility_changed" from="QuestMenu" to="." method="_on_quest_menu_visibility_changed"]

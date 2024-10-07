@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgthi47mk5pjd"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Enemies/EnemyGibs/EnemyGibs.gd" id="1_q55qt"]
+[ext_resource type="PackedScene" uid="uid://coeean42e5elt" path="res://BaseGameObjects/Aesthetics/ExplosionVFX/ExplosionVFX.tscn" id="2_gdb38"]
+[ext_resource type="PackedScene" uid="uid://drjbujd61qyt7" path="res://BaseGameObjects/Combat/Enemies/EnemyGibs/EnemyGiblet.tscn" id="3_n3441"]
+[ext_resource type="PackedScene" uid="uid://dvaupe0nr6dog" path="res://Content/Demo/Assets/Characters/Enemies/GunDrone/Gibs/GunDroneBodyGiblet.glb" id="4_ebc7l"]
+[ext_resource type="PackedScene" uid="uid://cf71lwgh8qwi7" path="res://Content/Demo/Assets/Characters/Enemies/GunDrone/Gibs/GunDroneWingGiblet.glb" id="5_28215"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_70s4a"]
+radius = 0.25866
+height = 1.13716
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d0qvp"]
+height = 0.118136
+radius = 0.272112
+
+[node name="GunDroneGibs" type="Node3D"]
+script = ExtResource("1_q55qt")
+physics_force_random_high_value = 2.0
+
+[node name="ExplosionVFX" parent="." instance=ExtResource("2_gdb38")]
+explosion_length_scale = 0.5
+
+[node name="HeadGiblet" parent="." instance=ExtResource("3_n3441")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35476, 0)
+collision_layer = 0
+mass = 0.9
+
+[node name="GunDroneBodyGiblet" parent="HeadGiblet" instance=ExtResource("4_ebc7l")]
+transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeadGiblet"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_70s4a")
+
+[node name="WingGiblet" parent="." instance=ExtResource("3_n3441")]
+transform = Transform3D(0.938258, -0.345937, 0, 0.345937, 0.938258, 0, 0, 0, 1, 0.425319, 1.4846, 0)
+collision_layer = 0
+
+[node name="GunDroneWingGiblet" parent="WingGiblet" instance=ExtResource("5_28215")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WingGiblet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00585938, -0.00171477, -0.010582)
+shape = SubResource("CylinderShape3D_d0qvp")
+
+[node name="WingGiblet2" parent="." instance=ExtResource("3_n3441")]
+transform = Transform3D(0.963556, 0.267507, -3.18605e-09, -0.267507, 0.963556, -2.33862e-08, -3.18605e-09, 2.33862e-08, 1, -0.415875, 1.49145, 0)
+collision_layer = 0
+
+[node name="GunDroneWingGiblet" parent="WingGiblet2" instance=ExtResource("5_28215")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WingGiblet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00585938, -0.00171477, -0.010582)
+shape = SubResource("CylinderShape3D_d0qvp")
+
+[node name="DisappearTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]

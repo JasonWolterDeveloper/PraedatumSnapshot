@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6tncfnj1wubq"]
+
+[ext_resource type="Theme" uid="uid://q8fchd6stpns" path="res://UIObjects/Themes/CyberTheme.tres" id="1_r8u5o"]
+[ext_resource type="Script" path="res://UIObjects/BaseFacilityMenu/Crafting/UIElements/CraftingCategoryControl/CraftingCategoryControl.gd" id="1_vrthg"]
+[ext_resource type="PackedScene" uid="uid://ctar5p076lbd4" path="res://UIObjects/BaseFacilityMenu/Crafting/UIElements/CraftingCategoryControl/CraftingCategoryButton.tscn" id="2_yjew8"]
+[ext_resource type="PackedScene" uid="uid://2pshw5b85lpp" path="res://UIObjects/BaseFacilityMenu/Crafting/UIElements/CraftingRecipeUIElement.tscn" id="3_i2lyr"]
+
+[node name="CraftingCategoryControl" type="BoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_vrthg")
+crafting_category_button_scene = ExtResource("2_yjew8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 1
+
+[node name="BackToTopButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(800, 80)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_r8u5o")
+text = "Back To Top"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(800, 80)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_r8u5o")
+text = "Back"
+
+[node name="CraftingCategoryButtonContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CraftingCategoryButton" parent="VBoxContainer/CraftingCategoryButtonContainer" instance=ExtResource("2_yjew8")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="CraftingCategoryButton2" parent="VBoxContainer/CraftingCategoryButtonContainer" instance=ExtResource("2_yjew8")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="RecipeContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CraftingRecipeUIElement" parent="VBoxContainer/RecipeContainer" instance=ExtResource("3_i2lyr")]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/BackToTopButton" to="." method="_on_back_to_top_button_press"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_press"]

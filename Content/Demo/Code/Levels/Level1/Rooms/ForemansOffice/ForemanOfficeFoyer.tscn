@@ -1,0 +1,1090 @@
+[gd_scene load_steps=62 format=4 uid="uid://dd1gcxramyyso"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/Room.gd" id="1_ligrs"]
+[ext_resource type="PackedScene" uid="uid://cb78sar46vq83" path="res://BaseGameObjects/Terrain/Floor.tscn" id="2_bnwp3"]
+[ext_resource type="Texture2D" uid="uid://cifsgyri2450u" path="res://Content/Demo/Assets/Terrain/Floors/Textures/BaseTileMap.png" id="2_urgu7"]
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="3_0u3tv"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="4_qhp7g"]
+[ext_resource type="PackedScene" uid="uid://btr7u4ovc2xw" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallOuterCorner.tscn" id="5_5sxfx"]
+[ext_resource type="PackedScene" uid="uid://cj0rbbpox5yvr" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabDivot.tscn" id="5_8aosl"]
+[ext_resource type="PackedScene" uid="uid://bkhagmsliovx1" path="res://Content/Demo/Code/Levels/Rooms/RoomConnectors/NLIBasicRoomConnector.tscn" id="6_3vggc"]
+[ext_resource type="Material" uid="uid://n1idn7cokyd" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/Resources/NLIDoorHighlightBase.tres" id="7_bpvdo"]
+[ext_resource type="PackedScene" uid="uid://d2b2flwvvf4mu" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabExtinguisher.tscn" id="7_mh7x6"]
+[ext_resource type="PackedScene" uid="uid://j05xyrb1vwni" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabVent.tscn" id="8_cdasy"]
+[ext_resource type="PackedScene" uid="uid://rrcavhg3keji" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabACUnit.tscn" id="8_g6hfs"]
+[ext_resource type="PackedScene" uid="uid://b5ny6grjeidov" path="res://UIObjects/InteractionUI/InteractionIcon.tscn" id="8_r85ma"]
+[ext_resource type="PackedScene" uid="uid://bl5l7d4t111a4" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/TrashBin/TrashBinObstacle.tscn" id="9_1r7wy"]
+[ext_resource type="Material" uid="uid://dhxgol36hfn12" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/Resources/BareMetalDoor.tres" id="9_i0cit"]
+[ext_resource type="PackedScene" uid="uid://yq43dak75w1" path="res://Content/Demo/Code/InteractableObjects/Shops/BasicShopInteractableObject.tscn" id="10_i1gnr"]
+[ext_resource type="Material" uid="uid://fp3hdtajq0n6" path="res://Content/Default/Code/Levels/VoidTexture.tres" id="10_l7bxg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4dm6f"]
+size = Vector3(1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0obx"]
+albedo_color = Color(0.564962, 0.564962, 0.564962, 1)
+albedo_texture = ExtResource("2_urgu7")
+metallic = 0.3
+uv1_scale = Vector3(0.04, 0.2, 0.04)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ag1s"]
+resource_name = "DoorMetal"
+cull_mode = 2
+albedo_color = Color(0.431813, 0.431813, 0.431813, 1)
+metallic = 0.3
+roughness = 0.4
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4l0vq"]
+_surfaces = [{
+"aabb": AABB(-1, -1.00216, -1, 2, 2.00431, 2),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("CAAGAAoACAAEAAYAAAADAAEAAAACAAMAAwAHAAEAAwALAAcABQABAAcABQAAAAEAAgALAAMAAgAJAAsABAAHAAYABAAFAAcACgAJAAgACgALAAkABQAIAAkABQAEAAgACwAGAAcACwAKAAYAAAAJAAIAAAAFAAkA"),
+"name": "DoorMetal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AABGAAAAAAAAALj/MioAAP//RgAAAAAA//+4/zIqAACZBwAA//8AAAAARgBl+AAAmQf/////AAAAALj/ZfgAAGX4AAD//wAA//9GAGX4AABl+P////8AAP//uP9l+AAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_oofgp"]
+resource_name = "NLIDoorway_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -1.00216, -1, 2, 2.00431, 2),
+"attribute_data": PackedByteArray("/1//v/8f/3//X/+//5//v//f/3//n/+//1//f/9f/3//X/9//5//f/+f/3//n/9/5mHmAeZh5gHmYeYB/18AAP8f5kH/XwAA/18Y/hie5gEYnuYBGJ7mAf+fAAD/30ZC/58AAP+fuP3mYRk+5mEZPuZhGT7/X/8//1/mQf9f5kH/X+ZBGJ4ZPhieGT4Ynhk+/5//P/+fRkL/n0ZC/59GQg=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("GgATACEAGgAMABMAAAAJAAMAAAAGAAkACgAXAAQACgAlABcAEgAFABkAEgACAAUACAAnAAsACAAgACcADgAYABUADgARABgAIwAfABwAIwAmAB8ADwAbAB0ADwANABsAJAAUABYAJAAiABQAAQAeAAcAAQAQAB4A"),
+"material": SubResource("StandardMaterial3D_0ag1s"),
+"name": "DoorMetal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AABGAAAAS/sAAEYAAAD/vwAARgAAAJnRAAC4/zIqS/sAALj/Mir//wAAuP8yKm7T//9GAAAAS/v//0YAAAD/v///RgAAABbX//+4/zIqS/v//7j/Mir/////uP8yKkXZmQcAAP///7+ZBwAA//8w1pkHAAD///zFAABGAGX4MNYAAEYAZfj/vwAARgBl+PzFAABGAGX4IdOZB///////v5kH/////zDWmQf//////MUAALj/Zfgw1gAAuP9l+P//AAC4/2X4/MUAALj/Zfg31WX4AAD///+/ZfgAAP//MNZl+AAA///8xf//RgBl+DDW//9GAGX4/7///0YAZfj9xf//RgBl+HfVZfj//////79l+P////8w1mX4/////x3G//+4/2X4MNb//7j/Zfj/////uP9l+B7G//+4/2X4Ytd7vXu9AAD/f4rQudd7vXu9/3//v/jSgtZ7vXu9AAD/f5cosyt7vXu9/3//vyEm7iz/////LSvR1P/i/+ItK9HUAAD/f//i/+KV0rTW/////9HULSv/4v/i0dQtK/9//7//4v/iMNVm1f////8tK9HU/xz/HC0r0dQAAP9//hz/HH8qvyr/////0dQtK+ocBR3R1C0r/3//v+kcBR0/KN8r")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4l0vq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0t2x"]
+resource_name = "BareMetalDoorway"
+cull_mode = 2
+albedo_color = Color(0.210223, 0.210223, 0.210223, 1)
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1m1v5"]
+resource_name = "LockStatusMaterial"
+cull_mode = 2
+albedo_color = Color(0, 0.545098, 0.145098, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(0, 0.746501, 0.210152, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ihl5k"]
+_surfaces = [{
+"aabb": AABB(-1.5, -1, -1, 2.5, 2, 2),
+"format": 34896613377,
+"index_count": 162,
+"index_data": PackedByteArray("CAAXAAsACAAUABcACQANAAwADQAPAA4ADwALAAoACwAJAAgACQAPAA0ADwAJAAsADwAWABMADwAKABYAEQAOABIAEQANAA4ADAARABAADAANABEAEwAOAA8AEwASAA4AFQAIAAkAFQAUAAgACgAXABYACgALABcAEAAJAAwAEAAVAAkAGAARABkAGAAQABEAGgATABsAGgASABMAHAAVAB0AHAAUABUAHgAXAB8AHgAWABcAHQAQABgAHQAVABAAHwAUABwAHwAXABQAGwAWAB4AGwATABYAGQASABoAGQARABIABQAZAAQABQAYABkABwAbAAYABwAaABsAAQAdAAAAAQAcAB0AAwAfAAIAAwAeAB8AAAAYAAUAAAAdABgAAgAcAAEAAgAfABwABgAeAAMABgAbAB4ABAAaAAcABAAZABoA"),
+"lods": [1.09675, PackedByteArray("CAAXAAsACAAUABcACgALABcACgAXABYADQAPAA4ADAAPAA0ADwAMAAsACwAMAAgADwALAAoADwAWABMADwAKABYAEQAOABIAEQANAA4AGAARABIAGAASABMAEwASAA4AEwAOAA8AGAATABYAGAAWABcAGAAXABQAGAAUABUAGAAVABEADAANABEAEQAVAAwAFQAIAAwAFQAUAAgABQAYAAQAAAAYAAUABAAYAAcABwAYAAYABgAYAAMAAwAYAAIAAgAYAAEAAQAYAAAA")],
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("zEyAKdzAAADMTCI/ftYAAMxM3MB+1gAAzEx+1tzAAADMTCI/gCkAAMxMgCkiPwAAzEx+1iI/AADMTNzAgCkAAP//8S3//wAA//8AAA3SAAD/////DdIAAP//DdL//wAA//8AAPEtAAD///EtAAAAAP//DdIAAAAA//////EtAAAyMwAA8S0AADIz8S0AAAAAMjMN0gAAAAAyM///8S0AADIz8S3//wAAMjMAAA3SAAAyM///DdIAADIzDdL//wAAAADpIf07AAAAAP076SEAAAAAAcTpIQAAAAAW3v07AAAAAP07Ft4AAAAA6SEBxAAAAAAW3gHEAAAAAAHEFt4AAA==")
+}, {
+"aabb": AABB(-0.75, -0.675753, -0.675753, 1.00136e-05, 1.35151, 1.35151),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("BQABAAAAAQADAAIAAwAHAAYABwAFAAQABQADAAEAAwAFAAcA"),
+"name": "LockStatusMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAPzfAAAAAAIg//8AAAAA/N///wAAAAD///zfAAAAAAIgAAAAAAAAAAACIAAAAAD//wIgAAAAAPzfAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_86b74"]
+resource_name = "NLIDoorway_Cube_007"
+_surfaces = [{
+"aabb": AABB(-1.5, -1, -1, 2.5, 2, 2),
+"attribute_data": PackedByteArray("X2o28F9qNvDIb571yG+e9TaQnvU2kJ71n5U28J+VNvDIb1/KyG9fyl9qx89fasfPn5XHz5+Vx882kF/KNpBfyntr/z//X/8/e2v/P/9ffEv/X3xL/198S/+f/z//n3xL/598S4OU/z+DlP8/g5T/P/9fg3T/X4N0/1+DdHtr/3//X/9/e2v/f4OU/3+DlP9/g5T/f/+f/3//n4N0/5+DdP8fg3T/H4N0/197y/9fe8t7a/+//x//f3tr/797a/+/g5T/v4OU/7+DlP+/g5T/v/+f/7//34N0/597y/+fe8t7awAA/x//P3tr//97a////x98S/8ffEv/X4L0/1+C9P+fAAD/33xL/5+C9P+fgvSDlAAAg5QAAIOU//+DlP//eWj+znlo/s55aP7OeWj+zv5uecj+bnnI/m55yP5uecgAkXnIAJF5yACRecgAkXnIhZf+zoWX/s6Fl/7OhZf+zv5uhPf+boT3/m6E9/5uhPd5aP/weWj/8Hlo//B5aP/whZf/8IWX//CFl//whZf/8ACRhPcAkYT3AJGE9wCRhPdfajbwyG+e9chvnvU2kJ71n5U28MhvX8pfasfPn5XHzzaQX8r/X/8/g5T/P/9fg3SDlP9/e2v/v4OU/7//n3vL/x98S/9fgvT/n4L0g5QAAIOU//95aP7OeWj+znlo/s55aP7OeWj+znlo/s55aP7OeWj+zg=="),
+"format": 34896613399,
+"index_count": 162,
+"index_data": PackedByteArray("EABEABkAEAA4AEQAFQAhAB4AIQAnACQAJwAbABgAGwAVABIAFQAnACEAJwAVABsAJgBBADUAJgAXAEEALAAiADAALAAfACIAHAAtACgAHAAgAC0ANAAjACUANAAxACMAPAARABMAPAA5ABEAFgBFAEAAFgAaAEUAKQAUAB0AKQA9ABQASgAuAE4ASgAqAC4AUgA2AFYAUgAyADYAWgA+AF4AWgA6AD4AYgBGAGYAYgBCAEYAXwArAEsAXwA/ACsAZwA7AFsAZwBHADsAVwBDAGMAVwA3AEMATwAzAFMATwAvADMACwBNAAkACwBJAE0ADwBVAA0ADwBRAFUAAwBdAAEAAwBZAF0ABwBlAAUABwBhAGUAAABIAAoAAABcAEgABABYAAIABABkAFgADABgAAYADABUAGAACABQAA4ACABMAFAA"),
+"lods": [1.09675, PackedByteArray("EAB7AHIAEAA4AHsAFgByAHsAFgB7AEAAIQAnACQAHgAnACEAJwAeABsAGwAeABIAJwAbABgAJgBBADUAJgAXAEEALAB0AHYALAAfAHQAgwAsAHYAgwB2AHcANAB2AHQANAB0ACUASgB3AEIASgB6AEYASgB8ADoAhAA6AHkAhAB5AHUAcwAgAC0ALQB4AHMAeABxAHMAeAA5AHEAbgB9AG0AAAB9AG4AbQBIAA4AcAB+AG8AbwCCAGwAbACAAGsAawCBAGoAaQB/AGgA")],
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 133,
+"vertex_data": PackedByteArray("zEyAKdzAD8DMTIAp3MDs38xMIj9+1rn9zEwiP37W7N/MTNzAfta5/cxM3MB+1kH+zEx+1tzAuf3MTH7W3MBB/sxMIj+AKQ/AzEwiP4ApbaDMTIApIj8PwMxMgCkiP22gzEx+1iI/uf3MTH7WIj/O+8xM3MCAKQ/AzEzcwIApzvv///Et////v///8S3///+f///xLf//VNX//wAADdL/n///AAAN0v+///8AAA3SVNX/////DdL8xf////8N0v///////w3SVNX//w3S////v///DdL///zF//8N0v//VNX//wAA8S3/3///AADxLf+///8AAPEtVNX///EtAAD/////8S0AAP/f///xLQAAVNX//w3SAAD/////DdIAAKrp//8N0gAAVNX/////8S2q6f/////xLf////////EtVNUyMwAA8S3/3zIzAADxLf+/MjMAAPEtzvQyMwAA8S0H8jIz8S0AAP//MjPxLQAA/98yM/EtAADO9DIz8S0AAAfyMjMN0gAA//8yMw3SAACq6TIzDdIAAH3dMjMN0gAAB/IyM///8S2q6TIz///xLf//MjP///Etfd0yM///8S1ewjIz8S3///+/MjPxLf///58yM/Et//916DIz8S3//17CMjMAAA3S/58yMwAADdL/vzIzAAAN0nXoMjMAAA3SB/IyM///DdL8xTIz//8N0v//MjP//w3SZ6wyM///DdJewjIzDdL///+/MjMN0v///MUyMw3S//9nrDIzDdL//17CAADpIf07D8AAAOkh/TttoAAA6SH9O870AADpIf07B/IAAP076SEPwAAA/TvpIW2gAAD9O+khzvQAAP076SEH8gAAAcTpIQ/AAAABxOkhzvsAAAHE6SF93QAAAcTpIQfyAAAW3v07uf0AABbe/TvO+wAAFt79O33dAAAW3v07XsIAAP07Ft65/QAA/TsW3uzfAAD9OxbedegAAP07Ft5ewgAA6SEBxA/AAADpIQHE7N8AAOkhAcR16AAA6SEBxAfyAAAW3gHEuf0AABbeAcRB/gAAFt4BxGesAAAW3gHEXsIAAAHEFt65/QAAAcQW3kH+AAABxBbeZ6wAAAHEFt5ewsxMgCncwJThzEwiP37WovHMTCI/ftaK2cxM3MB+1qXXzEx+1tzA/dnMTCI/gClvwsxMgCkiPyewzEx+1iI////MTNzAgCkm1P//8S3//1Oq//8N0v//jMH//wAA8S03zP//DdIAALj0MjPxLQAA+NoyMw3SAAAY9jIz///xLUTZMjMAAA3SXrQyMwAADdJI7TIz//8N0ra8MjMN0v//jMEyMw3S///8ngAA6SH9OyewAADpIf07x78AAOkh/Tv65QAA6SH9OyDUAADpIf07YekAAOkh/TsPwAAA6SH9O+DzAADpIf07/u1Q+1yJYvlciTzBPMFi+VyJPME8wQepJfs8wYT9B6kl+1D7UPsA+miUUPtciQD6aJQ8wYT9/trv/VD7UPv+2u/9/////wAA/3+qKqoqAAD/fwAA/3+qKqoq/+L/HP9//7+qKqoq///////i/xyqKqoqAAD/fwAA/3+qKqoq/7//vwAA/3+qKqoq/7//vwS1BLWqKqoqBLUEtf9//7+qKqoqAAD/fwAA/39ruXzoEsfY8f+//78AAP9/a7l86BLHEsf/v/+/BLUEtXHjRqoSxxLHBLUEtf9//79x40aqvuqAqv////8AAP9/gdqB877qvuoAAP9/AAD/f4HagfMSx9jx/+L/HP9//7/06tPAvuqAqv//////4v8c9OrTwL7qvupQ+1yJAPpolGu5fOgSx9jxUPtQ+wD6aJRruXzoEscSx1D7UPv+2u/9ceNGqhLHEsc8wYT9/trv/XHjRqq+6oCqPME8wWL5XImB2oHzvuq+6lD7XIli+VyJgdqB8xLH2PE8wYT9B6kl+/Tq08C+6oCqPME8wQepJfv06tPAvuq+6nn9bYRK/bmCFC0ULdYrYSxIqCsn4vu/5KX6Loy+uvcyECUTMgAA/3///3DrAAD/f////3+WyEn4k9U9sCjjSqwAAP9/AM5H8z/rE7P//3DrWd9O8aX6LoylKjtRpvzyhPs4LUUYc9wMFC7GTWy1Fc+5y4Py")
+}, {
+"aabb": AABB(-0.75, -0.675753, -0.675753, 1.00136e-05, 1.35151, 1.35151),
+"attribute_data": PackedByteArray("X2o28MhvnvU2kJ71n5U28MhvX8pfasfPn5XHzzaQX8o="),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("BQABAAAAAQADAAIAAwAHAAYABwAFAAQABQADAAEAAwAFAAcA"),
+"material": SubResource("StandardMaterial3D_1m1v5"),
+"name": "LockStatusMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAPzfVNUAAAIg//9U1QAA/N///1TVAAD///zfVNUAAAIgAABU1QAAAAACIFTVAAD//wIgVNUAAPzfAABU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ihl5k")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cilsa"]
+_surfaces = [{
+"aabb": AABB(-1.5, -1, -1, 2.5, 2, 2),
+"format": 34896613377,
+"index_count": 162,
+"index_data": PackedByteArray("CAAXAAsACAAUABcACQANAAwADQAPAA4ADwALAAoACwAJAAgACQAPAA0ADwAJAAsADwAWABMADwAKABYAEQAOABIAEQANAA4ADAARABAADAANABEAEwAOAA8AEwASAA4AFQAIAAkAFQAUAAgACgAXABYACgALABcAEAAJAAwAEAAVAAkAGAARABkAGAAQABEAGgATABsAGgASABMAHAAVAB0AHAAUABUAHgAXAB8AHgAWABcAHQAQABgAHQAVABAAHwAUABwAHwAXABQAGwAWAB4AGwATABYAGQASABoAGQARABIABQAZAAQABQAYABkABwAbAAYABwAaABsAAQAdAAAAAQAcAB0AAwAfAAIAAwAeAB8AAAAYAAUAAAAdABgAAgAcAAEAAgAfABwABgAeAAMABgAbAB4ABAAaAAcABAAZABoA"),
+"lods": [1.09675, PackedByteArray("CAAXAAsACAAUABcACgALABcACgAXABYADQAPAA4ADAAPAA0ADwAMAAsACwAMAAgADwALAAoADwAWABMADwAKABYAEQAOABIAEQANAA4AGAARABIAGAASABMAEwASAA4AEwAOAA8AGAATABYAGAAWABcAGAAXABQAGAAUABUAGAAVABEADAANABEAEQAVAAwAFQAIAAwAFQAUAAgABQAYAAQAAAAYAAUABAAYAAcABwAYAAYABgAYAAMAAwAYAAIAAgAYAAEAAQAYAAAA")],
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("zEyAKdzAAADMTCI/ftYAAMxM3MB+1gAAzEx+1tzAAADMTCI/gCkAAMxMgCkiPwAAzEx+1iI/AADMTNzAgCkAAP//8S3//wAA//8AAA3SAAD/////DdIAAP//DdL//wAA//8AAPEtAAD///EtAAAAAP//DdIAAAAA//////EtAAAyMwAA8S0AADIz8S0AAAAAMjMN0gAAAAAyM///8S0AADIz8S3//wAAMjMAAA3SAAAyM///DdIAADIzDdL//wAAAADpIf07AAAAAP076SEAAAAAAcTpIQAAAAAW3v07AAAAAP07Ft4AAAAA6SEBxAAAAAAW3gHEAAAAAAHEFt4AAA==")
+}, {
+"aabb": AABB(-0.75, -0.675753, -0.675753, 1.00136e-05, 1.35151, 1.35151),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("BQABAAAAAQADAAIAAwAHAAYABwAFAAQABQADAAEAAwAFAAcA"),
+"name": "LockStatusMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAPzfAAAAAAIg//8AAAAA/N///wAAAAD///zfAAAAAAIgAAAAAAAAAAACIAAAAAD//wIgAAAAAPzfAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ne8jo"]
+resource_name = "NLIDoorway_Cube_008"
+_surfaces = [{
+"aabb": AABB(-1.5, -1, -1, 2.5, 2, 2),
+"attribute_data": PackedByteArray("X2o28F9qNvDIb571yG+e9TaQnvU2kJ71n5U28J+VNvDIb1/KyG9fyl9qx89fasfPn5XHz5+Vx882kF/KNpBfyntr/z//X/8/e2v/P/9ffEv/X3xL/198S/+f/z//n3xL/598S4OU/z+DlP8/g5T/P/9fg3T/X4N0/1+DdHtr/3//X/9/e2v/f4OU/3+DlP9/g5T/f/+f/3//n4N0/5+DdP8fg3T/H4N0/197y/9fe8t7a/+//x//f3tr/797a/+/g5T/v4OU/7+DlP+/g5T/v/+f/7//34N0/597y/+fe8t7awAA/x//P3tr//97a////x98S/8ffEv/X4L0/1+C9P+fAAD/33xL/5+C9P+fgvSDlAAAg5QAAIOU//+DlP//eWj+znlo/s55aP7OeWj+zv5uecj+bnnI/m55yP5uecgAkXnIAJF5yACRecgAkXnIhZf+zoWX/s6Fl/7OhZf+zv5uhPf+boT3/m6E9/5uhPd5aP/weWj/8Hlo//B5aP/whZf/8IWX//CFl//whZf/8ACRhPcAkYT3AJGE9wCRhPdfajbwyG+e9chvnvU2kJ71n5U28MhvX8pfasfPn5XHzzaQX8r/X/8/g5T/P/9fg3SDlP9/e2v/v4OU/7//n3vL/x98S/9fgvT/n4L0g5QAAIOU//95aP7OeWj+znlo/s55aP7OeWj+znlo/s55aP7OeWj+zg=="),
+"format": 34896613399,
+"index_count": 162,
+"index_data": PackedByteArray("EABEABkAEAA4AEQAFQAhAB4AIQAnACQAJwAbABgAGwAVABIAFQAnACEAJwAVABsAJgBBADUAJgAXAEEALAAiADAALAAfACIAHAAtACgAHAAgAC0ANAAjACUANAAxACMAPAARABMAPAA5ABEAFgBFAEAAFgAaAEUAKQAUAB0AKQA9ABQASgAuAE4ASgAqAC4AUgA2AFYAUgAyADYAWgA+AF4AWgA6AD4AYgBGAGYAYgBCAEYAXwArAEsAXwA/ACsAZwA7AFsAZwBHADsAVwBDAGMAVwA3AEMATwAzAFMATwAvADMACwBNAAkACwBJAE0ADwBVAA0ADwBRAFUAAwBdAAEAAwBZAF0ABwBlAAUABwBhAGUAAABIAAoAAABcAEgABABYAAIABABkAFgADABgAAYADABUAGAACABQAA4ACABMAFAA"),
+"lods": [1.09675, PackedByteArray("EAB7AHIAEAA4AHsAFgByAHsAFgB7AEAAIQAnACQAHgAnACEAJwAeABsAGwAeABIAJwAbABgAJgBBADUAJgAXAEEALAB0AHYALAAfAHQAgwAsAHYAgwB2AHcANAB2AHQANAB0ACUASgB3AEIASgB6AEYASgB8ADoAhAA6AHkAhAB5AHUAcwAgAC0ALQB4AHMAeABxAHMAeAA5AHEAbgB9AG0AAAB9AG4AbQBIAA4AcAB+AG8AbwCCAGwAbACAAGsAawCBAGoAaQB/AGgA")],
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 133,
+"vertex_data": PackedByteArray("zEyAKdzAD8DMTIAp3MDs38xMIj9+1rn9zEwiP37W7N/MTNzAfta5/cxM3MB+1kH+zEx+1tzAuf3MTH7W3MBB/sxMIj+AKQ/AzEwiP4ApbaDMTIApIj8PwMxMgCkiP22gzEx+1iI/uf3MTH7WIj/O+8xM3MCAKQ/AzEzcwIApzvv///Et////v///8S3///+f///xLf//VNX//wAADdL/n///AAAN0v+///8AAA3SVNX/////DdL8xf////8N0v///////w3SVNX//w3S////v///DdL///zF//8N0v//VNX//wAA8S3/3///AADxLf+///8AAPEtVNX///EtAAD/////8S0AAP/f///xLQAAVNX//w3SAAD/////DdIAAKrp//8N0gAAVNX/////8S2q6f/////xLf////////EtVNUyMwAA8S3/3zIzAADxLf+/MjMAAPEtzvQyMwAA8S0H8jIz8S0AAP//MjPxLQAA/98yM/EtAADO9DIz8S0AAAfyMjMN0gAA//8yMw3SAACq6TIzDdIAAH3dMjMN0gAAB/IyM///8S2q6TIz///xLf//MjP///Etfd0yM///8S1ewjIz8S3///+/MjPxLf///58yM/Et//916DIz8S3//17CMjMAAA3S/58yMwAADdL/vzIzAAAN0nXoMjMAAA3SB/IyM///DdL8xTIz//8N0v//MjP//w3SZ6wyM///DdJewjIzDdL///+/MjMN0v///MUyMw3S//9nrDIzDdL//17CAADpIf07D8AAAOkh/TttoAAA6SH9O870AADpIf07B/IAAP076SEPwAAA/TvpIW2gAAD9O+khzvQAAP076SEH8gAAAcTpIQ/AAAABxOkhzvsAAAHE6SF93QAAAcTpIQfyAAAW3v07uf0AABbe/TvO+wAAFt79O33dAAAW3v07XsIAAP07Ft65/QAA/TsW3uzfAAD9OxbedegAAP07Ft5ewgAA6SEBxA/AAADpIQHE7N8AAOkhAcR16AAA6SEBxAfyAAAW3gHEuf0AABbeAcRB/gAAFt4BxGesAAAW3gHEXsIAAAHEFt65/QAAAcQW3kH+AAABxBbeZ6wAAAHEFt5ewsxMgCncwJThzEwiP37WovHMTCI/ftaK2cxM3MB+1qXXzEx+1tzA/dnMTCI/gClvwsxMgCkiPyewzEx+1iI////MTNzAgCkm1P//8S3//1Oq//8N0v//jMH//wAA8S03zP//DdIAALj0MjPxLQAA+NoyMw3SAAAY9jIz///xLUTZMjMAAA3SXrQyMwAADdJI7TIz//8N0ra8MjMN0v//jMEyMw3S///8ngAA6SH9OyewAADpIf07x78AAOkh/Tv65QAA6SH9OyDUAADpIf07YekAAOkh/TsPwAAA6SH9O+DzAADpIf07/u1Q+1yJYvlciTzBPMFi+VyJPME8wQepJfs8wYT9B6kl+1D7UPsA+miUUPtciQD6aJQ8wYT9/trv/VD7UPv+2u/9/////wAA/3+qKqoqAAD/fwAA/3+qKqoq/+L/HP9//7+qKqoq///////i/xyqKqoqAAD/fwAA/3+qKqoq/7//vwAA/3+qKqoq/7//vwS1BLWqKqoqBLUEtf9//7+qKqoqAAD/fwAA/39ruXzoEsfY8f+//78AAP9/a7l86BLHEsf/v/+/BLUEtXHjRqoSxxLHBLUEtf9//79x40aqvuqAqv////8AAP9/gdqB877qvuoAAP9/AAD/f4HagfMSx9jx/+L/HP9//7/06tPAvuqAqv//////4v8c9OrTwL7qvupQ+1yJAPpolGu5fOgSx9jxUPtQ+wD6aJRruXzoEscSx1D7UPv+2u/9ceNGqhLHEsc8wYT9/trv/XHjRqq+6oCqPME8wWL5XImB2oHzvuq+6lD7XIli+VyJgdqB8xLH2PE8wYT9B6kl+/Tq08C+6oCqPME8wQepJfv06tPAvuq+6nn9bYRK/bmCFC0ULdYrYSxIqCsn4vu/5KX6Loy+uvcyECUTMgAA/3///3DrAAD/f////3+WyEn4k9U9sCjjSqwAAP9/AM5H8z/rE7P//3DrWd9O8aX6LoylKjtRpvzyhPs4LUUYc9wMFC7GTWy1Fc+5y4Py")
+}, {
+"aabb": AABB(-0.75, -0.675753, -0.675753, 1.00136e-05, 1.35151, 1.35151),
+"attribute_data": PackedByteArray("X2o28MhvnvU2kJ71n5U28MhvX8pfasfPn5XHzzaQX8o="),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("BQABAAAAAQADAAIAAwAHAAYABwAFAAQABQADAAEAAwAFAAcA"),
+"material": SubResource("StandardMaterial3D_1m1v5"),
+"name": "LockStatusMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAPzfVNUAAAIg//9U1QAA/N///1TVAAD///zfVNUAAAIgAABU1QAAAAACIFTVAAD//wIgVNUAAPzfAABU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_cilsa")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jh8e"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k2ppd"]
+size = Vector3(1, 3.5, 2)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_82b77"]
+_surfaces = [{
+"aabb": AABB(-1, -1.00216, -1, 2, 2.00431, 2),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("CAAGAAoACAAEAAYAAAADAAEAAAACAAMAAwAHAAEAAwALAAcABQABAAcABQAAAAEAAgALAAMAAgAJAAsABAAHAAYABAAFAAcACgAJAAgACgALAAkABQAIAAkABQAEAAgACwAGAAcACwAKAAYAAAAJAAIAAAAFAAkA"),
+"name": "DoorMetal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AABGAAAAAAAAALj/MioAAP//RgAAAAAA//+4/zIqAACZBwAA//8AAAAARgBl+AAAmQf/////AAAAALj/ZfgAAGX4AAD//wAA//9GAGX4AABl+P////8AAP//uP9l+AAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fg418"]
+resource_name = "NLIDoorway_Cube_003"
+_surfaces = [{
+"aabb": AABB(-1, -1.00216, -1, 2, 2.00431, 2),
+"attribute_data": PackedByteArray("/1//v/8f/3//X/+//5//v//f/3//n/+//1//f/9f/3//X/9//5//f/+f/3//n/9/5mHmAeZh5gHmYeYB/18AAP8f5kH/XwAA/18Y/hie5gEYnuYBGJ7mAf+fAAD/30ZC/58AAP+fuP3mYRk+5mEZPuZhGT7/X/8//1/mQf9f5kH/X+ZBGJ4ZPhieGT4Ynhk+/5//P/+fRkL/n0ZC/59GQg=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("GgATACEAGgAMABMAAAAJAAMAAAAGAAkACgAXAAQACgAlABcAEgAFABkAEgACAAUACAAnAAsACAAgACcADgAYABUADgARABgAIwAfABwAIwAmAB8ADwAbAB0ADwANABsAJAAUABYAJAAiABQAAQAeAAcAAQAQAB4A"),
+"material": SubResource("StandardMaterial3D_0ag1s"),
+"name": "DoorMetal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AABGAAAAS/sAAEYAAAD/vwAARgAAAJnRAAC4/zIqS/sAALj/Mir//wAAuP8yKm7T//9GAAAAS/v//0YAAAD/v///RgAAABbX//+4/zIqS/v//7j/Mir/////uP8yKkXZmQcAAP///7+ZBwAA//8w1pkHAAD///zFAABGAGX4MNYAAEYAZfj/vwAARgBl+PzFAABGAGX4IdOZB///////v5kH/////zDWmQf//////MUAALj/Zfgw1gAAuP9l+P//AAC4/2X4/MUAALj/Zfg31WX4AAD///+/ZfgAAP//MNZl+AAA///8xf//RgBl+DDW//9GAGX4/7///0YAZfj9xf//RgBl+HfVZfj//////79l+P////8w1mX4/////x3G//+4/2X4MNb//7j/Zfj/////uP9l+B7G//+4/2X4Ytd7vXu9AAD/f4rQudd7vXu9/3//v/jSgtZ7vXu9AAD/f5cosyt7vXu9/3//vyEm7iz/////LSvR1P/i/+ItK9HUAAD/f//i/+KV0rTW/////9HULSv/4v/i0dQtK/9//7//4v/iMNVm1f////8tK9HU/xz/HC0r0dQAAP9//hz/HH8qvyr/////0dQtK+ocBR3R1C0r/3//v+kcBR0/KN8r")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_82b77")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a1fmv"]
+size = Vector3(1, 3.5, 2)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_usuat"]
+_surfaces = [{
+"aabb": AABB(-0.101, -0.66, -1, 0.202, 1.32, 2),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAAFAAEAAAAEAAUACAAMAAsACAANAAwAAQAHAAMAAQAFAAcADgAKAA8ADgAJAAoACAAOAA0ACAAJAA4ADAAKAAsADAAPAAoAAAAIAAIAAAAJAAgAAQAJAAAAAQAKAAkAAwAKAAEAAwALAAoAAgALAAMAAgAIAAsABwANAAYABwAMAA0ABgAOAAQABgANAA4ABQAMAAcABQAPAAwABAAPAAUABAAOAA8AAgAHAAYAAgADAAcAAgAEAAAAAgAGAAQA"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("9w8aAzLzAAAHDTLzKNwAAPcPGgPMDAAABw0y89YjAAAH8BoDMvMAAPfyMvMo3AAAB/AaA8wMAAD38jLz1iMAAAAAAAAAAAAAAAAAAP//AABAAP//ZeYAAEAA//+ZGQAAvv///5kZAAD//wAAAAAAAP//AAD//wAAvv///2XmAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_srx80"]
+resource_name = "NLIDoorway_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.101, -0.66, -1, 0.202, 1.32, 2),
+"attribute_data": PackedByteArray("/1////9f////X////1////+f////n////5////+f////X/+//1//v/9f/7//X/+//5//v/+f/7//n/+//5//v/9f/z//X/8//1//P/9f/z//n/8//5//P/+f/z//n/8//1//f/9f/3//X/9//1//f/+f/3//n/9//5//f/+f/3//X/+//x//f/9f/7//X/+//18AAP8f/z//X////1////+fAAD/3/8//5////+f////n/+//9//f/+f/7//n/+//5//f/+f/3//n/9//5//f/9f/3//X/9//1//f/9f/3//X/8//1//P/9f/z//X/8//5//P/+f/z//n/8//5//Pw=="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AQAUAAQAAQARABQAIAAwACwAIAA0ADAABQAdAA0ABQAVAB0AOAAoADwAOAAkACgAIQA5ADUAIQAlADkAMQApAC0AMQA9ACkAAgAiAAoAAgAmACIABwAnAAMABwArACcADgAqAAYADgAuACoACwAvAA8ACwAjAC8AHwA3ABsAHwAzADcAGgA6ABIAGgA2ADoAFgAyAB4AFgA+ADIAEwA/ABcAEwA7AD8ACQAcABkACQAMABwACAAQAAAACAAYABAA"),
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 64,
+"vertex_data": PackedByteArray("9w8aAzLz/7/3DxoDMvPV+/cPGgMy8/+/9w8aAzLz69cHDTLzKNzX+wcNMvMo3P+/Bw0y8yjc/78HDTLzKNzr1/cPGgPMDP+/9w8aA8wM2T/3DxoDzAz/v/cPGgPMDOxXBw0y89Yjtj8HDTLz1iP/vwcNMvPWI/+/Bw0y89Yj7FcH8BoDMvP/vwfwGgMy89X7B/AaAzLz/78H8BoDMvPr1/fyMvMo3Nf79/Iy8yjc/7/38jLzKNz/v/fyMvMo3OvXB/AaA8wM/78H8BoDzAzcPwfwGgPMDP+/B/AaA8wM7Ff38jLz1iO5P/fyMvPWI/+/9/Iy89Yj/7/38jLz1iPsVwAAAAAAAKr7AAAAAAAA/78AAAAAAAD/vwAAAAAAAOxXAAAAAP//OMAAAAAA////vwAAAAD///+/AAAAAP//69dAAP//ZeY7wEAA//9l5v//QAD//2Xm/79AAP//Zebr10AA//+ZGar7QAD//5kZ//9AAP//mRn/v0AA//+ZGexXvv///5kZqvu+////mRn//77///+ZGf+/vv///5kZ7Ff//wAAAACq+///AAAAAP+///8AAAAA/7///wAAAADsV///AAD//zjA//8AAP///7///wAA////v///AAD//+vXvv///2XmO8C+////Zeb//77///9l5v+/vv///2Xm69f///9/L0JHQizW0qkabRrtSkItQgAA/38jOyO7Gm0a7f///38WCOX3LNbSqRptGu0WCOz3AAD/fyM7I7sabRrt////fyxCSUIs1ixWGm3kEkhCL0IAAP9/IzvbRBpt5BL///9/Fgjk9yzWLFYabeQSFgjr9wAA/38jO9tEGm3kEqu9rb0AAP9/LNbSqRptGu2d92EIAAD/fyzW0qkabRrtnfdgCP9//78jOyO7Gm0a7a29q73/f/+/IzsjuxptGu2tvau9/3//vyM720QabeQSq72tvQAA/38s1ixWGm3kEp33YQgAAP9/LNYsVhpt5BKd92AI/3//vyM720QabeQS")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_usuat")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mgsuk"]
+_surfaces = [{
+"aabb": AABB(-1, -0.94, -0.9, 2, 0.28, 1.8),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("CAAHAAsACAAGAAcABgAFAAcABgAEAAUABAAKAAUABAAJAAoACAAEAAYACAAJAAQABwAKAAsABwAFAAoADQAIAAwADQAJAAgADgAJAA0ADgAKAAkADwAKAA4ADwALAAoADAALAA8ADAAIAAsAAAAMAAIAAAANAAwAAQANAAAAAQAOAA0AAwAOAAEAAwAPAA4AAgAPAAMAAgAMAA8A"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("+je4SgbDAABOPUa1s9oAAPo3uEr4PAAATj1GtUslAAD//wAAG8cAADLz///+/wAA//8AAOM4AAAy8///AAAAAAAAAADjOAAAAAAAABvHAADMDP///v8AAMwM//8AAAAAvAO4Svg8AAC8A7hKBsMAABAJRrWz2gAAEAlGtUslAAA=")
+}, {
+"aabb": AABB(-0.562649, -0.858275, -0.63778, 0.0416248, 0.11655, 1.27556),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAJTeAAD///7///8AAAAAAABqIQAA/////wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qmphx"]
+resource_name = "NLIDoorway_Cube_004"
+_surfaces = [{
+"aabb": AABB(-1, -0.94, -0.9, 2, 0.28, 1.8),
+"attribute_data": PackedByteArray("rXLL+a1yy/lRjYj6UY2I+q1yMsatcjLGUY11xVGNdcX/X/8//1//P/9f/z//n/8//5//P/+f/z//X/9//1//f/9f/3//n/9//5//f/+f/3//X/+//x//f/9f/7//XwAA/x//P/9f////3/8//58AAP+f////3/9//5//v/+f/7+tcjLGrXIyxq1yMsatcsv5rXLL+a1yy/lRjYj6UY2I+lGNiPpRjXXFUY11xVGNdcU="),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray("FAASAB4AFAAOABIAEAANABMAEAAKAA0ACAAbAAwACAAXABsAFQAJAA8AFQAYAAkAEQAaAB0AEQALABoAJQAWACIAJQAZABYAKAAZACUAKAAcABkAKwAcACgAKwAfABwAIgAfACsAIgAWAB8AAQAhAAUAAQAkACEAAgAjAAAAAgAmACMABwAnAAMABwAqACcABAApAAYABAAgACkA"),
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 44,
+"vertex_data": PackedByteArray("+je4SgbD4dj6N7hKBsP/v049RrWz2uHYTj1GtbPa/7/6N7hK+DziWPo3uEr4PP+/Tj1GtUsl4lhOPUa1SyX/v///AAAbxwbN//8AABvH/7///wAAG8d69zLz///+////MvP///7/fM8y8////v916f//AADjONrn//8AAOM4/7///wAA4zi+yjLz//8AAP//MvP//wAAAecy8///AAAiyQAAAADjOCHjAAAAAOM4/78AAAAA4zhC4QAAAAAbx0HCAAAAABvH/78AAAAAG8f/wcwM///+////zAz///7/CsTMDP///v9awcwM//8AAP//zAz//wAALuLMDP//AABt47wDuEr4POJYvAO4Svg8/7+8A7hK+DwS4rwDuEoGw+HYvAO4SgbD/7+8A7hKBsNBwhAJRrWz2uHYEAlGtbPa/78QCUa1s9q/wBAJRrVLJeJYEAlGtUsl/78QCUa1SyWl4v///3////9/////fwAA/3////9/////f////38AAP9/ryFk4gAA/3/EGS8w/3//v0EiC+TwJH8oTFM3SQAA/3+cSpEO/3//v59RUkq4Tr4LNknaTwAA/38083LC3h4p2gAA/3+RvB/V/3//v2Ifq9uVuHzW/3//v+BGY1Gp9ZvB////f////38g9CLC////f////3/uvajU////fwAA/392szzY////fwAA/3/G9OnB")
+}, {
+"aabb": AABB(-0.562649, -0.858275, -0.63778, 0.0416248, 0.11655, 1.27556),
+"attribute_data": PackedByteArray("rXLL+VGNiPqtcjLGUY11xQ=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"material": ExtResource("7_bpvdo"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAJTelMH///7///89wQAAAABqITHj/////wAAnt0buvbVvrfF1mX1s8EP793D")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_mgsuk")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t35bb"]
+_surfaces = [{
+"aabb": AABB(-1, -0.94, -0.9, 2, 0.28, 1.8),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("CAAHAAsACAAGAAcABgAFAAcABgAEAAUABAAKAAUABAAJAAoACAAEAAYACAAJAAQABwAKAAsABwAFAAoADQAIAAwADQAJAAgADgAJAA0ADgAKAAkADwAKAA4ADwALAAoADAALAA8ADAAIAAsAAAAMAAIAAAANAAwAAQANAAAAAQAOAA0AAwAOAAEAAwAPAA4AAgAPAAMAAgAMAA8A"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("+je4SgbDAABOPUa1s9oAAPo3uEr4PAAATj1GtUslAAD//wAAG8cAADLz///+/wAA//8AAOM4AAAy8///AAAAAAAAAADjOAAAAAAAABvHAADMDP///v8AAMwM//8AAAAAvAO4Svg8AAC8A7hKBsMAABAJRrWz2gAAEAlGtUslAAA=")
+}, {
+"aabb": AABB(-0.562649, -0.858275, -0.63778, 0.0416248, 0.11655, 1.27556),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAJTeAAD///7///8AAAAAAABqIQAA/////wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xocti"]
+resource_name = "NLIDoorway_Cube_006"
+_surfaces = [{
+"aabb": AABB(-1, -0.94, -0.9, 2, 0.28, 1.8),
+"attribute_data": PackedByteArray("rXLL+a1yy/lRjYj6UY2I+q1yMsatcjLGUY11xVGNdcX/X/8//1//P/9f/z//n/8//5//P/+f/z//X/9//1//f/9f/3//n/9//5//f/+f/3//X/+//x//f/9f/7//XwAA/x//P/9f////3/8//58AAP+f////3/9//5//v/+f/7+tcjLGrXIyxq1yMsatcsv5rXLL+a1yy/lRjYj6UY2I+lGNiPpRjXXFUY11xVGNdcU="),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray("FAASAB4AFAAOABIAEAANABMAEAAKAA0ACAAbAAwACAAXABsAFQAJAA8AFQAYAAkAEQAaAB0AEQALABoAJQAWACIAJQAZABYAKAAZACUAKAAcABkAKwAcACgAKwAfABwAIgAfACsAIgAWAB8AAQAhAAUAAQAkACEAAgAjAAAAAgAmACMABwAnAAMABwAqACcABAApAAYABAAgACkA"),
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 44,
+"vertex_data": PackedByteArray("+je4SgbD4dj6N7hKBsP/v049RrWz2uHYTj1GtbPa/7/6N7hK+DziWPo3uEr4PP+/Tj1GtUsl4lhOPUa1SyX/v///AAAbxwbN//8AABvH/7///wAAG8d69zLz///+////MvP///7/fM8y8////v916f//AADjONrn//8AAOM4/7///wAA4zi+yjLz//8AAP//MvP//wAAAecy8///AAAiyQAAAADjOCHjAAAAAOM4/78AAAAA4zhC4QAAAAAbx0HCAAAAABvH/78AAAAAG8f/wcwM///+////zAz///7/CsTMDP///v9awcwM//8AAP//zAz//wAALuLMDP//AABt47wDuEr4POJYvAO4Svg8/7+8A7hK+DwS4rwDuEoGw+HYvAO4SgbD/7+8A7hKBsNBwhAJRrWz2uHYEAlGtbPa/78QCUa1s9q/wBAJRrVLJeJYEAlGtUsl/78QCUa1SyWl4v///3////9/////fwAA/3////9/////f////38AAP9/ryFk4gAA/3/EGS8w/3//v0EiC+TwJH8oTFM3SQAA/3+cSpEO/3//v59RUkq4Tr4LNknaTwAA/38083LC3h4p2gAA/3+RvB/V/3//v2Ifq9uVuHzW/3//v+BGY1Gp9ZvB////f////38g9CLC////f////3/uvajU////fwAA/392szzY////fwAA/3/G9OnB")
+}, {
+"aabb": AABB(-0.562649, -0.858275, -0.63778, 0.0416248, 0.11655, 1.27556),
+"attribute_data": PackedByteArray("rXLL+VGNiPqtcjLGUY11xQ=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"material": ExtResource("7_bpvdo"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAJTelMH///7///89wQAAAABqITHj/////wAAnt0buvbVvrfF1mX1s8EP793D")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_t35bb")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fs8wt"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("CAADAAkACAACAAMAAgAHAAMAAgAGAAcABgAKAAcABgALAAoAAgALAAYAAgAIAAsABwAJAAMABwAKAAkAAAAJAAEAAAAIAAkABQALAAQABQAKAAsABAAIAAAABAALAAgAAQAKAAUAAQAJAAoA"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("92LrUf7/AAD3YhOu/v8AAAAAAAAAAAAAAAD//wAAAAAHnetR/v8AAAedE67+/wAA//8AAAAAAAD/////AAAAAAAAAAD+/wAAAAD///7/AAD//////v8AAP//AAD+/wAA")
+}, {
+"aabb": AABB(-0.2268, -0.36, 1, 0.4536, 0.72, 9.95398e-06),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AgABAAMAAgAAAAEA"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP//AAAAAP//AAAAAAAA/////wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t4usa"]
+resource_name = "NLIDoorway_Cube_015"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"attribute_data": PackedByteArray("/18AAP+fAAD/X/+//x//f/9f/7//n/+//9//f/+f/7//X/8//5//P/9f/3//X/9//1//f/+f/3//n/9//5//f/9fAAD/H/8//1////+fAAD/3/8//5////+f/z//n/8//5//P/9f/z//X/8//1//Pw=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("EgAHABUAEgAEAAcAAgANAAUAAgAKAA0ADAAYAA8ADAAbABgAAwAaAAsAAwARABoADgAUAAYADgAXABQAAAATAAEAAAAQABMACQAZAAgACQAWABkACAAQAAAACAAZABAAAQAWAAkAAQATABYA"),
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("92LrUf7//n/3YhOu/v/+fwAAAAAAAP//AAAAAAAA/78AAAAAAABU1QAA//8AAP//AAD//wAA//8AAP//AABU1Qed61H+//5/B50Trv7//n///wAAAAD/////AAAAAP+///8AAAAAVNX/////AAD///////8AAP///////wAAVNUAAAAA/v/+fwAAAAD+//+/AAAAAP7/VNUAAP///v/+fwAA///+////AAD///7/VNX//////v/+f//////+//////////7/VNX//wAA/v/+f///AAD+//+///8AAP7/VNX/f////3////+//78AAP9/VNVU1f+//7//f/+/VNVU1f9/////f////7//vwAA/3+qKqoq/7//v/9//7+qKqoq/3///wAA/39U1VTV/3////9//79U1VTV/3////9//7+qKqoq/3///wAA/3+qKqoq")
+}, {
+"aabb": AABB(-0.2268, -0.36, 1, 0.4536, 0.72, 9.95398e-06),
+"attribute_data": PackedByteArray("/18AAP+fAAD/X/8//5//Pw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AgABAAMAAgAAAAEA"),
+"material": ExtResource("7_bpvdo"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAA/78AAP//AAD/v///AAAAAP+//////wAA/7//////////////////////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fs8wt")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e1xml"]
+_surfaces = [{
+"aabb": AABB(-1, -0.94, -0.9, 2, 0.28, 1.8),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("CAAHAAsACAAGAAcABgAFAAcABgAEAAUABAAKAAUABAAJAAoACAAEAAYACAAJAAQABwAKAAsABwAFAAoADQAIAAwADQAJAAgADgAJAA0ADgAKAAkADwAKAA4ADwALAAoADAALAA8ADAAIAAsAAAAMAAIAAAANAAwAAQANAAAAAQAOAA0AAwAOAAEAAwAPAA4AAgAPAAMAAgAMAA8A"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("+je4SgbDAABOPUa1s9oAAPo3uEr4PAAATj1GtUslAAD//wAAG8cAADLz///+/wAA//8AAOM4AAAy8///AAAAAAAAAADjOAAAAAAAABvHAADMDP///v8AAMwM//8AAAAAvAO4Svg8AAC8A7hKBsMAABAJRrWz2gAAEAlGtUslAAA=")
+}, {
+"aabb": AABB(-0.562649, -0.858275, -0.63778, 0.0416248, 0.11655, 1.27556),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAJTeAAD///7///8AAAAAAABqIQAA/////wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bg8yf"]
+resource_name = "NLIDoorway_Cube_016"
+_surfaces = [{
+"aabb": AABB(-1, -0.94, -0.9, 2, 0.28, 1.8),
+"attribute_data": PackedByteArray("rXLL+a1yy/lRjYj6UY2I+q1yMsatcjLGUY11xVGNdcX/X/8//1//P/9f/z//n/8//5//P/+f/z//X/9//1//f/9f/3//n/9//5//f/+f/3//X/+//x//f/9f/7//XwAA/x//P/9f////3/8//58AAP+f////3/9//5//v/+f/7+tcjLGrXIyxq1yMsatcsv5rXLL+a1yy/lRjYj6UY2I+lGNiPpRjXXFUY11xVGNdcU="),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray("FAASAB4AFAAOABIAEAANABMAEAAKAA0ACAAbAAwACAAXABsAFQAJAA8AFQAYAAkAEQAaAB0AEQALABoAJQAWACIAJQAZABYAKAAZACUAKAAcABkAKwAcACgAKwAfABwAIgAfACsAIgAWAB8AAQAhAAUAAQAkACEAAgAjAAAAAgAmACMABwAnAAMABwAqACcABAApAAYABAAgACkA"),
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 44,
+"vertex_data": PackedByteArray("+je4SgbD4dj6N7hKBsP/v049RrWz2uHYTj1GtbPa/7/6N7hK+DziWPo3uEr4PP+/Tj1GtUsl4lhOPUa1SyX/v///AAAbxwbN//8AABvH/7///wAAG8d69zLz///+////MvP///7/fM8y8////v916f//AADjONrn//8AAOM4/7///wAA4zi+yjLz//8AAP//MvP//wAAAecy8///AAAiyQAAAADjOCHjAAAAAOM4/78AAAAA4zhC4QAAAAAbx0HCAAAAABvH/78AAAAAG8f/wcwM///+////zAz///7/CsTMDP///v9awcwM//8AAP//zAz//wAALuLMDP//AABt47wDuEr4POJYvAO4Svg8/7+8A7hK+DwS4rwDuEoGw+HYvAO4SgbD/7+8A7hKBsNBwhAJRrWz2uHYEAlGtbPa/78QCUa1s9q/wBAJRrVLJeJYEAlGtUsl/78QCUa1SyWl4v///3////9/////fwAA/3////9/////f////38AAP9/ryFk4gAA/3/EGS8w/3//v0EiC+TwJH8oTFM3SQAA/3+cSpEO/3//v59RUkq4Tr4LNknaTwAA/38083LC3h4p2gAA/3+RvB/V/3//v2Ifq9uVuHzW/3//v+BGY1Gp9ZvB////f////38g9CLC////f////3/uvajU////fwAA/392szzY////fwAA/3/G9OnB")
+}, {
+"aabb": AABB(-0.562649, -0.858275, -0.63778, 0.0416248, 0.11655, 1.27556),
+"attribute_data": PackedByteArray("rXLL+VGNiPqtcjLGUY11xQ=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"material": ExtResource("7_bpvdo"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAJTelMH///7///89wQAAAABqITHj/////wAAnt0buvbVvrfF1mX1s8EP793D")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_e1xml")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v8qnf"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("CAADAAkACAACAAMAAgAHAAMAAgAGAAcABgAKAAcABgALAAoAAgALAAYAAgAIAAsABwAJAAMABwAKAAkAAAAJAAEAAAAIAAkABQALAAQABQAKAAsABAAIAAAABAALAAgAAQAKAAUAAQAJAAoA"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("92LrUf7/AAD3YhOu/v8AAAAAAAAAAAAAAAD//wAAAAAHnetR/v8AAAedE67+/wAA//8AAAAAAAD/////AAAAAAAAAAD+/wAAAAD///7/AAD//////v8AAP//AAD+/wAA")
+}, {
+"aabb": AABB(-0.2268, -0.36, 1, 0.4536, 0.72, 9.95398e-06),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AgABAAMAAgAAAAEA"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP//AAAAAP//AAAAAAAA/////wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6topj"]
+resource_name = "NLIDoorway_Cube_023"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"attribute_data": PackedByteArray("/18AAP+fAAD/X/+//x//f/9f/7//n/+//9//f/+f/7//X/8//5//P/9f/3//X/9//1//f/+f/3//n/9//5//f/9fAAD/H/8//1////+fAAD/3/8//5////+f/z//n/8//5//P/9f/z//X/8//1//Pw=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("EgAHABUAEgAEAAcAAgANAAUAAgAKAA0ADAAYAA8ADAAbABgAAwAaAAsAAwARABoADgAUAAYADgAXABQAAAATAAEAAAAQABMACQAZAAgACQAWABkACAAQAAAACAAZABAAAQAWAAkAAQATABYA"),
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("92LrUf7//n/3YhOu/v/+fwAAAAAAAP//AAAAAAAA/78AAAAAAABU1QAA//8AAP//AAD//wAA//8AAP//AABU1Qed61H+//5/B50Trv7//n///wAAAAD/////AAAAAP+///8AAAAAVNX/////AAD///////8AAP///////wAAVNUAAAAA/v/+fwAAAAD+//+/AAAAAP7/VNUAAP///v/+fwAA///+////AAD///7/VNX//////v/+f//////+//////////7/VNX//wAA/v/+f///AAD+//+///8AAP7/VNX/f////3////+//78AAP9/VNVU1f+//7//f/+/VNVU1f9/////f////7//vwAA/3+qKqoq/7//v/9//7+qKqoq/3///wAA/39U1VTV/3////9//79U1VTV/3////9//7+qKqoq/3///wAA/3+qKqoq")
+}, {
+"aabb": AABB(-0.2268, -0.36, 1, 0.4536, 0.72, 9.95398e-06),
+"attribute_data": PackedByteArray("/18AAP+fAAD/X/8//5//Pw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AgABAAMAAgAAAAEA"),
+"material": ExtResource("7_bpvdo"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAA/78AAP//AAD/v///AAAAAP+//////wAA/7//////////////////////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_v8qnf")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o1ssd"]
+_surfaces = [{
+"aabb": AABB(-1, -0.94, -0.9, 2, 0.28, 1.8),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("CAAHAAsACAAGAAcABgAFAAcABgAEAAUABAAKAAUABAAJAAoACAAEAAYACAAJAAQABwAKAAsABwAFAAoADQAIAAwADQAJAAgADgAJAA0ADgAKAAkADwAKAA4ADwALAAoADAALAA8ADAAIAAsAAAAMAAIAAAANAAwAAQANAAAAAQAOAA0AAwAOAAEAAwAPAA4AAgAPAAMAAgAMAA8A"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("+je4SgbDAABOPUa1s9oAAPo3uEr4PAAATj1GtUslAAD//wAAG8cAADLz///+/wAA//8AAOM4AAAy8///AAAAAAAAAADjOAAAAAAAABvHAADMDP///v8AAMwM//8AAAAAvAO4Svg8AAC8A7hKBsMAABAJRrWz2gAAEAlGtUslAAA=")
+}, {
+"aabb": AABB(-0.562649, -0.858275, -0.63778, 0.0416248, 0.11655, 1.27556),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAJTeAAD///7///8AAAAAAABqIQAA/////wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dds3e"]
+resource_name = "NLIDoorway_Cube_018"
+_surfaces = [{
+"aabb": AABB(-1, -0.94, -0.9, 2, 0.28, 1.8),
+"attribute_data": PackedByteArray("rXLL+a1yy/lRjYj6UY2I+q1yMsatcjLGUY11xVGNdcX/X/8//1//P/9f/z//n/8//5//P/+f/z//X/9//1//f/9f/3//n/9//5//f/+f/3//X/+//x//f/9f/7//XwAA/x//P/9f////3/8//58AAP+f////3/9//5//v/+f/7+tcjLGrXIyxq1yMsatcsv5rXLL+a1yy/lRjYj6UY2I+lGNiPpRjXXFUY11xVGNdcU="),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray("FAASAB4AFAAOABIAEAANABMAEAAKAA0ACAAbAAwACAAXABsAFQAJAA8AFQAYAAkAEQAaAB0AEQALABoAJQAWACIAJQAZABYAKAAZACUAKAAcABkAKwAcACgAKwAfABwAIgAfACsAIgAWAB8AAQAhAAUAAQAkACEAAgAjAAAAAgAmACMABwAnAAMABwAqACcABAApAAYABAAgACkA"),
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 44,
+"vertex_data": PackedByteArray("+je4SgbD4dj6N7hKBsP/v049RrWz2uHYTj1GtbPa/7/6N7hK+DziWPo3uEr4PP+/Tj1GtUsl4lhOPUa1SyX/v///AAAbxwbN//8AABvH/7///wAAG8d69zLz///+////MvP///7/fM8y8////v916f//AADjONrn//8AAOM4/7///wAA4zi+yjLz//8AAP//MvP//wAAAecy8///AAAiyQAAAADjOCHjAAAAAOM4/78AAAAA4zhC4QAAAAAbx0HCAAAAABvH/78AAAAAG8f/wcwM///+////zAz///7/CsTMDP///v9awcwM//8AAP//zAz//wAALuLMDP//AABt47wDuEr4POJYvAO4Svg8/7+8A7hK+DwS4rwDuEoGw+HYvAO4SgbD/7+8A7hKBsNBwhAJRrWz2uHYEAlGtbPa/78QCUa1s9q/wBAJRrVLJeJYEAlGtUsl/78QCUa1SyWl4v///3////9/////fwAA/3////9/////f////38AAP9/ryFk4gAA/3/EGS8w/3//v0EiC+TwJH8oTFM3SQAA/3+cSpEO/3//v59RUkq4Tr4LNknaTwAA/38083LC3h4p2gAA/3+RvB/V/3//v2Ifq9uVuHzW/3//v+BGY1Gp9ZvB////f////38g9CLC////f////3/uvajU////fwAA/392szzY////fwAA/3/G9OnB")
+}, {
+"aabb": AABB(-0.562649, -0.858275, -0.63778, 0.0416248, 0.11655, 1.27556),
+"attribute_data": PackedByteArray("rXLL+VGNiPqtcjLGUY11xQ=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"material": ExtResource("7_bpvdo"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAJTelMH///7///89wQAAAABqITHj/////wAAnt0buvbVvrfF1mX1s8EP793D")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_o1ssd")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5a3uu"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("CAADAAkACAACAAMAAgAHAAMAAgAGAAcABgAKAAcABgALAAoAAgALAAYAAgAIAAsABwAJAAMABwAKAAkAAAAJAAEAAAAIAAkABQALAAQABQAKAAsABAAIAAAABAALAAgAAQAKAAUAAQAJAAoA"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("92LrUf7/AAD3YhOu/v8AAAAAAAAAAAAAAAD//wAAAAAHnetR/v8AAAedE67+/wAA//8AAAAAAAD/////AAAAAAAAAAD+/wAAAAD///7/AAD//////v8AAP//AAD+/wAA")
+}, {
+"aabb": AABB(-0.2268, -0.36, 1, 0.4536, 0.72, 9.95398e-06),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AgABAAMAAgAAAAEA"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP//AAAAAP//AAAAAAAA/////wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yfw5t"]
+resource_name = "NLIDoorway_Cube_024"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"attribute_data": PackedByteArray("/18AAP+fAAD/X/+//x//f/9f/7//n/+//9//f/+f/7//X/8//5//P/9f/3//X/9//1//f/+f/3//n/9//5//f/9fAAD/H/8//1////+fAAD/3/8//5////+f/z//n/8//5//P/9f/z//X/8//1//Pw=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("EgAHABUAEgAEAAcAAgANAAUAAgAKAA0ADAAYAA8ADAAbABgAAwAaAAsAAwARABoADgAUAAYADgAXABQAAAATAAEAAAAQABMACQAZAAgACQAWABkACAAQAAAACAAZABAAAQAWAAkAAQATABYA"),
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("92LrUf7//n/3YhOu/v/+fwAAAAAAAP//AAAAAAAA/78AAAAAAABU1QAA//8AAP//AAD//wAA//8AAP//AABU1Qed61H+//5/B50Trv7//n///wAAAAD/////AAAAAP+///8AAAAAVNX/////AAD///////8AAP///////wAAVNUAAAAA/v/+fwAAAAD+//+/AAAAAP7/VNUAAP///v/+fwAA///+////AAD///7/VNX//////v/+f//////+//////////7/VNX//wAA/v/+f///AAD+//+///8AAP7/VNX/f////3////+//78AAP9/VNVU1f+//7//f/+/VNVU1f9/////f////7//vwAA/3+qKqoq/7//v/9//7+qKqoq/3///wAA/39U1VTV/3////9//79U1VTV/3////9//7+qKqoq/3///wAA/3+qKqoq")
+}, {
+"aabb": AABB(-0.2268, -0.36, 1, 0.4536, 0.72, 9.95398e-06),
+"attribute_data": PackedByteArray("/18AAP+fAAD/X/8//5//Pw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AgABAAMAAgAAAAEA"),
+"material": ExtResource("7_bpvdo"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAA/78AAP//AAD/v///AAAAAP+//////wAA/7//////////////////////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_5a3uu")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_77rpd"]
+_surfaces = [{
+"aabb": AABB(-1, -0.94, -0.9, 2, 0.28, 1.8),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("CAAHAAsACAAGAAcABgAFAAcABgAEAAUABAAKAAUABAAJAAoACAAEAAYACAAJAAQABwAKAAsABwAFAAoADQAIAAwADQAJAAgADgAJAA0ADgAKAAkADwAKAA4ADwALAAoADAALAA8ADAAIAAsAAAAMAAIAAAANAAwAAQANAAAAAQAOAA0AAwAOAAEAAwAPAA4AAgAPAAMAAgAMAA8A"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("+je4SgbDAABOPUa1s9oAAPo3uEr4PAAATj1GtUslAAD//wAAG8cAADLz///+/wAA//8AAOM4AAAy8///AAAAAAAAAADjOAAAAAAAABvHAADMDP///v8AAMwM//8AAAAAvAO4Svg8AAC8A7hKBsMAABAJRrWz2gAAEAlGtUslAAA=")
+}, {
+"aabb": AABB(-0.562649, -0.858275, -0.63778, 0.0416248, 0.11655, 1.27556),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAJTeAAD///7///8AAAAAAABqIQAA/////wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gfb18"]
+resource_name = "NLIDoorway_Cube_020"
+_surfaces = [{
+"aabb": AABB(-1, -0.94, -0.9, 2, 0.28, 1.8),
+"attribute_data": PackedByteArray("rXLL+a1yy/lRjYj6UY2I+q1yMsatcjLGUY11xVGNdcX/X/8//1//P/9f/z//n/8//5//P/+f/z//X/9//1//f/9f/3//n/9//5//f/+f/3//X/+//x//f/9f/7//XwAA/x//P/9f////3/8//58AAP+f////3/9//5//v/+f/7+tcjLGrXIyxq1yMsatcsv5rXLL+a1yy/lRjYj6UY2I+lGNiPpRjXXFUY11xVGNdcU="),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray("FAASAB4AFAAOABIAEAANABMAEAAKAA0ACAAbAAwACAAXABsAFQAJAA8AFQAYAAkAEQAaAB0AEQALABoAJQAWACIAJQAZABYAKAAZACUAKAAcABkAKwAcACgAKwAfABwAIgAfACsAIgAWAB8AAQAhAAUAAQAkACEAAgAjAAAAAgAmACMABwAnAAMABwAqACcABAApAAYABAAgACkA"),
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 44,
+"vertex_data": PackedByteArray("+je4SgbD4dj6N7hKBsP/v049RrWz2uHYTj1GtbPa/7/6N7hK+DziWPo3uEr4PP+/Tj1GtUsl4lhOPUa1SyX/v///AAAbxwbN//8AABvH/7///wAAG8d69zLz///+////MvP///7/fM8y8////v916f//AADjONrn//8AAOM4/7///wAA4zi+yjLz//8AAP//MvP//wAAAecy8///AAAiyQAAAADjOCHjAAAAAOM4/78AAAAA4zhC4QAAAAAbx0HCAAAAABvH/78AAAAAG8f/wcwM///+////zAz///7/CsTMDP///v9awcwM//8AAP//zAz//wAALuLMDP//AABt47wDuEr4POJYvAO4Svg8/7+8A7hK+DwS4rwDuEoGw+HYvAO4SgbD/7+8A7hKBsNBwhAJRrWz2uHYEAlGtbPa/78QCUa1s9q/wBAJRrVLJeJYEAlGtUsl/78QCUa1SyWl4v///3////9/////fwAA/3////9/////f////38AAP9/ryFk4gAA/3/EGS8w/3//v0EiC+TwJH8oTFM3SQAA/3+cSpEO/3//v59RUkq4Tr4LNknaTwAA/38083LC3h4p2gAA/3+RvB/V/3//v2Ifq9uVuHzW/3//v+BGY1Gp9ZvB////f////38g9CLC////f////3/uvajU////fwAA/392szzY////fwAA/3/G9OnB")
+}, {
+"aabb": AABB(-0.562649, -0.858275, -0.63778, 0.0416248, 0.11655, 1.27556),
+"attribute_data": PackedByteArray("rXLL+VGNiPqtcjLGUY11xQ=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"material": ExtResource("7_bpvdo"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAJTelMH///7///89wQAAAABqITHj/////wAAnt0buvbVvrfF1mX1s8EP793D")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_77rpd")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kpgp4"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("CAADAAkACAACAAMAAgAHAAMAAgAGAAcABgAKAAcABgALAAoAAgALAAYAAgAIAAsABwAJAAMABwAKAAkAAAAJAAEAAAAIAAkABQALAAQABQAKAAsABAAIAAAABAALAAgAAQAKAAUAAQAJAAoA"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("92LrUf7/AAD3YhOu/v8AAAAAAAAAAAAAAAD//wAAAAAHnetR/v8AAAedE67+/wAA//8AAAAAAAD/////AAAAAAAAAAD+/wAAAAD///7/AAD//////v8AAP//AAD+/wAA")
+}, {
+"aabb": AABB(-0.2268, -0.36, 1, 0.4536, 0.72, 9.95398e-06),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AgABAAMAAgAAAAEA"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP//AAAAAP//AAAAAAAA/////wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3q8ev"]
+resource_name = "NLIDoorway_Cube_025"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"attribute_data": PackedByteArray("/18AAP+fAAD/X/+//x//f/9f/7//n/+//9//f/+f/7//X/8//5//P/9f/3//X/9//1//f/+f/3//n/9//5//f/9fAAD/H/8//1////+fAAD/3/8//5////+f/z//n/8//5//P/9f/z//X/8//1//Pw=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("EgAHABUAEgAEAAcAAgANAAUAAgAKAA0ADAAYAA8ADAAbABgAAwAaAAsAAwARABoADgAUAAYADgAXABQAAAATAAEAAAAQABMACQAZAAgACQAWABkACAAQAAAACAAZABAAAQAWAAkAAQATABYA"),
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("92LrUf7//n/3YhOu/v/+fwAAAAAAAP//AAAAAAAA/78AAAAAAABU1QAA//8AAP//AAD//wAA//8AAP//AABU1Qed61H+//5/B50Trv7//n///wAAAAD/////AAAAAP+///8AAAAAVNX/////AAD///////8AAP///////wAAVNUAAAAA/v/+fwAAAAD+//+/AAAAAP7/VNUAAP///v/+fwAA///+////AAD///7/VNX//////v/+f//////+//////////7/VNX//wAA/v/+f///AAD+//+///8AAP7/VNX/f////3////+//78AAP9/VNVU1f+//7//f/+/VNVU1f9/////f////7//vwAA/3+qKqoq/7//v/9//7+qKqoq/3///wAA/39U1VTV/3////9//79U1VTV/3////9//7+qKqoq/3///wAA/3+qKqoq")
+}, {
+"aabb": AABB(-0.2268, -0.36, 1, 0.4536, 0.72, 9.95398e-06),
+"attribute_data": PackedByteArray("/18AAP+fAAD/X/8//5//Pw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AgABAAMAAgAAAAEA"),
+"material": ExtResource("7_bpvdo"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAA/78AAP//AAD/v///AAAAAP+//////wAA/7//////////////////////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_kpgp4")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ym86v"]
+_surfaces = [{
+"aabb": AABB(-1, -0.94, -0.9, 2, 0.28, 1.8),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("CAAHAAsACAAGAAcABgAFAAcABgAEAAUABAAKAAUABAAJAAoACAAEAAYACAAJAAQABwAKAAsABwAFAAoADQAIAAwADQAJAAgADgAJAA0ADgAKAAkADwAKAA4ADwALAAoADAALAA8ADAAIAAsAAAAMAAIAAAANAAwAAQANAAAAAQAOAA0AAwAOAAEAAwAPAA4AAgAPAAMAAgAMAA8A"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("+je4SgbDAABOPUa1s9oAAPo3uEr4PAAATj1GtUslAAD//wAAG8cAADLz///+/wAA//8AAOM4AAAy8///AAAAAAAAAADjOAAAAAAAABvHAADMDP///v8AAMwM//8AAAAAvAO4Svg8AAC8A7hKBsMAABAJRrWz2gAAEAlGtUslAAA=")
+}, {
+"aabb": AABB(-0.562649, -0.858275, -0.63778, 0.0416248, 0.11655, 1.27556),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAJTeAAD///7///8AAAAAAABqIQAA/////wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dtep7"]
+resource_name = "NLIDoorway_Cube_022"
+_surfaces = [{
+"aabb": AABB(-1, -0.94, -0.9, 2, 0.28, 1.8),
+"attribute_data": PackedByteArray("rXLL+a1yy/lRjYj6UY2I+q1yMsatcjLGUY11xVGNdcX/X/8//1//P/9f/z//n/8//5//P/+f/z//X/9//1//f/9f/3//n/9//5//f/+f/3//X/+//x//f/9f/7//XwAA/x//P/9f////3/8//58AAP+f////3/9//5//v/+f/7+tcjLGrXIyxq1yMsatcsv5rXLL+a1yy/lRjYj6UY2I+lGNiPpRjXXFUY11xVGNdcU="),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray("FAASAB4AFAAOABIAEAANABMAEAAKAA0ACAAbAAwACAAXABsAFQAJAA8AFQAYAAkAEQAaAB0AEQALABoAJQAWACIAJQAZABYAKAAZACUAKAAcABkAKwAcACgAKwAfABwAIgAfACsAIgAWAB8AAQAhAAUAAQAkACEAAgAjAAAAAgAmACMABwAnAAMABwAqACcABAApAAYABAAgACkA"),
+"material": SubResource("StandardMaterial3D_n0t2x"),
+"name": "BareMetalDoorway",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 44,
+"vertex_data": PackedByteArray("+je4SgbD4dj6N7hKBsP/v049RrWz2uHYTj1GtbPa/7/6N7hK+DziWPo3uEr4PP+/Tj1GtUsl4lhOPUa1SyX/v///AAAbxwbN//8AABvH/7///wAAG8d69zLz///+////MvP///7/fM8y8////v916f//AADjONrn//8AAOM4/7///wAA4zi+yjLz//8AAP//MvP//wAAAecy8///AAAiyQAAAADjOCHjAAAAAOM4/78AAAAA4zhC4QAAAAAbx0HCAAAAABvH/78AAAAAG8f/wcwM///+////zAz///7/CsTMDP///v9awcwM//8AAP//zAz//wAALuLMDP//AABt47wDuEr4POJYvAO4Svg8/7+8A7hK+DwS4rwDuEoGw+HYvAO4SgbD/7+8A7hKBsNBwhAJRrWz2uHYEAlGtbPa/78QCUa1s9q/wBAJRrVLJeJYEAlGtUsl/78QCUa1SyWl4v///3////9/////fwAA/3////9/////f////38AAP9/ryFk4gAA/3/EGS8w/3//v0EiC+TwJH8oTFM3SQAA/3+cSpEO/3//v59RUkq4Tr4LNknaTwAA/38083LC3h4p2gAA/3+RvB/V/3//v2Ifq9uVuHzW/3//v+BGY1Gp9ZvB////f////38g9CLC////f////3/uvajU////fwAA/392szzY////fwAA/3/G9OnB")
+}, {
+"aabb": AABB(-0.562649, -0.858275, -0.63778, 0.0416248, 0.11655, 1.27556),
+"attribute_data": PackedByteArray("rXLL+VGNiPqtcjLGUY11xQ=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"material": ExtResource("7_bpvdo"),
+"name": "DoorHighlightColour",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAJTelMH///7///89wQAAAABqITHj/////wAAnt0buvbVvrfF1mX1s8EP793D")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ym86v")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p360o"]
+size = Vector3(4, 4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5qul8"]
+size = Vector3(4, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o8np3"]
+size = Vector3(4, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6v672"]
+material = ExtResource("9_i0cit")
+size = Vector3(0.05, 4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1st2w"]
+size = Vector3(0.05, 4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_llhw6"]
+material = ExtResource("10_l7bxg")
+size = Vector3(2.2, 4, 0.5)
+
+[node name="ForemansOfficeFoyer" type="Node3D"]
+script = ExtResource("1_ligrs")
+
+[node name="Terrain" type="NavigationRegion3D" parent="."]
+
+[node name="Floor" parent="Terrain" instance=ExtResource("2_bnwp3")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 15, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor"]
+mesh = SubResource("BoxMesh_4dm6f")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_y0obx")
+
+[node name="Floor2" parent="Terrain" instance=ExtResource("2_bnwp3")]
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 1, 0, -5, 0, -4.37114e-07, -10, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor2"]
+mesh = SubResource("BoxMesh_4dm6f")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_y0obx")
+
+[node name="Endcaps" type="Node3D" parent="Terrain"]
+
+[node name="OfficeWallEndcap" parent="Terrain/Endcaps" instance=ExtResource("3_0u3tv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -7.5)
+
+[node name="OfficeWallEndcap5" parent="Terrain/Endcaps" instance=ExtResource("3_0u3tv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -2.5)
+
+[node name="OfficeWallEndcap6" parent="Terrain/Endcaps" instance=ExtResource("3_0u3tv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, 2.5)
+
+[node name="OfficeWallOuterCorner" parent="Terrain/Endcaps" instance=ExtResource("5_5sxfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2.5)
+
+[node name="OfficeWallOuterCorner2" parent="Terrain/Endcaps" instance=ExtResource("5_5sxfx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0, 2.5)
+
+[node name="OfficeWallEndcap2" parent="Terrain/Endcaps" instance=ExtResource("3_0u3tv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0, 7.5)
+
+[node name="OfficeWallEndcap3" parent="Terrain/Endcaps" instance=ExtResource("3_0u3tv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 0, 7.5)
+
+[node name="OfficeWallEndcap4" parent="Terrain/Endcaps" instance=ExtResource("3_0u3tv")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 5, 0, -7.5)
+
+[node name="Walls" type="Node3D" parent="Terrain"]
+
+[node name="OfficeWallPrefabDivot" parent="Terrain/Walls" instance=ExtResource("5_8aosl")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -10, 0, -2.5)
+
+[node name="OfficeWall9" parent="Terrain/Walls" instance=ExtResource("4_qhp7g")]
+transform = Transform3D(3.01992e-07, 0, -1, 0, 1, 0, 4, 0, 7.54979e-08, -5, 0, -5)
+
+[node name="OfficeWall10" parent="Terrain/Walls" instance=ExtResource("4_qhp7g")]
+transform = Transform3D(-2, 0, -1.50996e-07, 0, 1, 0, 3.01992e-07, 0, -1, -3, 0, -7.5)
+
+[node name="OfficeWall11" parent="Terrain/Walls" instance=ExtResource("4_qhp7g")]
+transform = Transform3D(-2, 0, -1.50996e-07, 0, 1, 0, 3.01992e-07, 0, -1, 3, 0, -7.5)
+
+[node name="OfficeWall12" parent="Terrain/Walls" instance=ExtResource("4_qhp7g")]
+transform = Transform3D(-6.55671e-07, 0, 1, 0, 1, 0, -15, 0, -4.37114e-08, 5, 0, 0)
+
+[node name="OfficeWall13" parent="Terrain/Walls" instance=ExtResource("4_qhp7g")]
+transform = Transform3D(2, 0, 1.42109e-14, 0, 1, 0, -2.84217e-14, 0, 1, 3, 0, 7.5)
+
+[node name="OfficeWall14" parent="Terrain/Walls" instance=ExtResource("4_qhp7g")]
+transform = Transform3D(2, 0, 1.42109e-14, 0, 1, 0, -2.84217e-14, 0, 1, -3, 0, 7.5)
+
+[node name="OfficeWall15" parent="Terrain/Walls" instance=ExtResource("4_qhp7g")]
+transform = Transform3D(-1.74846e-07, 0, -1, 0, 1, 0, 4, 0, -4.37114e-08, -5, 0, 5)
+
+[node name="OfficeWall16" parent="Terrain/Walls" instance=ExtResource("4_qhp7g")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 5, 0, -4.37114e-08, -15, 0, 0)
+
+[node name="OfficeWall18" parent="Terrain/Walls" instance=ExtResource("4_qhp7g")]
+transform = Transform3D(-9, 0, -1.50996e-07, 0, 1, 0, 1.35896e-06, 0, -1, -10, 0, -2.5)
+
+[node name="OfficeWallPrefabExtinguisher" parent="Terrain/Walls" instance=ExtResource("7_mh7x6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8, 0, -2.5)
+
+[node name="OfficeWall19" parent="Terrain/Walls" instance=ExtResource("4_qhp7g")]
+transform = Transform3D(9, 0, 2.38419e-07, 0, 1, 0, -2.14577e-06, 0, 1, -10, 0, 2.5)
+
+[node name="OfficeWallPrefabVent" parent="Terrain/Walls" instance=ExtResource("8_cdasy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, -3.5)
+
+[node name="OfficeWallPrefabAC" parent="Terrain/Walls" instance=ExtResource("8_g6hfs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, 4)
+
+[node name="Obstacles" type="Node3D" parent="Terrain"]
+
+[node name="TrashBinObstacle" parent="Terrain/Obstacles" instance=ExtResource("9_1r7wy")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -11.5, 0, -2)
+
+[node name="BasicShopInteractableObject" parent="Terrain" instance=ExtResource("10_i1gnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -1.5)
+
+[node name="Area" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="EnemySpawners" type="Node3D" parent="."]
+
+[node name="LootSpawners" type="Node3D" parent="."]
+
+[node name="RoomConnectors" type="Node3D" parent="."]
+
+[node name="NLIBasicRoomConnector4" parent="RoomConnectors" instance=ExtResource("6_3vggc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.5)
+
+[node name="NLIFakeDoor" type="StaticBody3D" parent="RoomConnectors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+collision_layer = 1024
+collision_mask = 0
+
+[node name="Locked" type="Node3D" parent="RoomConnectors/NLIFakeDoor"]
+
+[node name="LeftDoor" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor/Locked"]
+transform = Transform3D(-3.93403e-09, 0, 1.092, 0, 1.8252, 0, -0.09, 0, -4.77328e-08, -1.08, 1.89223, -9.8492e-08)
+mesh = SubResource("ArrayMesh_oofgp")
+skeleton = NodePath("")
+
+[node name="Lock" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor/Locked/LeftDoor"]
+transform = Transform3D(0.355556, 0, 0, 0, 0.1664, 0, 0, 0, 0.48, -1.44444, 0, 0.989011)
+mesh = SubResource("ArrayMesh_86b74")
+skeleton = NodePath("")
+
+[node name="Lock_001" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor/Locked/LeftDoor"]
+transform = Transform3D(-0.355556, 0, -4.42686e-07, 0, 0.1664, 0, 3.27916e-07, 0, -0.48, 1.33333, 0, 0.989011)
+mesh = SubResource("ArrayMesh_ne8jo")
+skeleton = NodePath("")
+surface_material_override/1 = SubResource("StandardMaterial3D_2jh8e")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="RoomConnectors/NLIFakeDoor/Locked/LeftDoor"]
+transform = Transform3D(-1, 0, 1.83208e-06, 0, 1, 0, -1.24447e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomConnectors/NLIFakeDoor/Locked/LeftDoor/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_k2ppd")
+
+[node name="RightDoor" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor/Locked"]
+transform = Transform3D(1.75237e-08, 0, -1.092, 0, 1.8252, 0, 0.09, 0, 2.1262e-07, 1.08, 1.89223, -1.92909e-07)
+mesh = SubResource("ArrayMesh_fg418")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoomConnectors/NLIFakeDoor/Locked/RightDoor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomConnectors/NLIFakeDoor/Locked/RightDoor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_a1fmv")
+
+[node name="Doorway" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(-8.74228e-08, 0, 2.4, 0, 2.808, 0, -2, 0, -1.04907e-07, 1.457e-07, 1.89223, -1.457e-07)
+mesh = SubResource("ArrayMesh_srx80")
+skeleton = NodePath("")
+
+[node name="DoorHighlight" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(-4.28372e-09, 0, 0.84, 0, 0.9828, 0, -0.098, 0, -3.67176e-08, 1.54443e-07, 4.41943, 0.2)
+mesh = SubResource("ArrayMesh_qmphx")
+skeleton = NodePath("")
+
+[node name="DoorHighlight_001" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(1.90813e-08, 0, -0.84, 0, 0.9828, 0, 0.098, 0, 1.63554e-07, 1.36958e-07, 4.41943, -0.2)
+mesh = SubResource("ArrayMesh_xocti")
+skeleton = NodePath("")
+
+[node name="DoorPost" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(-1.31134e-08, 0, 0.09, 0, 2, 0, -0.3, 0, -3.93403e-09, -1.9, 2, 0.5)
+mesh = SubResource("ArrayMesh_t4usa")
+skeleton = NodePath("")
+
+[node name="DoorHighlight_002" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor/DoorPost"]
+transform = Transform3D(0.326667, 0, 0, 0, 6.95387e-06, 0.35, 0, -7.77778, 3.12924e-07, -1.3, 0, -5.55555)
+mesh = SubResource("ArrayMesh_bg8yf")
+skeleton = NodePath("")
+
+[node name="DoorPost_004" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(5.84122e-08, 0, -0.09, 0, 2, 0, 0.3, 0, 1.75236e-08, 1.9, 2, 0.5)
+mesh = SubResource("ArrayMesh_6topj")
+skeleton = NodePath("")
+
+[node name="DoorHighlight_003" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor/DoorPost_004"]
+transform = Transform3D(-0.326667, 1.95735e-06, 8.80809e-08, -8.22087e-08, 6.95387e-06, -0.35, -8.22088e-08, -7.77778, -2.92063e-07, 1.3, 0, -5.55555)
+mesh = SubResource("ArrayMesh_dds3e")
+skeleton = NodePath("")
+
+[node name="DoorPost_001" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(-1.31134e-08, 0, 0.09, 0, 2, 0, -0.3, 0, -3.93403e-09, -1.9, 2, -0.5)
+mesh = SubResource("ArrayMesh_yfw5t")
+skeleton = NodePath("")
+
+[node name="DoorHighlight_004" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor/DoorPost_001"]
+transform = Transform3D(-0.326667, -4.22387e-06, -1.90074e-07, 1.77402e-07, 4.17232e-06, -0.35, 1.77402e-07, -7.77778, -1.66893e-07, 1.3, 0, -5.55555)
+mesh = SubResource("ArrayMesh_gfb18")
+skeleton = NodePath("")
+
+[node name="DoorPost_005" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(5.84122e-08, 0, -0.09, 0, 2, 0, 0.3, 0, 1.75236e-08, 1.9, 2, -0.5)
+mesh = SubResource("ArrayMesh_3q8ev")
+skeleton = NodePath("")
+
+[node name="DoorHighlight_005" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor/DoorPost_005"]
+transform = Transform3D(0.326667, 0, 0, 0, 6.95387e-06, 0.35, 0, -7.77778, 3.12924e-07, -1.3, 0, -5.55556)
+mesh = SubResource("ArrayMesh_dtep7")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_p360o")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="RoomConnectors/NLIFakeDoor"]
+layer = 0
+
+[node name="InteractionIcon" parent="RoomConnectors/NLIFakeDoor/CanvasLayer" instance=ExtResource("8_r85ma")]
+
+[node name="Floor" type="StaticBody3D" parent="RoomConnectors/NLIFakeDoor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomConnectors/NLIFakeDoor/Floor"]
+shape = SubResource("BoxShape3D_5qul8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor/Floor"]
+mesh = SubResource("BoxMesh_o8np3")
+surface_material_override/0 = ExtResource("9_i0cit")
+
+[node name="DoorSealRight" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95, 2, 0)
+mesh = SubResource("BoxMesh_6v672")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoomConnectors/NLIFakeDoor/DoorSealRight"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomConnectors/NLIFakeDoor/DoorSealRight/StaticBody3D"]
+shape = SubResource("BoxShape3D_1st2w")
+
+[node name="DoorSealLeft" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95, 2, 0)
+mesh = SubResource("BoxMesh_6v672")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoomConnectors/NLIFakeDoor/DoorSealLeft"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomConnectors/NLIFakeDoor/DoorSealLeft/StaticBody3D"]
+shape = SubResource("BoxShape3D_1st2w")
+
+[node name="InteractionIconMarker" type="Marker3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89726, 0)
+
+[node name="VoidPart2" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1, 2, 0)
+mesh = SubResource("BoxMesh_llhw6")
+
+[node name="VoidPart3" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(3, 0, 0, 0, 1.05, 0, 0, 0, 2, -0.1, 2, 0.5)
+mesh = SubResource("BoxMesh_llhw6")
+
+[node name="VoidPart4" type="MeshInstance3D" parent="RoomConnectors/NLIFakeDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1, 2, 0)
+mesh = SubResource("BoxMesh_llhw6")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

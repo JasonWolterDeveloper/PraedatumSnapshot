@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyrvsi8mb5alo"]
+
+[ext_resource type="PackedScene" uid="uid://0gol80rl46iv" path="res://UIObjects/CombatUI/ActiveAbilityUI/ActiveAbilityControl.tscn" id="1_4xi8f"]
+[ext_resource type="Script" path="res://UIObjects/PlayerHUD/ActiveAbilities/ActiveAbilityHUDControl.gd" id="1_te2hd"]
+[ext_resource type="Texture2D" uid="uid://d1oqshrb0oead" path="res://UIObjects/Assets/ButtonPrompts/Keyboard & Mouse/Dark/Shift_Alt_Key_Dark.png" id="3_ipiox"]
+[ext_resource type="Texture2D" uid="uid://c5b2dx8fk42bp" path="res://UIObjects/Assets/ButtonPrompts/Keyboard & Mouse/Dark/E_Key_Dark.png" id="4_hl4mn"]
+[ext_resource type="Texture2D" uid="uid://hnk3d8rdeh7p" path="res://UIObjects/Assets/ButtonPrompts/Keyboard & Mouse/Dark/Z_Key_Dark.png" id="5_ysy2l"]
+
+[node name="ActiveAbilityHUDControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_te2hd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="MovementAbilityControl" parent="HBoxContainer" instance=ExtResource("1_4xi8f")]
+layout_mode = 2
+
+[node name="AbilityUseKeyTexture" parent="HBoxContainer/MovementAbilityControl/PanelContainer/VBoxContainer/Container" index="0"]
+texture = ExtResource("3_ipiox")
+
+[node name="DamageAbilityControl" parent="HBoxContainer" instance=ExtResource("1_4xi8f")]
+layout_mode = 2
+
+[node name="CrowdControlAbilityControl" parent="HBoxContainer" instance=ExtResource("1_4xi8f")]
+layout_mode = 2
+
+[node name="AbilityUseKeyTexture" parent="HBoxContainer/CrowdControlAbilityControl/PanelContainer/VBoxContainer/Container" index="0"]
+texture = ExtResource("4_hl4mn")
+
+[node name="BuffAbilityControl" parent="HBoxContainer" instance=ExtResource("1_4xi8f")]
+layout_mode = 2
+
+[node name="AbilityUseKeyTexture" parent="HBoxContainer/BuffAbilityControl/PanelContainer/VBoxContainer/Container" index="0"]
+texture = ExtResource("5_ysy2l")
+
+[editable path="HBoxContainer/MovementAbilityControl"]
+[editable path="HBoxContainer/CrowdControlAbilityControl"]
+[editable path="HBoxContainer/BuffAbilityControl"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqlcifivlyduo"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_t2gwv"]
+[ext_resource type="PackedScene" uid="uid://oaiqs3idb2h7" path="res://Content/Demo/Assets/Terrain/Obstacles/Shelf/Shelf.glb" id="2_qutkc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kwtd5"]
+size = Vector3(0.0957642, 1, 0.104614)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ewtut"]
+size = Vector3(2, 0.0605469, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_giina"]
+size = Vector3(2, 0.809387, 1)
+
+[node name="ShelfObstacle" type="StaticBody3D"]
+script = ExtResource("1_t2gwv")
+
+[node name="Shelf" parent="." instance=ExtResource("2_qutkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.779427, 0)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.946716, 1.30893, 0.447693)
+shape = SubResource("BoxShape3D_kwtd5")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.946716, 1.30893, -0.451489)
+shape = SubResource("BoxShape3D_kwtd5")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.953289, 1.30893, 0.443537)
+shape = SubResource("BoxShape3D_kwtd5")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.953289, 1.30893, -0.447342)
+shape = SubResource("BoxShape3D_kwtd5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77869, 0)
+shape = SubResource("BoxShape3D_ewtut")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.405064, 0)
+shape = SubResource("BoxShape3D_giina")

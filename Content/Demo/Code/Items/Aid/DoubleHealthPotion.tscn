@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://drp15s78gcsys"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Aid/DoubleHealthPotion.gd" id="1_xncie"]
+[ext_resource type="Texture2D" uid="uid://4fshj57ynwjh" path="res://Content/Demo/Assets/Items/HealthPotion/DoubleHealthPotionInventoryImage.png" id="2_antaf"]
+
+[node name="DoubleHealthPotion" type="Node3D"]
+script = ExtResource("1_xncie")
+heal_amount = 40.0
+utility_item_use_message = "Used Health Potion"
+inventory_image = ExtResource("2_antaf")
+display_name = "Double Health Potion"
+item_id = "double_health_potion"
+item_type = 3
+grid_square_width = 1
+grid_square_height = 2

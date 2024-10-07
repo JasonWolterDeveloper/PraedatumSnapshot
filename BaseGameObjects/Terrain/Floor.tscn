@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb78sar46vq83"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Floor.gd" id="1_cnxe4"]
+
+[node name="Floor" type="StaticBody3D"]
+script = ExtResource("1_cnxe4")

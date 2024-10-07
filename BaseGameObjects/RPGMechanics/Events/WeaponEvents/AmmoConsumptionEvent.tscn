@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdq21qr5igtnd"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Events/WeaponEvents/AmmoConsumptionEvent.gd" id="1_j387g"]
+
+[node name="AmmoConsumptionEvent" type="Node"]
+script = ExtResource("1_j387g")

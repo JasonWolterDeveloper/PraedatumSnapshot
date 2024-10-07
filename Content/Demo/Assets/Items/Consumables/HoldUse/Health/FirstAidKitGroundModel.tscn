@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6k5eulx2lnae"]
+
+[ext_resource type="PackedScene" uid="uid://dko7l0er4c5ge" path="res://Content/Demo/Assets/Items/Consumables/HoldUse/Health/FirstAidKitModel.glb" id="1_ulil3"]
+
+[node name="FAKGroundModel" type="Node3D"]
+
+[node name="FirstAidKitModel" parent="." instance=ExtResource("1_ulil3")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)

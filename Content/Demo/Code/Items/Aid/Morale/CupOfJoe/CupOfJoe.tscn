@@ -1,0 +1,46 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbo7uwe7bx5lm"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/AidItems/MoraleConsumables/MoraleItem.gd" id="1_8ps68"]
+[ext_resource type="Texture2D" uid="uid://crfs4ky3g1034" path="res://Content/Demo/Assets/Items/Consumables/Morale/CupOfJoe/CupOfJoeInventoryImage.png" id="2_12scp"]
+[ext_resource type="PackedScene" uid="uid://bthd0rug5bbrx" path="res://Content/Demo/Code/Items/Aid/Morale/CupOfJoe/CupOfJoeBuff.tscn" id="2_jr3r5"]
+[ext_resource type="PackedScene" uid="uid://bfl2dwixodmtc" path="res://Content/Demo/Assets/Items/Consumables/Morale/CupOfJoe/CupOfJoeGroundModel.tscn" id="3_17i00"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="5_e7dqs"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="6_avwbd"]
+
+[sub_resource type="Resource" id="Resource_vtwht"]
+script = ExtResource("6_avwbd")
+stat_title = "Mana per Segment"
+stat_value = "10.0"
+stat_value_colour = Color(0.0588235, 0.619608, 0.788235, 1)
+
+[sub_resource type="Resource" id="Resource_vdive"]
+script = ExtResource("6_avwbd")
+stat_title = "Health per Segment"
+stat_value = "2.0"
+stat_value_colour = Color(0.639216, 0.0509804, 0, 1)
+
+[sub_resource type="Resource" id="Resource_i7pks"]
+script = ExtResource("6_avwbd")
+stat_title = "Duration"
+stat_value = "450"
+stat_value_colour = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_1n7mj"]
+script = ExtResource("5_e7dqs")
+stat_entry_array = Array[ExtResource("6_avwbd")]([SubResource("Resource_vtwht"), SubResource("Resource_vdive"), SubResource("Resource_i7pks")])
+
+[node name="CupOfJoe" type="Node3D"]
+script = ExtResource("1_8ps68")
+morale_buff_scene = ExtResource("2_jr3r5")
+utility_item_use_message = "Drank Cup O' Joe"
+inventory_image = ExtResource("2_12scp")
+ground_3d_model_scene = ExtResource("3_17i00")
+display_name = "Cup O' Joe"
+item_id = "cup_of_joe"
+description = "A caffein-infused boost to your maximum mana pool and health. Gives you the power to crunch through spreadsheets, or Rogue Bots."
+show_quantity_in_ui = true
+default_price = 50
+item_stat_entry_collection = SubResource("Resource_1n7mj")
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

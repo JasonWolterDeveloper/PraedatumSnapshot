@@ -1,0 +1,203 @@
+[gd_scene load_steps=53 format=3 uid="uid://183uukpvhubk"]
+
+[ext_resource type="PackedScene" uid="uid://cxhh7ufhs48b3" path="res://BaseGameObjects/Inventory/CombatItems/Guns/GunInternalMagazine.tscn" id="1_dqyer"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Weapons/TrenchSweeper/TrenchSweeper.gd" id="2_6leya"]
+[ext_resource type="PackedScene" uid="uid://yw6iar2t32h3" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/TrenchSweeperWeaponModel.tscn" id="3_ffdkq"]
+[ext_resource type="PackedScene" uid="uid://cxwf3oj3abe3m" path="res://Content/Demo/Code/Items/Weapons/TrenchSweeper/TrenchSweeperMagazine.tscn" id="3_ohniy"]
+[ext_resource type="Texture2D" uid="uid://v8bfe15s15ul" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/TrenchSweeperInventoryImage.png" id="3_ps4l2"]
+[ext_resource type="PackedScene" uid="uid://dxbnkcijpfq6y" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/TrenchSweeperGroundModel.tscn" id="4_nyj7j"]
+[ext_resource type="Resource" uid="uid://dy4ytk3blwfue" path="res://Content/Demo/Code/Items/Weapons/TrenchSweeper/TrenchSweeperStats.tres" id="6_16rgm"]
+[ext_resource type="PackedScene" uid="uid://dkqcr854w5h5r" path="res://BaseGameObjects/SoundMaster.tscn" id="7_fswly"]
+[ext_resource type="AudioStream" uid="uid://da6ownsjiv4qo" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_fire1-001.wav" id="8_egwgr"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="8_lhpt0"]
+[ext_resource type="AudioStream" uid="uid://2wur8tsbvdt3" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_fire1-002.wav" id="9_lybpv"]
+[ext_resource type="AudioStream" uid="uid://sstumo3yrkuj" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_fire1-003.wav" id="10_0rxp0"]
+[ext_resource type="AudioStream" uid="uid://d32wxryrtkyrs" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_fire1-004.wav" id="11_yr8ug"]
+[ext_resource type="AudioStream" uid="uid://7ysng72y2ro7" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_fire2-001.wav" id="12_3njre"]
+[ext_resource type="AudioStream" uid="uid://dqsk07pdvd6ny" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_fire2-002.wav" id="13_egxec"]
+[ext_resource type="AudioStream" uid="uid://i0tf5oontysu" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_fire2-003.wav" id="14_fhham"]
+[ext_resource type="AudioStream" uid="uid://sp1kke7obfgy" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_fire2-004.wav" id="15_cptqm"]
+[ext_resource type="AudioStream" uid="uid://dyvevvwpisvkj" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_fire3-001.wav" id="16_i8oe7"]
+[ext_resource type="AudioStream" uid="uid://coued0kripgw7" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_fire3-002.wav" id="17_8xwfa"]
+[ext_resource type="AudioStream" uid="uid://d20pncmjc6nh" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_fire3-003.wav" id="18_sbp22"]
+[ext_resource type="AudioStream" uid="uid://bs8cx6g2nymau" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_fire3-004.wav" id="19_fr0um"]
+[ext_resource type="AudioStream" uid="uid://buygp34k27krg" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_super-fire1-004.wav" id="20_t1jcv"]
+[ext_resource type="AudioStream" uid="uid://bj3kpdkoqite5" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_super-fire1-003.wav" id="21_c6l5s"]
+[ext_resource type="AudioStream" uid="uid://defd2soguhu8q" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_super-fire1-002.wav" id="22_5d6kq"]
+[ext_resource type="AudioStream" uid="uid://gxinpiedui1b" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_super-fire1-001.wav" id="23_fme1g"]
+[ext_resource type="AudioStream" uid="uid://bebv4o0mhydsd" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_pump1-001.wav" id="24_q2cqw"]
+[ext_resource type="AudioStream" uid="uid://ng323r2kpbbe" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_pump1-002.wav" id="25_hisgn"]
+[ext_resource type="AudioStream" uid="uid://wfgc610e8u65" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_pump1-003.wav" id="26_8i60g"]
+[ext_resource type="AudioStream" uid="uid://6ynxf04d0ycd" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_pump2-001.wav" id="27_pii5f"]
+[ext_resource type="AudioStream" uid="uid://j7taem31cnpd" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_pump2-002.wav" id="28_f2nrr"]
+[ext_resource type="AudioStream" uid="uid://d2l32yfns6jx" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_pump2-003.wav" id="29_utgad"]
+[ext_resource type="AudioStream" uid="uid://dbo6c8q74si68" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_pump3-001.wav" id="31_0ruy6"]
+[ext_resource type="AudioStream" uid="uid://sk7sw0sf2iwn" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_shell-insert-001.wav" id="31_wyos8"]
+[ext_resource type="AudioStream" uid="uid://clr6moh1t7yn2" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_shell-insert-002.wav" id="32_c2yuy"]
+[ext_resource type="AudioStream" uid="uid://6yogu75yeco1" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_pump3-002.wav" id="32_sv4bk"]
+[ext_resource type="AudioStream" uid="uid://d282haiaqel8m" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_pump3-003.wav" id="33_56itb"]
+[ext_resource type="AudioStream" uid="uid://cwtgo2md26kqp" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_shell-insert-003.wav" id="33_a3byh"]
+[ext_resource type="AudioStream" uid="uid://c14y527b1bvdc" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_shell-insert-004.wav" id="34_msia7"]
+[ext_resource type="AudioStream" uid="uid://csivec67xu7xg" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_shell-insert-005.wav" id="35_ure64"]
+[ext_resource type="AudioStream" uid="uid://3w8j50383h0h" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_shell-insert-006.wav" id="36_cg4om"]
+[ext_resource type="AudioStream" uid="uid://d3od0v4lag7ch" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_shell-insert-007.wav" id="37_4nlov"]
+[ext_resource type="AudioStream" uid="uid://doojgfw6u32jj" path="res://Content/Demo/Assets/Weapons/TrenchSweeper/Audio/trench-sweeper_shell-insert-008.wav" id="38_krbbv"]
+[ext_resource type="AudioStream" uid="uid://cps4tt330xwh" path="res://Content/Demo/Assets/Weapons/TheBackup/Audio/the-backup_dry-fire-001.wav" id="42_qvr0a"]
+
+[sub_resource type="Resource" id="Resource_bydku"]
+script = ExtResource("8_lhpt0")
+stat_id = "movement_speed"
+value = -0.33
+is_multiplicative = true
+is_number_of_segments = false
+is_value_per_segment = false
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_56ah0"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("8_egwgr")
+stream_1/stream = ExtResource("9_lybpv")
+stream_2/stream = ExtResource("10_0rxp0")
+stream_3/stream = ExtResource("11_yr8ug")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ukyky"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("12_3njre")
+stream_1/stream = ExtResource("13_egxec")
+stream_2/stream = ExtResource("14_fhham")
+stream_3/stream = ExtResource("15_cptqm")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mra3v"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("16_i8oe7")
+stream_1/stream = ExtResource("17_8xwfa")
+stream_2/stream = ExtResource("18_sbp22")
+stream_3/stream = ExtResource("19_fr0um")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ytoyk"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("20_t1jcv")
+stream_1/stream = ExtResource("21_c6l5s")
+stream_2/stream = ExtResource("22_5d6kq")
+stream_3/stream = ExtResource("23_fme1g")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lfmsn"]
+random_pitch = 1.1
+streams_count = 3
+stream_0/stream = ExtResource("24_q2cqw")
+stream_1/stream = ExtResource("25_hisgn")
+stream_2/stream = ExtResource("26_8i60g")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yva56"]
+random_pitch = 1.1
+streams_count = 3
+stream_0/stream = ExtResource("27_pii5f")
+stream_1/stream = ExtResource("28_f2nrr")
+stream_2/stream = ExtResource("29_utgad")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mx0qv"]
+random_pitch = 1.1
+streams_count = 3
+stream_0/stream = ExtResource("31_0ruy6")
+stream_1/stream = ExtResource("32_sv4bk")
+stream_2/stream = ExtResource("33_56itb")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wrevb"]
+streams_count = 8
+stream_0/stream = ExtResource("31_wyos8")
+stream_1/stream = ExtResource("32_c2yuy")
+stream_2/stream = ExtResource("33_a3byh")
+stream_3/stream = ExtResource("34_msia7")
+stream_4/stream = ExtResource("35_ure64")
+stream_5/stream = ExtResource("36_cg4om")
+stream_6/stream = ExtResource("37_4nlov")
+stream_7/stream = ExtResource("38_krbbv")
+
+[node name="TrenchSweeper" instance=ExtResource("1_dqyer")]
+script = ExtResource("2_6leya")
+alt_additional_pellets = 1
+alt_fire_shots = 2
+both_barrels_screen_shake = 0.25
+both_barrels_screen_shake_recovery = 0.14
+both_barrels_screen_flash = 0.5
+both_barrels_screen_recovery = 0.2
+is_semi_auto = true
+time_between_shots = 0.75
+base_spread = 0.04
+screen_shake_on_fire_amount = 0.08
+weapon_model_scene = ExtResource("3_ffdkq")
+inventory_image = ExtResource("3_ps4l2")
+ground_3d_model_scene = ExtResource("4_nyj7j")
+display_name = "Trench Sweeper"
+item_id = "trench_sweeper"
+player_pose = "rifle"
+description = "Originally introduced to combat drones in the corporate war, the Trench Sweeper was found to provide extra stopping power against the more durable bots in NLI's arsenal.
+
+Secondary fire shoots both barrels, providing extra damage while consuming more ammo.
+
+Chambered in Shotgun Ammunition"
+show_quantity_in_ui = true
+default_price = 600
+item_stat_entry_collection = ExtResource("6_16rgm")
+rpg_stat_modifiers = Array[ExtResource("8_lhpt0")]([SubResource("Resource_bydku")])
+grid_square_width = 4
+grid_square_height = 1
+
+[node name="ReloadMaster" parent="." index="0"]
+max_reload_time = 1.5
+
+[node name="TrenchSweeperMagazine" parent="." index="1" instance=ExtResource("3_ohniy")]
+
+[node name="SoundMaster" parent="." index="2" instance=ExtResource("7_fswly")]
+
+[node name="FireHigh" type="AudioStreamPlayer" parent="SoundMaster" index="0"]
+stream = SubResource("AudioStreamRandomizer_56ah0")
+volume_db = -2.0
+bus = &"Gun Fire"
+
+[node name="FireLow" type="AudioStreamPlayer" parent="SoundMaster" index="1"]
+stream = SubResource("AudioStreamRandomizer_ukyky")
+volume_db = -2.0
+bus = &"Gun Fire"
+
+[node name="FireCritical" type="AudioStreamPlayer" parent="SoundMaster" index="2"]
+stream = SubResource("AudioStreamRandomizer_mra3v")
+volume_db = -2.0
+bus = &"Gun Fire"
+
+[node name="SuperFire" type="AudioStreamPlayer" parent="SoundMaster" index="3"]
+stream = SubResource("AudioStreamRandomizer_ytoyk")
+volume_db = -2.0
+bus = &"Gun Fire"
+
+[node name="PumpHigh" type="AudioStreamPlayer" parent="SoundMaster" index="4"]
+stream = SubResource("AudioStreamRandomizer_lfmsn")
+volume_db = 2.0
+bus = &"Gun Other"
+
+[node name="PumpLow" type="AudioStreamPlayer" parent="SoundMaster" index="5"]
+stream = SubResource("AudioStreamRandomizer_yva56")
+volume_db = 2.0
+bus = &"Gun Other"
+
+[node name="PumpCritical" type="AudioStreamPlayer" parent="SoundMaster" index="6"]
+stream = SubResource("AudioStreamRandomizer_mx0qv")
+volume_db = 2.0
+bus = &"Gun Other"
+
+[node name="ShellInsert" type="AudioStreamPlayer" parent="SoundMaster" index="7"]
+stream = SubResource("AudioStreamRandomizer_wrevb")
+volume_db = 4.0
+bus = &"Gun Other"
+
+[node name="DryFire" type="AudioStreamPlayer" parent="SoundMaster" index="8"]
+stream = ExtResource("42_qvr0a")
+volume_db = -4.357
+bus = &"Gun Other"
+
+[node name="PumpTimer" type="Timer" parent="." index="3"]
+wait_time = 0.35
+one_shot = true

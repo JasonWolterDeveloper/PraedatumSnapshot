@@ -1,0 +1,132 @@
+[gd_scene load_steps=8 format=3 uid="uid://btot2o0db0ac8"]
+
+[ext_resource type="Texture2D" uid="uid://cup0hq0cff7xs" path="res://UIObjects/Assets/ConversationUI/DefaultPortrait.png" id="1_234eu"]
+[ext_resource type="Script" path="res://UIObjects/ConversationSystem/ContactsMenu.gd" id="1_bd5bm"]
+[ext_resource type="FontFile" uid="uid://jjpdtk4jb6ea" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_ksgh0"]
+[ext_resource type="Texture2D" uid="uid://r8si526pnv4t" path="res://Content/Demo/Assets/RPGMechanics/ConversationCharacters/Elf/DefaultPortrait.png" id="2_x16cd"]
+[ext_resource type="PackedScene" uid="uid://dy4ygbqgb6bie" path="res://UIObjects/ConversationSystem/ContactButton.tscn" id="4_q5sha"]
+[ext_resource type="PackedScene" uid="uid://i8b7a0kr5yp0" path="res://UIObjects/ConversationSystem/ConversationMenu.tscn" id="5_p03e3"]
+[ext_resource type="PackedScene" uid="uid://bmdkxj5xtjqhk" path="res://Content/Demo/Code/RPGMechanics/Conversations/ElfConversations/ElfConversation.tscn" id="5_qj0qh"]
+
+[node name="ContactsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bd5bm")
+
+[node name="ContactsMenuPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1225, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ContactsMenuPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ContactsMenuPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContactsMenuPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ContactsMenuPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_x16cd")
+
+[node name="Label" type="Label" parent="ContactsMenuPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ksgh0")
+theme_override_font_sizes/font_size = 32
+text = "Elf
+"
+horizontal_alignment = 1
+
+[node name="ContactButton" parent="ContactsMenuPanel/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_q5sha")]
+layout_mode = 2
+contact_conversation_scene = ExtResource("5_qj0qh")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ContactsMenuPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="ContactsMenuPanel/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("1_234eu")
+
+[node name="Label" type="Label" parent="ContactsMenuPanel/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ksgh0")
+theme_override_font_sizes/font_size = 32
+text = "Dog-headed Man"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ContactsMenuPanel/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ksgh0")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Unavailable"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ContactsMenuPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="ContactsMenuPanel/MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_234eu")
+
+[node name="Label" type="Label" parent="ContactsMenuPanel/MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ksgh0")
+theme_override_font_sizes/font_size = 32
+text = "Nurse Holliday"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ContactsMenuPanel/MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ksgh0")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Unavailable"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ContactsMenuPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="ContactsMenuPanel/MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_234eu")
+
+[node name="Label" type="Label" parent="ContactsMenuPanel/MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ksgh0")
+theme_override_font_sizes/font_size = 32
+text = "Merlin"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ContactsMenuPanel/MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ksgh0")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Unavailable"
+
+[node name="ConversationMenu" parent="." instance=ExtResource("5_p03e3")]
+visible = false
+layout_mode = 1

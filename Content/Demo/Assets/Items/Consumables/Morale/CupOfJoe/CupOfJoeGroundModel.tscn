@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfl2dwixodmtc"]
+
+[ext_resource type="PackedScene" uid="uid://bny7he8gcy61o" path="res://Content/Demo/Assets/Items/Consumables/Morale/CupOfJoe/CupOfJoe.glb" id="1_tisqu"]
+
+[node name="CupOfJoeGroundModel" type="Node3D"]
+
+[node name="CupOfJoe" parent="." instance=ExtResource("1_tisqu")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)

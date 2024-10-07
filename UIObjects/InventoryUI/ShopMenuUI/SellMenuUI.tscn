@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1rpamlvr7ceb"]
+
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ShopMenuUI/SellMenuUI.gd" id="1_awjb1"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_i7amy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p22vj"]
+bg_color = Color(0.0768361, 0.0768358, 0.0768356, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btfb4"]
+bg_color = Color(0.0768361, 0.0768358, 0.0768356, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3a646"]
+bg_color = Color(0.489623, 0.489622, 0.489621, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pr67r"]
+bg_color = Color(0.489623, 0.489622, 0.489621, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[node name="SellMenuUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_awjb1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.0
+offset_right = 175.0
+offset_bottom = 324.0
+grow_horizontal = 2
+theme_override_constants/separation = 14
+
+[node name="DisplayNameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_i7amy")
+theme_override_font_sizes/font_size = 28
+text = "Item Name"
+horizontal_alignment = 1
+
+[node name="ItemBackground" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_p22vj")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ItemBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="ItemImage" type="TextureRect" parent="VBoxContainer/ItemBackground/MarginContainer"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityText" type="Label" parent="VBoxContainer/ItemBackground/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_i7amy")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="PriceText" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i7amy")
+theme_override_font_sizes/font_size = 24
+text = "Price: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SellButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_i7amy")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_btfb4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3a646")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pr67r")
+text = "Sell"
+
+[node name="ErrorMessage" type="Label" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.986296, 5.17406e-06, 1.54018e-06, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_i7amy")
+theme_override_font_sizes/font_size = 20
+text = "Error"
+autowrap_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/SellButton" to="." method="handle_sell"]

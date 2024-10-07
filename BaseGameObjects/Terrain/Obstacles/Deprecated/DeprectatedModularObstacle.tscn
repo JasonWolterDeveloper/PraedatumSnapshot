@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwxmlpj074kik"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Deprecated/DeprectatedModularObstacle.gd" id="1_n246c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n42xl"]
+
+[node name="ModularObstacle" type="StaticBody3D"]
+script = ExtResource("1_n246c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_n42xl")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://836yvmf1k1kq"]
+
+[ext_resource type="PackedScene" uid="uid://dsh0f6id4wrm3" path="res://BaseGameObjects/Combat/Projectiles/Projectile.tscn" id="1_l1ly2"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Projectiles/Grenades/GrenadeProjectile.gd" id="2_bvxf6"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Explosion.gd" id="3_57nin"]
+
+[node name="GrenadeProjectile" instance=ExtResource("1_l1ly2")]
+script = ExtResource("2_bvxf6")
+fuze_time = 3.0
+
+[node name="Explosion" type="Area3D" parent="." index="1"]
+collision_mask = 3
+script = ExtResource("3_57nin")
+
+[connection signal="explosion_finished" from="Explosion" to="." method="_on_explosion_explosion_finished"]

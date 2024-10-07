@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bthd0rug5bbrx"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/MoraleBuffs/MoraleBuff.gd" id="1_cdtff"]
+[ext_resource type="Texture2D" uid="uid://crfs4ky3g1034" path="res://Content/Demo/Assets/Items/Consumables/Morale/CupOfJoe/CupOfJoeInventoryImage.png" id="2_5tlkj"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="2_kjmdm"]
+
+[sub_resource type="Resource" id="Resource_apimi"]
+script = ExtResource("2_kjmdm")
+stat_id = "health"
+value = 2.0
+is_multiplicative = false
+is_number_of_segments = false
+is_value_per_segment = true
+
+[sub_resource type="Resource" id="Resource_lfvl4"]
+script = ExtResource("2_kjmdm")
+stat_id = "mana"
+value = 10.0
+is_multiplicative = false
+is_number_of_segments = false
+is_value_per_segment = true
+
+[node name="CupOfJoeBuff" type="Node"]
+script = ExtResource("1_cdtff")
+rpg_stat_modifiers = Array[ExtResource("2_kjmdm")]([SubResource("Resource_apimi"), SubResource("Resource_lfvl4")])
+base_duration = 450.0
+id = "CupOfJoe"
+ui_image = ExtResource("2_5tlkj")

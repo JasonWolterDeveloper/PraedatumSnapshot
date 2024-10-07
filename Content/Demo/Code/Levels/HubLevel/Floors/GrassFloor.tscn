@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dax1teoqnljel"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Floor.gd" id="1_lrk0p"]
+[ext_resource type="Shader" uid="uid://c8xme3lth2dok" path="res://Content/Demo/Code/Levels/HubLevel/Floors/GrassFloorShader.tres" id="2_uhdnm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4h4f3"]
+size = Vector3(1, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_edysv"]
+render_priority = 0
+shader = ExtResource("2_uhdnm")
+
+[node name="Floor" type="StaticBody3D"]
+script = ExtResource("1_lrk0p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4h4f3")
+surface_material_override/0 = SubResource("ShaderMaterial_edysv")

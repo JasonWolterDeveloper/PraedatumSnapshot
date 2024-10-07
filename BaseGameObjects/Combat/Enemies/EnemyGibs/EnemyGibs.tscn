@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://de8po4eej2tpy"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Enemies/EnemyGibs/EnemyGibs.gd" id="1_jcsx7"]
+
+[node name="EnemyGibs" type="Node3D"]
+script = ExtResource("1_jcsx7")

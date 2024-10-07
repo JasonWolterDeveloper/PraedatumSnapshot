@@ -1,0 +1,137 @@
+[gd_scene load_steps=8 format=3 uid="uid://cg5ge3idciyvr"]
+
+[ext_resource type="Script" path="res://UIObjects/AvalonMenu/WarriorMenus/WarriorAbilityMenu/WarriorAbilityButton.gd" id="1_thits"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_73f4r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6uwu"]
+bg_color = Color(0.0768361, 0.0768358, 0.0768356, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gh8xs"]
+bg_color = Color(0.489623, 0.489622, 0.489621, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aptnr"]
+bg_color = Color(0.847475, 0.847474, 0.847474, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27nvk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7v2aa"]
+bg_color = Color(0, 0.631373, 0.980392, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[node name="WarriorAbilityButton" type="Control"]
+custom_minimum_size = Vector2(500, 125)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_thits")
+
+[node name="AbilityButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_o6uwu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gh8xs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_aptnr")
+
+[node name="MarginContainer" type="MarginContainer" parent="AbilityButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 24
+
+[node name="AbilityNameLabel" type="Label" parent="AbilityButton/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_73f4r")
+theme_override_font_sizes/font_size = 28
+text = "This is my Ability"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AbilityButton/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 12
+
+[node name="PointCostLabel" type="Label" parent="AbilityButton/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "2"
+
+[node name="Control" type="Control" parent="AbilityButton/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="UnequippedIndicator" type="Panel" parent="AbilityButton/MarginContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_27nvk")
+
+[node name="EquippedIndicator" type="Panel" parent="AbilityButton/MarginContainer/HBoxContainer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7v2aa")
+
+[connection signal="mouse_entered" from="AbilityButton" to="." method="on_hover"]
+[connection signal="pressed" from="AbilityButton" to="." method="_on_button_pressed"]

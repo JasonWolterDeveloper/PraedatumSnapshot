@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://crtkecloyjgco"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Floor.gd" id="1_y80ty"]
+[ext_resource type="Material" uid="uid://cev4bf0o2ghrq" path="res://Content/Demo/Assets/Terrain/Floors/Materials/ConcreteFloorMaterial.tres" id="2_6udmn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3x4ks"]
+material = ExtResource("2_6udmn")
+size = Vector3(1, 0, 1)
+
+[node name="ConcreteFloor" type="StaticBody3D"]
+script = ExtResource("1_y80ty")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3x4ks")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckxnegjc37ehh"]
+
+[ext_resource type="Script" path="res://UIObjects/AvalonMenu/WarriorMenus/WarriorStatusMenu/WarriorStatusMenuElements/WarriorAbilityPointsLabel.gd" id="1_hubnm"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_om4na"]
+
+[node name="WarriorAbilityPointsLabel" type="Control"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hubnm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WarriorTitleLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_om4na")
+theme_override_font_sizes/font_size = 24
+text = "Ability Points:"
+
+[node name="WarriorUsedAbilityPointsLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_om4na")
+theme_override_font_sizes/font_size = 24
+text = "5
+"
+
+[node name="WarriorAbilityPointSeparator" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_om4na")
+theme_override_font_sizes/font_size = 24
+text = "/
+"
+
+[node name="WarriorAvailableAbilityPointsLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_om4na")
+theme_override_font_sizes/font_size = 24
+text = "5
+"

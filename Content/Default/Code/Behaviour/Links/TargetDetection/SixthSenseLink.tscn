@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnegwbqp3akle"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/SixthSenseLink.gd" id="1_077bn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ponhd"]
+radius = 1.0
+
+[node name="SixthSenseLink" type="Node3D"]
+script = ExtResource("1_077bn")
+uses_vision_cone = false
+detection_range = 3.0
+
+[node name="DetectionRange" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange"]
+shape = SubResource("SphereShape3D_ponhd")
+
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]

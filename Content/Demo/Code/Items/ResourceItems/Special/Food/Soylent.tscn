@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8b7nix0lj0ds"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_5werl"]
+[ext_resource type="Texture2D" uid="uid://ki6ndllaxgj" path="res://Content/Demo/Assets/Items/ResourceItems/Special/Food/Soylent/SoylentInventoryImage.png" id="2_ucq70"]
+[ext_resource type="PackedScene" uid="uid://bqw6u6tmp4dy3" path="res://Content/Demo/Assets/Items/ResourceItems/Special/Food/Soylent/SoylentGroundItem.tscn" id="3_6ywdk"]
+
+[node name="Soylent" type="Node3D"]
+script = ExtResource("1_5werl")
+inventory_image = ExtResource("2_ucq70")
+ground_3d_model_scene = ExtResource("3_6ywdk")
+display_name = "Soylent"
+item_id = "soylent"
+description = "A Chemically Engineered edible paste that takes on a variety of tastes and characteristics based on what its applied to
+
+Probably not made of people
+
+Can be used for crafting, or be sold"
+default_price = 50
+max_quantity = 5
+grid_square_width = 1
+grid_square_height = 1

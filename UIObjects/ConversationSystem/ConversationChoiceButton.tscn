@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvpxoeih60esf"]
+
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="1_0ue3x"]
+[ext_resource type="Script" path="res://UIObjects/ConversationSystem/ConversationChoiceButton.gd" id="2_h2cxw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovei1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwyxa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7kxb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4gvc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjt13"]
+bg_color = Color(0.140447, 0.140447, 0.140447, 1)
+
+[node name="ConversationChoiceButton" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0ue3x")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxFlat_ovei1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_vwyxa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b7kxb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i4gvc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rjt13")
+script = ExtResource("2_h2cxw")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxpqbqtumxem0"]
+
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="1_cnrkd"]
+[ext_resource type="PackedScene" uid="uid://bkhagmsliovx1" path="res://Content/Demo/Code/Levels/Rooms/RoomConnectors/NLIBasicRoomConnector.tscn" id="2_dknri"]
+[ext_resource type="Material" uid="uid://c73ohs5pjl3fh" path="res://Content/Demo/Code/Levels/Rooms/FloorMaterial/OfficeFloorMaterial.tres" id="2_oo0tw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_po8b0"]
+size = Vector3(6, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cesnl"]
+material = ExtResource("2_oo0tw")
+size = Vector3(6, 0, 1)
+
+[node name="OfficeHallEnd" type="Node3D"]
+
+[node name="OfficeWallEndcap" parent="." instance=ExtResource("1_cnrkd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -0.5)
+
+[node name="OfficeWallEndcap2" parent="." instance=ExtResource("1_cnrkd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, -0.5)
+
+[node name="NLIBasicRoomConnector" parent="." instance=ExtResource("2_dknri")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -0.5)
+
+[node name="Floor1" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor1"]
+shape = SubResource("BoxShape3D_po8b0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor1"]
+mesh = SubResource("BoxMesh_cesnl")

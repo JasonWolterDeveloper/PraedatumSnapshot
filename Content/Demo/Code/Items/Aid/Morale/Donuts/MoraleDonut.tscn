@@ -1,0 +1,41 @@
+[gd_scene load_steps=10 format=3 uid="uid://bs040psypjfup"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/AidItems/MoraleConsumables/MoraleItem.gd" id="1_trk67"]
+[ext_resource type="Texture2D" uid="uid://drqofiyct4qxt" path="res://Content/Demo/Assets/Items/Consumables/Morale/Donut/InventoryImage.png" id="2_2hbx7"]
+[ext_resource type="PackedScene" uid="uid://df1k5ga2jdpkj" path="res://Content/Demo/Code/Items/Aid/Morale/Donuts/MoraleDonutMoraleBuff.tscn" id="2_lt61l"]
+[ext_resource type="PackedScene" uid="uid://dt7dmgal7h5g4" path="res://Content/Demo/Code/Items/Aid/Morale/Donuts/MoraleDonutGroundModel.tscn" id="3_ivp5x"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="5_lc2al"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="6_soc8c"]
+
+[sub_resource type="Resource" id="Resource_y3uf7"]
+script = ExtResource("6_soc8c")
+stat_title = "Health per Segment"
+stat_value = "5"
+stat_value_colour = Color(0.639216, 0.0509804, 0, 1)
+
+[sub_resource type="Resource" id="Resource_i7pks"]
+script = ExtResource("6_soc8c")
+stat_title = "Duration"
+stat_value = "450"
+stat_value_colour = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_7kk7t"]
+script = ExtResource("5_lc2al")
+stat_entry_array = Array[ExtResource("6_soc8c")]([SubResource("Resource_y3uf7"), SubResource("Resource_i7pks")])
+
+[node name="MoraleDonut" type="Node3D"]
+script = ExtResource("1_trk67")
+morale_buff_scene = ExtResource("2_lt61l")
+utility_item_use_message = "Ate Donut"
+inventory_image = ExtResource("2_2hbx7")
+ground_3d_model_scene = ExtResource("3_ivp5x")
+display_name = "Donut"
+item_id = "donut"
+description = "A tasty and caloric treat. Consuming the Donut will increase your maximum health for a time."
+show_quantity_in_ui = true
+default_price = 15
+item_type = 3
+item_stat_entry_collection = SubResource("Resource_7kk7t")
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

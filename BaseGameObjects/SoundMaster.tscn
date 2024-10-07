@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkqcr854w5h5r"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/SoundMaster.gd" id="1_ljmcc"]
+
+[node name="SoundMaster" type="Node3D"]
+script = ExtResource("1_ljmcc")

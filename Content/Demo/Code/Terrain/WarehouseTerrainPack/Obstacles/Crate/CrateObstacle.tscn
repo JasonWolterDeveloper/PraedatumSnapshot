@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0y5xg7rr5udg"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_haf5q"]
+[ext_resource type="PackedScene" uid="uid://dv3npnhtjtj3q" path="res://Content/Demo/Assets/Terrain/Obstacles/Crate/CrateModel.tscn" id="2_voq8r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7t8c"]
+size = Vector3(1.33923, 1.44798, 1.35413)
+
+[node name="CrateObstacle" type="StaticBody3D"]
+script = ExtResource("1_haf5q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00469965, 0.624267, -0.000544409)
+shape = SubResource("BoxShape3D_j7t8c")
+
+[node name="Crate" parent="." instance=ExtResource("2_voq8r")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.678034, 0)

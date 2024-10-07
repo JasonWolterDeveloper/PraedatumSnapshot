@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://diqj36ck5xd2"]
+
+[ext_resource type="PackedScene" uid="uid://trudhgiwce4i" path="res://Content/Demo/Assets/Items/ResourceItems/PixieDust/PixieDust.glb" id="1_5f023"]
+
+[node name="PixieDustGroundModel" type="Node3D"]
+
+[node name="PixieDust" parent="." instance=ExtResource("1_5f023")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.00179863, 0.00686669, -0.00329208)

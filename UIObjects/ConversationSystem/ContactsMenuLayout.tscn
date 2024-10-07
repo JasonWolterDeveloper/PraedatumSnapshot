@@ -1,0 +1,124 @@
+[gd_scene load_steps=4 format=3 uid="uid://eyksg48x6i42"]
+
+[ext_resource type="Texture2D" uid="uid://d3xch8m1senc6" path="res://UIObjects/Assets/ConversationUI/DefaultPortrait.png" id="1_qjcd6"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_f2y7a"]
+[ext_resource type="Texture2D" uid="uid://b80tld83mq8o5" path="res://UIObjects/Assets/ConversationUI/PlayerPortrait.png" id="3_4sc2r"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1225, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_qjcd6")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f2y7a")
+theme_override_font_sizes/font_size = 32
+text = "Elf Girl"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f2y7a")
+theme_override_font_sizes/font_size = 32
+text = "Contact"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("3_4sc2r")
+flip_h = true
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f2y7a")
+theme_override_font_sizes/font_size = 32
+text = "Doppleganger
+"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f2y7a")
+theme_override_font_sizes/font_size = 32
+text = "Contact"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_qjcd6")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f2y7a")
+theme_override_font_sizes/font_size = 32
+text = "Nurse Holliday"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f2y7a")
+theme_override_font_sizes/font_size = 32
+text = "Contact"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_qjcd6")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f2y7a")
+theme_override_font_sizes/font_size = 32
+text = "Merlin"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f2y7a")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Unavailable"

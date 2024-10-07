@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://uhoctj2aaq5h"
+path="res://.godot/imported/Karl Casey - White Bat XI - 06 Redux.ogg-0c5f023942c8d7242e69958b29e417f8.oggvorbisstr"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat XI - 06 Redux.ogg"
+dest_files=["res://.godot/imported/Karl Casey - White Bat XI - 06 Redux.ogg-0c5f023942c8d7242e69958b29e417f8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

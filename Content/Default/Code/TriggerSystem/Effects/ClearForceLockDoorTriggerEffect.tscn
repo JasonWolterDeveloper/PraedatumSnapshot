@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwfg8ax8fbphh"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/Effects/ClearForceLockDoorTriggerEffect.gd" id="1_t7s2a"]
+
+[node name="ClearForceLockTriggerEffect" type="Node"]
+script = ExtResource("1_t7s2a")

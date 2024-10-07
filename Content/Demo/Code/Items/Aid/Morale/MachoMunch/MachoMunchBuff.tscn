@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpsp5sb3t7faa"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/MoraleBuffs/MoraleBuff.gd" id="1_835yd"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="2_mfdym"]
+[ext_resource type="Texture2D" uid="uid://b8v44lj653hiu" path="res://Content/Demo/Assets/Items/Consumables/Morale/MachoMunch/MachoMunchInventoryImage.png" id="3_6gh6d"]
+
+[sub_resource type="Resource" id="Resource_0bt85"]
+script = ExtResource("2_mfdym")
+stat_id = "health"
+value = 5.0
+is_multiplicative = false
+is_number_of_segments = false
+is_value_per_segment = true
+
+[node name="MachoMunchBuff" type="Node"]
+script = ExtResource("1_835yd")
+rpg_stat_modifiers = Array[ExtResource("2_mfdym")]([SubResource("Resource_0bt85")])
+base_duration = 450.0
+id = "macho_munch_buff"
+ui_image = ExtResource("3_6gh6d")
+inventory_width_increase = 1

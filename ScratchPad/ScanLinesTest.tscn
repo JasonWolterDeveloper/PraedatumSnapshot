@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx8clooocv13u"]
+
+[ext_resource type="Shader" path="res://ScratchPad/scan_lines.gdshader" id="1_ulbcv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_usud8"]
+frequency = 0.7789
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1eyry"]
+noise = SubResource("FastNoiseLite_usud8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61n2s"]
+shader = ExtResource("1_ulbcv")
+shader_parameter/curvature = 1.0
+shader_parameter/skip = 0.01
+shader_parameter/image_flicker = 0.01
+shader_parameter/vignette_flicker_speed = 0.3
+shader_parameter/vignette_strength = 0.8
+shader_parameter/small_scanlines_speed = 1.0
+shader_parameter/small_scanlines_proximity = 1.0
+shader_parameter/small_scanlines_opacity = 1.0
+shader_parameter/scanlines_opacity = 1.0
+shader_parameter/scanlines_speed = 0.5
+shader_parameter/scanline_thickness = 0.5
+shader_parameter/scanlines_spacing = 1.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_1eyry")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_61n2s")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

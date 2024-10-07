@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://do6624cqw3t3q"]
+
+[ext_resource type="Theme" uid="uid://q8fchd6stpns" path="res://UIObjects/Themes/CyberTheme.tres" id="1_jcb74"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemPopupLabel.gd" id="1_rggj7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ei1j1"]
+bg_color = Color(0.013, 0.013, 0.013, 0.594)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 3
+
+[node name="ItemPopupLabel" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_rggj7")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 27)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_jcb74")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ei1j1")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="DisplayNameLabel" type="Label" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1

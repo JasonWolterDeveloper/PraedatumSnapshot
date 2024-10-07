@@ -1,0 +1,6 @@
+[gd_resource type="AnimationNodeBlend2" format=3 uid="uid://c1a3yvx1kiycn"]
+
+[resource]
+filter_enabled = true
+filters = ["", "%GeneralSkeleton:LeftFoot", "%GeneralSkeleton:LeftLowerLeg", "%GeneralSkeleton:LeftToes", "%GeneralSkeleton:LeftUpperLeg", "%GeneralSkeleton:RightFoot", "%GeneralSkeleton:RightLowerLeg", "%GeneralSkeleton:RightToes", "%GeneralSkeleton:RightUpperLeg"]
+sync = true

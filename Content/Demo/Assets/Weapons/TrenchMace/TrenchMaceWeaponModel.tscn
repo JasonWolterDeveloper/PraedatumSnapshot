@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://7xe456i54ivk"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Weapons/WeaponModel.gd" id="1_fyhob"]
+[ext_resource type="PackedScene" uid="uid://dlx0f66idyf2" path="res://Content/Demo/Assets/Weapons/TrenchMace/TrenchMace.glb" id="2_d2rqk"]
+
+[node name="TrenchMaceWeaponModel" type="Node3D"]
+script = ExtResource("1_fyhob")
+
+[node name="TrenchMace" parent="." instance=ExtResource("2_d2rqk")]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)

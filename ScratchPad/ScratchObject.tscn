@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ir4bcr65f64i"]
+
+[ext_resource type="Script" path="res://ScratchPad/ScratchObject.gd" id="1_tneg0"]
+
+[node name="ScratchObject" type="Node"]
+script = ExtResource("1_tneg0")

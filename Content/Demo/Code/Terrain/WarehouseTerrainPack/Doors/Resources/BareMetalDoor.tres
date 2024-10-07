@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dhxgol36hfn12"]
+
+[resource]
+resource_name = "BareMetalDoorway"
+cull_mode = 2
+albedo_color = Color(0.210223, 0.210223, 0.210223, 1)
+roughness = 0.5

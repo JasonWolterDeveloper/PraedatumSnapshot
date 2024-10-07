@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cruk2ufv2t61k"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/InteractableObjects/TriggerInteractableObjects/TriggerInteractableNLIButtonWall.gd" id="1_8nnao"]
+[ext_resource type="PackedScene" uid="uid://b5ny6grjeidov" path="res://UIObjects/InteractionUI/InteractionIcon.tscn" id="2_noldy"]
+[ext_resource type="PackedScene" uid="uid://byqhm8c0h3rto" path="res://Content/Demo/Assets/Interactables/PraedatumButton/PraedatumButtonModel.tscn" id="3_evaqd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cfswp"]
+size = Vector3(0.482422, 4.39871, 1.2511)
+
+[node name="TriggerInteractableNLIButtonWall" type="StaticBody3D"]
+script = ExtResource("1_8nnao")
+trigger_id_to_activate = null
+display_name = null
+allow_if_activated = null
+display_text_on_activation = null
+text_to_display = null
+text_display_time = null
+interaction_prompt_text = null
+interaction_prompt_subtext = null
+spawn_ticket_cost = null
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractionIcon" parent="CanvasLayer" instance=ExtResource("2_noldy")]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_cfswp")
+
+[node name="PraedatumButtonModel" parent="." instance=ExtResource("3_evaqd")]
+transform = Transform3D(-2.62268e-08, 0.6, -2.62268e-08, 0, -2.62268e-08, -0.6, -0.6, -2.62268e-08, 1.14641e-15, 0, 0, 0)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6p12dcbn4mii"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretActiveScanState.gd" id="1_imknq"]
+
+[node name="TurretActiveScanState" type="Node3D"]
+script = ExtResource("1_imknq")

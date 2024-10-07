@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgfavmipya1m7"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_01a2r"]
+[ext_resource type="PackedScene" uid="uid://dl80chetak7uh" path="res://Content/Demo/Assets/Interactables/LootInteractables/Locker/OpenLockerModel.tscn" id="2_5hh86"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y20vp"]
+size = Vector3(1.47656, 3.22778, 1.41223)
+
+[node name="OpenLockerObstacle" type="StaticBody3D"]
+script = ExtResource("1_01a2r")
+
+[node name="OpenLockerModel" parent="." instance=ExtResource("2_5hh86")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119141, 1.7, 0.00445557)
+shape = SubResource("BoxShape3D_y20vp")

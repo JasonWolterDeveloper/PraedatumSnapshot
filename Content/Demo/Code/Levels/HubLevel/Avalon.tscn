@@ -1,0 +1,85 @@
+[gd_scene load_steps=14 format=3 uid="uid://dp0angvdonkta"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Level.gd" id="1_m23et"]
+[ext_resource type="PackedScene" uid="uid://dv3dvjvren7ys" path="res://UIObjects/Crosshair.tscn" id="2_avnjg"]
+[ext_resource type="PackedScene" uid="uid://bo7h77wma3mob" path="res://UIObjects/PlayerHUD.tscn" id="3_kic7o"]
+[ext_resource type="PackedScene" uid="uid://bufpbcwowvjuj" path="res://UIObjects/MenuUI/UniversalMenuMaster.tscn" id="4_6x0f1"]
+[ext_resource type="PackedScene" uid="uid://bgkxg7oc7ivvm" path="res://BaseGameObjects/Terrain/Rooms/RoomMaster.tscn" id="5_25n56"]
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/Room.gd" id="6_0ledw"]
+[ext_resource type="PackedScene" uid="uid://dax1teoqnljel" path="res://Content/Demo/Code/Levels/HubLevel/Floors/GrassFloor.tscn" id="7_utrqg"]
+[ext_resource type="PackedScene" uid="uid://bjp3i27vxgmkn" path="res://Content/Demo/Code/Levels/HubLevel/Floors/YelloBrickFloor.tscn" id="7_ytlw1"]
+[ext_resource type="PackedScene" uid="uid://bl176wggn7k33" path="res://BaseGameObjects/Player.tscn" id="8_62slf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y8bbc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_w745g"]
+sky_material = SubResource("ProceduralSkyMaterial_y8bbc")
+
+[sub_resource type="Environment" id="Environment_gpy8u"]
+background_mode = 2
+sky = SubResource("Sky_w745g")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g77ef"]
+size = Vector3(500, 0, 500)
+
+[node name="Avalon" type="Node3D"]
+script = ExtResource("1_m23et")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gpy8u")
+
+[node name="Crosshair3D" parent="." instance=ExtResource("2_avnjg")]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerHUD" parent="UILayer" instance=ExtResource("3_kic7o")]
+metadata/_edit_use_anchors_ = true
+
+[node name="UniversalMenuMaster" parent="UILayer" instance=ExtResource("4_6x0f1")]
+
+[node name="SuperSecretHitDetector" type="StaticBody3D" parent="."]
+collision_layer = 524288
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SuperSecretHitDetector"]
+shape = SubResource("BoxShape3D_g77ef")
+
+[node name="RoomMaster" parent="." instance=ExtResource("5_25n56")]
+
+[node name="OutdoorCourtyard" type="Node3D" parent="RoomMaster"]
+script = ExtResource("6_0ledw")
+
+[node name="Terrain" type="NavigationRegion3D" parent="RoomMaster/OutdoorCourtyard"]
+
+[node name="Floor2" parent="RoomMaster/OutdoorCourtyard/Terrain" instance=ExtResource("7_ytlw1")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.05, 0)
+
+[node name="Floor3" parent="RoomMaster/OutdoorCourtyard/Terrain" instance=ExtResource("7_ytlw1")]
+transform = Transform3D(-1.74846e-07, 0, -100, 0, 1, 0, 4, 0, -4.37114e-06, 0, 0.05, 0)
+
+[node name="Floor" parent="RoomMaster/OutdoorCourtyard/Terrain" instance=ExtResource("7_utrqg")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="Area" type="Area3D" parent="RoomMaster/OutdoorCourtyard"]
+collision_layer = 0
+collision_mask = 3
+
+[node name="EnemySpawners" type="Node3D" parent="RoomMaster/OutdoorCourtyard"]
+
+[node name="LootSpawners" type="Node3D" parent="RoomMaster/OutdoorCourtyard"]
+
+[node name="RoomConnectors" type="Node3D" parent="RoomMaster/OutdoorCourtyard"]
+
+[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="."]
+size = Vector3(1000, 1000, 1000)
+
+[node name="Player" parent="." instance=ExtResource("8_62slf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -1)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://iqqamvrlbr4r"]
+
+[ext_resource type="PackedScene" uid="uid://dck4l4wyspg5e" path="res://Content/Demo/Code/Items/Ammo/Pellet.tscn" id="1_m5apm"]
+
+[node name="Pellet" instance=ExtResource("1_m5apm")]
+damage = 4
+speed = 100

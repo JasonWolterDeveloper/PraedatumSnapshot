@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c80ekrrr7fmlj"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_lx3sg"]
+[ext_resource type="Texture2D" uid="uid://5shawawcrs6i" path="res://Content/Demo/Assets/Items/ResourceItems/Kevlar/KevlarInventoryImage.png" id="2_rhqbu"]
+[ext_resource type="PackedScene" uid="uid://duby30ctur5yp" path="res://Content/Demo/Assets/Items/ResourceItems/Kevlar/KevlarGroundModel.tscn" id="3_s1r37"]
+
+[node name="Kevlar" type="Node3D"]
+script = ExtResource("1_lx3sg")
+inventory_image = ExtResource("2_rhqbu")
+ground_3d_model_scene = ExtResource("3_s1r37")
+display_name = "Kevlar"
+item_id = "kevlar"
+show_quantity_in_ui = true
+default_price = 8
+max_quantity = 10
+grid_square_width = 1
+grid_square_height = 1

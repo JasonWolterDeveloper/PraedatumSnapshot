@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://3r3vywtojnb0"]
+
+[ext_resource type="Script" path="res://UIObjects/CombatUI/BossUI/BossUIMaster.gd" id="1_vy1a1"]
+[ext_resource type="PackedScene" uid="uid://oc7bnsk12na7" path="res://UIObjects/CombatUI/BossUI/BossUIHealthBar.tscn" id="2_vblgg"]
+
+[node name="BossUIMaster" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_vy1a1")
+
+[node name="BossUIHealthBar" parent="." instance=ExtResource("2_vblgg")]
+visible = false
+layout_mode = 1
+anchor_top = 0.15
+anchor_bottom = 0.3

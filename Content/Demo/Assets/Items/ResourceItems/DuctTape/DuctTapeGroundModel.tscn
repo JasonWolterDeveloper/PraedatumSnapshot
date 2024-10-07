@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cceu0o3o7kpni"]
+
+[ext_resource type="PackedScene" uid="uid://cm2nabamtw3vg" path="res://Content/Demo/Assets/Items/ResourceItems/DuctTape/DuctTapeModel.glb" id="1_e2blf"]
+
+[node name="DuctTapeGroundModel" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0704952, 0)
+
+[node name="DuctTapeModel" parent="." instance=ExtResource("1_e2blf")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)

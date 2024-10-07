@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://chil7joy2ffil"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/HomeBaseFacility.gd" id="1_3ei77"]
+
+[node name="HomeBaseFacility" type="Node"]
+script = ExtResource("1_3ei77")

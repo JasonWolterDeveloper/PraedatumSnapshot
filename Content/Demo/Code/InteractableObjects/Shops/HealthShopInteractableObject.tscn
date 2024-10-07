@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://7f8gxpbbb7xb"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/InteractableObjects/Shops/ShopInteractableObject.gd" id="1_wr27v"]
+[ext_resource type="PackedScene" uid="uid://b5ny6grjeidov" path="res://UIObjects/InteractionUI/InteractionIcon.tscn" id="2_b5pt2"]
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/Shops/Shop.gd" id="3_mx2xq"]
+[ext_resource type="PackedScene" uid="uid://cq5j8ahjwhnoe" path="res://BaseGameObjects/Inventory/Shops/ShopItemEntry.tscn" id="4_3oma8"]
+[ext_resource type="PackedScene" uid="uid://bvud2rdqx7bhg" path="res://Content/Demo/Code/Items/Aid/Health/Instant/HealthPotion.tscn" id="6_exfgx"]
+[ext_resource type="PackedScene" uid="uid://bvlc6s3lx8dhd" path="res://Content/Demo/Code/Items/Aid/Mana/Instant/ManaPotion/ManaPotion.tscn" id="8_n4myp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ftugl"]
+size = Vector3(1.22006, 4.6687, 0.585194)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b2jsa"]
+size = Vector3(1, 2, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_chpqf"]
+size = Vector3(1, 2, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpxg8"]
+albedo_color = Color(0.271856, 0.189558, 0.841971, 1)
+
+[node name="BasicShopInteractableObject" type="StaticBody3D" node_paths=PackedStringArray("shop")]
+collision_layer = 1025
+script = ExtResource("1_wr27v")
+shop = NodePath("Shop")
+allow_if_activated = true
+
+[node name="ActivationArea#CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00401311, -0.00671351, -0.0035305)
+shape = SubResource("BoxShape3D_ftugl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989237, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_b2jsa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ItemIcon" type="TextureRect" parent="CanvasLayer"]
+visible = false
+z_index = 20
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = -20.0
+grow_vertical = 0
+
+[node name="InteractionIcon" parent="CanvasLayer" instance=ExtResource("2_b5pt2")]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989083, 0)
+mesh = SubResource("BoxMesh_chpqf")
+surface_material_override/0 = SubResource("StandardMaterial3D_bpxg8")
+
+[node name="Shop" type="Node3D" parent="."]
+script = ExtResource("3_mx2xq")
+
+[node name="ShopItemEntry2" parent="Shop" instance=ExtResource("4_3oma8")]
+stock_quantity = 2
+originial_stock_quantity = 2
+
+[node name="HealthPotion" parent="Shop/ShopItemEntry2" instance=ExtResource("6_exfgx")]
+
+[node name="ShopItemEntry4" parent="Shop" instance=ExtResource("4_3oma8")]
+stock_quantity = 10
+originial_stock_quantity = 10
+
+[node name="ManaPotion" parent="Shop/ShopItemEntry4" instance=ExtResource("8_n4myp")]
+
+[node name="InteractionIconMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05075, 0)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy6axl0qmedsn"]
+
+[ext_resource type="PackedScene" uid="uid://b1yl8ra0b0yva" path="res://BaseGameObjects/RPGMechanics/Quests/QuestStep.tscn" id="1_vq5dt"]
+
+[node name="SimpleQuestFetchStep" instance=ExtResource("1_vq5dt")]
+quest_step_id = "fetch"

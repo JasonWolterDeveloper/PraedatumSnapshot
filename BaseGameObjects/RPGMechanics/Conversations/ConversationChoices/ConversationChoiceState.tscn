@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvhxoohg0r6db"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/ConversationChoiceState.gd" id="1_ttnnh"]
+
+[node name="ConversationChoiceState" type="Node"]
+script = ExtResource("1_ttnnh")

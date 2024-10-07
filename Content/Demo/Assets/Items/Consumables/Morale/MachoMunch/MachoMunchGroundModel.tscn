@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvj4f3im5juy7"]
+
+[ext_resource type="PackedScene" uid="uid://bistdxpxkyd8d" path="res://Content/Demo/Assets/Items/Consumables/Morale/MachoMunch/MachoMunch.glb" id="1_vk21d"]
+
+[node name="MachoMunchGroundModel" type="Node3D"]
+
+[node name="MachoMunch2" parent="." instance=ExtResource("1_vk21d")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)

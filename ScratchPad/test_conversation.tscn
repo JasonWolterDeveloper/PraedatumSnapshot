@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpjf1vu3iumko"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Conversations/Conversation.gd" id="1_06len"]
+[ext_resource type="PackedScene" uid="uid://c4w3qrdn1jree" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationDialogState.tscn" id="2_8c13o"]
+[ext_resource type="PackedScene" uid="uid://dvhxoohg0r6db" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/ConversationChoiceState.tscn" id="3_p6rwe"]
+[ext_resource type="PackedScene" uid="uid://ds4vdec1i42tc" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/ConversationChoice.tscn" id="4_0plmk"]
+
+[node name="Conversation" type="Node" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_06len")
+initial_state = NodePath("ConversationDialogState4")
+conversation_root = true
+
+[node name="ConversationDialogState4" parent="." node_paths=PackedStringArray("next_state") instance=ExtResource("2_8c13o")]
+text = "[center] This is my first conversation dialog, neat huh [/center]"
+next_state = NodePath("../ConversationDialogState5")
+
+[node name="ConversationDialogState5" parent="." node_paths=PackedStringArray("next_state") instance=ExtResource("2_8c13o")]
+text = "[center] Oh wow, now a second one[/center]"
+next_state = NodePath("../ConversationDialogState6")
+
+[node name="ConversationDialogState6" parent="." node_paths=PackedStringArray("next_state") instance=ExtResource("2_8c13o")]
+text = "[center] Holy Cow, a Third [/center]"
+next_state = NodePath("../ConversationChoiceState2")
+
+[node name="ConversationDialogStateA2" parent="." node_paths=PackedStringArray("next_state") instance=ExtResource("2_8c13o")]
+text = "[center] That was Choice A![/center]"
+next_state = NodePath("../ConversationChoiceState2")
+
+[node name="ConversationDialogStateB2" parent="." node_paths=PackedStringArray("next_state") instance=ExtResource("2_8c13o")]
+text = "[center] That was Choice B![/center]"
+next_state = NodePath("../ConversationChoiceState2")
+
+[node name="ConversationChoiceState2" parent="." instance=ExtResource("3_p6rwe")]
+
+[node name="ConversationChoice5" parent="ConversationChoiceState2" instance=ExtResource("4_0plmk")]
+unique_id = "choice_d"
+text = "This is the new Choice!"
+availability_condition = "reveal_choice_d"
+
+[node name="ConversationChoice" parent="ConversationChoiceState2" node_paths=PackedStringArray("next_state") instance=ExtResource("4_0plmk")]
+unique_id = "choice_a"
+text = "Choice A"
+next_state = NodePath("../../ConversationDialogStateA2")
+
+[node name="ConversationChoice2" parent="ConversationChoiceState2" node_paths=PackedStringArray("next_state") instance=ExtResource("4_0plmk")]
+unique_id = "choice_b"
+text = "Choice B"
+next_state = NodePath("../../ConversationDialogStateB2")
+
+[node name="ConversationChoice3" parent="ConversationChoiceState2" instance=ExtResource("4_0plmk")]
+unique_id = "choice_c"
+text = "This Shouldn't Appear"
+availability_condition = "not_a_real_entry"
+
+[node name="ConversationChoice4" parent="ConversationChoiceState2" node_paths=PackedStringArray("next_state") instance=ExtResource("4_0plmk")]
+unique_id = "reveal_choice"
+text = "Reveal Other Choice"
+unavailability_condition = "reveal_choice_d"
+next_state = NodePath("../../ConversationDialogState6")
+function = "modify_data_tome"
+function_parameters = ["reveal_choice_d", true]

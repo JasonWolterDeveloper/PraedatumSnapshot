@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://bg4rfqw1w5yx"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/AreaOfEffect/AreaOfEffectIndicator.gd" id="1_nnfve"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khbse"]
+albedo_color = Color(0.695503, 0.695503, 0.695503, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_a5ovn"]
+material = SubResource("StandardMaterial3D_khbse")
+inner_radius = 5.9
+outer_radius = 6.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oulot"]
+transparency = 1
+albedo_color = Color(0.141176, 0, 0.792157, 0.403922)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_du8cm"]
+material = SubResource("StandardMaterial3D_oulot")
+top_radius = 6.0
+bottom_radius = 6.0
+height = 0.1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_61oms"]
+emission_shape_scale = Vector3(6.5, 0.1, 6.5)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.5
+angular_velocity_min = 2.0
+angular_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwodm"]
+shading_mode = 0
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_twq4c"]
+material = SubResource("StandardMaterial3D_pwodm")
+size = Vector2(0.2, 0.2)
+
+[node name="ShockwaveAoEIndicator" type="MeshInstance3D"]
+script = ExtResource("1_nnfve")
+bespoke = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027565, -0.164906, 0.00041008)
+mesh = SubResource("TorusMesh_a5ovn")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_du8cm")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 16
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_61oms")
+draw_pass_1 = SubResource("QuadMesh_twq4c")

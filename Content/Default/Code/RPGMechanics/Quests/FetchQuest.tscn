@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://der3m8254s31"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/Quests/FetchQuest.gd" id="1_ghrs1"]
+
+[node name="FetchQuest" type="Node"]
+script = ExtResource("1_ghrs1")

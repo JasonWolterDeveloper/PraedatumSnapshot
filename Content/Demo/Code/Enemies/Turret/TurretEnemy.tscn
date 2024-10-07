@@ -1,0 +1,100 @@
+[gd_scene load_steps=16 format=3 uid="uid://w3o3b02oc36k"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Turret/TurretEnemy.gd" id="1_bhgtp"]
+[ext_resource type="PackedScene" uid="uid://bguuekuitrudm" path="res://BaseGameObjects/Character.tscn" id="1_raatn"]
+[ext_resource type="PackedScene" uid="uid://8nguh885vg64" path="res://Content/Demo/Code/Enemies/Turret/TurretEnemyGibs.tscn" id="3_hwbgi"]
+[ext_resource type="PackedScene" uid="uid://cdhgjjhgjdcph" path="res://Content/Demo/Code/Enemies/Turret/TurretNonHitscanBullet.tscn" id="3_x1r4n"]
+[ext_resource type="PackedScene" uid="uid://yhpbb7jbww4d" path="res://UIObjects/CombatUI/EnemyInfoDisplay.tscn" id="4_06fc1"]
+[ext_resource type="PackedScene" uid="uid://dv13xt8x2qcnw" path="res://Content/Demo/Code/Enemies/Turret/TurretAimingLaser.tscn" id="4_axdfm"]
+[ext_resource type="PackedScene" uid="uid://cff2mqi3y2eup" path="res://Content/Demo/Assets/Characters/Enemies/Turret/TurretGunModel.tscn" id="4_o4kxa"]
+[ext_resource type="PackedScene" uid="uid://crivall5lsmid" path="res://BaseGameObjects/Aesthetics/StatusEffectVFX/StunParticleEffect.tscn" id="5_2ey78"]
+[ext_resource type="PackedScene" uid="uid://b4x8oc6dtgw5h" path="res://Content/Demo/Assets/Characters/Enemies/Turret/TurretGimbal.glb" id="7_3qbgy"]
+[ext_resource type="PackedScene" uid="uid://cycso66262rjc" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretFSM.tscn" id="7_p5fbh"]
+[ext_resource type="PackedScene" uid="uid://dftbn554b21sw" path="res://Content/Demo/Assets/Characters/Enemies/Turret/TurretBase.glb" id="10_r1kbb"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/hitbox.gd" id="12_3vbm7"]
+[ext_resource type="PackedScene" uid="uid://c6pri36ik1gse" path="res://BaseGameObjects/PathfindingMaster.tscn" id="13_iok26"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4t8ip"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ii7ra"]
+
+[node name="TurretEnemy" instance=ExtResource("1_raatn")]
+collision_layer = 16
+collision_mask = 23
+script = ExtResource("1_bhgtp")
+turret_gibs_scene = ExtResource("3_hwbgi")
+turret_activated = false
+turret_activation_time = 1.0
+time_between_shots_turret = 0.16
+bullet_scene = ExtResource("3_x1r4n")
+spread = 0.015
+shots_per_burst = 1
+time_between_burst_shots = 0.0
+aim_tolerance_to_fire = 20.0
+should_auto_adjust_y_position = false
+ai_disabled = false
+behaviour_debug_mode = false
+pathfinding_debug_mode = false
+ai_properties = null
+sentry = false
+initial_state_name = &"TurretPassiveScanState"
+awarded_experience_points = 10.0
+spawn_ticket_cost = 1
+
+[node name="StunParticleEffect" parent="." index="0" instance=ExtResource("5_2ey78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51493, 0)
+visible = false
+
+[node name="EnemyHealthBar3D" parent="." index="1" instance=ExtResource("4_06fc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71779, 0)
+texture = SubResource("ViewportTexture_4t8ip")
+
+[node name="HealthStat" parent="RPGMechanicsMaster" index="1"]
+base_number_of_segments = 3
+base_value_per_segment = 10.0
+value = 30.0
+
+[node name="MovementSpeedStat" parent="RPGMechanicsMaster" index="2"]
+value = 0.0
+
+[node name="MovementMaster" parent="." index="3"]
+can_move = false
+
+[node name="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.892877, 0)
+
+[node name="TurretGunModel" parent="LookStuff" index="0" instance=ExtResource("4_o4kxa")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="TurretGimbal" parent="LookStuff" index="1" instance=ExtResource("7_3qbgy")]
+transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 0, 0, 0)
+
+[node name="AimingMaster" parent="LookStuff" index="2" node_paths=PackedStringArray("look_stuff")]
+look_stuff = NodePath("..")
+aim_speed = 2
+
+[node name="TurretAimingLaser" parent="LookStuff/AimingMaster" index="0" instance=ExtResource("4_axdfm")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="BulletOrigin" type="Marker3D" parent="LookStuff" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30311, -1.0239)
+
+[node name="TurretFSM" parent="." index="6" instance=ExtResource("7_p5fbh")]
+
+[node name="TurretBase" parent="." index="7" instance=ExtResource("10_r1kbb")]
+transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 0, 0, 0)
+
+[node name="hitbox" type="CharacterBody3D" parent="." index="9"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("12_3vbm7")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="hitbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.892877, 0)
+shape = SubResource("CapsuleShape3D_ii7ra")
+
+[node name="PathfindingMaster" parent="." index="10" instance=ExtResource("13_iok26")]
+
+[node name="StatusEffectTextMarker" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08467, 0)

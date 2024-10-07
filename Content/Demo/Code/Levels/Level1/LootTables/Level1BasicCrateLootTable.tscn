@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdm2ss6tggpah"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Level1/LootTables/Level1BasicCrateLootTable.gd" id="1_37u2b"]
+[ext_resource type="PackedScene" uid="uid://bc2nk58d6ohfd" path="res://Content/Demo/Code/RPGMechanics/MedicalSpawnStringMapper.tscn" id="1_ls3kg"]
+
+[node name="Level1BasicCrateLootTable" type="Node"]
+script = ExtResource("1_37u2b")
+number_of_rolls = 4
+
+[node name="SpawnStringMapper" parent="." instance=ExtResource("1_ls3kg")]

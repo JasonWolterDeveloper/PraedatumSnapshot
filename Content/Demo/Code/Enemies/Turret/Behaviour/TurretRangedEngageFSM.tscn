@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://3c8pt1g21kah"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretRangedEngageFSM.gd" id="1_yjjfe"]
+[ext_resource type="PackedScene" uid="uid://bca0diwtn1mwc" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretEngageState.tscn" id="2_50q2f"]
+[ext_resource type="PackedScene" uid="uid://cb6bxenonnowd" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretTargetLostLink.tscn" id="3_lk6ex"]
+[ext_resource type="PackedScene" uid="uid://cqlpvhr31easw" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretTargetReacquiredLink.tscn" id="4_xh15d"]
+[ext_resource type="PackedScene" uid="uid://3yliu14cwgpv" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretSuppressionState.tscn" id="5_vimwt"]
+
+[node name="TurretRangedEngageFSM" type="Node3D"]
+script = ExtResource("1_yjjfe")
+
+[node name="TurretEngageState" parent="." instance=ExtResource("2_50q2f")]
+
+[node name="TurretTargetLostLink" parent="." instance=ExtResource("3_lk6ex")]
+
+[node name="TurretTargetReacquiredLink" parent="." instance=ExtResource("4_xh15d")]
+
+[node name="TurretSuppressionState" parent="." instance=ExtResource("5_vimwt")]

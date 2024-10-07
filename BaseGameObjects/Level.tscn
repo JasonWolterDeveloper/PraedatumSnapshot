@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgj3h4qtwgwkk"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Level.gd" id="1_khrco"]
+[ext_resource type="PackedScene" uid="uid://dv3dvjvren7ys" path="res://UIObjects/Crosshair.tscn" id="3_3i5db"]
+[ext_resource type="PackedScene" uid="uid://bo7h77wma3mob" path="res://UIObjects/PlayerHUD.tscn" id="4_6v1ka"]
+[ext_resource type="PackedScene" uid="uid://bufpbcwowvjuj" path="res://UIObjects/MenuUI/UniversalMenuMaster.tscn" id="5_br2mw"]
+[ext_resource type="PackedScene" uid="uid://bgkxg7oc7ivvm" path="res://BaseGameObjects/Terrain/Rooms/RoomMaster.tscn" id="6_tj71k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yjsyl"]
+size = Vector3(500, 0, 500)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_khrco")
+
+[node name="Crosshair3D" parent="." instance=ExtResource("3_3i5db")]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerHUD" parent="UILayer" instance=ExtResource("4_6v1ka")]
+metadata/_edit_use_anchors_ = true
+
+[node name="UniversalMenuMaster" parent="UILayer" instance=ExtResource("5_br2mw")]
+
+[node name="SuperSecretHitDetector" type="StaticBody3D" parent="."]
+collision_layer = 524288
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SuperSecretHitDetector"]
+shape = SubResource("BoxShape3D_yjsyl")
+
+[node name="RoomMaster" parent="." instance=ExtResource("6_tj71k")]
+
+[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="."]
+size = Vector3(1000, 1000, 1000)

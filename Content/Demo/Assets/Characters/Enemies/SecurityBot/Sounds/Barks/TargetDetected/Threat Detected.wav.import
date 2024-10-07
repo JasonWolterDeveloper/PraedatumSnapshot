@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://hm08c2qfshg7"
+path="res://.godot/imported/Threat Detected.wav-b655e8db6da39ac065d336a4d8ae3795.sample"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Characters/Enemies/SecurityBot/Sounds/Barks/TargetDetected/Threat Detected.wav"
+dest_files=["res://.godot/imported/Threat Detected.wav-b655e8db6da39ac065d336a4d8ae3795.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

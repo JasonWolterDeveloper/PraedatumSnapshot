@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsph32tkys4r8"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_b11jo"]
+
+[node name="UpgradeMaterial" type="Node3D"]
+script = ExtResource("1_b11jo")
+item_type = 6

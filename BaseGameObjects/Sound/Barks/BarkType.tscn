@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl05whbxs0x1b"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Sound/Barks/BarkType.gd" id="1_e8mtf"]
+
+[node name="BarkType" type="AudioStreamPlayer3D"]
+script = ExtResource("1_e8mtf")

@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://dysm7p0o4vlum"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/DonutMaker/DonutMakerFacility.gd" id="1_2mhrl"]
+[ext_resource type="PackedScene" uid="uid://bs040psypjfup" path="res://Content/Demo/Code/Items/Aid/Morale/Donuts/MoraleDonut.tscn" id="2_nmv66"]
+[ext_resource type="PackedScene" uid="uid://c7owxaamktwsi" path="res://Content/Default/Code/RPGMechanics/HomeBaseFacilities/Crafting/PremiumDonutRecipe.tscn" id="3_h5c1n"]
+[ext_resource type="PackedScene" uid="uid://djwxhbudveff7" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/CraftingCategory.tscn" id="3_n4cm2"]
+[ext_resource type="PackedScene" uid="uid://c4k44oc2nxt4i" path="res://BaseGameObjects/RPGMechanics/HomeBaseFacilities/Crafting/BaseUpgradeRecipe.tscn" id="4_smqpt"]
+[ext_resource type="PackedScene" uid="uid://b77bxtfmg87tc" path="res://Content/Demo/Code/Items/ResourceItems/ScrapMetal.tscn" id="5_6rfa4"]
+
+[node name="DonutMakerFacility" type="Node" node_paths=PackedStringArray("top_level_crafting_category")]
+script = ExtResource("1_2mhrl")
+donut_scene = ExtResource("2_nmv66")
+max_upgrade_level = 1
+base_facility_id = "donut_maker"
+is_usable_facility = true
+display_name = "Donut Maker"
+description = "Makes Donuts, as one does."
+top_level_crafting_category = NodePath("DonutCategory")
+
+[node name="DonutCategory" parent="." instance=ExtResource("3_n4cm2")]
+display_name = "Donuts"
+category_id = "donuts"
+
+[node name="AdvDonutCategory" parent="DonutCategory" instance=ExtResource("3_n4cm2")]
+display_name = "Advanced Donuts"
+category_id = "adv_donuts"
+
+[node name="DeepDonutCategory" parent="DonutCategory/AdvDonutCategory" instance=ExtResource("3_n4cm2")]
+display_name = "Deep Donuts"
+category_id = "Deep_dounts"
+
+[node name="DonutRecipe" parent="DonutCategory/AdvDonutCategory/DeepDonutCategory" instance=ExtResource("3_h5c1n")]
+power_cost = 1
+
+[node name="DonutRecipe" parent="DonutCategory/AdvDonutCategory" instance=ExtResource("3_h5c1n")]
+power_cost = 1
+
+[node name="SimpleDonutCategory" parent="DonutCategory" instance=ExtResource("3_n4cm2")]
+display_name = "Simple Donuts"
+category_id = "simp_donuts"
+
+[node name="Donuts3" parent="DonutCategory/SimpleDonutCategory" instance=ExtResource("3_n4cm2")]
+display_name = "Donuts III"
+category_id = "three_donuts"
+
+[node name="DonutRecipe" parent="DonutCategory/SimpleDonutCategory/Donuts3" instance=ExtResource("3_h5c1n")]
+power_cost = 1
+
+[node name="DonutRecipe" parent="DonutCategory/SimpleDonutCategory" instance=ExtResource("3_h5c1n")]
+power_cost = 1
+
+[node name="UpgradeRecipes" type="Node" parent="."]
+
+[node name="BaseUpgradeRecipe" parent="UpgradeRecipes" instance=ExtResource("4_smqpt")]
+item_cost_dictionary = {
+NodePath("ScrapMetal"): 2
+}
+
+[node name="ScrapMetal" parent="UpgradeRecipes/BaseUpgradeRecipe" instance=ExtResource("5_6rfa4")]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfwqmaco6as8i"]
+
+[ext_resource type="PackedScene" uid="uid://b2ivfnxed4js2" path="res://Content/Demo/Assets/Items/TreasureItems/PocketComputer/PocketComputer.glb" id="1_3mu3s"]
+
+[node name="PocketComputerGroundModel" type="Node3D"]
+
+[node name="PocketComputer2" parent="." instance=ExtResource("1_3mu3s")]
+transform = Transform3D(-1.74846e-08, 1.74846e-08, -0.4, 0.4, -1.74846e-08, -1.74846e-08, -1.74846e-08, -0.4, -1.74846e-08, 0, 0.03, 0)

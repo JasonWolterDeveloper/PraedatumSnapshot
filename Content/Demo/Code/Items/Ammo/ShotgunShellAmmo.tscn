@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://73xg4xe6aohn"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Ammo/AmmoItem.gd" id="1_c1n1t"]
+[ext_resource type="Texture2D" uid="uid://b50dpluxm56h4" path="res://Content/Demo/Assets/Items/Ammo/ShotgunAmmo/ShotgunAmmoInventoryImage.png" id="2_334i7"]
+[ext_resource type="PackedScene" uid="uid://bhp6la8aknyyr" path="res://Content/Demo/Assets/Items/Ammo/ShotgunAmmo/ShotgunAmmoGroundModel.tscn" id="3_c14g7"]
+
+[node name="ShotgunShellAmmo" type="Node3D"]
+script = ExtResource("1_c1n1t")
+ammo_type = "Twelve Gauge"
+inventory_image = ExtResource("2_334i7")
+ground_3d_model_scene = ExtResource("3_c14g7")
+display_name = "Shotgun Shells"
+item_id = "shotgun_ammo"
+description = "A collection of 12 Gauge shotgun shells. Earth Militaries considered them mostly outdated by 21XX, but, with the onset of the corporate war they found new life in the anti-material role. 
+
+The shells are loaded with Buckshot"
+show_quantity_in_ui = true
+default_price = 10
+item_type = 2
+current_quantity = 12
+max_quantity = 12
+grid_square_width = 2
+grid_square_height = 1

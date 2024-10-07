@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxhh7ufhs48b3"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/Guns/GunInternalMagazine.gd" id="2_1b2oe"]
+[ext_resource type="PackedScene" uid="uid://bcgc581lxtanr" path="res://BaseGameObjects/Combat/Reloading/ReloadMasterInternalMagazine.tscn" id="2_tpaeo"]
+
+[node name="GunInternalMagazine" type="Node3D"]
+script = ExtResource("2_1b2oe")
+item_type = 1
+
+[node name="ReloadMaster" parent="." instance=ExtResource("2_tpaeo")]

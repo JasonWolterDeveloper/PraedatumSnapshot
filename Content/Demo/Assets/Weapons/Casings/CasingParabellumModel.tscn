@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b27rqparu5kmw"]
+
+[ext_resource type="PackedScene" uid="uid://c6c8oywnm60vb" path="res://Content/Demo/Assets/Weapons/Casings/OriginalModels/CasingParabellum.glb" id="1_0tuee"]
+
+[node name="CasingParabellum" instance=ExtResource("1_0tuee")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Casing" parent="." index="0"]
+transform = Transform3D(7.78829e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, 7.78829e-09, 0, 0, 0)

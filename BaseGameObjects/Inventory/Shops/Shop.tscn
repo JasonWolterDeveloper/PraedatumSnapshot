@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfpdm51gp77sq"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/Shops/Shop.gd" id="1_qwwfo"]
+[ext_resource type="PackedScene" uid="uid://f6hgb2xt586e" path="res://Content/Default/Code/Items/Scrip.tscn" id="2_m5me4"]
+
+[node name="Shop" type="Node3D"]
+script = ExtResource("1_qwwfo")
+
+[node name="BaseScrip" parent="." instance=ExtResource("2_m5me4")]

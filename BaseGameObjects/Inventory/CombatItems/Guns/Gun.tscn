@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://csohifpc4ffbj"]
+
+[ext_resource type="PackedScene" uid="uid://dujd22vbjhnni" path="res://BaseGameObjects/Weapon.tscn" id="1_okspq"]
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Gun.gd" id="2_me58d"]
+[ext_resource type="PackedScene" uid="uid://datcdglrg6nt0" path="res://BaseGameObjects/Combat/Reloading/ReloadMaster.tscn" id="3_whuu1"]
+
+[node name="Gun" instance=ExtResource("1_okspq")]
+script = ExtResource("2_me58d")
+is_semi_auto = true
+time_between_shots = 0.0
+shots_per_burst = 1
+time_between_burst_shots = 0.15
+base_spread = 0.05
+recoil_per_shot = 0.3
+recoil_recovery_per_second = 1.2
+maximum_recoil_spread = 0.8
+movement_spread_gain_per_second = 0.8
+movement_spread_recovery_per_second = 1.2
+maximum_movement_spread = 0.8
+maximum_walking_movement_spread = 0.4
+fire_ai_sound_range = 25.0
+screen_shake_on_fire_amount = 0.05
+has_gunshot_screen_flash = true
+gunshot_screen_flash_amount = 0.2
+gunshot_screen_flash_duration = 0.1
+low_ammo_amount = 2
+critical_ammo_amount = 1
+show_quantity_in_ui = true
+
+[node name="ReloadMaster" parent="." index="0" instance=ExtResource("3_whuu1")]

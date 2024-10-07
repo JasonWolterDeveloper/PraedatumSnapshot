@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfvr8h561gjft"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Behaviour/States/WanderState.gd" id="1_fv58l"]
+
+[node name="WanderState" type="Node3D"]
+script = ExtResource("1_fv58l")
+
+[node name="CollisionAvoidanceRaycast" type="RayCast3D" parent="."]
+top_level = true
+collision_mask = 5

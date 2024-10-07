@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwkvp1qgvbk6q"]
+
+[ext_resource type="Texture2D" uid="uid://b80tld83mq8o5" path="res://UIObjects/Assets/ConversationUI/PlayerPortrait.png" id="1_nabjh"]
+[ext_resource type="Shader" path="res://ScratchPad/scan_lines.gdshader" id="2_1bsic"]
+[ext_resource type="Shader" path="res://ScratchPad/static.gdshader" id="2_objdu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2yrk"]
+shader = ExtResource("2_objdu")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ca1fm"]
+frequency = 0.6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_03esk"]
+noise = SubResource("FastNoiseLite_ca1fm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7u0v8"]
+shader = ExtResource("2_1bsic")
+shader_parameter/curvature = 1.0
+shader_parameter/skip = 0.0
+shader_parameter/image_flicker = 0.0
+shader_parameter/vignette_flicker_speed = 0.3
+shader_parameter/vignette_strength = 0.8
+shader_parameter/small_scanlines_speed = 1.0
+shader_parameter/small_scanlines_proximity = 1.0
+shader_parameter/small_scanlines_opacity = 1.0
+shader_parameter/scanlines_opacity = 1.0
+shader_parameter/scanlines_speed = 0.5
+shader_parameter/scanline_thickness = 0.57
+shader_parameter/scanlines_spacing = 0.8
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_03esk")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nabjh")
+
+[node name="ScanLinesOverlay" type="Control" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect/ScanLinesOverlay"]
+material = SubResource("ShaderMaterial_d2yrk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="TextureRect/ScanLinesOverlay"]
+material = SubResource("ShaderMaterial_7u0v8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

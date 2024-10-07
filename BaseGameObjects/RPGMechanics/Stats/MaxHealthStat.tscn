@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwxcjb4ifiqo6"]
+
+[ext_resource type="PackedScene" uid="uid://c1g8i0nmcjom1" path="res://BaseGameObjects/RPGMechanics/RPGStat.tscn" id="1_4i28t"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Stats/MaxHealthStat.gd" id="2_nr2pt"]
+
+[node name="MaxHealthStat" instance=ExtResource("1_4i28t")]
+script = ExtResource("2_nr2pt")

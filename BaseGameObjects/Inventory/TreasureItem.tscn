@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb86s4hl5ekxv"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/TreasureItem.gd" id="1_70o5j"]
+
+[node name="TreasureItem" type="Node3D"]
+script = ExtResource("1_70o5j")

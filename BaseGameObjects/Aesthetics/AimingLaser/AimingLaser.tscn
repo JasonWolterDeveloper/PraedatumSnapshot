@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhyskmsfngv38"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Aesthetics/AimingLaser/AimingLaser.gd" id="1_yn7e4"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0namw"]
+resource_local_to_scene = true
+flip_faces = true
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yip20"]
+albedo_color = Color(0, 0, 1, 0.721569)
+emission_enabled = true
+emission = Color(0, 0.239216, 0.619608, 1)
+emission_energy_multiplier = 25.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_l6khn"]
+radius = 0.06
+height = 0.12
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tev8"]
+transparency = 1
+albedo_color = Color(0, 0, 1, 0.721569)
+emission_enabled = true
+emission = Color(0, 0.239216, 0.619608, 1)
+emission_energy_multiplier = 60.0
+
+[node name="AimingLaser" type="RayCast3D"]
+target_position = Vector3(0, -100, 0)
+collision_mask = 31
+script = ExtResource("1_yn7e4")
+
+[node name="BeamMesh" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_0namw")
+surface_material_override/0 = SubResource("StandardMaterial3D_yip20")
+
+[node name="PointMesh" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_l6khn")
+surface_material_override/0 = SubResource("StandardMaterial3D_1tev8")

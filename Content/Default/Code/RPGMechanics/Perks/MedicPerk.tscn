@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxtfd1qnswrdn"]
+
+[ext_resource type="PackedScene" uid="uid://ct7o5n0aoaunn" path="res://BaseGameObjects/RPGMechanics/RPGPerk.tscn" id="1_mv1mm"]
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/Perks/MedicPerk.gd" id="2_mqohu"]
+
+[node name="MedicPerk" instance=ExtResource("1_mv1mm")]
+script = ExtResource("2_mqohu")
+heal_percentage_increase = 25.0

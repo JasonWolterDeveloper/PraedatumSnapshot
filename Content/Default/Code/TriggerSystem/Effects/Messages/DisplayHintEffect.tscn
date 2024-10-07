@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2wiip7fcwn23"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/Effects/Messages/DisplayHintEffect.gd" id="1_1eq6i"]
+
+[node name="DisplayHintEffect" type="Node"]
+script = ExtResource("1_1eq6i")

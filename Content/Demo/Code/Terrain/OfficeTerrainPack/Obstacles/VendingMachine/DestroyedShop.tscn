@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://daek1siqyrgpo"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_s5ucm"]
+[ext_resource type="PackedScene" uid="uid://c1q0nq3vnquq" path="res://Content/Demo/Assets/Terrain/Obstacles/VendingMachine/DestroyedShopModel.tscn" id="2_meo3k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gcmpg"]
+size = Vector3(1.73529, 2.62967, 1.36829)
+
+[node name="DestroyedShop" type="StaticBody3D"]
+script = ExtResource("1_s5ucm")
+
+[node name="DestroyedShopModel" parent="." instance=ExtResource("2_meo3k")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00137329, 1.31322, 0.00592041)
+shape = SubResource("BoxShape3D_gcmpg")

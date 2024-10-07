@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://du8nkqi1ll2p2"]
+
+[ext_resource type="PackedScene" uid="uid://bg365ya67tc63" path="res://UIObjects/CombatUI/Healthbar/HealthBar.tscn" id="1_y20va"]
+[ext_resource type="Theme" uid="uid://dknoaiusgn8k3" path="res://UIObjects/Themes/HUD/ManaBarTheme.tres" id="2_13u85"]
+
+[node name="ManaBar" instance=ExtResource("1_y20va")]
+
+[node name="TopHealthBar" parent="BarContainer/MarginContainer" index="1"]
+theme = ExtResource("2_13u85")

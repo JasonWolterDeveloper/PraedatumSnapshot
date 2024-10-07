@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq0fk1hhg0jw5"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/Effects/ActivateAITriggerEffect.gd" id="1_rt8j8"]
+
+[node name="ActivateAITriggerEffect" type="Node"]
+script = ExtResource("1_rt8j8")

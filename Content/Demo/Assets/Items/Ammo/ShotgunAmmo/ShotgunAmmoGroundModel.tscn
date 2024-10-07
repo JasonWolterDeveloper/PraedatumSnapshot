@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhp6la8aknyyr"]
+
+[ext_resource type="PackedScene" uid="uid://c6n8fv5khoglb" path="res://Content/Demo/Assets/Items/Ammo/ShotgunAmmo/ShotgunAmmo.glb" id="1_kts6f"]
+
+[node name="ShotgunAmmoGroundModel" type="Node3D"]
+
+[node name="ShotgunAmmo" parent="." instance=ExtResource("1_kts6f")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)

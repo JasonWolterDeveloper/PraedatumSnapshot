@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=3 uid="uid://t2se0242xwu2"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Items/Aid/Health/HoldUse/Bandage/Bandage.gd" id="1_64xm2"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGModifiers/RPGStatModifier.gd" id="2_atto1"]
+[ext_resource type="Texture2D" uid="uid://lu7f0xwigvib" path="res://Content/Demo/Assets/Items/Consumables/Bandage/BandageInventoryImage.png" id="2_xptix"]
+[ext_resource type="PackedScene" uid="uid://3bufypfxng3m" path="res://Content/Demo/Assets/Items/Consumables/Bandage/BandageGroundModel.tscn" id="3_l61ed"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntryCollection.gd" id="5_isvcr"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemDescription/ItemStatEntry.gd" id="6_cn8w6"]
+
+[sub_resource type="Resource" id="Resource_5y3af"]
+script = ExtResource("2_atto1")
+stat_id = "movement_speed"
+value = -0.5
+is_multiplicative = true
+is_number_of_segments = false
+is_value_per_segment = false
+
+[sub_resource type="Resource" id="Resource_oue0o"]
+script = ExtResource("6_cn8w6")
+stat_title = "HP Restored"
+stat_value = "25.0"
+stat_value_colour = Color(0.639216, 0.0509804, 0, 1)
+
+[sub_resource type="Resource" id="Resource_rb1j2"]
+script = ExtResource("6_cn8w6")
+stat_title = "Use Time"
+stat_value = "2.0 s"
+stat_value_colour = Color(0.342207, 0.342207, 0.342207, 1)
+
+[sub_resource type="Resource" id="Resource_xwvhm"]
+script = ExtResource("6_cn8w6")
+stat_title = "Move Spd."
+stat_value = "-50%"
+stat_value_colour = Color(0.724651, 0, 0.147926, 1)
+
+[sub_resource type="Resource" id="Resource_mnkp2"]
+script = ExtResource("5_isvcr")
+stat_entry_array = Array[ExtResource("6_cn8w6")]([SubResource("Resource_oue0o"), SubResource("Resource_rb1j2"), SubResource("Resource_xwvhm")])
+
+[node name="Bandage" type="Node3D"]
+script = ExtResource("1_64xm2")
+time_to_use = 2.0
+holding_use_message = "Bandaging..."
+hold_use_stat_modifiers = Array[ExtResource("2_atto1")]([SubResource("Resource_5y3af")])
+utility_item_use_message = "Used Bandage"
+inventory_image = ExtResource("2_xptix")
+ground_3d_model_scene = ExtResource("3_l61ed")
+display_name = "Bandage"
+item_id = "bandage"
+description = "A simple bandage used to staunch wounds. Restores health points, but takes time to use."
+show_quantity_in_ui = true
+default_price = 30
+item_stat_entry_collection = SubResource("Resource_mnkp2")
+max_quantity = 3
+grid_square_width = 1
+grid_square_height = 1

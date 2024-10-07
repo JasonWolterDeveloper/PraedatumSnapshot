@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk11m1hcmfxm0"]
+
+[ext_resource type="Script" path="res://UIObjects/BaseFacilityMenu/Crafting/UpgradeRecipeUI.gd" id="1_3r3nc"]
+[ext_resource type="PackedScene" uid="uid://d03ia485kq18l" path="res://UIObjects/BaseFacilityMenu/Crafting/UIElements/CraftingRecipeItemCostUIElement.tscn" id="1_f8xat"]
+[ext_resource type="PackedScene" uid="uid://csdyueu8l7yd0" path="res://UIObjects/BaseFacilityMenu/Crafting/UIElements/CraftingRecipePowerCostUIElement.tscn" id="2_214hk"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="4_b5dvq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eafb6"]
+
+[node name="UpgradeRecipeUI" type="BoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3r3nc")
+crafting_item_cost_ui_scene = ExtResource("1_f8xat")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="RecipeCostContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CraftingItemCostElement" parent="HBoxContainer/RecipeCostContainer" instance=ExtResource("1_f8xat")]
+layout_mode = 2
+
+[node name="CraftingItemCostElement2" parent="HBoxContainer/RecipeCostContainer" instance=ExtResource("1_f8xat")]
+layout_mode = 2
+
+[node name="RecipePowerCostElement" parent="HBoxContainer" instance=ExtResource("2_214hk")]
+visible = false
+layout_mode = 2
+
+[node name="Separator" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(10, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eafb6")
+
+[node name="UpgradeButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_b5dvq")
+theme_override_font_sizes/font_size = 24
+text = "Upgrade"
+
+[connection signal="pressed" from="HBoxContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]

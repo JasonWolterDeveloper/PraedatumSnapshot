@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://daplb64ao5rg6"
+path="res://.godot/imported/Karl Casey - White Bat IV - 03 Sycophant.ogg-11a8d40506c3912f7d415f7c115789af.oggvorbisstr"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat IV - 03 Sycophant.ogg"
+dest_files=["res://.godot/imported/Karl Casey - White Bat IV - 03 Sycophant.ogg-11a8d40506c3912f7d415f7c115789af.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

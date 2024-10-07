@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0rkk07rrw0a1"]
+
+[ext_resource type="PackedScene" uid="uid://chjpj123qjj8m" path="res://BaseGameObjects/Inventory/QuantityItem.tscn" id="1_uu3hl"]
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Magazine.gd" id="2_50lrt"]
+
+[node name="Magazine" instance=ExtResource("1_uu3hl")]
+script = ExtResource("2_50lrt")
+ammo_type = null
+bullet_scene = null
+ammo_subtype_to_bullet_scene_mapping = {}
+delete_at_zero_quantity = false

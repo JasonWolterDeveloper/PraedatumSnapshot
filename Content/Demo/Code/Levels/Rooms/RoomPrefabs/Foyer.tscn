@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://bnrbfeusfsh5"]
+
+[ext_resource type="PackedScene" uid="uid://bnb7cbsaksj6d" path="res://BaseGameObjects/Terrain/Rooms/Room.tscn" id="1_2owq3"]
+[ext_resource type="Texture2D" uid="uid://c8qav4uf4xqnx" path="res://Content/Demo/Assets/Terrain/Floors/Textures/BaseTileMap.png" id="2_0vf43"]
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="4_6nhrj"]
+[ext_resource type="PackedScene" uid="uid://c3b154ughxtoj" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Obstacles/OfficeDeskAndChair/DeskAndChairObstacle.tscn" id="5_61a84"]
+[ext_resource type="PackedScene" uid="uid://bkhagmsliovx1" path="res://Content/Demo/Code/Levels/Rooms/RoomConnectors/NLIBasicRoomConnector.tscn" id="5_qkjjb"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="7_gt7g0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4dm6f"]
+size = Vector3(16, 0, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0obx"]
+albedo_color = Color(0.564962, 0.564962, 0.564962, 1)
+albedo_texture = ExtResource("2_0vf43")
+metallic = 0.3
+uv1_scale = Vector3(1.6, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_14kwl"]
+size = Vector3(16, 0, 16)
+
+[node name="Foyer" instance=ExtResource("1_2owq3")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor" index="0"]
+mesh = SubResource("BoxMesh_4dm6f")
+surface_material_override/0 = SubResource("StandardMaterial3D_y0obx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Floor" index="1"]
+shape = SubResource("BoxShape3D_14kwl")
+
+[node name="Endcaps" type="Node3D" parent="Terrain" index="1"]
+
+[node name="OfficeWallEndcap" parent="Terrain/Endcaps" index="0" instance=ExtResource("4_6nhrj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
+
+[node name="OfficeWallEndcap2" parent="Terrain/Endcaps" index="1" instance=ExtResource("4_6nhrj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8, 0, 8)
+
+[node name="OfficeWallEndcap3" parent="Terrain/Endcaps" index="2" instance=ExtResource("4_6nhrj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 0, 8)
+
+[node name="OfficeWallEndcap4" parent="Terrain/Endcaps" index="3" instance=ExtResource("4_6nhrj")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 8, 0, -8)
+
+[node name="Walls" type="Node3D" parent="Terrain" index="2"]
+
+[node name="OfficeWall9" parent="Terrain/Walls" index="0" instance=ExtResource("7_gt7g0")]
+transform = Transform3D(-5, 0, -8.74228e-08, 0, 1, 0, 4.37114e-07, 0, -1, -4.5, 0, -8)
+
+[node name="OfficeWall10" parent="Terrain/Walls" index="1" instance=ExtResource("7_gt7g0")]
+transform = Transform3D(-5, 0, -8.74228e-08, 0, 1, 0, 4.37114e-07, 0, -1, 0.5, 0, -8)
+
+[node name="OfficeWall11" parent="Terrain/Walls" index="2" instance=ExtResource("7_gt7g0")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -5, 0, -4.37114e-08, 8, 0, -4.5)
+
+[node name="OfficeWall12" parent="Terrain/Walls" index="3" instance=ExtResource("7_gt7g0")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -5, 0, -4.37114e-08, 8, 0, 4.5)
+
+[node name="OfficeWall13" parent="Terrain/Walls" index="4" instance=ExtResource("7_gt7g0")]
+transform = Transform3D(5, 0, 2.13163e-14, 0, 1, 0, -7.10543e-14, 0, 1, 4.5, 0, 8)
+
+[node name="OfficeWall14" parent="Terrain/Walls" index="5" instance=ExtResource("7_gt7g0")]
+transform = Transform3D(5, 0, 2.13163e-14, 0, 1, 0, -7.10543e-14, 0, 1, -4.5, 0, 8)
+
+[node name="OfficeWall15" parent="Terrain/Walls" index="6" instance=ExtResource("7_gt7g0")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 5, 0, -4.37114e-08, -8, 0, 4.5)
+
+[node name="OfficeWall16" parent="Terrain/Walls" index="7" instance=ExtResource("7_gt7g0")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 5, 0, -4.37114e-08, -8, 0, -4.5)
+
+[node name="Obstacles" type="Node3D" parent="Terrain" index="3"]
+
+[node name="DeskAndChairObstacle" parent="Terrain/Obstacles" index="0" instance=ExtResource("5_61a84")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0, -4.5)
+
+[node name="NLIBasicRoomConnector" parent="RoomConnectors" index="0" instance=ExtResource("5_qkjjb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 0)
+
+[node name="NLIBasicRoomConnector2" parent="RoomConnectors" index="1" instance=ExtResource("5_qkjjb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 0)
+
+[node name="NLIBasicRoomConnector3" parent="RoomConnectors" index="2" instance=ExtResource("5_qkjjb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="NLIBasicRoomConnector4" parent="RoomConnectors" index="3" instance=ExtResource("5_qkjjb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 0, -8)

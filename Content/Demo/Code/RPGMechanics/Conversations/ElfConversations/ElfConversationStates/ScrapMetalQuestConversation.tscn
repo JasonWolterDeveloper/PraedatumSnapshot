@@ -1,0 +1,49 @@
+[gd_scene load_steps=12 format=3 uid="uid://cp023wus7hgcv"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Conversations/Conversation.gd" id="1_w7jrk"]
+[ext_resource type="PackedScene" uid="uid://c4w3qrdn1jree" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationDialogState.tscn" id="2_1qgry"]
+[ext_resource type="Resource" uid="uid://cy7pan5b2oo3p" path="res://Content/Demo/Code/RPGMechanics/Conversations/ElfConversations/ElfConversationCharacter.tres" id="3_6ma6i"]
+[ext_resource type="PackedScene" uid="uid://dvhxoohg0r6db" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/ConversationChoiceState.tscn" id="4_bf6bv"]
+[ext_resource type="PackedScene" uid="uid://dpmsaw2wqi2la" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/Quests/StartQuestConversationChoice.tscn" id="5_mjsop"]
+[ext_resource type="PackedScene" uid="uid://d1kajgxaylxv2" path="res://Content/Default/Code/RPGMechanics/Quests/CompleteQuestConversationChoice.tscn" id="6_cktl6"]
+[ext_resource type="PackedScene" uid="uid://04f1d3v83y1k" path="res://ScratchPad/TestQuests/FetchScrapMetalTestQuest.tscn" id="6_tu4e4"]
+[ext_resource type="PackedScene" uid="uid://ds4vdec1i42tc" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationChoices/ConversationChoice.tscn" id="7_8coj2"]
+[ext_resource type="Script" path="res://BaseGameObjects/TriggerSystem/ConditionEvaluator.gd" id="8_2bsbh"]
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/ConditionEvaluators/HasItemConditionEvaluator.gd" id="9_j4c3f"]
+
+[sub_resource type="Resource" id="Resource_yhfhv"]
+script = ExtResource("9_j4c3f")
+item_id = "scrap_metal"
+item_quantity = 5
+include_inventory = true
+include_stash = true
+inverted = false
+
+[node name="ScrapMetalQuestConversation" type="Node" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_w7jrk")
+initial_state = NodePath("ScrapMetalQuestGreeting")
+unique_id = "scrap_metal_quest_convo"
+
+[node name="ScrapMetalQuestGreeting" parent="." node_paths=PackedStringArray("next_state") instance=ExtResource("2_1qgry")]
+conversation_character = ExtResource("3_6ma6i")
+text = "Please go get me 5 scrap metal"
+unique_id = "ScrapMetalQuestGreeting"
+next_state = NodePath("../ScrapMetalQuestChoice")
+
+[node name="ScrapMetalQuestChoice" parent="." instance=ExtResource("4_bf6bv")]
+unique_id = "ScrapMetalQuestChoice"
+
+[node name="AcceptChoice" parent="ScrapMetalQuestChoice" instance=ExtResource("5_mjsop")]
+quest_scene = ExtResource("6_tu4e4")
+unique_id = "accept_scrap_metal_quest"
+text = "Accept Quest"
+
+[node name="CompleteQuestConversationChoice" parent="ScrapMetalQuestChoice" instance=ExtResource("6_cktl6")]
+quest_id = "fetch_scrap_metal"
+unique_id = "complete_fetch_scrap"
+text = "Complete Quest"
+availability_condition_evaluators = Array[ExtResource("8_2bsbh")]([SubResource("Resource_yhfhv")])
+
+[node name="RefuseChoice" parent="ScrapMetalQuestChoice" instance=ExtResource("7_8coj2")]
+unique_id = "refuse_foreman_quest"
+text = "Refuse Quest"

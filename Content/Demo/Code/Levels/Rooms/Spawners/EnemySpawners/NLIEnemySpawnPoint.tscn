@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw57rhtaaffux"]
+
+[ext_resource type="PackedScene" uid="uid://ble2uv3xhaem7" path="res://BaseGameObjects/Terrain/Rooms/Spawners/EnemySpawnPoint.tscn" id="1_e2bnj"]
+
+[node name="NLIEnemySpawnPoint" instance=ExtResource("1_e2bnj")]

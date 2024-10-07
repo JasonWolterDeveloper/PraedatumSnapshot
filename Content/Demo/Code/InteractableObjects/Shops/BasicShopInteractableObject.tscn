@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://yq43dak75w1"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/InteractableObjects/Shops/ShopInteractableObject.gd" id="1_dijub"]
+[ext_resource type="PackedScene" uid="uid://b5ny6grjeidov" path="res://UIObjects/InteractionUI/InteractionIcon.tscn" id="2_ptqmr"]
+[ext_resource type="PackedScene" uid="uid://ci1my5lr26p85" path="res://Content/Demo/Assets/Interactables/Shops/ShopModel.tscn" id="3_8uuef"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ftugl"]
+size = Vector3(1.8936, 2.9455, 1.69616)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b2jsa"]
+size = Vector3(1.76025, 2.64026, 1.37692)
+
+[node name="BasicShopInteractableObject" type="StaticBody3D"]
+collision_layer = 1025
+script = ExtResource("1_dijub")
+allow_if_activated = true
+
+[node name="ActivationArea#CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0153835, 1.36429, 0.0430408)
+shape = SubResource("BoxShape3D_ftugl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989237, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00366211, 0.320129, 0.00209351)
+shape = SubResource("BoxShape3D_b2jsa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ItemIcon" type="TextureRect" parent="CanvasLayer"]
+visible = false
+z_index = 20
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = -20.0
+grow_vertical = 0
+
+[node name="InteractionIcon" parent="CanvasLayer" instance=ExtResource("2_ptqmr")]
+visible = false
+
+[node name="ShopModel" parent="." instance=ExtResource("3_8uuef")]
+
+[node name="InteractionIconMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05075, 0)

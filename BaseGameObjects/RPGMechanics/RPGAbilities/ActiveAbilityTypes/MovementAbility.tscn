@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clpw63mtfkb4j"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGAbilities/ActiveAbilityTypes/MovementAbility.gd" id="1_6twu4"]
+
+[node name="MovementAbility" type="Node"]
+script = ExtResource("1_6twu4")

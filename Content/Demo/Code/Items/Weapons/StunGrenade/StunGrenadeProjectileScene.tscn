@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7ot82wv7n6s"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Projectiles/Grenades/GrenadeProjectile.gd" id="1_0tl0n"]
+[ext_resource type="PackedScene" uid="uid://83wo40k2p6jp" path="res://Content/Demo/Assets/Weapons/StunGrenade/PraedatumFlashBangGameWorld.glb" id="2_r8k7v"]
+[ext_resource type="PackedScene" uid="uid://k1nenvec51n7" path="res://Content/Demo/Code/Items/Weapons/StunGrenade/StunGrenadeExplosion.tscn" id="3_qf62n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t5oo1"]
+radius = 0.136262
+height = 0.62529
+
+[node name="StunGrenadeProjectileScene" type="CharacterBody3D" node_paths=PackedStringArray("grenade_3D_model")]
+collision_layer = 4
+script = ExtResource("1_0tl0n")
+grenade_3D_model = NodePath("PraedatumFlashBangGameWorld")
+
+[node name="PraedatumFlashBangGameWorld" parent="." instance=ExtResource("2_r8k7v")]
+transform = Transform3D(0.0388229, -0.144889, 0, 0.144889, 0.0388229, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0, 1, 0, -0.0120248, 0)
+shape = SubResource("CapsuleShape3D_t5oo1")
+
+[node name="Explosion" parent="." instance=ExtResource("3_qf62n")]
+
+[connection signal="explosion_finished" from="Explosion" to="." method="_on_explosion_explosion_finished"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://capopkwnbls37"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Stats/ArmourPointsStat.gd" id="1_41pjy"]
+
+[node name="ArmourPointsStat" type="Node"]
+script = ExtResource("1_41pjy")
+stat_id = "armour_points"

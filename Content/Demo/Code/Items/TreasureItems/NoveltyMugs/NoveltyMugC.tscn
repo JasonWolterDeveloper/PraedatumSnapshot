@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://oyr08abm1l1e"]
+
+[ext_resource type="PackedScene" uid="uid://cv4bfar1mukqc" path="res://Content/Demo/Code/Items/TreasureItems/NoveltyMugs/NoveltyMugA.tscn" id="1_ycyl5"]
+[ext_resource type="Texture2D" uid="uid://v5j5aak0gv8o" path="res://Content/Demo/Assets/Items/TreasureItems/NoveltyMugs/NoveltyMugCInventoryImage.png" id="2_bfyx3"]
+[ext_resource type="PackedScene" uid="uid://bseyffapifvih" path="res://Content/Demo/Assets/Items/TreasureItems/NoveltyMugs/NoveltyMugCGroundModel.tscn" id="3_l2l71"]
+
+[node name="NoveltyMugC" instance=ExtResource("1_ycyl5")]
+inventory_image = ExtResource("2_bfyx3")
+ground_3d_model_scene = ExtResource("3_l2l71")
+display_name = "Novelty Mug C"
+item_id = "novelty_mug_c"
+description = "A novelty mug offered in NLI Commissaries and as gifts for loyal employees
+
+This varient is designed to improve employee morale. Keep your chin up! :^)
+
+Someone might be looking to collect these, otherwise it can be sold, or scrapped."

@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://hq1io3sqfvn4"]
+
+[ext_resource type="PackedScene" uid="uid://bgj3h4qtwgwkk" path="res://BaseGameObjects/Level.tscn" id="1_7ghkb"]
+[ext_resource type="PackedScene" uid="uid://dckx87yok3eou" path="res://UIObjects/PlayerHUD/TabStatusMenu/TabStatusPanel.tscn" id="2_d7e7w"]
+[ext_resource type="PackedScene" uid="uid://cfcg4n5b4ptpt" path="res://UIObjects/InventoryUI/ShopMenuUI/ShopMenu.tscn" id="3_bfiyf"]
+[ext_resource type="PackedScene" uid="uid://cxb30t5sl303p" path="res://ScratchPad/TestLevels/WallLessRoomTest.tscn" id="4_5hl3s"]
+[ext_resource type="PackedScene" uid="uid://bl176wggn7k33" path="res://BaseGameObjects/Player.tscn" id="4_fnpso"]
+[ext_resource type="PackedScene" uid="uid://rdbil6eeu05e" path="res://Content/Demo/Code/Enemies/GunDrone/GunDroneEnemy.tscn" id="5_vyyj3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wxhnn"]
+sky_top_color = Color(0.14902, 0.188235, 0.239216, 1)
+sky_horizon_color = Color(0.588235, 0.588235, 0.592157, 1)
+sky_curve = 0.52233
+sky_energy_multiplier = 0.7
+ground_horizon_color = Color(0.587255, 0.589309, 0.593054, 1)
+ground_energy_multiplier = 0.0
+sun_angle_max = 0.0
+sun_curve = 51.638
+
+[sub_resource type="Sky" id="Sky_r4hy3"]
+sky_material = SubResource("ProceduralSkyMaterial_wxhnn")
+
+[sub_resource type="Environment" id="Environment_qw622"]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_r4hy3")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 10.0
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xq0t0"]
+size = Vector2(5000, 5000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gj1h4"]
+render_priority = -100
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+
+[node name="WallLessRoomTestLevel" instance=ExtResource("1_7ghkb")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="0"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
+light_color = Color(0.356863, 0.356863, 0.356863, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1"]
+environment = SubResource("Environment_qw622")
+
+[node name="TabStatusPanel" parent="UILayer" index="0" instance=ExtResource("2_d7e7w")]
+
+[node name="ShopMenu" parent="UILayer" index="3" instance=ExtResource("3_bfiyf")]
+visible = false
+
+[node name="SuperSecretHitDetector" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53964, 0)
+
+[node name="WallessRoomTest2" parent="RoomMaster" index="0" instance=ExtResource("4_5hl3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="WallessRoomTest" parent="RoomMaster" index="1" instance=ExtResource("4_5hl3s")]
+
+[node name="Player" parent="." index="7" instance=ExtResource("4_fnpso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.92264, 2.11178, 1.69955)
+disable_control = null
+time_between_shots = null
+
+[node name="Void" type="MeshInstance3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+mesh = SubResource("PlaneMesh_xq0t0")
+surface_material_override/0 = SubResource("StandardMaterial3D_gj1h4")
+
+[node name="GunDroneEnemy" parent="." index="9" instance=ExtResource("5_vyyj3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.948)

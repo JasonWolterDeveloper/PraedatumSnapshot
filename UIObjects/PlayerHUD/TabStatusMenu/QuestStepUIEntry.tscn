@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs750yarq2150"]
+
+[ext_resource type="Script" path="res://UIObjects/PlayerHUD/TabStatusMenu/QuestStepUIEntry.gd" id="1_8krun"]
+[ext_resource type="Texture2D" uid="uid://ux130xqboser" path="res://UIObjects/Assets/TabMenu/SelectedQuestIndicator.png" id="1_haxuj"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="1_wht6h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5qx5"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3d5i"]
+bg_color = Color(0.8, 0.8, 0.8, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="QuestStepUIEntry" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_8krun")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SelectedIndicator" type="TextureRect" parent="HBoxContainer"]
+modulate = Color(0.789879, 0.789879, 0.789879, 1)
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_haxuj")
+expand_mode = 1
+
+[node name="CompleteIndicator" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r5qx5")
+
+[node name="IncompleteIndicator" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r3d5i")
+
+[node name="QuestStepName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_wht6h")
+theme_override_font_sizes/font_size = 24
+text = "Quest Step"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://by6f13xhaddpr"
+path="res://.godot/imported/Karl Casey - White Bat II - 24 Lost in Space.ogg-ca3a29a9e24b3ca4bd1e837d1d3c2e81.oggvorbisstr"
+
+[deps]
+
+source_file="res://Content/Demo/Assets/Music/Ambient/Karl Casey - White Bat II - 24 Lost in Space.ogg"
+dest_files=["res://.godot/imported/Karl Casey - White Bat II - 24 Lost in Space.ogg-ca3a29a9e24b3ca4bd1e837d1d3c2e81.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

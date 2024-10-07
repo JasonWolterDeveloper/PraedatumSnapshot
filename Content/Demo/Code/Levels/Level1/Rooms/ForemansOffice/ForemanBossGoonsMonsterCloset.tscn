@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://gdl8355qtdw"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/MonsterClosets/MonsterClosetRoom.gd" id="1_86vv4"]
+[ext_resource type="PackedScene" uid="uid://bu01on1ubhj5s" path="res://BaseGameObjects/Aesthetics/FogOfWar/RoomHideBlackBox.tscn" id="2_4w1aq"]
+[ext_resource type="PackedScene" uid="uid://cb78sar46vq83" path="res://BaseGameObjects/Terrain/Floor.tscn" id="3_xg504"]
+[ext_resource type="Texture2D" uid="uid://cifsgyri2450u" path="res://Content/Demo/Assets/Terrain/Floors/Textures/BaseTileMap.png" id="4_xxwup"]
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="5_b0563"]
+[ext_resource type="PackedScene" uid="uid://bafdbdjpmgphd" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/Prefabs/OfficeWallPrefabBasic.tscn" id="6_j3jpf"]
+[ext_resource type="PackedScene" uid="uid://bkhagmsliovx1" path="res://Content/Demo/Code/Levels/Rooms/RoomConnectors/NLIBasicRoomConnector.tscn" id="7_bkif2"]
+[ext_resource type="PackedScene" uid="uid://cfl4v3aexofgf" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Doors/NLIDoor.tscn" id="8_hdc5d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b407y"]
+albedo_color = Color(0.564962, 0.564962, 0.564962, 1)
+albedo_texture = ExtResource("4_xxwup")
+metallic = 0.3
+uv1_scale = Vector3(0.2, 0.1, 0.2)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mskly"]
+material = SubResource("StandardMaterial3D_b407y")
+size = Vector2(1, 1)
+
+[node name="ForemanBossMonsterCloset" type="Node3D"]
+script = ExtResource("1_86vv4")
+
+[node name="Area" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="RoomHideBlackBox" parent="." instance=ExtResource("2_4w1aq")]
+transform = Transform3D(6.5, 0, 0, 0, 9, 0, 0, 0, 6.5, 0, 0, 0)
+fade_out_time = 0.5
+
+[node name="Terrain" type="NavigationRegion3D" parent="."]
+
+[node name="Floor" parent="Terrain" instance=ExtResource("3_xg504")]
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 6, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor"]
+mesh = SubResource("PlaneMesh_mskly")
+
+[node name="OfficeWallEndcap" parent="Terrain" instance=ExtResource("5_b0563")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 3)
+
+[node name="OfficeWallEndcap2" parent="Terrain" instance=ExtResource("5_b0563")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -3, 0, 3)
+
+[node name="OfficeWallPrefabBasic" parent="Terrain" instance=ExtResource("6_j3jpf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 0)
+
+[node name="OfficeWallPrefabBasic2" parent="Terrain" instance=ExtResource("6_j3jpf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, 0)
+
+[node name="OfficeWallPrefabBasic3" parent="Terrain" instance=ExtResource("6_j3jpf")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -3)
+
+[node name="OfficeWallEndcap3" parent="Terrain" instance=ExtResource("5_b0563")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -3, 0, -3)
+
+[node name="OfficeWallEndcap4" parent="Terrain" instance=ExtResource("5_b0563")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 3, 0, -3)
+
+[node name="EnemySpawners" type="Node3D" parent="."]
+
+[node name="RoomConnectors" type="Node3D" parent="."]
+
+[node name="NLIBasicRoomConnector" parent="RoomConnectors" node_paths=PackedStringArray("door") instance=ExtResource("7_bkif2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+door = NodePath("NLIDoorway")
+
+[node name="NLIDoorway" parent="RoomConnectors/NLIBasicRoomConnector" instance=ExtResource("8_hdc5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+destroyable = false
+locked = true
+
+[node name="LootSpawners" type="Node3D" parent="."]

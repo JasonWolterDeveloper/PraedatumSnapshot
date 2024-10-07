@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyqxk7ymgup7o"]
+
+[ext_resource type="PackedScene" uid="uid://dbyqbm65ae0m8" path="res://Content/Demo/Assets/Items/Tools/Keys/PraedatumKeyCardBlue.glb" id="1_74fsq"]
+
+[node name="BlueKeycardGroundModel" type="Node3D"]
+
+[node name="PraedatumKeyCardBlue" parent="." instance=ExtResource("1_74fsq")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

@@ -1,0 +1,49 @@
+[gd_resource type="AnimationNodeBlendSpace2D" load_steps=10 format=3 uid="uid://bpys2mqq6ht7m"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0e84g"]
+animation = &"RiflePack/idle aiming"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dyteg"]
+animation = &"RiflePack/walk forward right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xdbnw"]
+animation = &"RiflePack/walk forward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m12w7"]
+animation = &"RiflePack/walk forward left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6gnr2"]
+animation = &"RiflePack/walk right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ycwh6"]
+animation = &"RiflePack/walk backward right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s4c3x"]
+animation = &"RiflePack/walk backward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kawjc"]
+animation = &"RiflePack/walk backward left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yb14o"]
+animation = &"RiflePack/walk left"
+
+[resource]
+blend_point_0/node = SubResource("AnimationNodeAnimation_0e84g")
+blend_point_0/pos = Vector2(0, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_dyteg")
+blend_point_1/pos = Vector2(1, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_xdbnw")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_m12w7")
+blend_point_3/pos = Vector2(-1, 1)
+blend_point_4/node = SubResource("AnimationNodeAnimation_6gnr2")
+blend_point_4/pos = Vector2(1, 0)
+blend_point_5/node = SubResource("AnimationNodeAnimation_ycwh6")
+blend_point_5/pos = Vector2(1, -1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_s4c3x")
+blend_point_6/pos = Vector2(0, -1)
+blend_point_7/node = SubResource("AnimationNodeAnimation_kawjc")
+blend_point_7/pos = Vector2(-1, -1)
+blend_point_8/node = SubResource("AnimationNodeAnimation_yb14o")
+blend_point_8/pos = Vector2(-1, 0)
+sync = true

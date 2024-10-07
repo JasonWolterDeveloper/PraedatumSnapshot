@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://dv3dvjvren7ys"]
+
+[ext_resource type="Script" path="res://UIObjects/Crosshair.gd" id="1_5psbw"]
+[ext_resource type="Script" path="res://UIObjects/Crosshair2D.gd" id="2_7v4b1"]
+[ext_resource type="PackedScene" uid="uid://p808tvr5kpuh" path="res://UIObjects/WeaponUI/ReloadingCrosshair.tscn" id="2_oduoj"]
+[ext_resource type="Texture2D" uid="uid://ck0mr7l2o2mp" path="res://UIObjects/Assets/Crosshair/Crosshair2.png" id="3_3v12k"]
+[ext_resource type="PackedScene" uid="uid://djfx3ooi48rwf" path="res://UIObjects/WeaponUI/OlReliableChargeBar.tscn" id="4_xo66h"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dj8wc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gbvt"]
+no_depth_test = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5cx4c"]
+flip_faces = true
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dlml"]
+no_depth_test = true
+
+[node name="Crosshair" type="Node3D"]
+script = ExtResource("1_5psbw")
+
+[node name="ReloadingCrosshair" parent="." instance=ExtResource("2_oduoj")]
+visible = true
+
+[node name="Crosshair2D" type="Sprite2D" parent="."]
+script = ExtResource("2_7v4b1")
+
+[node name="OlReliableChargeBar" parent="." instance=ExtResource("4_xo66h")]
+visible = false
+
+[node name="Sphere1" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_dj8wc")
+skeleton = NodePath("../CrosshairPlane")
+surface_material_override/0 = SubResource("StandardMaterial3D_8gbvt")
+
+[node name="Sphere2" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_dj8wc")
+skeleton = NodePath("../CrosshairPlane")
+surface_material_override/0 = SubResource("StandardMaterial3D_8gbvt")
+
+[node name="Sphere3" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_dj8wc")
+skeleton = NodePath("../CrosshairPlane")
+surface_material_override/0 = SubResource("StandardMaterial3D_8gbvt")
+
+[node name="Sphere4" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_dj8wc")
+skeleton = NodePath("../CrosshairPlane")
+surface_material_override/0 = SubResource("StandardMaterial3D_8gbvt")
+
+[node name="Sphere5" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_dj8wc")
+skeleton = NodePath("../CrosshairPlane")
+surface_material_override/0 = SubResource("StandardMaterial3D_8gbvt")
+
+[node name="CrosshairPlane" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PlaneMesh_5cx4c")
+surface_material_override/0 = SubResource("StandardMaterial3D_2dlml")
+
+[node name="Crosshair2DBase" type="Sprite2D" parent="."]
+texture = ExtResource("3_3v12k")

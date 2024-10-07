@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://daeuekxq6jee"]
+
+[ext_resource type="PackedScene" uid="uid://836yvmf1k1kq" path="res://BaseGameObjects/Combat/Projectiles/Grenades/GrenadeProjectile.tscn" id="1_w3s1k"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5xhn5"]
+radius = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_kn086"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4epf6"]
+radius = 3.0
+
+[node name="TestGrenadeProjectile" instance=ExtResource("1_w3s1k")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_5xhn5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("SphereMesh_kn086")
+
+[node name="Explosion" parent="." index="2"]
+radius = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Explosion" index="0"]
+shape = SubResource("SphereShape3D_4epf6")

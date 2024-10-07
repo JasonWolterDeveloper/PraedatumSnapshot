@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b20nhunma35u6"]
+
+[ext_resource type="PackedScene" uid="uid://bwoyynh4dv8j1" path="res://Content/Demo/Assets/Items/Consumables/TomeOfExperience/TomeOfExperienceModel.glb" id="1_wxdbr"]
+
+[node name="TomeOfExperienceGroundModel" type="Node3D"]
+
+[node name="TomeOfExperienceModel" parent="." instance=ExtResource("1_wxdbr")]
+transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, 0, 0.019582, 0)

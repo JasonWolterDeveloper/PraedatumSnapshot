@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4w3qrdn1jree"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationDialogState.gd" id="1_e8avf"]
+[ext_resource type="Resource" uid="uid://b8khwth0nco4o" path="res://BaseGameObjects/RPGMechanics/Conversations/DefaultConversationCharacter.tres" id="2_1hjxa"]
+
+[node name="ConversationDialogState" type="Node"]
+script = ExtResource("1_e8avf")
+conversation_character = ExtResource("2_1hjxa")

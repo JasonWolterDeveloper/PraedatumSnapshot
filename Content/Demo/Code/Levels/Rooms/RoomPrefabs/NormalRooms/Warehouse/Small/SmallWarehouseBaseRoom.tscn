@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://bar68jectjfvo"]
+
+[ext_resource type="PackedScene" uid="uid://bnb7cbsaksj6d" path="res://BaseGameObjects/Terrain/Rooms/Room.tscn" id="1_g2vmc"]
+[ext_resource type="PackedScene" uid="uid://dmircn58amnv7" path="res://BaseGameObjects/Terrain/Rooms/SpawnTable.tscn" id="2_lsp85"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/NormalRooms/Warehouse/Small/SmallWarehouseEnemySpawnTable.gd" id="3_8pmjh"]
+[ext_resource type="PackedScene" uid="uid://ci3bupjr84ukl" path="res://Content/Demo/Code/RPGMechanics/SpawnTables/PraedatumEnemySpawnStringMapper.tscn" id="3_8xp3g"]
+[ext_resource type="Material" uid="uid://bktkgd21fd1h6" path="res://Content/Demo/Code/Levels/Rooms/RoomPrefabs/NormalRooms/Warehouse/KonkreetWarehouse.tres" id="3_f3pjy"]
+[ext_resource type="PackedScene" uid="uid://bfjff6dqyy761" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWallInnerCorner.tscn" id="4_ujwe7"]
+[ext_resource type="PackedScene" uid="uid://bkhagmsliovx1" path="res://Content/Demo/Code/Levels/Rooms/RoomConnectors/NLIBasicRoomConnector.tscn" id="5_rbvqo"]
+[ext_resource type="PackedScene" uid="uid://dld233roohjas" path="res://Content/Demo/Code/Terrain/OfficeTerrainPack/Walls/OfficeWall.tscn" id="6_mdjc2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ug21d"]
+material = ExtResource("3_f3pjy")
+size = Vector3(22, 0, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xd8i8"]
+size = Vector3(22, 0, 14)
+
+[node name="SmallWarehouseRoom" node_paths=PackedStringArray("enemy_spawn_table") instance=ExtResource("1_g2vmc")]
+display_name = "Small Warehouse"
+enemy_spawn_table = NodePath("SmallWarehouseEnemySpawnTable")
+
+[node name="SmallWarehouseEnemySpawnTable" parent="." index="0" instance=ExtResource("2_lsp85")]
+script = ExtResource("3_8pmjh")
+
+[node name="PraedatumEnemySpawnStringMapper" parent="SmallWarehouseEnemySpawnTable" index="0" instance=ExtResource("3_8xp3g")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor" index="0"]
+mesh = SubResource("BoxMesh_ug21d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Floor" index="1"]
+shape = SubResource("BoxShape3D_xd8i8")
+
+[node name="Walls" type="Node3D" parent="Terrain" index="1"]
+
+[node name="OfficeWall9" parent="Terrain/Walls" index="0" instance=ExtResource("6_mdjc2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, 0, 5.5)
+
+[node name="OfficeWall14" parent="Terrain/Walls" index="1" instance=ExtResource("6_mdjc2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11, 0, 5.5)
+
+[node name="OfficeWall10" parent="Terrain/Walls" index="2" instance=ExtResource("6_mdjc2")]
+transform = Transform3D(-3.0598e-07, 0, -1, 0, 1, 0, 7, 0, -4.37114e-08, -11, 0, -2.5)
+
+[node name="OfficeWall11" parent="Terrain/Walls" index="3" instance=ExtResource("6_mdjc2")]
+transform = Transform3D(-8, 0, 1.50996e-07, 0, 1, 0, -1.20797e-06, 0, -1, -6, 0, -7)
+
+[node name="OfficeWall15" parent="Terrain/Walls" index="4" instance=ExtResource("6_mdjc2")]
+transform = Transform3D(8, 0, -6.3573e-08, 0, 1, 0, 5.08584e-07, 0, 1, -6, 0, 7)
+
+[node name="OfficeWall16" parent="Terrain/Walls" index="5" instance=ExtResource("6_mdjc2")]
+transform = Transform3D(8, 0, -6.3573e-08, 0, 1, 0, 5.08584e-07, 0, 1, 6, 0, 7)
+
+[node name="OfficeWall12" parent="Terrain/Walls" index="6" instance=ExtResource("6_mdjc2")]
+transform = Transform3D(-8, 0, 1.50996e-07, 0, 1, 0, -1.20797e-06, 0, -1, 6, 0, -7)
+
+[node name="OfficeWall13" parent="Terrain/Walls" index="7" instance=ExtResource("6_mdjc2")]
+transform = Transform3D(1.36295e-06, 0, 1, 0, 1, 0, -7, 0, 1.94707e-07, 11, 0, -2.5)
+
+[node name="Endcaps" type="Node3D" parent="Terrain/Walls" index="8"]
+
+[node name="OfficeWallEndcap" parent="Terrain/Walls/Endcaps" index="0" instance=ExtResource("4_ujwe7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -7)
+
+[node name="OfficeWallEndcap2" parent="Terrain/Walls/Endcaps" index="1" instance=ExtResource("4_ujwe7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11, 0, 7)
+
+[node name="OfficeWallEndcap3" parent="Terrain/Walls/Endcaps" index="2" instance=ExtResource("4_ujwe7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 11, 0, 7)
+
+[node name="OfficeWallEndcap4" parent="Terrain/Walls/Endcaps" index="3" instance=ExtResource("4_ujwe7")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 11, 0, -7)
+
+[node name="NLIBasicRoomConnector" parent="RoomConnectors" index="0" instance=ExtResource("5_rbvqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="NLIBasicRoomConnector2" parent="RoomConnectors" index="1" instance=ExtResource("5_rbvqo")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7)
+
+[node name="NLIBasicRoomConnector3" parent="RoomConnectors" index="2" instance=ExtResource("5_rbvqo")]
+transform = Transform3D(8.9407e-08, 0, -1, 0, 1, 0, 1, 0, 8.9407e-08, -11, 0, 3)
+
+[node name="NLIBasicRoomConnector4" parent="RoomConnectors" index="3" instance=ExtResource("5_rbvqo")]
+transform = Transform3D(-1.98419e-09, 0, 1, 0, 1, 0, -1, 0, -1.98419e-09, 11, 0, 3)

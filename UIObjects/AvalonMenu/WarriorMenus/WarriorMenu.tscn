@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dngnbei71s0af"]
+
+[ext_resource type="Script" path="res://UIObjects/AvalonMenu/WarriorMenus/WarriorMenu.gd" id="1_xxna3"]
+[ext_resource type="PackedScene" uid="uid://ce0j656858y7m" path="res://UIObjects/AvalonMenu/WarriorMenus/WarriorStatusMenu/WarriorStatusMenu.tscn" id="2_0uh5h"]
+[ext_resource type="PackedScene" uid="uid://wxoq85k6o2tf" path="res://UIObjects/AvalonMenu/WarriorMenus/WarriorSelectMenu/WarriorSelectMenu.tscn" id="2_icnfp"]
+[ext_resource type="PackedScene" uid="uid://rxqprquwvhru" path="res://UIObjects/AvalonMenu/WarriorMenus/WarriorAbilityMenu/WarriorAbilityMenu.tscn" id="3_871xn"]
+[ext_resource type="PackedScene" uid="uid://sdou70sqa7v6" path="res://UIObjects/AvalonMenu/WarriorMenus/WarriorAbilityMenu/WarriorAbilityDescriptionMenu/WarriorAbilityDescriptionMenu.tscn" id="4_8q6n3"]
+
+[node name="WarriorMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xxna3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="WarriorSelectMenu" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_icnfp")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="WarriorStatusMenu" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_0uh5h")]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+
+[node name="WarriorAbilityMenu" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_871xn")]
+layout_mode = 2
+
+[node name="WarriorAbilityDescriptionMenu" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_8q6n3")]
+custom_minimum_size = Vector2(600, 750)
+layout_mode = 2

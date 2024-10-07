@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jyygla0roy1h"]
+
+[ext_resource type="Script" path="res://UIObjects/UIMenuMaster.gd" id="1_qeb5f"]
+
+[node name="UIMenuMaster" type="Node"]
+script = ExtResource("1_qeb5f")

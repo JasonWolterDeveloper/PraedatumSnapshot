@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtrohyw5kg0wg"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/Behaviour/Links/TargetDetection/NoTargetLOSLink.gd" id="1_pqnai"]
+
+[node name="NoTargetLOSLink" type="Node3D"]
+script = ExtResource("1_pqnai")

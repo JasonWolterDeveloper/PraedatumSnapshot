@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://7qr6d5kiavc8"]
+
+[ext_resource type="PackedScene" uid="uid://bg365ya67tc63" path="res://UIObjects/CombatUI/Healthbar/HealthBar.tscn" id="1_hj56p"]
+[ext_resource type="Theme" uid="uid://kgmq3lugnl84" path="res://UIObjects/CombatUI/Healthbar/ArmourBarTheme.tres" id="2_c3pen"]
+
+[node name="ArmourBar" instance=ExtResource("1_hj56p")]
+
+[node name="TopHealthBar" parent="BarContainer/MarginContainer" index="1"]
+theme = ExtResource("2_c3pen")

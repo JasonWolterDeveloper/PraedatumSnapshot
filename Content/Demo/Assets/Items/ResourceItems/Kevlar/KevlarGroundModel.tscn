@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://duby30ctur5yp"]
+
+[ext_resource type="PackedScene" uid="uid://6eigainc3xdl" path="res://Content/Demo/Assets/Items/ResourceItems/Kevlar/KevlarModel.glb" id="1_j4yqm"]
+
+[node name="KevlarGroundModel" type="Node3D"]
+
+[node name="KevlarModel" parent="." instance=ExtResource("1_j4yqm")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.0705113, 0)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bll1rerty1wvn"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Obstacles/Obstacle.gd" id="1_fm7tj"]
+[ext_resource type="PackedScene" uid="uid://ukueqa3funms" path="res://Content/Demo/Assets/Terrain/Obstacles/Barrels/Barrel.glb" id="2_r3wa2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a0gni"]
+height = 1.41425
+radius = 0.387321
+
+[node name="BarrelObstacle" type="StaticBody3D"]
+script = ExtResource("1_fm7tj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00469965, 0.624267, -0.000544409)
+shape = SubResource("CylinderShape3D_a0gni")
+
+[node name="Barrel" parent="." instance=ExtResource("2_r3wa2")]
+transform = Transform3D(1.12, 0, 0, 0, 1.12, 0, 0, 0, 1.12, 0, 0.620754, 0)

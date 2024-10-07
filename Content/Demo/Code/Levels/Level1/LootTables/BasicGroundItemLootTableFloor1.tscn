@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgltax01syje2"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Level1/LootTables/BasicGroundItemLootTableFloor1.gd" id="1_f0h2t"]
+[ext_resource type="PackedScene" uid="uid://bc2nk58d6ohfd" path="res://Content/Demo/Code/RPGMechanics/MedicalSpawnStringMapper.tscn" id="2_k68a7"]
+
+[node name="BasicLevel1GroundLootTable" type="Node"]
+script = ExtResource("1_f0h2t")
+
+[node name="SpawnStringMapper" parent="." instance=ExtResource("2_k68a7")]

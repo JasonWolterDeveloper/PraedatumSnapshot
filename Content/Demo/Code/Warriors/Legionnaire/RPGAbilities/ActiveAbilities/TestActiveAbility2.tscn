@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0a4d3pnc1rws"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/TestActiveAbility2.gd" id="1_xepht"]
+
+[node name="TestActiveAbility2" type="Node"]
+script = ExtResource("1_xepht")
+ability_id = "test_ability_2"
+display_name = "Test Ability 2"

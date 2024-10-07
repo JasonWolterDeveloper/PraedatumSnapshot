@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://frt5miebikdc"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Conversations/ConversationState.gd" id="1_kt0oi"]
+
+[node name="ConversationState" type="Node"]
+script = ExtResource("1_kt0oi")

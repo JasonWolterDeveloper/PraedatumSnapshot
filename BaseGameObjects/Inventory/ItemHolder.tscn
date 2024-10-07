@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsnsbrhp7dh5p"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ItemHolder.gd" id="1_xektv"]
+
+[node name="ItemHolder" type="Node3D"]
+script = ExtResource("1_xektv")

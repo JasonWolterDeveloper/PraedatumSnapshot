@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ef8m0dhykqcp"]
+
+[ext_resource type="PackedScene" uid="uid://q2wdjasf2aqw" path="res://UIObjects/InventoryUI/InventoryGrid.tscn" id="2_0or02"]
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemHolderUI/StorageUI.gd" id="2_ywl66"]
+[ext_resource type="Texture2D" uid="uid://bfbashmb6nx1f" path="res://Content/Default/Assets/UI/Inventory/InventoryBaseSquare.png" id="3_5rptm"]
+
+[node name="StorageUI" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0
+script = ExtResource("2_ywl66")
+border_size = 4
+
+[node name="InventoryGrid" parent="." instance=ExtResource("2_0or02")]
+modulate = Color(0.735098, 0.735099, 0.735098, 1)
+layout_mode = 2
+anchors_preset = 0
+texture = ExtResource("3_5rptm")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1

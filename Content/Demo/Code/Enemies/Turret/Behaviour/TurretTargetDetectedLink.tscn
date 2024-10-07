@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbl4xkosr7jq7"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/Turret/Behaviour/TurretTargetDetectedLink.gd" id="1_qdifo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4niuk"]
+radius = 12.0
+
+[node name="TurretTargetDetectedLink" type="Node3D"]
+script = ExtResource("1_qdifo")
+
+[node name="DetectionRange" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange"]
+shape = SubResource("SphereShape3D_4niuk")
+
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]

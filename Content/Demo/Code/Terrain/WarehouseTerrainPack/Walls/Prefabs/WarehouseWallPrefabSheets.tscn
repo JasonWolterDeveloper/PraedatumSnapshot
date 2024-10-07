@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://7gkgyxc0a4ui"]
+
+[ext_resource type="PackedScene" uid="uid://b5wpkwly53u6t" path="res://Content/Demo/Assets/Terrain/Greebles/Gubbins/Warehouse/SeparatorPipe.glb" id="1_nwnlp"]
+[ext_resource type="PackedScene" uid="uid://c14yeba554ow1" path="res://BaseGameObjects/Terrain/Walls/Wall.tscn" id="2_afmu1"]
+[ext_resource type="Material" uid="uid://fp3hdtajq0n6" path="res://Content/Default/Code/Levels/VoidTexture.tres" id="3_uv07u"]
+[ext_resource type="PackedScene" uid="uid://c7n02cduq3e4o" path="res://Content/Demo/Assets/Terrain/Greebles/Trash/Sheets1.glb" id="4_v2obi"]
+[ext_resource type="Material" uid="uid://de5miaqk0brif" path="res://Content/Demo/Assets/Terrain/WarehouseTerrainPack/WarehouseWallMaterial.tres" id="4_wsber"]
+[ext_resource type="Material" uid="uid://c0qt56a034fmx" path="res://Content/Demo/Code/Terrain/WarehouseTerrainPack/Walls/Prefabs/WarehouseHighlightMaterial.tres" id="6_jwflo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6qocr"]
+material = ExtResource("4_wsber")
+size = Vector3(1, 3, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_it3i6"]
+albedo_color = Color(0.316167, 0.316167, 0.316167, 1)
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_jkr3h"]
+material = SubResource("StandardMaterial3D_it3i6")
+size = Vector3(1, 0.5, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_87nmo"]
+material = ExtResource("3_uv07u")
+size = Vector3(1.05, 4.05, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hy2pi"]
+material = ExtResource("6_jwflo")
+size = Vector3(1, 0.5, 0.2)
+
+[node name="WarehouseWallPrefabSheets" type="Node3D"]
+
+[node name="SeparatorPipeRight" parent="." instance=ExtResource("1_nwnlp")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 1, 0, 2, 0, -8.74228e-08, -2.5, 0, -0.2)
+
+[node name="SeparatorPipeTop" parent="." instance=ExtResource("1_nwnlp")]
+transform = Transform3D(-8.74228e-08, -1.25, 0, 2, -5.46392e-08, 0, 0, 0, 2, 2.5, 3, -0.2)
+
+[node name="SeparatorPipeLeft" parent="." instance=ExtResource("1_nwnlp")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 1, 0, 2, 0, -8.74228e-08, 2.5, 0, -0.2)
+
+[node name="Sheets1" parent="." instance=ExtResource("4_v2obi")]
+transform = Transform3D(-0.75, 0, -6.55671e-08, 0, 0.75, 0, 6.55671e-08, 0, -0.75, -1.0605, 0, -0.0868554)
+
+[node name="Wall" parent="." instance=ExtResource("2_afmu1")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RustWall" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_6qocr")
+
+[node name="MetalWall" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
+mesh = SubResource("BoxMesh_jkr3h")
+
+[node name="VoidPart" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+mesh = SubResource("BoxMesh_87nmo")
+
+[node name="Highlight" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.84217e-14, 0, 1, 0, 3.25, 0)
+mesh = SubResource("BoxMesh_hy2pi")

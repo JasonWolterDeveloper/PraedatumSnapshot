@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8yp0j7wlei1c"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/InteractableObjects/Shops/ShopInteractableObject.gd" id="1_u3o3w"]
+
+[node name="ShopInteractableObject" type="StaticBody3D"]
+script = ExtResource("1_u3o3w")

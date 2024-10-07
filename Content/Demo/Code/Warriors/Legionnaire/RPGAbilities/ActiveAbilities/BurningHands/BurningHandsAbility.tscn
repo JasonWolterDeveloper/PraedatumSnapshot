@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpbasqo8mvbjl"]
+
+[ext_resource type="Script" path="res://Content/Default/Code/RPGMechanics/RPGAbilities/ActiveAbilities/ArcOfEffectAbility.gd" id="1_q6cod"]
+[ext_resource type="PackedScene" uid="uid://jbp03635virr" path="res://Content/Default/Code/RPGMechanics/AreaOfEffect/DamageArcEffect.tscn" id="2_0h2xg"]
+
+[node name="BurningHandsAbility" type="Node"]
+script = ExtResource("1_q6cod")
+area_of_effect_scene = ExtResource("2_0h2xg")
+cast_on_pressed = true
+is_active = true
+mana_cost = 25.0
+ability_id = "burning_hands"
+display_name = "Burning Hands"

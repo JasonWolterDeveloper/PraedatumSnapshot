@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmrmkqynymsr3"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGAbilities/ActiveAbilityTypes/MovementAbility.gd" id="1_wedf4"]
+[ext_resource type="PackedScene" uid="uid://betrun4bhurv0" path="res://Content/Demo/Code/Warriors/Legionnaire/RPGAbilities/ActiveAbilities/Dash/DashStatusEffect.tscn" id="2_x5m14"]
+
+[node name="DashAbility" type="Node"]
+script = ExtResource("1_wedf4")
+status_effect_scene = ExtResource("2_x5m14")
+cooldown = 5.0
+ability_id = "dash"
+display_name = "Dash"
+description = "Allows the Warrior to move extremely quickly for a brief moment, dashing out of the way of danger"

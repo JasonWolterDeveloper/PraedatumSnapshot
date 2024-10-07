@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://coeeivrqnrckp"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/ResourceItems/ResourceItem.gd" id="1_13yij"]
+[ext_resource type="Texture2D" uid="uid://lgb0mc4w8hn2" path="res://Content/Demo/Assets/Items/ResourceItems/Special/Food/Microwave/MicrowaveInventoryImage.png" id="2_6cm7e"]
+[ext_resource type="PackedScene" uid="uid://dpx60ptdlvsa1" path="res://Content/Demo/Assets/Items/ResourceItems/Special/Food/Microwave/MicrowaveGroundModel.tscn" id="3_gamqy"]
+
+[node name="Microwave" type="Node3D"]
+script = ExtResource("1_13yij")
+inventory_image = ExtResource("2_6cm7e")
+ground_3d_model_scene = ExtResource("3_gamqy")
+display_name = "Science Oven"
+item_id = "science_oven"
+description = "Uses advanced technology to vibrate particles so that you can enjoy frozen slop at an appropriately high temperature in record time
+
+Can be used for base upgrades, scrapped, or sold."
+default_price = 300
+grid_square_width = 3
+grid_square_height = 2

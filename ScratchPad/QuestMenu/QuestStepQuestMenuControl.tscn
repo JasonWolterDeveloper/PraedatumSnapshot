@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1pk7r27sdp4l"]
+
+[ext_resource type="Script" path="res://UIObjects/PlayerHUD/TabStatusMenu/QuestStepUIEntry.gd" id="1_s8247"]
+[ext_resource type="FontFile" uid="uid://cfesmr0va1fab" path="res://UIObjects/Assets/Fonts/VCR_OSD_MONO.ttf" id="2_kefni"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5qx5"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3d5i"]
+bg_color = Color(0.8, 0.8, 0.8, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="QuestStepQuestMenuControl" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -25.0
+offset_right = 229.0
+offset_bottom = 25.0
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_s8247")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CompleteIndicator" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r5qx5")
+
+[node name="IncompleteIndicator" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r3d5i")
+
+[node name="QuestStepName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_kefni")
+theme_override_font_sizes/font_size = 24
+text = "Quest Step"
+
+[node name="SelectedIndicator" type="Control" parent="."]
+layout_mode = 2

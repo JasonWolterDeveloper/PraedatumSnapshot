@@ -1,0 +1,143 @@
+[gd_scene load_steps=27 format=3 uid="uid://rdbil6eeu05e"]
+
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/GunDrone/GunDroneEnemy.gd" id="1_2pr4i"]
+[ext_resource type="PackedScene" uid="uid://dgthi47mk5pjd" path="res://Content/Demo/Code/Enemies/GunDrone/GunDroneGibs.tscn" id="2_5lqe3"]
+[ext_resource type="PackedScene" uid="uid://dm2ak3hphd2oe" path="res://Content/Demo/Code/Enemies/GunDrone/BumbleDroneProjectile.tscn" id="3_3ll6u"]
+[ext_resource type="Script" path="res://BaseGameObjects/Behaviour/AIProperties.gd" id="4_50gt6"]
+[ext_resource type="PackedScene" uid="uid://bl05whbxs0x1b" path="res://BaseGameObjects/Sound/Barks/BarkType.tscn" id="4_brm04"]
+[ext_resource type="PackedScene" uid="uid://crivall5lsmid" path="res://BaseGameObjects/Aesthetics/StatusEffectVFX/StunParticleEffect.tscn" id="4_qka7h"]
+[ext_resource type="PackedScene" uid="uid://2327nkwxqmib" path="res://UIObjects/CombatUI/StatusEffectUI/StatusEffectDisplay.tscn" id="5_jk5nb"]
+[ext_resource type="PackedScene" uid="uid://bjdk8rkgd5vas" path="res://BaseGameObjects/Sound/Barks/Bark.tscn" id="5_rg0ld"]
+[ext_resource type="AudioStream" uid="uid://dt01qhhbmyaoy" path="res://Content/Demo/Assets/Characters/Enemies/GunDrone/Sounds/GunDroneTargetSpotted.ogg" id="7_ian0r"]
+[ext_resource type="PackedScene" uid="uid://yhpbb7jbww4d" path="res://UIObjects/CombatUI/EnemyInfoDisplay.tscn" id="12_dp1tj"]
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGMechanicsMaster.gd" id="13_4clc2"]
+[ext_resource type="PackedScene" uid="uid://bwxcjb4ifiqo6" path="res://BaseGameObjects/RPGMechanics/Stats/MaxHealthStat.tscn" id="14_0km36"]
+[ext_resource type="PackedScene" uid="uid://bep74io4j31pd" path="res://Content/Demo/Assets/Characters/Enemies/GunDrone/GunDroneModel.tscn" id="15_jsyk7"]
+[ext_resource type="PackedScene" uid="uid://bfrof6tgmg7ik" path="res://Content/Default/Code/RPGMechanics/Stats/MovementSpeedStat.tscn" id="15_kfeph"]
+[ext_resource type="PackedScene" uid="uid://cc2jty7a6a6vg" path="res://BaseGameObjects/RPGMechanics/Stats/HealthStat.tscn" id="16_vrrkv"]
+[ext_resource type="PackedScene" uid="uid://c75fxotvsst8s" path="res://Content/Demo/Code/Enemies/SecurityBot/Behaviour/RangedFSM.tscn" id="17_dd8yw"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/hitbox.gd" id="18_eua66"]
+[ext_resource type="Script" path="res://BaseGameObjects/AimingMaster.gd" id="20_iu7ob"]
+[ext_resource type="PackedScene" uid="uid://c6pri36ik1gse" path="res://BaseGameObjects/PathfindingMaster.tscn" id="21_jet5w"]
+[ext_resource type="PackedScene" uid="uid://br3xiyr41w1ms" path="res://BaseGameObjects/MovementMaster.tscn" id="22_ixf83"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Enemies/GunDrone/GunDroneLootTable.gd" id="22_r247a"]
+[ext_resource type="PackedScene" uid="uid://cmi0g7wqmeswm" path="res://BaseGameObjects/Behaviour/AIMemory.tscn" id="23_0sk3r"]
+
+[sub_resource type="Resource" id="Resource_305uj"]
+script = ExtResource("4_50gt6")
+state_properties = {
+"pursue_after_suppression": true
+}
+link_properties = {}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jmpuj"]
+radius = 0.459997
+height = 3.01994
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ilhhr"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oh0ce"]
+radius = 0.25
+height = 4.12154
+
+[node name="GunDroneEnemy" type="CharacterBody3D" node_paths=PackedStringArray("info_display", "loot_tables", "stun_aesthetic_effect")]
+collision_layer = 16
+collision_mask = 19
+script = ExtResource("1_2pr4i")
+gibs_scene = ExtResource("2_5lqe3")
+time_between_shots_turret = 1.5
+bullet_scene = ExtResource("3_3ll6u")
+spread = 0.008
+shots_per_burst = 2
+time_between_burst_shots = 0.18
+aim_tolerance_to_fire = 0.1
+ai_properties = SubResource("Resource_305uj")
+initial_state_name = &"WanderState"
+info_display = NodePath("EnemyHealthBar3D")
+loot_tables = [NodePath("LootTables/LootTable")]
+display_name = "BMBL DRNE"
+stun_aesthetic_effect = NodePath("StunParticleEffect")
+status_effect_text_scene = ExtResource("5_jk5nb")
+
+[node name="StunParticleEffect" parent="." instance=ExtResource("4_qka7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4919, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.065647, 4.50303e-08, -0.997842, 3.0268e-08, -1, -4.71482e-08, -0.997842, -2.7698e-08, -0.065647, 0, 1.35, 0)
+shape = SubResource("CapsuleShape3D_jmpuj")
+
+[node name="SecurityGuardTargetDetectedBark" parent="." instance=ExtResource("4_brm04")]
+bark_type_string = "SecurityBotTargetDetected"
+
+[node name="Bark" parent="SecurityGuardTargetDetectedBark" instance=ExtResource("5_rg0ld")]
+audio = ExtResource("7_ian0r")
+subtitle = "BEEP BEEP BEPP"
+
+[node name="EnemyHealthBar3D" parent="." instance=ExtResource("12_dp1tj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32313, 0)
+texture = SubResource("ViewportTexture_ilhhr")
+
+[node name="RPGMechanicsMaster" type="Node" parent="."]
+script = ExtResource("13_4clc2")
+
+[node name="MaxHealthStat" parent="RPGMechanicsMaster" instance=ExtResource("14_0km36")]
+value = 20.0
+
+[node name="MovementSpeedStat" parent="RPGMechanicsMaster" instance=ExtResource("15_kfeph")]
+base_value = 5.0
+value = 5.0
+
+[node name="HealthStat" parent="RPGMechanicsMaster" instance=ExtResource("16_vrrkv")]
+base_value_per_segment = 12.0
+value = 12.0
+
+[node name="SecurityBotFSM" parent="." instance=ExtResource("17_dd8yw")]
+
+[node name="LookStuff" type="Node3D" parent="."]
+
+[node name="ProjectileHitbox" type="CharacterBody3D" parent="LookStuff"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("18_eua66")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LookStuff/ProjectileHitbox"]
+transform = Transform3D(0.065647, 4.50303e-08, -0.997842, 3.0268e-08, -1, -4.71482e-08, -0.997842, -2.7698e-08, -0.065647, 0, 1.35, 0)
+shape = SubResource("CapsuleShape3D_jmpuj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LookStuff/ProjectileHitbox"]
+transform = Transform3D(0.0656469, 4.50303e-08, -0.997842, 3.0268e-08, -1, -4.71482e-08, -0.997842, -2.7698e-08, -0.0656469, 0.42288, 1.35, 0.0138941)
+shape = SubResource("CapsuleShape3D_oh0ce")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="LookStuff/ProjectileHitbox"]
+transform = Transform3D(0.0656469, 4.50303e-08, -0.997842, 3.0268e-08, -0.999999, -4.71482e-08, -0.997842, -2.7698e-08, -0.0656469, -0.401398, 1.35, -0.0131927)
+shape = SubResource("CapsuleShape3D_oh0ce")
+
+[node name="GunDroneModel" parent="LookStuff" instance=ExtResource("15_jsyk7")]
+transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 0, 1.35, 0)
+
+[node name="AimingMaster" type="Node3D" parent="LookStuff" node_paths=PackedStringArray("look_stuff")]
+script = ExtResource("20_iu7ob")
+should_look_in_movement_direction = true
+look_stuff = NodePath("..")
+aim_speed = 15
+
+[node name="BulletOrigin" type="Marker3D" parent="LookStuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0277405, 1.29533, -0.733236)
+
+[node name="PathfindingMaster" parent="." instance=ExtResource("21_jet5w")]
+
+[node name="MovementMaster" parent="." instance=ExtResource("22_ixf83")]
+
+[node name="AIMemory" parent="." instance=ExtResource("23_0sk3r")]
+
+[node name="LootTables" type="Node" parent="."]
+process_mode = 4
+
+[node name="LootTable" type="Node" parent="LootTables"]
+script = ExtResource("22_r247a")
+min_number_of_rolls = 0
+
+[node name="StatusEffectTextMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91306, 0)

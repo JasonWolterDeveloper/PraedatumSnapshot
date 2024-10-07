@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://xxd4vt8p7xfo"]
+
+[ext_resource type="PackedScene" uid="uid://cn2oqhtbtmc25" path="res://BaseGameObjects/RPGMechanics/Quests/Quest.tscn" id="1_lowqv"]
+[ext_resource type="PackedScene" uid="uid://cy6axl0qmedsn" path="res://Content/TestContent/Code/RPGMechanics/Quests/SimpleTestQuest/SimpleQuestFetchStep.tscn" id="2_wnqa1"]
+[ext_resource type="PackedScene" uid="uid://kx7sgobsm588" path="res://Content/TestContent/Code/RPGMechanics/Quests/SimpleTestQuest/SimpleQuestReturnStep.tscn" id="3_ioraf"]
+
+[node name="SimpleTestQuest" instance=ExtResource("1_lowqv")]
+display_name = "A Simple Test Quest"
+quest_id = "simplequest"
+expierence_reward = 3600
+
+[node name="SimpleQuestFetchStep" parent="." index="0" instance=ExtResource("2_wnqa1")]
+display_name = "Fetch Step"
+
+[node name="SimpleQuestReturnStep" parent="." index="1" node_paths=PackedStringArray("prequisite_steps") instance=ExtResource("3_ioraf")]
+prequisite_steps = [NodePath("../SimpleQuestFetchStep")]
+display_name = "Return Quest"

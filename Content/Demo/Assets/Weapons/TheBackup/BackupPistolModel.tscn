@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bveo47i8m3j3g"]
+
+[ext_resource type="PackedScene" uid="uid://ciyg3dul1tj2b" path="res://Content/Demo/Assets/Weapons/TheBackup/BackupPistol.glb" id="1_inrxj"]
+[ext_resource type="Script" path="res://BaseGameObjects/Combat/Weapons/WeaponModel.gd" id="2_mfq2w"]
+[ext_resource type="PackedScene" uid="uid://dxeaxseydtmae" path="res://BaseGameObjects/Combat/Weapons/EjectionPort.tscn" id="3_v08j6"]
+[ext_resource type="PackedScene" uid="uid://cwyw6j4tfep8m" path="res://Content/Demo/Code/Items/Weapons/Casings/CasingParabellum.tscn" id="4_ftrw3"]
+
+[node name="BackupPistolModel" instance=ExtResource("1_inrxj")]
+transform = Transform3D(-2.18557e-09, 0, -0.05, 0, 0.05, 0, 0.05, 0, -2.18557e-09, 0, 0, 0)
+script = ExtResource("2_mfq2w")
+
+[node name="Slide" parent="." index="1"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1.00997, 0, 3.55271e-15, 0, 1, -0.592521, 1.69411, -1.77636e-15)
+
+[node name="MuzzleFlash" parent="." index="10"]
+visible = false
+
+[node name="LaserPos" type="Marker3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.923838, 0.503787, -4.03823e-08)
+
+[node name="BulletStartPos" type="Marker3D" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11336, 0.829087, -4.86666e-08)
+
+[node name="EjectionPort" parent="." index="13" instance=ExtResource("3_v08j6")]
+transform = Transform3D(1, 0, -1.77636e-14, 0, 1, 0, 1.77636e-14, 0, 1, -1.12994, 0.916064, 0.140618)
+casing_scene = ExtResource("4_ftrw3")
+casing_rotation_offset = -1.571
+
+[node name="MuzzleFlashLight" type="OmniLight3D" parent="." index="14"]
+transform = Transform3D(20, 0, -4.54747e-13, 0, 20, 0, 4.54747e-13, 0, 20, 1.43767, 0.713722, -6.28423e-08)
+visible = false
+light_color = Color(0.894118, 0.862745, 0, 1)
+light_energy = 4.0
+
+[node name="SlideBackPosition" type="Node3D" parent="." index="15"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -0.959, 1.694, 0)
+
+[node name="SlideBasePosition" type="Node3D" parent="." index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.593, 1.694, 0)

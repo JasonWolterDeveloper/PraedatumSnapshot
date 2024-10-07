@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://jbp03635virr"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/AreaOfEffect/ArcOfEffect.gd" id="1_mk46l"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uxi6i"]
+radius = 7.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_wns1x"]
+size = Vector3(7, 7, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vd1ho"]
+transparency = 1
+albedo_color = Color(0.811765, 0, 0.145098, 0.513726)
+emission_enabled = true
+emission = Color(1, 0.152941, 0.121569, 1)
+
+[node name="DamageArcEffect" type="Area3D"]
+script = ExtResource("1_mk46l")
+arc_angle = 45.0
+track_origin_character_direction = true
+periodic = true
+period_time = 0.1
+instant = false
+duration = 6.0
+track_origin_character_position = true
+damage = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_uxi6i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.001, 0, -3.5)
+mesh = SubResource("PrismMesh_wns1x")
+surface_material_override/0 = SubResource("StandardMaterial3D_vd1ho")

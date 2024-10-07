@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://df722gkjs4pf8"]
+
+[ext_resource type="Script" path="res://UIObjects/InventoryUI/ItemHolderUI/LoadoutSlotUI.gd" id="1_jglq5"]
+[ext_resource type="PackedScene" uid="uid://c85xbk2ufhwoh" path="res://UIObjects/InventoryUI/ItemDominos/ItemDominoGrid.tscn" id="2_j6i7h"]
+
+[node name="LoadoutSlotUI" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_jglq5")
+border_size = 4
+
+[node name="InventoryGrid" parent="." instance=ExtResource("2_j6i7h")]
+modulate = Color(0.733333, 0.733333, 0.733333, 1)
+layout_mode = 2
+anchors_preset = 0

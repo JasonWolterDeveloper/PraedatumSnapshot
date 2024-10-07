@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://cxb30t5sl303p"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Terrain/Rooms/Room.gd" id="1_mvvvf"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Level1/Rooms/LoadingDock/LoadingDockTreasureLootTable.gd" id="2_ghve0"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Level1/LootTables/WeaponLootTable.gd" id="3_wk0a5"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Level1/LootTables/BasicLoadingDockGroundLootTable.gd" id="4_sgo7s"]
+[ext_resource type="Script" path="res://Content/Demo/Code/Levels/Level1/Rooms/ForemansOffice/ForemanSpecialLootTable.gd" id="5_wqc2h"]
+[ext_resource type="Script" path="res://Content/Demo/Code/RPGMechanics/SpawnTables/LootTables/BasicMilitaryLootTable.gd" id="6_xo1n6"]
+[ext_resource type="PackedScene" uid="uid://cb78sar46vq83" path="res://BaseGameObjects/Terrain/Floor.tscn" id="7_1bakb"]
+[ext_resource type="Texture2D" uid="uid://cifsgyri2450u" path="res://Content/Demo/Assets/Terrain/Floors/Textures/BaseTileMap.png" id="8_cg32t"]
+[ext_resource type="PackedScene" uid="uid://d8vcljbj8r00" path="res://Content/Default/Code/InteractableObjects/ExtractionPortal.tscn" id="9_vleco"]
+[ext_resource type="PackedScene" uid="uid://dlkt24rw4n47w" path="res://Content/Demo/Code/Enemies/WageCage/Zombie.tscn" id="10_2ce0u"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_abmg8"]
+vertices = PackedVector3Array(-9.5, 0.5, 0.5, -1.25, 0.5, 0.5, -1.25, 0.5, 0, 0, 0.5, -0.75, 0, 0.5, -9.5, -9.5, 0.5, -9.5, 0.5, 0.5, -0.75, 1.25, 0.5, 0.5, 9.5, 0.5, 0.5, 9.5, 0.5, -9.5, -1.25, 0.5, 1, 0, 0.5, 9.5, 0, 0.5, 1.75, -9.5, 0.5, 9.5, 0.5, 0.5, 1.75, 9.5, 0.5, 9.5)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(6, 3, 4), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(9, 6, 4), PackedInt32Array(0, 1, 10), PackedInt32Array(12, 11, 10), PackedInt32Array(10, 11, 13), PackedInt32Array(10, 13, 0), PackedInt32Array(11, 12, 14), PackedInt32Array(14, 7, 11), PackedInt32Array(11, 7, 8), PackedInt32Array(11, 8, 15)]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4dm6f"]
+size = Vector3(1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0obx"]
+albedo_color = Color(0.564962, 0.564962, 0.564962, 1)
+albedo_texture = ExtResource("8_cg32t")
+metallic = 0.3
+uv1_scale = Vector3(0.04, 0.2, 0.04)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="WallessRoomTest" type="Node3D"]
+script = ExtResource("1_mvvvf")
+
+[node name="LootTables" type="Node" parent="."]
+
+[node name="TreasureLootTable" type="Node" parent="LootTables"]
+script = ExtResource("2_ghve0")
+
+[node name="WeaponLootTable" type="Node" parent="LootTables"]
+script = ExtResource("3_wk0a5")
+
+[node name="BasicLootTable" type="Node" parent="LootTables"]
+script = ExtResource("4_sgo7s")
+number_of_rolls = 6
+min_number_of_rolls = 4
+
+[node name="ForemanSpecialLootTable" type="Node" parent="LootTables"]
+script = ExtResource("5_wqc2h")
+
+[node name="MilitaryLootTable" type="Node" parent="LootTables"]
+script = ExtResource("6_xo1n6")
+number_of_rolls = 2
+
+[node name="Terrain" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_abmg8")
+
+[node name="Floor" parent="Terrain" instance=ExtResource("7_1bakb")]
+transform = Transform3D(21.5, 0, 0, 0, 1, 0, 0, 0, 21.5, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Floor"]
+mesh = SubResource("BoxMesh_4dm6f")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_y0obx")
+
+[node name="Endcaps" type="Node3D" parent="Terrain"]
+
+[node name="Walls" type="Node3D" parent="Terrain"]
+
+[node name="Obstacles" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="ExtractionPortal" parent="Terrain/Obstacles" instance=ExtResource("9_vleco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
+
+[node name="Loot" type="Node3D" parent="Terrain/Obstacles"]
+
+[node name="Area" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="EnemySpawners" type="Node3D" parent="."]
+
+[node name="Zombie" parent="EnemySpawners" instance=ExtResource("10_2ce0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.84996, 0.934186, -3.37622)
+
+[node name="LootSpawners" type="Node3D" parent="."]
+
+[node name="RoomConnectors" type="Node3D" parent="."]
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

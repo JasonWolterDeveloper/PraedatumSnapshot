@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0nj5sjqhxuxt"]
+
+[ext_resource type="PackedScene" uid="uid://bm1782qnuiwwn" path="res://BaseGameObjects/Bullet.tscn" id="1_0chde"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b23wt"]
+direction = Vector3(0, 0, -1)
+spread = 5.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtctq"]
+shading_mode = 0
+albedo_color = Color(0.885546, 0.647809, 0.0415114, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_vq318"]
+material = SubResource("StandardMaterial3D_vtctq")
+size = Vector2(0.02, 0.02)
+
+[node name="BarracudaBullet" instance=ExtResource("1_0chde")]
+damage = 3
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.236938)
+visible = false
+amount = 24
+preprocess = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_b23wt")
+draw_pass_1 = SubResource("QuadMesh_vq318")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmuu3wnhrnad4"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGAbilities/ActiveAbilityTypes/CrowdControlAbility.gd" id="1_7smdw"]
+
+[node name="CrowdControlAbility" type="Node"]
+script = ExtResource("1_7smdw")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxwf3oj3abe3m"]
+
+[ext_resource type="PackedScene" uid="uid://d0rkk07rrw0a1" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Magazine.tscn" id="1_ve645"]
+[ext_resource type="PackedScene" uid="uid://dbi2twlj3jw2n" path="res://Content/Demo/Code/Items/Weapons/TrenchSweeper/TrenchSweeperBuckshot.tscn" id="2_3ui3a"]
+[ext_resource type="PackedScene" uid="uid://73xg4xe6aohn" path="res://Content/Demo/Code/Items/Ammo/ShotgunShellAmmo.tscn" id="2_w1e45"]
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/CombatItems/Guns/Ammo/AmmoType.gd" id="3_6ho5v"]
+
+[sub_resource type="Resource" id="Resource_mranm"]
+script = ExtResource("3_6ho5v")
+ammo_type = "Twelve Gauge"
+available_subtypes = Array[String](["STRD"])
+subtype_to_ammo_item_mapping = {}
+default_ammo_item_scene = ExtResource("2_w1e45")
+
+[node name="TrenchSweeperMagazine" instance=ExtResource("1_ve645")]
+ammo_type = SubResource("Resource_mranm")
+bullet_scene = ExtResource("2_3ui3a")
+current_quantity = 4
+max_quantity = 4

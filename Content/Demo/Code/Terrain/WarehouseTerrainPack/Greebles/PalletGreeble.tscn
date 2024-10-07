@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3jdi64akles8"]
+
+[ext_resource type="PackedScene" uid="uid://ptsdasa1ce4b" path="res://Content/Demo/Assets/Terrain/Greebles/Pallet/PraedatumPallet.glb" id="1_vt4ge"]
+
+[node name="PalletGreeble" type="Node3D"]
+
+[node name="PraedatumPallet" parent="." instance=ExtResource("1_vt4ge")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.121969, 0)

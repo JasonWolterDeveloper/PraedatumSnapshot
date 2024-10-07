@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2bfigmawa4m0"]
+
+[ext_resource type="Script" path="res://UIObjects/AvalonMenu/RaidMenu/RaidMenu.gd" id="1_rmlr1"]
+[ext_resource type="PackedScene" uid="uid://c5ann12jnvmg" path="res://Content/Demo/Code/Levels/Level1/Level1.tscn" id="2_d4xue"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tubmd"]
+bg_color = Color(0, 0.392157, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0ayp"]
+bg_color = Color(0, 0.196078, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cx82r"]
+bg_color = Color(0, 0.34902, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="RaidMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rmlr1")
+level_1_packed_scene = ExtResource("2_d4xue")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -732.0
+offset_top = -230.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="StartRaidButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0, 0.329412, 0, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_tubmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b0ayp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cx82r")
+text = "Start Raid"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -15.5
+offset_right = 123.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="FoyerButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "Floor 1"
+
+[node name="WarehouseButton" type="Button" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+toggle_mode = true
+text = "Floor 2"
+
+[node name="TestLevelButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+toggle_mode = true
+text = "AI Test Level"
+
+[node name="ForemanOfficeButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+toggle_mode = true
+text = "Foreman's Office
+"
+
+[connection signal="pressed" from="MarginContainer/StartRaidButton" to="." method="_on_start_raid_button_pressed"]
+[connection signal="toggled" from="HBoxContainer/FoyerButton" to="." method="_on_foyer_button_toggled"]
+[connection signal="toggled" from="HBoxContainer/WarehouseButton" to="." method="_on_warehouse_button_toggled"]
+[connection signal="toggled" from="HBoxContainer/TestLevelButton" to="." method="_on_test_level_button_toggled"]
+[connection signal="toggled" from="HBoxContainer/ForemanOfficeButton" to="." method="_on_foreman_office_toggled"]

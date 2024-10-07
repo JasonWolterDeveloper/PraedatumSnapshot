@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfakkgnjai13w"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/MoraleBuffs/MoraleBuffEvents/StartMoraleBuffEvent.gd" id="1_csbi1"]
+
+[node name="StartMoraleBuffEvent" type="Node"]
+script = ExtResource("1_csbi1")

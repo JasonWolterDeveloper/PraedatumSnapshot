@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fy4gm08crcsf"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/Inventory/Loot/LootTable.gd" id="1_ars8g"]
+
+[node name="LootTable" type="Node"]
+script = ExtResource("1_ars8g")

@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdw6l0sa05b6i"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/Quests/Quest.gd" id="1_ml84v"]
+[ext_resource type="PackedScene" uid="uid://b1yl8ra0b0yva" path="res://BaseGameObjects/RPGMechanics/Quests/QuestStep.tscn" id="2_fonw0"]
+[ext_resource type="Script" path="res://BaseGameObjects/TriggerSystem/ConditionEvaluator.gd" id="2_say53"]
+[ext_resource type="PackedScene" uid="uid://4d3osy1662sk" path="res://Content/Demo/Code/Items/Ammo/SmallCaliberPistolAmmo.tscn" id="3_fadc2"]
+[ext_resource type="Script" path="res://Content/Default/Code/TriggerSystem/ConditionEvaluators/QuestStatusConditionEvaluator.gd" id="3_vnesf"]
+[ext_resource type="PackedScene" uid="uid://bbywr7sy1uqut" path="res://Content/Demo/Code/Items/Aid/Experience/TomeOfExperience.tscn" id="4_xksan"]
+[ext_resource type="PackedScene" uid="uid://f6hgb2xt586e" path="res://Content/Default/Code/Items/Scrip.tscn" id="5_u0v0o"]
+[ext_resource type="PackedScene" uid="uid://bu787mbegg5wp" path="res://Content/Demo/Code/Items/Weapons/Barracuda/Barracuda.tscn" id="6_ebdbn"]
+
+[sub_resource type="Resource" id="Resource_fsrw8"]
+script = ExtResource("3_vnesf")
+quest_id = "foreman_part_1"
+quest_step_id = ""
+is_started = false
+is_completed = true
+inverted = false
+
+[node name="ForemanPart2" type="Node"]
+script = ExtResource("1_ml84v")
+can_complete_if_all_steps_complete = true
+availability_conditions = Array[ExtResource("2_say53")]([SubResource("Resource_fsrw8")])
+display_name = "The Foreman P. 2"
+quest_id = "foreman_part_2"
+quest_description = "To get you access to The Crypt, formerly known as the personnel processing center, I'm going to need some data from the Supervisor's Computer in the Customer Service Offices.
+
+Head back into the loading dock, grab the data, and come back to me. Then we should be able to continue on to the Foreman"
+should_award_experience = false
+expierence_reward = 3600
+
+[node name="DownloadData" parent="." instance=ExtResource("2_fonw0")]
+quest_step_id = "download_data"
+display_name = "Download Data from Supervisor's Computer"
+quest_waypoint_id = "foreman_data_waypoint"
+
+[node name="QuestReward" type="Node3D" parent="."]
+
+[node name="SmallCaliberPistolAmmo" parent="QuestReward" instance=ExtResource("3_fadc2")]
+
+[node name="TomeOfExperience" parent="QuestReward" instance=ExtResource("4_xksan")]
+
+[node name="Scrip" parent="QuestReward" instance=ExtResource("5_u0v0o")]
+current_quantity = 250
+
+[node name="Barracuda" parent="QuestReward" instance=ExtResource("6_ebdbn")]

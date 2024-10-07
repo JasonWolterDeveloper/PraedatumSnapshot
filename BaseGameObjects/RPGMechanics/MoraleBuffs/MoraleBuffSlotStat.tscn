@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw7m3lgm01wov"]
+
+[ext_resource type="Script" path="res://BaseGameObjects/RPGMechanics/RPGStat.gd" id="1_b8u6x"]
+
+[node name="MoraleBuffSlotStat" type="Node"]
+script = ExtResource("1_b8u6x")
+stat_id = "number_of_morale_buff_slots"
+base_value = 1.0
+value = 1.0
